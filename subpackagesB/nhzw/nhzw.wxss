@@ -1,0 +1,173 @@
+/* subpackagesB/nhzw/nhzw.wxss */
+page {
+  padding-bottom: 0 !important;
+  background: #082159;
+}
+
+.nhbg {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 100% 100%;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.nhcap {
+  width: 100%;
+  margin: 0 auto 0 auto;
+  display: block;
+}
+
+.nhlogo {
+  width: 50%;
+  margin: 40rpx auto 0 auto;
+  display: block;
+}
+
+.nhzwtcap {
+  width: 50%;
+  margin: 60rpx auto 40rpx auto;
+  display: block;
+}
+
+.cap {
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  text-align: center;
+  margin-top: 40rpx;
+  letter-spacing: 5rpx;
+}
+
+.inbox {
+  width: 92%;
+  margin: 30px auto;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.input-placeholder {
+  color: #fff !important;
+}
+
+.inpt {
+  height: 90rpx;
+  line-height: 90rpx;
+  width: 70%;
+  outline: none;
+  border: 2px solid #FFFFFF;
+  padding: 0px 15px;
+  font-size: 15px;
+  font-weight: 500;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.inptBtn {
+  height: 90rpx;
+  line-height: 90rpx;
+  width: 30%;
+  background-color: #FFFFFF;
+  text-align: center;
+  border: 2px solid #FFFFFF;
+  font-size: 15px;
+  color: #e82425;
+  box-sizing: border-box;
+}
+
+.nht {
+  width: 92%;
+  box-sizing: border-box;
+  padding: 15rpx;
+  box-sizing: border-box;
+  margin: 10px auto;
+}
+
+.title {
+  width: 100%;
+  color: #333333;
+  letter-spacing: 1px;
+  font-size: 36rpx;
+  text-align: center;
+}
+
+.zwt {
+  width: 96%;
+  margin: auto;
+  margin-top: 30rpx;
+  display: block;
+}
+
+.tpfd {
+  font-size: 32rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.meng {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.zwbox {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25%;
+  margin: auto;
+  text-align: left;
+  width: 90%;
+  z-index: 99999;
+  border-radius: 20rpx;
+}
+
+
+.cxzwbg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  border-radius: 30rpx;
+}
+
+.zwinfo {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.zwh{
+  position: absolute;
+  top: 130rpx;
+  left: 50rpx;
+  color: #fff;
+  width: 100%;
+  font-size: 60rpx;
+}
+.cxh{
+  position: absolute;
+  top: 260rpx;
+  left: 50rpx;
+  color: #fff;
+  width: 100%;
+  font-size: 60rpx;
+}

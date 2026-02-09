@@ -1,0 +1,17 @@
+<!--huodongpage/kqetj/kqetj.wxml-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/kqetjBanner.png" mode="widthFix" class="banner"></image>
+  <view class="itemBox">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/zhifeiji.png" class="zhifeiji"></image>
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/kqkbt.png" class="bt"></image>
+      <image mode="widthFix" src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" wx:for="{{kqList}}" wx:for-index="idx" wx:key="idx" class="proitem" bindtap="rpro" data-id="{{item.id}}"></image>
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/profeiji.png" class="proitem2"></image>
+  </view>
+  <view class="itemBox">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/huahua.png" class="huahua"></image>
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/etbjbt.png" class="bt2"></image>
+      <image mode="widthFix" src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" wx:for="{{etbjList}}" wx:for-index="idx" wx:key="idx" class="proitem" bindtap="rpro" data-id="{{item.id}}"></image>
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/prolu.png" class="proitem2"></image>
+  </view>
+  <image mode="widthFix" src="https://wx.pmc-wz.com/materials/kqetjFooter.png" class="footer"></image>
+</view>

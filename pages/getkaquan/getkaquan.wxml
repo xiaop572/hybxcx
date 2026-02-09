@@ -1,0 +1,6 @@
+<!--pages/getkaquan/getkaquan.wxml-->
+<view class="kainfo">
+  <image src="https://wx.pmc-wz.com/hyb/images/{{kaitem.img}}" alt="" mode="widthFix"/>
+  <view>{{kaitem.name}}</view>
+</view>
+<button bindtap="getka" class="jiesubmit">获取卡券</button>

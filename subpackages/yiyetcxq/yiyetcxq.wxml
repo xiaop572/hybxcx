@@ -1,0 +1,68 @@
+<!--pages/tcxq/tcxq.wxml-->
+<import src="../../wxParse/wxParse/wxParse.wxml" />
+<view>
+  <swiper indicator-dots="true" style="text-align: center;height:{{imgHeight}}px" class="swiper">
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" style="width: 750rpx;"></image>
+    </swiper-item>
+  </swiper>
+  <view class="headline">
+    <text class="title">{{item.pictitle}}</text>
+    <text class="xiaoliang">已售{{item.salenum}}</text>
+    <view class="price"><text class="cuxiao">¥{{item.price}}</text><text class="yuanjia">{{item.price}}</text>
+      <view class="fan"><text class="fancap">返</text><text class="jg">¥{{item.yj1}}</text></view>
+    </view>
+  </view>
+  <view class="details">
+    <view class="details-title">商品详情</view>
+    <view class="details-content">
+      <template is="wxParse" data="{{wxParseData:courseDetail.nodes}}" wx:if="{{item.ishtml==1}}" />
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.detail}}" mode="widthFix" wx:if="{{item.ishtml==0}}"></image>
+    </view>
+  </view>
+  <view class="footer">
+    <button class="icon" bindtap="rqiyeHome">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/homeicon2.png" class="kficon"></image>
+      <text>首页</text>
+    </button>
+    <button open-type="contact" class="icon" send-message-title="{{item.pictitle}}" send-message-path="/pages/tcxq/tcxq?id={{item.id}}" send-message-img="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" show-message-card="true">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/kficon2.png" class="kficon"></image>
+      <text>客服</text>
+    </button>
+    <!-- <button open-type="contact" send-message-title="测试" send-message-img="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" send-message-path="/pages/tcxq/tcxq?id={{item.id}}" show-message-card="true" class="icon">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xqlxkf.svg" class="kficon"></image>
+      <text>客服</text>
+    </button> -->
+    <poster class="fxwx" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail" wx:if="{{loading}}">
+      <view class="buyBtn"  data-item="{{item}}">立即分享</view>
+    </poster>
+  </view>
+
+  <view class="specBox" catchtap="cancelSec" wx:if="{{specVis}}">
+    <view class="spec" catchtap="no">
+      <view class="proinfo">
+        <view class="proinfoLeft">
+          <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="specProImg"></image>
+        </view>
+        <view class="proinforight">
+          <text class="specPrice">¥{{item.price}}</text>
+          <text class="spectishi">请选择规格</text>
+        </view>
+      </view>
+      <view class="specList">
+        <text class="specSel">规格选择</text>
+        <view class="specItemList">
+          <text class="specItem {{spec===it.addon?'active':''}}" wx:for="{{item.spec}}" wx:for-item="it" wx:key="idx" wx:for-index="idx" bindtap="selSpec" data-spec="{{it.addon}}">{{it.addon}}</text>
+        </view>
+      </view>
+      <view class="specNext" bindtap="specBuy" data-item="{{item}}">
+        下一步
+      </view>
+    </view>
+
+  </view>
+</view>
+<view class="haibao" wx:if="{{posterSrc}}" catchtap="close">
+  <image src="{{posterSrc}}" mode="heightFix" class="haiImg" catchtap="test"></image>
+  <view class="save" catchtap="saveImg">保存到相册</view>
+</view>

@@ -1,0 +1,19 @@
+<!--pages/fukuan/fukuan.wxml-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/kdlogo.png" mode="widthFix" class="logo"></image>
+  <image src="https://wx.pmc-wz.com/materials/you.png" mode="widthFix" class="youzhi"></image>
+  <image src="https://wx.pmc-wz.com/materials/shengming.png" mode="widthFix" class="shengming"></image>
+  <view class="containers">
+    <view class="tishi">
+      <text class="tsWroed" wx:if="{{options.title=='胃肠镜(1515套餐)'}}">*购买后工作人员会联系您预约时间!</text>
+      <text class="tsWroed" wx:if="{{options.title!=='胃肠镜(1515套餐)'}}">*购买后工作人员会联系您预约时间和检查项目，该付款金额在您完成检查后自动退还！</text>
+      <text class="shi">实付金额:</text>
+      <view class="money">
+        <text class="fu">¥</text>
+        <text class="zhu">{{TotalFee}}</text>
+        <text class="fu">元</text>
+      </view>
+    </view>
+    <view class="submitBtn" bindtap="submitFu">确认</view>
+  </view>
+</view>

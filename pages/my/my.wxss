@@ -1,0 +1,359 @@
+/* pages/my/my.wxss */
+page {
+  background: #f2f2f2;
+}
+
+.my {
+  height: 100%;
+  background: url("https://wx.pmc-wz.com/materials/mytopbg.png") no-repeat;
+  background-size: 100% auto;
+  overflow: hidden;
+}
+.myIconBtn{
+  margin:0 !important;
+  padding: 0 !important;
+  width: 25% !important;
+  display: inline-block;
+  text-align: center;
+  margin-top: 28rpx !important;
+  font-size: 12px !important;
+  font-weight: normal !important;
+  background-color: #fff !important;
+  position: relative;
+  top: 3rpx;
+}
+.myIconBtn image{
+  width: 100rpx;
+  display: block;
+  margin:10rpx auto;
+}
+.myIconBtn text{
+  position: relative;
+  top: 5rpx;
+}
+.myTop {
+  height: 415rpx;
+  width: 92%;
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin: 200rpx auto 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.userinfo {
+  margin: 35rpx 0 0 50rpx;
+  position: relative;
+}
+
+.userinfo .acator {
+  width: 100rpx;
+  border-radius: 95rpx;
+  vertical-align: middle;
+  margin-right: 30rpx;
+}
+
+.userinfo text {
+  font-size: 30rpx;
+}
+
+.hym {
+  position: absolute;
+  right: 0;
+  border: 1px solid #bbb;
+  border-right: 0;
+  top: 30rpx;
+  padding-left: 20rpx;
+  border-radius: 20rpx 0 0 20rpx;
+  height: 44rpx;
+  line-height: 38rpx;
+}
+
+.hym image {
+  width: 30rpx;
+  vertical-align: middle;
+}
+
+.hym text {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.myBottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.jfBox {
+  height: 160rpx;
+  box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.30);
+  border-radius: 20rpx 20rpx 0 0;
+}
+
+.myjifen {
+  width: 33.33%;
+  display: inline-block;
+  text-align: center;
+  height: 90rpx;
+  box-sizing: border-box;
+  margin-top: 40rpx;
+  color: #666;
+  font-size: 30rpx;
+}
+.myyhq{
+  width: 33.33%;
+  display: inline-block;
+  text-align: center;
+  height: 90rpx;
+  margin-top: 40rpx;
+  color: #666;
+  font-size: 30rpx;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  box-sizing: border-box;
+}
+.mycard {
+  width: 33.33%;
+  display: inline-block;
+  text-align: center;
+  height: 90rpx;
+  margin-top: 40rpx;
+  color: #666;
+  font-size: 30rpx;
+}
+
+.jifennum,
+.cardnum {
+  display: block;
+  font-weight: bold;
+  font-size: 34rpx;
+  color: #000;
+}
+
+.hyBox {
+  width: 90%;
+  height: 80rpx;
+  background-color: #36332c;
+  margin: auto;
+  border-radius: 20rpx 20rpx 0 0;
+}
+
+.hyleft {
+  margin-left: 20rpx;
+  float: left;
+  line-height: 70rpx;
+}
+
+.hyleft image {
+  width: 40rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+
+.hyleft text {
+  color: #c7b992;
+  font-size: 28rpx;
+  vertical-align: middle;
+}
+
+.hyright {
+  float: right;
+  color: #fff;
+  font-size: 26rpx;
+  line-height: 80rpx;
+  margin-right: 20rpx;
+}
+
+.myorder {
+  width: 92%;
+  height: 245rpx;
+  background-color: #fff;
+  margin: auto;
+  margin-top: 10rpx;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  overflow: hidden;
+}
+
+.myOrderCaption {
+  margin-top: 10rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1px solid #eee;
+}
+.orderList{
+  margin-top: 30rpx;
+}
+.orderItem {
+  width: 25%;
+  float: left;
+  text-align: center;
+  font-size: 24rpx;
+  position: relative;
+  height: 80rpx;
+}
+.orderItem text{
+  position: absolute;
+  bottom: -30rpx;
+  width: 100%;
+  text-align: center;
+  left: 0;
+}
+.orderItem image {
+  width: 45rpx;
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.myList{
+  padding-top: 50rpx;
+  min-height:240rpx;
+  background: #fff;
+  position: relative;
+  top: -20rpx;
+  padding-bottom: 20rpx;
+  border-radius: 20rpx;
+  width: 92%;
+  margin: auto;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  padding: 20rpx 40rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.myCaption{
+  margin-top: 10rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  display: block;
+}
+.myIcon{
+  width: 25%;
+  display: inline-block;
+  text-align: center;
+  margin-top: 26rpx;
+  font-size: 12px;
+}
+.myIcon image{
+  width: 100rpx;
+  display: block;
+  margin:10rpx auto;
+}
+.member{
+  width: 40rpx !important;
+  margin-left: 20rpx !important;
+  vertical-align: middle;
+}
+.nameText{
+  vertical-align: middle;
+}
+.kuaicard{
+  text-align: center;
+  margin-top: 20rpx;
+}
+.kuaicard image{
+  width: 44%;
+  display: inline-block;
+}
+.kuaicard image:nth-child(1){
+  margin-right: 4%;
+}
+/* .my,page{
+  background: #f2f2f2;
+  height: 100%;
+}
+.myTop{
+  background: url('https://wx.pmc-wz.com/materials/myBg.jpg') no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+  height: 320rpx;
+  border-radius: 0 0 50% 50%/0 0 13px 13px;
+  position: relative;
+  z-index: 30;
+  position: relative;
+}
+.warningInfo{
+  position: absolute;
+  bottom: -1rpx;
+  left: 0;
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 100%;
+  text-align: center;
+  background-color: #f4d8a8;
+  color: #746c5e;
+  font-size: 14px;
+}
+.myTop image{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  margin: 20px;
+  vertical-align: middle;
+}
+
+.qrcodeIcon{
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  background-color: #fff;
+  border-radius: 0 !important;
+  width: 60rpx !important;
+  height: 60rpx !important;
+}
+.name{
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bold;
+}
+.name image{
+  width: 16px;
+  vertical-align: middle;
+  margin: auto;
+}
+.myList{
+  padding-top: 50rpx;
+  min-height:240rpx;
+  background: #fff;
+  position: relative;
+  top: -20rpx;
+  padding-bottom: 20rpx;
+}
+.myCaption{
+  width: 90%;
+  margin: auto;
+  display: block;
+  font-weight: bold;
+  height: 36px;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+}
+.myIcon{
+  width: 25%;
+  display: inline-block;
+  text-align: center;
+  margin-top: 26rpx;
+  font-size: 12px;
+}
+.myIcon image{
+  width: 60rpx;
+  display: block;
+  margin:10rpx auto;
+}
+.member{
+  width: 40rpx !important;
+  margin-left: 20rpx !important;
+  vertical-align: middle;
+}
+.nameText{
+  vertical-align: middle;
+} */

@@ -1,0 +1,108 @@
+/* pages/fukuan/fukuan.wxss */
+body {
+  height: 100%;
+}
+
+page {
+  height: 100%;
+}
+
+.main {
+  height: 100%;
+  background: url("https://wx.pmc-wz.com/materials/fukuanBg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.logo {
+  width: 300rpx;
+  margin: 40rpx;
+}
+
+.youzhi {
+  width: 60%;
+  display: block;
+  position: absolute;
+  top: 31%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.shengming {
+  width: 60%;
+  display: block;
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.title {
+  width: 60%;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 38%;
+  margin: auto;
+  background: url("https://wx.pmc-wz.com/materials/wenziBg.png") no-repeat;
+  background-size: 100% auto;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  background-position: center;
+}
+
+.containers {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40%;
+  margin: auto;
+}
+
+.submitBtn {
+  color: #fff;
+  background-color: rgb(15, 111, 209);
+  width: 240rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  letter-spacing: 10rpx;
+  border-radius: 10rpx;
+  margin: auto;
+}
+.tishi{
+  width: 80%;
+  background-color: #fff;
+  padding: 20rpx 40rpx;
+  margin:40rpx auto;
+  border-radius: 10rpx;
+}
+.tsWroed{
+  font-size: 28rpx;
+  color: rgb(111, 154, 164);
+}
+.money{
+  font-size: 26rpx;
+  text-align: center;
+}
+.fu{
+  color: rgb(15, 105, 183);
+  font-size: 60rpx;
+}
+.shi{
+  vertical-align: top;
+  display: block;
+  margin-top: 60rpx;
+  font-size: 26rpx;
+}
+.zhu{
+  font-size: 200rpx;
+  color: rgb(13, 112, 207);
+  margin-right: 20rpx;
+}

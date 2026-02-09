@@ -1,0 +1,219 @@
+<!--pages/my/my.wxml-->
+<view class="my">
+  <view class="myTop">
+    <view class="userinfo">
+      <image src="{{userInfo.avatarUrl?userInfo.avatarUrl:'https://wx.pmc-wz.com/materials/moren.jpg'}}" mode="widthFix" bindtap="routeMyInfo" class="acator"></image>
+      <text class="nameText" bindtap="routeMyInfo">{{userInfo.nickName?userInfo.nickName:'请登录'}}</text>
+      <view class="hym" bindtap="rqrcode">
+        <image src="https://wx.pmc-wz.com/materials/hym.png" mode="widthFix"></image><text>会员码</text>
+      </view>
+    </view>
+    <view class="myBottom">
+      <view class="hyBox">
+        <view class="hyleft">
+          <image src="https://wx.pmc-wz.com/materials/zuanshi.png" mode="widthFix"></image><text>慧医宝在线商城</text>
+        </view>
+        <view class="hyright">
+          普通会员>
+        </view>
+      </view>
+      <view class="jfBox">
+        <view class="myjifen" bindtap="rjifen">
+          <text class="jifennum">{{alljf}}</text>
+          <text>我的积分</text>
+        </view>
+        <view class="myyhq" bindtap="rmyyhq" data-index="0">
+          <text class="cardnum">{{coupon}}</text>
+          <text>优惠券</text>
+        </view>
+        <view class="mycard" bindtap="rmycard" data-index="0">
+          <text class="cardnum">{{kanum}}</text>
+          <text>我的券包</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="kuaicard">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/zujiicon.png" bindtap="rzuji"></image>
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/mrqd.png" bindtap="rmrqd"></image>
+  </view>
+  <view class="myorder">
+    <view class="myOrderCaption">我的订单</view>
+    <view class="orderList">
+      <view class="orderItem" bindtap="rkaquan" data-index="0">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/nopayordericon.png"></image>
+        <text>未使用</text>
+      </view>
+      <view class="orderItem" bindtap="rkaquan" data-index="1">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/yzfordericon.png"></image>
+        <text>已使用</text>
+      </view>
+      <view class="orderItem" bindtap="rkaquan" data-index="2">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/tkordericon.png"></image>
+        <text>退款/售后</text>
+      </view>
+      <!-- <view class="orderItem">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/allordericon.png"></image>
+        <text>全部订单</text>
+      </view> -->
+      <view class="orderItem" bindtap="rkaquan" data-index="3">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/zsordericon.png"></image>
+        <text>赠送记录</text>
+      </view>
+    </view>
+  </view>
+  <view class="myList">
+    <text class="myCaption">我的服务</text>
+    <view class="myIcon" bindtap="rTian">
+      <image src="https://wx.pmc-wz.com/materials/myshiming.png" mode='widthFix' lazy-load="true"></image>
+      <text>实名认证</text>
+    </view>
+    <view class="myIcon" bindtap="rylfw">
+      <image src="https://wx.pmc-wz.com/materials/jkdaIcon.png" mode='widthFix' lazy-load="true"></image>
+      <text>医疗服务</text>
+    </view>
+    <!-- <view class="myIcon" bindtap="rbangka">
+      <image src="https://wx.pmc-wz.com/materials/bangkaIcon.svg" mode='widthFix' style="width: 80rpx;"></image>
+      <text>我的绑卡</text>
+    </view> -->
+    <!-- <view class="myIcon" bindtap="rcflist">
+      <image src="https://wx.pmc-wz.com/materials/jkdaIcon.png" mode='widthFix'></image>
+      <text>健康档案</text>
+    </view>
+    <view class="myIcon" bindtap="rzyjc">
+      <image src="https://wx.pmc-wz.com/materials/jianyanIcon.png" mode='widthFix'></image>
+      <text>住院报告</text>
+    </view>
+    <view class="myIcon" bindtap="rmybka">
+      <image src="https://wx.pmc-wz.com/materials/mykaquan.png" mode='widthFix'></image>
+      <text>我的绑卡</text>
+    </view>
+    <view class="myIcon" bindtap="rtjpdf">
+      <image src="https://wx.pmc-wz.com/materials/tjpdf.png" mode='widthFix'></image>
+      <text>体检报告</text>
+    </view>
+    <view class="myIcon" bindtap="ryxList">
+      <image src="https://wx.pmc-wz.com/materials/yxbgIcon.png" mode='widthFix'></image>
+      <text>影像报告</text>
+    </view>
+    <view class="myIcon" bindtap="rjianyan">
+      <image src="https://wx.pmc-wz.com/materials/jianyanIcon.png" mode='widthFix'></image>
+      <text>检验结果</text>
+    </view> -->
+    <!-- <view class="myIcon" bindtap="rReport">
+      <image src="https://wx.pmc-wz.com/materials/mytijian.png" mode='widthFix'></image>
+      <text>体检报告</text>
+    </view> -->
+    <view class="myIcon" bindtap="rMyYy">
+      <image src="https://wx.pmc-wz.com/materials/myyuyue.png" mode='widthFix' lazy-load="true"></image>
+      <text>我的预约</text>
+    </view>
+    <view class="myIcon" bindtap="rmytcq">
+      <image src="https://wx.pmc-wz.com/materials/mytcq.png" mode='widthFix' lazy-load="true"></image>
+      <text> 我的停车券</text>
+    </view>
+    <view class="myIcon" bindtap="saoyisao">
+      <image src="https://wx.pmc-wz.com/materials/mysaosao.png" mode='widthFix' lazy-load="true"></image>
+      <text>扫一扫</text>
+    </view>
+    <button class="myIconBtn" open-type="contact">
+      <image src="https://wx.pmc-wz.com/materials/mykefu.png" mode='widthFix' lazy-load="true"></image>
+      <text>联系客服</text>
+    </button>
+    <view class="myIcon" bindtap="rkaquan">
+      <image src="https://wx.pmc-wz.com/materials/mykaquan.png" mode='widthFix' lazy-load="true"></image>
+      <text>我的卡券</text>
+    </view>
+    <view class="myIcon" bindtap="raddvip" wx:if="{{memberstate!==3}}">
+      <image src="https://wx.pmc-wz.com/materials/myvip.png" mode='widthFix' lazy-load="true"></image>
+      <text>成为VIP</text>
+    </view>
+    <view class="myIcon" bindtap="rzaoanlist">
+      <image src="https://wx.pmc-wz.com/materials/myzaoan.png" mode='widthFix' lazy-load="true"></image>
+      <text>早安图列表</text>
+    </view>
+    <view class="myIcon" bindtap="rxinxuan">
+      <image src="https://wx.pmc-wz.com/materials/myxinxuan.png" mode='widthFix' lazy-load="true"></image>
+      <text>好友心选</text>
+    </view>
+    <view class="myIcon" bindtap="rCallList" wx:if="{{iskefu}}">
+      <image src="https://wx.pmc-wz.com/materials/lxkf.svg" mode='widthFix' style="width: 80rpx;" lazy-load="true"></image>
+      <text>客服通话</text>
+    </view>
+    <view class="myIcon target" bindtap="rqy">
+      <image src="https://wx.pmc-wz.com/materials/myyiye.png" mode='widthFix'  lazy-load="true"></image>
+      <text>异业合作</text>
+    </view>
+    <view class="myIcon" bindtap="rsph" wx:if="{{iskefu}}">
+      <image src="https://wx.pmc-wz.com/materials/lxkf.svg" mode='widthFix'  lazy-load="true"></image>
+      <text>我是客服</text>
+    </view>
+    <!-- <view class="myIcon" bindtap="rzt">
+      <image src="https://wx.pmc-wz.com/materials/lxkf.svg" mode='widthFix' style="width: 80rpx;"></image>
+      <text>专题页</text>
+    </view> -->
+  </view>
+</view>
+<!-- <view class="my">
+  <view class="myTop">
+    <image src="{{userInfo.avatarUrl?userInfo.avatarUrl:'https://wx.pmc-wz.com/materials/moren.jpg'}}" bindtap="routeMyInfo"></image>
+    <view class="name" bindtap="routeMyInfo"><text class="nameText">{{userInfo.nickName?userInfo.nickName:'请登录'}}</text>
+      <image wx:if="{{userInfo.gender=='0'}}" src="{{'https://wx.pmc-wz.com/materials/nan.png'}}" alt="" mode='widthFix' />
+      <image wx:if="{{userInfo.gender=='1'}}" src="{{'https://wx.pmc-wz.com/materials/nv.png'}}" alt="" mode='widthFix' />
+      <image src="https://wx.pmc-wz.com/materials/weimember.svg" alt="" mode='widthFix' class="member" bindtap="raddvip" wx:if="{{memberstate!==3}}" />
+      <image src="https://wx.pmc-wz.com/materials/member.svg" alt="" mode='widthFix' class="member" wx:if="{{memberstate===3}}" />
+    </view>
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/qrcodeIcon.svg" class="qrcodeIcon" wx:if="{{qrinfo.id}}" bindtap="rqrcode"></image>
+    <text class="warningInfo" wx:if="{{!realInfo.realname || !realInfo.cardno || !realInfo.mobile}}" bindtap="routeMyInfo">您的身份信息没有填写完整,点击填写</text>
+  </view>
+  <view class="myList">
+    <text class="myCaption">我的</text>
+    <view class="myIcon" bindtap="rTian">
+      <image src="https://wx.pmc-wz.com/materials/shiming.svg" mode='widthFix'></image>
+      <text>实名认证</text>
+    </view>
+    <view class="myIcon" bindtap="rReport">
+      <image src="https://wx.pmc-wz.com/materials/bgIcon.svg" mode='widthFix'></image>
+      <text>体检报告</text>
+    </view>
+    <view class="myIcon" bindtap="rMyYy">
+      <image src="https://wx.pmc-wz.com/materials/myYy.svg" mode='widthFix'></image>
+      <text>我的预约</text>
+    </view>
+    <view class="myIcon" bindtap="saoyisao">
+      <image src="https://wx.pmc-wz.com/materials/saoyisao.svg" mode='widthFix'></image>
+      <text>扫一扫</text>
+    </view>
+    <view class="myIcon" bindtap="rlxkf">
+      <image src="https://wx.pmc-wz.com/materials/lxkf.svg" mode='widthFix'></image>
+      <text>联系客服</text>
+    </view>
+    <view class="myIcon" bindtap="rkaquan">
+      <image src="https://wx.pmc-wz.com/materials/kaquan.svg" mode='widthFix'></image>
+      <text>我的卡券</text>
+    </view>
+    <view class="myIcon" bindtap="raddvip" wx:if="{{memberstate!==3}}">
+      <image src="https://wx.pmc-wz.com/materials/huiyuan.svg" mode='widthFix'></image>
+      <text>成为VIP</text>
+    </view>
+    <view class="myIcon" bindtap="rzaoanlist">
+      <image src="https://wx.pmc-wz.com/materials/xiaolian.svg" mode='widthFix'></image>
+      <text>早安图列表</text>
+    </view>
+    <view class="myIcon" bindtap="rxinxuan">
+      <image src="https://wx.pmc-wz.com/materials/xinxuan.png" mode='widthFix'></image>
+      <text>好友心选</text>
+    </view>
+  </view>
+  <view class="myList">
+    <text class="myCaption">员工功能</text>
+    <view class="myIcon" bindtap="rKefu">
+      <image src="https://wx.pmc-wz.com/materials/lxkf.svg" mode='widthFix'></image>
+      <text>我是客服</text>
+    </view>
+    <view class="myIcon" bindtap="rCallList" wx:if="{{iskefu}}">
+      <image src="https://wx.pmc-wz.com/materials/lxkf.svg" mode='widthFix'></image>
+      <text>客服通话</text>
+    </view>
+  </view>
+</view> -->

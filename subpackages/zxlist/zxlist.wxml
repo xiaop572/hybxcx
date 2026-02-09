@@ -1,0 +1,13 @@
+<!--subpackages/zxlist/zxlist.wxml-->
+<view class="kqBox">
+  <view class='navBox'>
+    <view class='titleBox' bindtap='titleClick' data-idx='{{index}}' wx:for="{{fllist}}" wx:for-item="item" wx:key="idx">
+      <text class="{{index == currentIndex ? 'fontColorBox' : ''}}">{{item.typename}}</text>
+      <hr class="{{index == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+    </view>
+  </view>
+</view>
+<view class="zxlist" wx:for="{{zxlist}}" wx:for-item="item" wx:key="idx" bind:tap="rzxxq" data-id="{{item.id}}">
+  <image src="https://wx.pmc-wz.com/hyb/images/{{item.coverimg}}" mode="widthFix"></image>
+  <text>{{item.title}}</text>
+</view>

@@ -1,0 +1,155 @@
+<!--subpackagesC/dingwei/dingwei.wxml-->
+<view class="container1">
+  <!-- 顶部蓝色背景区域 -->
+  <view class="header-section">
+    <!-- 背景装饰圆形 -->
+    <view class="bg-circle bg-circle-1"></view>
+    <view class="bg-circle bg-circle-2"></view>
+    
+    <!-- 活动信息 -->
+    <view class="activity-info">
+      <view class="activity-details">
+        <text class="activity-title" wx:if="{{configInfo && configInfo.title}}">{{configInfo.title}}</text>
+        <text class="activity-time" wx:if="{{configInfo && configInfo.summary}}">{{configInfo.summary}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 签到信息卡片 -->
+  <view class="checkin-card">
+    <view class="card-title" wx:if="{{configInfo && configInfo.typename}}">{{configInfo.typename}}</view>
+    
+    <!-- 签到详情 -->
+    <view class="checkin-details">
+      <view class="detail-item" wx:if="{{configInfo && configInfo.classname}}">
+        <text class="label">{{configInfo.classname}}</text>
+      </view>
+      <view class="detail-item" wx:if="{{configInfo && configInfo.content}}">
+        <text class="label">{{configInfo.content}}</text>
+      </view>
+      <view class="detail-item" wx:if="{{configInfo && configInfo.dtime}}">
+        <text class="label">{{configInfo.dtime}}</text>
+      </view>
+    </view>
+    
+    <!-- 活动描述 -->
+    <view class="activity-description" wx:if="{{configInfo && configInfo.datestr}}">
+      <text>{{configInfo.datestr}}</text>
+    </view>
+  </view>
+
+  <!-- 定位签到功能区域 -->
+  <view class="checkin-form">
+    <!-- 姓名选择 -->
+    <view class="form-section">
+      <view class="section-header">
+        <text class="required-mark">*</text>
+        <text class="section-title">姓名</text>
+      </view>
+      <view class="input-container" bindtap="showNamePicker">
+        <view class="form-input name-picker {{selectedName ? 'has-value' : ''}}">
+          <text class="{{selectedName ? 'selected-text' : 'placeholder-text'}}">
+            {{selectedName || '请点击选择姓名'}}
+          </text>
+          <text class="picker-arrow">></text>
+        </view>
+      </view>
+    </view>
+
+
+
+
+    <!-- 提交按钮 -->
+    <view class="submit-section">
+      <button class="submit-btn" bindtap="submitCheckin" disabled="{{!canSubmit}}">提交</button>
+    </view>
+  </view>
+
+  <!-- 右侧浮动按钮 -->
+  <view class="floating-btn" bindtap="showSignInfoModal">
+    <view class="floating-btn-icon">📋</view>
+    <text class="floating-btn-text">报到信息</text>
+  </view>
+
+  <!-- 姓名选择弹窗 -->
+  <view class="name-modal" wx:if="{{showNameModal}}" bindtap="hideNameModal">
+    <view class="name-modal-container" catchtap="stopPropagation" style="bottom: {{keyboardHeight}}px;">
+      <view class="name-modal-header">
+        <text class="name-modal-title">选择姓名</text>
+        <text class="close-btn" bindtap="hideNameModal">×</text>
+      </view>
+      
+      <view class="name-modal-content">
+        <!-- 搜索框 -->
+        <view class="search-container">
+          <input class="search-input" placeholder="搜索姓名" value="{{searchKeyword}}" bindinput="onSearchInput" focus="{{showNameModal}}" />
+        </view>
+        
+        <!-- 姓名列表 -->
+        <view class="name-list">
+          <view wx:if="{{filteredNameList.length === 0}}" class="empty-tip">
+            <text>{{searchKeyword ? '未找到相关姓名' : '暂无姓名数据'}}</text>
+          </view>
+          
+          <view wx:else>
+            <view class="name-item {{tempSelectedName === item.name ? 'selected' : ''}}" 
+                  wx:for="{{filteredNameList}}" 
+                  wx:key="index" 
+                  bindtap="selectName" 
+                  data-name="{{item.name}}" 
+                  data-item="{{item}}">
+              <text class="name-text">{{item.name}}</text>
+              <view wx:if="{{tempSelectedName === item.name}}" class="check-icon">✓</view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 确认按钮 -->
+        <view class="name-modal-footer">
+          <button class="confirm-btn" bindtap="confirmNameSelection" disabled="{{!tempSelectedName}}">确认选择</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 报到信息弹窗 -->
+  <view class="sign-info-modal" wx:if="{{showSignInfo}}" bindtap="hideSignInfoModal">
+    <view class="sign-info-container" catchtap="stopPropagation">
+      <view class="sign-info-header">
+        <text class="sign-info-title">报到信息</text>
+        <text class="close-btn" bindtap="hideSignInfoModal">×</text>
+      </view>
+      
+      <view class="sign-info-content">
+        <view wx:if="{{isLoadingSignInfo}}" class="loading-container">
+          <text>加载中...</text>
+        </view>
+        
+        <view wx:elif="{{signInfoList.length === 0}}" class="empty-container">
+          <text>暂无报到信息</text>
+        </view>
+        
+        <view wx:else class="sign-info-list">
+          <view class="sign-info-item" wx:for="{{signInfoList}}" wx:key="id" bindtap="viewSignDetail" data-item="{{item}}">
+            <view class="sign-info-row">
+              <text class="sign-info-label">姓名：</text>
+              <text class="sign-info-value">{{item.xinmin || '未知'}}</text>
+            </view>
+            <view class="sign-info-row">
+              <text class="sign-info-label">手机号：</text>
+              <text class="sign-info-value">{{item.mobile || '未知'}}</text>
+            </view>
+            <view class="sign-info-row">
+              <text class="sign-info-label">单位：</text>
+              <text class="sign-info-value">{{item.corp || '未知'}}</text>
+            </view>
+            <view class="sign-info-row">
+              <text class="sign-info-label">报到时间：</text>
+              <text class="sign-info-value">{{item.addtime || '未知'}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

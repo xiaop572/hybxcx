@@ -1,0 +1,57 @@
+<!--subpackages/selhushi/selhushi.wxml-->
+<view class="top">
+  <view class="dingwei"></view>
+  <view class="jianjie">
+    <view class="jianjieCap">把月子中心带回家</view>
+    <view class="hulist" bind:tap="rhsyy">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picture}}" mode="widthFix" class="avatar" />
+      <view class="huright">
+        <view class="hucap">{{item.name}}</view>
+        <view class="hucw">{{item.hospital}}<text class="cw">女性健康中心产康师</text></view>
+        <view class="hupf">
+          <image src="https://wx.pmc-wz.com/materials/wuxing.png" class="wuxing" mode="widthFix" />
+          <text class="xingji">5.0</text>
+          <text class="fwcs">服务人次{{item.num}}</text>
+        </view>
+        <view class="hujj">
+          {{item.memo}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="containers">
+  <view class="name inTxt">
+    <view class="caption">姓名<i></i></view>
+    <input type="text" class="int" model:value="{{xinmin}}" />
+  </view>
+  <view class="name inTxt">
+    <view class="caption">手机号<i></i></view>
+    <input type="number" class="int" model:value="{{mobile}}" />
+  </view>
+  <view class="name inTxt">
+    <view class="caption">身份证号码<i></i></view>
+    <input type="number" class="int" model:value="{{cardno}}" placeholder="身份证" />
+  </view>
+  <view class="name inTxt">
+    <view class="caption">地址<i></i></view>
+    <input type="text" class="int" model:value="{{address}}" />
+  </view>
+  <view class="name inTxt">
+    <view class="caption">预约时间<i></i></view>
+    <view class="section int">
+      <picker mode="selector" value="{{returndate}}" bindchange="bindTimeChange" range="{{yytime}}" range-key="returndate">
+        <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!date}}">请选择</view>
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="name inTxt">
+    <view class="caption">备注<i></i></view>
+    <input type="text" class="int" model:value="{{memo}}" />
+  </view>
+  <view class="submitBtn" bindtap="rtijiao">提交</view>
+  <view class="xieyi"><radio class="dx" color="#87548f" bind:tap="radioChange" checked="{{isyuedu}}"></radio><text>本人已阅读并同意</text><text class="hsxy" bind:tap="rsmxy">护士上门协议</text></view>
+</view>

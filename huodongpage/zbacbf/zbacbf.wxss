@@ -1,0 +1,252 @@
+/* huodongpage/zbacbf/zbacbf.wxss */
+page {
+  background: #0054C6;
+  min-height: 100vh;
+  padding-bottom: 0 !important;
+}
+.container1 {
+  min-height: 100vh;
+}
+
+.bg {
+  width: 100%;
+  display: block;
+}
+
+/* 比赛信息卡片 */
+.match-card {
+  margin: 60rpx 30rpx 50rpx 30rpx;
+  background: white;
+  border-radius: 20rpx;
+  padding: 50rpx 20rpx 40rpx 20rpx;
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.match-header {
+  position: relative;
+  height: 220rpx;
+  padding: 0 20rpx;
+}
+
+.team-item {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
+
+.team-item:first-child {
+  left: 20rpx;
+}
+
+.team-item:last-child {
+  right: 20rpx;
+}
+
+.team-logo {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 20rpx;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-name-btn {
+  width: 160rpx;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.support-text {
+  font-size: 24rpx;
+  color: #FF6600;
+  text-align: center;
+  margin-top: 10rpx;
+  font-weight: bold;
+}
+
+.match-center {
+  position: absolute;
+  top: -65rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.tag-image {
+  width: 300rpx;
+  display: block;
+}
+
+/* 猜比分卡片 */
+.score-card {
+  margin: 0 30rpx 30rpx 30rpx;
+  background: white;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score-title-img {
+  width: 200rpx;
+  flex-shrink: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+}
+
+.score-left,
+.score-right {
+  display: flex;
+  align-items: center;
+  gap: 15rpx;
+}
+
+.team-logo-small {
+  width: 80rpx;
+  height: 90rpx;
+}
+
+.score-team-input {
+  width: 130rpx;
+  height: 70rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  font-size: 28rpx;
+  border: none;
+  position: relative;
+  top: 5rpx;
+}
+
+/* 截止时间 */
+.deadline {
+  font-size: 26rpx;
+  color: white;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+/* 提交按钮 */
+.submit-btn {
+  width: 300rpx;
+  height: 90rpx;
+  background: linear-gradient(180deg, #FF8800 0%, #FF6600 100%);
+  color: white;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-radius: 45rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 6rpx 0 0 #CC5500, 0 10rpx 25rpx rgba(255, 102, 0, 0.5);
+  margin: 0 auto 40rpx auto;
+  position: relative;
+}
+
+.submit-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 45rpx 45rpx 0 0;
+  pointer-events: none;
+}
+
+.submit-btn:active {
+  transform: translateY(4rpx);
+  box-shadow: 0 2rpx 0 0 #CC5500, 0 6rpx 15rpx rgba(255, 102, 0, 0.3);
+}
+
+/* 规则说明卡片 */
+.rules-card {
+  margin: 0 30rpx 30rpx 30rpx;
+  background: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.rules-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #FF6600;
+  text-align: center;
+  margin-bottom: 25rpx;
+}
+
+.rule-item {
+  margin-bottom: 20rpx;
+}
+
+.rule-label {
+  font-size: 28rpx;
+  color: #2B5AB8;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.rule-content {
+  font-size: 26rpx;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 5rpx;
+}
+
+.rule-detail {
+  font-size: 22rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+.tips-section {
+  margin-top: 25rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #eee;
+}
+
+.tips-title {
+  font-size: 28rpx;
+  color: #FF6600;
+  font-weight: bold;
+  margin-bottom: 12rpx;
+}
+
+.tip-item {
+  font-size: 24rpx;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 6rpx;
+}
+
+/* 底部信息 */
+.footer {
+  text-align: center;
+  padding: 40rpx 0;
+  color: white;
+}
+
+.hospital-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.contact {
+  font-size: 26rpx;
+  opacity: 0.9;
+}

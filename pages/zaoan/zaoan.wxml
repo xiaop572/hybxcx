@@ -1,0 +1,24 @@
+<!--pages/zaoan/zaoan.wxml-->
+<image src="https://wx.pmc-wz.com/hyb/images/{{item.haibao}}" mode="widthFix" class="hai"></image>
+<view class="haibao" wx:if="{{posterSrc}}" catchtap="close">
+  <image src="{{posterSrc}}" mode="heightFix" class="haiImg" catchtap="test"></image>
+  <view class="save" catchtap="saveImg">保存到相册</view>
+</view>
+<view class="footer">
+  <button class="icon" open-type="contact">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xqlxkf.svg" class="kficon"></image>
+    <text class="ke">客服</text>
+  </button>
+
+  <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail" bindtap="createHai" wx:if="{{islogin}}">
+    <view bindtap="createHai" wx:if="{{loading}}" class="icon">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fenxiang1.svg" class="kficon"></image>
+      <text>分享</text>
+    </view>
+  </poster>
+  <view bindtap="createHai" wx:if="{{loading}}" class="icon" wx:if="{{!islogin}}">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fenxiang1.svg" class="kficon"></image>
+    <text>分享</text>
+  </view>
+  <view class="buyBtn" bindtap="rhome" data-item="{{item}}">首页</view>
+</view>

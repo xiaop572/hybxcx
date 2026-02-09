@@ -1,0 +1,114 @@
+// pages/selectxiang/selectxiang.js
+var app = getApp()
+const {
+  req
+} = require('../../utils/request');
+const util = require('../../utils/util')
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+
+  },
+  subgu() {
+    wx.showModal({
+      title: '提示',
+      content: '是否预约固定套餐?',
+      success(res) {
+        if (res.confirm) {
+          req({
+            url: util.baseUrl + "/newapi/api/hd/savetjcommon",
+            method: "POST",
+            data: {
+              tjid: app.globalData.tjyy.id,
+              openid: wx.getStorageSync('openid')
+            },
+            success:ress=>{
+              if(ress.data.status){
+                wx.showToast({
+                  title: '预约成功',
+                })
+                setTimeout(()=>{
+                  wx.switchTab({
+                    url: '../index/index',
+                  })
+                },2000)
+              }
+              console.log(ress)
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+  rjiaxiang(){
+    if(app.globalData.tjyy.danwei && app.globalData.tjyy.danwei=='民生银行'){
+      wx.navigateTo({
+        url: '../msjiaxiang/msjiaxiang',
+      })
+      return;
+    }
+    wx.navigateTo({
+      url: '../jiaxiang/jiiaxiang',
+    })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+
+  }
+})

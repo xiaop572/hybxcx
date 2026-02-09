@@ -1,0 +1,119 @@
+/* pages/doctorAppoint/doctorAppoint.wxss */
+page {
+  background-color: #f2f2f2;
+}
+
+.doctorList {
+  float: left;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  transition: left 0.2s ease-out;
+}
+
+.doctorItem {
+  font-size: 14px;
+  overflow: hidden;
+  color: #666;
+  background-color: #fff;
+  margin-bottom: 10rpx;
+  margin-top: 2rpx;
+  padding: 10px;
+}
+
+.doctorItem image {
+  width: 160rpx;
+  float: left;
+  margin-right: 20rpx;
+  height: 250rpx;
+}
+
+.nav {
+  float: left;
+  width: 180rpx;
+  height: 100%;
+  overflow-y: auto;
+  position: absolute;
+  left: -200rpx;
+  border-top: 1px solid #eee;
+  border-right: 2px solid #eee;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: left 0.2s ease;
+}
+
+.navItem {
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+  padding: 20rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.right .p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.right .name{
+  margin-right: 10rpx;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+}
+.right .keshi{
+  color: #666;
+}
+.right .jibie{
+  display: block;
+  margin:10rpx 0;
+}
+.showNav {
+  left: 0;
+}
+
+.showList {
+  left: 180rpx;
+  width: calc(100% - 180rpx);
+}
+
+.fubiao {
+  position: fixed;
+  right: 20rpx;
+  bottom: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+  background: #527ffc;
+  border-radius: 50%;
+}
+.fubiao image{
+  width: 60%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+.action{
+  background-color: #f2f2f2;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  background-color: #70afe5;
+}
+.myyy{
+  position: fixed;
+  right: 20rpx;
+  bottom:120rpx;
+  width: 80rpx;
+  height: 80rpx;
+  background: #527ffc;
+  border-radius: 50%;
+}

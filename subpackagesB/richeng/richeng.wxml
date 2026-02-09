@@ -1,0 +1,30 @@
+<!--subpackagesB/richeng/richeng.wxml-->
+<view wx:for="{{list}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
+  <view class="huichanglist" data-index="{{idx}}" bind:tap="changelist" data-classid="{{item.id}}">
+    <text class="h2">{{item.typename}}</text>
+    <image src="https://wx.pmc-wz.com/materials/jbjiantou.png" mode="widthFix" class="jt {{idx==index?'xz':''}}" />
+  </view>
+  <view class="richenglist" wx:if="{{idx==index}}">
+    <view class="rcitemlist">
+      <view class="rcitem1">
+        <view class="Bullets2"></view>
+        <text wx:if="{{item.myzz}}">名誉组长：{{item.myzz}}</text>
+        <text wx:if="{{item.zz}}">组长：{{item.zz}}</text>
+        <text wx:if="{{item.fzz}}">副组长：{{item.fzz}}</text>
+        <text wx:if="{{item.msz}}">秘书长：{{item.msz}}</text>
+      </view>
+    </view>
+    <view class="rcitemlist" wx:for="{{yjlist}}" wx:for-item="it" wx:key="idx" wx:for-index="idx">
+      <view class="rcitem">
+        <text class="rczcr">主持人：<block wx:for="{{it.listzc}}" wx:for-item="its" wx:key="idxs">{{its.title}} </block></text>
+        <text class="rctime">{{it.content}} {{it.typename}}</text>
+        <view class="Bullets"></view>
+        <text class="title">{{it.title}}</text>
+        <view wx:for="{{it.list}}" wx:for-item="its" wx:key="idx" wx:for-index="idx" class="zj">
+          <text class="zjname">{{its.title}} {{its.company}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<zx-fc></zx-fc>

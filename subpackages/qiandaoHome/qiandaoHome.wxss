@@ -1,0 +1,271 @@
+/* pages/qiandaoHome/qiandaoHome.wxss */
+.qiandaoTop {
+  width: 100%;
+  display: block;
+}
+
+.qiandaoContent {
+  background-color: #2e4dc2;
+  background-size: 100% 100%;
+  padding: 0 0 60rpx 0;
+  overflow: hidden;
+  display: block;
+}
+
+.lidai {
+  width: 30%;
+  display: block;
+  margin: auto;
+}
+
+.baokuan {
+  width: 70%;
+  display: block;
+  margin: auto;
+  margin-top: 50rpx;
+}
+
+.jiangliList {
+  margin-top: 40rpx;
+  text-align: center;
+}
+
+.jiangliList image {
+  width: 92%;
+}
+
+.qiandaoBtn {
+  display: block;
+  margin: 60rpx auto 0 auto;
+  width: 50%;
+}
+
+.shuoming {
+  margin-top: 10rpx;
+  font-size: 20rpx;
+  color: #fff;
+}
+
+.shuoming text {
+  color: #f94a39;
+}
+
+.fuliBox {
+  width: 690rpx;
+  height: 770rpx;
+  background: url("https://wx.pmc-wz.com/materials/qdCardBg.png") no-repeat;
+  background-size: 100% 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.fuli1 {
+  display: block;
+  width: 650rpx;
+  margin: 10rpx 0 0 15rpx;
+}
+.fuliyim{
+  display: block;
+  width: 650rpx;
+  margin: 40rpx 0 0 15rpx;
+}
+.fuli2,
+.fuli3 {
+  width: 315rpx;
+  float: left;
+  margin-top: 20rpx;
+}
+
+.fuli2 {
+  margin-left: 15rpx;
+  margin-right: 20rpx;
+}
+
+.proBox {
+  overflow: hidden;
+  margin-top: 40rpx;
+}
+
+.qdProTop {
+  width: 92%;
+  margin: auto;
+  display: block;
+}
+
+.proList {
+  width: 92%;
+  margin: auto;
+  background: url("https://wx.pmc-wz.com/materials/qdPromain.png");
+  background-size: 100%;
+  overflow: hidden;
+  padding-top: 20rpx;
+}
+
+.proItem {
+  vertical-align: middle;
+  background-color: #2e4dc2;
+  padding-bottom: 30rpx;
+  margin-top: 20rpx;
+  width: 44%;
+  margin-bottom: 20rpx;
+  display: inline-block;
+  border-radius: 30rpx;
+  margin-left: 28rpx;
+  height: 365rpx;
+  position: relative;
+  text-align: center;
+}
+
+.profengimg {
+  display: block;
+  margin-top: 18rpx;
+  position: relative;
+  height: 140rpx;
+}
+
+.profengimg image {
+  width: 280rpx;
+  position: absolute;
+  left: 0;
+  bottom: 10rpx;
+  right: 0;
+  margin: auto;
+}
+
+.proCaption {
+  color: #fff;
+  overflow: hidden;
+  display: block;
+  clear: both;
+  white-space: nowrap;
+  width: 94%;
+  font-size: 26rpx;
+  text-overflow: ellipsis;
+  text-align: left;
+  margin: 10rpx 0 0 20rpx;
+}
+
+.proCaption1 {
+  color: #fff;
+  overflow: hidden;
+  display: block;
+  clear: both;
+  white-space: nowrap;
+  width: 100%;
+  font-size: 26rpx;
+  text-overflow: ellipsis;
+  text-align: left;
+  margin: 0 0 0 20rpx;
+}
+
+.propriceFlex {
+  color: #e30012;
+  font-size: 32rpx;
+  vertical-align: middle;
+  padding: 0 10rpx 0 0;
+  width: 100%;
+  position: absolute;
+  bottom: 15rpx;
+  left: 20rpx;
+  text-align: left;
+  font-weight: bold;
+
+}
+
+.propriceFlex text {
+  vertical-align: middle;
+}
+
+.symbol {
+  font-size: 24rpx;
+  margin-right: 2rpx;
+  font-weight: normal;
+}
+
+.daojishi {
+  height: 45rpx;
+  width: 100%;
+  background: linear-gradient(to right, #f76e2f, #ed2f1e);
+  line-height: 45rpx;
+  color: #fff;
+  font-size: 24rpx;
+  box-sizing: border-box;
+  padding: 0 10rpx;
+}
+
+.yuanjia {
+  text-decoration: line-through;
+  color: #969696;
+  font-size: 20rpx;
+  margin-left: 5rpx;
+  display: block;
+}
+
+.kjBtn {
+  font-size: 20rpx;
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  color: #fff;
+  background-color: #ff4444;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+}
+
+.daojishiLeft {
+  float: left;
+}
+
+.daojishiRight {
+  float: right;
+}
+
+.qdTime {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.more {
+  padding-bottom: 30rpx;
+  margin-top: 20rpx;
+  width: 44%;
+  margin-bottom: 20rpx;
+  display: inline-block;
+  border-radius: 30rpx;
+  margin-left: 28rpx;
+  height: 365rpx;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.more image {
+  display: block;
+  width: 140rpx;
+  margin:80rpx auto 10rpx auto;
+}
+.more text{
+  display: block;
+  font-weight: bold;
+  color: #000;
+  font-size: 34rpx;
+}
+.address{
+  text-align: center;
+  color: #fff;
+  display: block;
+  width: 92%;
+  margin:20rpx auto 0 auto;
+  font-size: 26rpx;
+}
+.hdTime{
+  color: #fff;
+  text-align: center;
+  display: block;
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}

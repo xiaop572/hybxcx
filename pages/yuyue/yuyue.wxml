@@ -1,0 +1,61 @@
+<!--pages/yuyue/yuyue.wxml-->
+<wxs module="m1">
+        var rq = function (r) {
+          var da = getDate(r)
+          var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+          return dataStr;
+        }
+        module.exports.rq = rq;
+        var time = function (r) {
+          var da = getDate(r)
+          var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+          return dataStr;
+        }
+        module.exports.time = time;
+      </wxs>
+<view class='navBox'>
+  <view class='titleBox' bindtap='titleClick' data-idx='0'>
+    <text class="{{0 == currentIndex ? 'fontColorBox' : ''}}">门诊预约</text>
+    <hr class="{{0 == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+  </view>
+  <view class='titleBox' bindtap='titleClick' data-idx='1'>
+    <text class="{{1 == currentIndex ? 'fontColorBox1' : ''}}">体检预约</text>
+    <hr class="{{1 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+  </view>
+</view>
+
+
+<swiper class='swiperTtemBox' bindchange='pagechange' current='{{currentIndex}}'>
+  <swiper-item class='swiperTtemBox'>
+    <view class="yuyueItem" wx:for="{{yyList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
+      <view class="yuyueTop">
+        <text class="caption">预约人:</text>
+        <text class="cont">{{item.BRXM}}</text>
+        <text class="caption">序号:</text>
+        <text class="cont">{{item.FZXH}}</text>
+      </view>
+      <view class="yuyueFooter">
+        <text>{{item.KSMC}}</text>
+        <text>{{item.YSXM}} {{item.ZCMC}}</text>
+        <text class="time">预约时间: {{item.YYSJ}}</text>
+        <button class="cancel" bindtap="cancelyyxx" data-row="{{item}}">{{item.JZZT=="已预约"?"取消预约":item.JZZT}}</button>
+      </view>
+    </view>
+  </swiper-item>
+  <swiper-item class='swiperTtemBox'>
+    <view class="yuyueItem" wx:for="{{tjList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
+      <view class="yuyueTop">
+        <text class="caption">预约人:</text>
+        <text class="cont">{{item.xinmin}}</text>
+        <text class="caption">项目名称:</text>
+        <text class="cont">{{item.goodsname}}</text>
+      </view>
+      <view class="yuyueFooter">
+        <text>{{item.KSMC}}</text>
+        <text>{{item.YSXM}} {{item.ZCMC}}</text>
+        <text class="time">预约时间: {{m1.rq(item.DeliveryTime)}}</text>
+        <button class="cancel" bindtap="canceltjxx" data-row="{{item}}">{{item.OrderStatus==0?"取消预约":"已取消"}}</button>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>

@@ -1,0 +1,111 @@
+<!--subpackages/kanState/kanState.wxml-->
+<wxs module="filters">
+  var toFix = function (value) {
+    if (value.toFixed(2) <= 0) {
+      return 0;
+    }
+    return value.toFixed(2);
+  };
+  function shichang(endTime) {
+    var timestamp = getDate().getTime(); //计算当前时间戳
+    // var timestamp = (Date.parse(new Date())) / 1000; //计算当前时间戳 (毫秒级)
+    var date1 = ""; //开始时间
+    date1 = timestamp; //开始时间
+    var date2 = getDate(endTime).getTime(); //结束时间
+    // var date3 = date2.getTime() - date1.getTime(); //时间差的毫秒数
+    var date3 = (date1 - date2); //时间差的毫秒数
+    if (date3 < 0) {
+      return "0分钟前";
+    }
+    //计算出相差天数
+    var days = Math.floor(date3 / (24 * 3600 * 1000));
+    //计算出小时数
+
+    var leave1 = date3; //计算天数后剩余的毫秒数
+    var hours = Math.floor(leave1 / (3600 * 1000));
+    //计算相差分钟数
+    var leave2 = leave1 % (3600 * 1000); //计算小时数后剩余的毫秒数
+    var minutes = Math.floor(leave2 / (60 * 1000));
+    if (hours > 72) {
+      return "72小时前"
+    }
+    if (hours <= 0) {
+      return minutes + "分钟前"
+    }
+    return hours + "小时前"
+  }
+  module.exports = {
+    toFix: toFix,
+    shichang: shichang
+  };
+</wxs>
+<image mode="widthFix" src="https://wx.pmc-wz.com/materials/kanTop.png" class="kanTop"></image>
+<image mode="widthFix" src="https://wx.pmc-wz.com/materials/kanpiaofu.png" class="kanpf"></image>
+<view class="kanMain">
+  <view class="userinfo">
+    <image mode="widthFix" src="{{helpUserInfo.avatarUrl}}" class="photo"></image>
+    <text class="nickname">{{helpUserInfo.nickName}}</text>
+  </view>
+  <view class="kanpro">
+    <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="proimg"></image>
+    <view class="proDetails">
+      <text class="title">{{item.pictitle}}</text>
+      <view class="price">
+        <text class="kanMoney">¥{{item.price}}</text>
+        <text class="yuanjia">¥{{item.pointsDeduction}}</text>
+      </view>
+      <view class="daojishi">
+        <text class="black">{{day===0|| day<0?'00':day<10?'0'+day:day}}</text>天
+            <text class="black">{{hour===0 || hour<0?'00':hour<10?'0'+hour:hour}}</text>时
+                <text class="black">{{minute===0 || minute <0?'00':minute<10?'0'+minute:minute}}</text>分
+                    <text class="red">{{seconds===0 || seconds<0?'00':seconds<10?'0'+seconds:seconds}}</text>秒
+      </view>
+    </view>
+  </view>
+  <view class="plan">
+    <view>已砍<text>¥{{yikan}}</text>,还剩<text>¥{{filters.toFix(shengyu-item.price)}}</text>,剩余<text>{{item.attr1id-item.bargaincount>0?item.attr1id-item.bargaincount:0}}</text>人即可拿</view>
+    <view class="proBar">
+      <view class="barLine" style="width:{{yikan/(yuanjia-item.price)*100}}%"></view>
+    </view>
+  </view>
+  <view class="BtnList" wx:if="{{!ishelp && item.attr1id>item.bargaincount && helpOpenid === myOpenid}}">
+    <view class="buyBtn" bindtap="directBuy" data-item="{{item}}">
+      <text class="buyTop">直接购买</text>
+      <text class="buyJiage">¥{{yuanjia}}</text>
+    </view>
+    <button class="helpBtn" open-type="share">
+      找人帮砍
+    </button>
+  </view>
+  <view class="BtnList" wx:if="{{ishelp && !helpstate && helpOpenid !== myOpenid}}">
+    <button class="asHelpBtn" bindtap="helpKanjia">
+      帮他砍一刀
+    </button>
+  </view>
+  <view class="BtnList" wx:if="{{ishelp && helpstate && helpOpenid !== myOpenid}}">
+    <button class="asHelpBtn" bindtap="starthelpme">
+      我也要发起砍价
+    </button>
+  </view>
+  <view class="BtnList" wx:if="{{helpOpenid === myOpenid && item.bargaincount===item.attr1id && item.isaddorder===0}}">
+    <button class="asHelpBtn" bindtap="kjshop">
+      砍价成功立即购买
+    </button>
+  </view>
+  <view class="BtnList" wx:if="{{helpOpenid === myOpenid && item.isaddorder===1}}">
+    <button class="asHelpBtn">
+      已购买
+    </button>
+  </view>
+</view>
+<view class="helpList">
+  <image src="https://wx.pmc-wz.com/materials/shuniu.png" mode="widthFix" class="shuniu"></image>
+  <view wx:for="{{helpList}}" wx:for-index="index" wx:key="{{index}}" class="helpBlock">
+    <image src="{{item.avatarUrl}}" mode="widthFix" class="avatorImg"></image>
+    <view class="fault">
+      <text class="name">{{item.nickName}}</text>
+      <text class="time">{{filters.shichang(item.createtime)}}</text>
+    </view>
+    <view class="money">已砍<text>-¥{{item.bargainmoney}}</text></view>
+  </view>
+</view>

@@ -1,0 +1,171 @@
+/* pages/kaqrcode/kaqrcode.wxss */
+page{
+  background-color: #f2f2f2;
+  height: 100%;
+  position:fixed;
+}
+.codeImg{
+  width: 40%;
+  display: block;
+  margin:20rpx auto;
+}
+.kaItem{
+  text-align: center;
+  padding:0 0 40rpx 0;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.kaItem .xiangitem{
+  display: block;
+  margin: 20rpx 0;
+  text-align: left;
+  padding: 20rpx 40rpx;
+}
+.kaItem .xiangitem image{
+  width: 25rpx;
+  vertical-align: middle;
+  margin: 0 20rpx;
+}
+.kaItem1{
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.xiangitem1{
+  display: block;
+  margin: 20rpx 0;
+  text-align: left;
+}
+.xiangitem1 image{
+  width: 25rpx;
+  vertical-align: middle;
+  margin: 0 20rpx;
+}
+.tcmx{
+  padding: 20rpx;
+  background-color: #fff;
+  border-bottom: #eee 1px solid;
+}
+.goodsname {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+.spec-info {
+  margin-top: 10rpx;
+  padding: 8rpx 12rpx;
+  background-color: #f8f9fa;
+  border-radius: 6rpx;
+  display: inline-block;
+}
+.spec-label {
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 8rpx;
+}
+.spec-value {
+  font-size: 24rpx;
+  color: #333;
+  font-weight: 500;
+}
+.orderno{
+  color: #666;
+  font-size: 26rpx;
+}
+.money{
+  color: red;
+}
+.navBox {
+  /* 顶部tab盒子样式 */
+  width: 90%;
+  margin:20rpx auto;
+  height: 108rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 5%;
+  position: relative;
+}
+.xqcap{
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.xqview{
+  text-align: left;
+  width: 90%;
+  margin: auto;
+  display: block;
+  text-align: left;
+  line-height: 50rpx;
+}
+.lineBox,
+.notLineBox {
+  /* 选中及未选中底线共同样式 */
+  width:80%;
+  height: 8rpx;
+}
+.lineBox {
+  /* 选中底线样式 */
+  background: rgb(43, 44, 45);
+  margin-top: 16rpx;
+  border-radius: 4rpx;
+}
+.navBox view{
+  /* 最后一个tab标题的样式 */
+  padding-left: 10%;
+}
+
+.navBox view:first-child{
+  /* 最后一个tab标题的样式 */
+  padding-left: 0;
+}
+.titleBox {
+  /* 未选中文字的样式 */
+  color: #666666;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: 3rpx;
+}
+.fontColorBox,
+.fontColorBox1 {
+  /* 文字默认颜色 */
+  color: black;
+  font-size: 34rpx;
+  font-weight: 500;
+}
+.swiperTtemBox {
+  /* 底部内容样式 */
+  height: calc(100% - 500rpx);
+  overflow: scroll;
+  background: white;
+  font-size: 28rpx;
+  -webkit-overflow-scrolling: touch;
+}
+.refund{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  font-size: 30rpx;
+  border: 1px solid #ddd;
+  padding:10rpx 30rpx;
+  border-radius: 30rpx;
+  color: #666;
+}
+.inrefund{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  font-size: 30rpx;
+  padding:10rpx 30rpx;
+  border-radius: 30rpx;
+  color: #666;
+}
+.xinmin{
+  color: #000;
+  font-size: 28rpx;
+}

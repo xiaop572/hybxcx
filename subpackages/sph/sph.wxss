@@ -1,0 +1,11 @@
+/* subpackages/sph/sph.wxss */
+.xcp{
+  width: 100%;
+}
+.cap{
+  width: 90%;
+  display: block;
+  margin:30rpx auto;
+  padding-bottom: 60rpx;
+  border-bottom: 1px solid #eee;
+}

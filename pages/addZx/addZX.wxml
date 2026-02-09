@@ -1,0 +1,20 @@
+<!--pages/addZx/addZX.wxml-->
+<label class="inputLine">
+  <view class="fu">
+    <text class="line">客人姓名</text>
+    <text class="x">*</text>
+  </view> 
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="客人姓名" model:value="{{brxm}}" />
+  </view>
+</label>
+<label class=" inputLine">
+  <view class="fu">
+    <text class="line">客人手机</text>
+    <text class="x">*</text>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="客人手机" model:value="{{mobie}}" />
+  </view>
+</label>
+<button type="primary" class="btn" bindtap="submit">添加</button>

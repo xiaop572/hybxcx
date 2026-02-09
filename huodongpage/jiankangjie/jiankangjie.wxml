@@ -1,0 +1,51 @@
+<!--健康节-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/jkBanner.png" mode="widthFix" class="topBanner"></image>
+  <view class="zxBox">
+    <view class="caption">
+      <image src="https://wx.pmc-wz.com/materials/jkflower.png" mode="widthFix"></image>
+      <text>整形美容中心</text>
+    </view>
+    <view class="proList">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" mode="widthFix" wx:for="{{zxList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" data-id="{{item.id}}" class="kapic" bindtap="rtcxq"></image>
+    </view>
+  </view>
+  <view class="zxBox">
+    <view class="caption">
+      <image src="https://wx.pmc-wz.com/materials/jkflower.png" mode="widthFix"></image>
+      <text>产康中心</text>
+    </view>
+    <view class="proList">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" mode="widthFix" wx:for="{{ckList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" data-id="{{item.id}}" class="kapic" bindtap="rtcxq"></image>
+    </view>
+  </view>
+  <view class="zxBox">
+    <view class="caption">
+      <image src="https://wx.pmc-wz.com/materials/jkflower.png" mode="widthFix"></image>
+      <text>体检中心</text>
+    </view>
+    <view class="proList">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" mode="widthFix" wx:for="{{tjList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" data-id="{{item.id}}" class="kapic" bindtap="rtcxq"></image>
+      <image src="https://wx.pmc-wz.com/materials/tjhua.png" mode="widthFix" class="kapic"></image>
+    </view>
+  </view>
+  <view class="zxBox">
+    <view class="caption">
+      <image src="https://wx.pmc-wz.com/materials/jkflower.png" mode="widthFix"></image>
+      <text>口腔中心</text>
+    </view>
+    <view class="proList">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" mode="widthFix" wx:for="{{kqList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" data-id="{{item.id}}" class="kapic" bindtap="rtcxq"></image>
+    </view>
+  </view>
+  <view class="zxBox">
+    <view class="caption">
+      <image src="https://wx.pmc-wz.com/materials/jkflower.png" mode="widthFix"></image>
+      <text>甄选呵护</text>
+    </view>
+    <view class="proList">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" mode="widthFix" wx:for="{{zxhhList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" data-id="{{item.id}}" class="kapic" bindtap="rtcxq"></image>
+    </view>
+  </view>
+  <image src="https://wx.pmc-wz.com/materials/jkaddress.png" mode="widthFix" class="address"></image>
+</view>

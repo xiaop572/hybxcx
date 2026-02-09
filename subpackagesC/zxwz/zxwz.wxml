@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="header">
+    <text class="title" wx:if="{{questionnaire}}">{{questionnaire.title}}</text>
+    <text class="title" wx:else>在线问诊</text>
+    <text class="subtitle" wx:if="{{questionnaire}}">{{questionnaire.description}}</text>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading">
+    <text>加载中...</text>
+  </view>
+
+  <block wx:elif="{{questionnaire}}">
+    <block wx:for="{{questionnaire.categories}}" wx:key="id" wx:for-item="category">
+      <view class="category-title" wx:if="{{category.name}}">
+        <text>{{category.name}}</text>
+        <text class="category-desc" wx:if="{{category.description}}">{{category.description}}</text>
+      </view>
+      
+      <block wx:for="{{category.questions}}" wx:key="id" wx:for-item="question">
+        <view class="question-card">
+          <view class="question-title">{{question.id}}、{{question.question_text}}
+            <text wx:if="{{question.question_type === 'checkbox'}}">[多选题]</text>
+            <text wx:elif="{{question.question_type === 'radio'}}">[单选题]</text>
+          </view>
+          <view class="options-list">
+            <view class="option-item" 
+                  wx:for="{{question.options}}" 
+                  wx:key="id" 
+                  wx:for-item="option"
+                  bindtap="toggleOption" 
+                  data-question="{{question.id}}" 
+                  data-option="{{option.id}}"
+                  data-type="{{question.question_type}}">
+              <view class="checkbox {{selectedOptions[question.id+'-'+option.id] ? 'checked' : ''}}"></view>
+              <text class="option-text">{{option.option_text}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+
+    <view class="footer">
+      <view class="submit-btn" bindtap="submitForm">提交</view>
+    </view>
+  </block>
+</view>

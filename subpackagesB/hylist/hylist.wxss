@@ -1,0 +1,92 @@
+/* subpackagesB/hylist/hylist.wxss */
+page{
+  background-color: #dadada;
+}
+.item{
+  width: 96%;
+  background: #fff;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 40rpx;
+  overflow: hidden;
+}
+.jt{
+  transform:rotate(90deg);
+  width: 60rpx;
+  float: right;
+  margin-top: 15rpx;
+}
+.yuan{
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  background: linear-gradient(45deg,#003F86 26%,#E64B37,#FFA33E);
+  border-radius: 60rpx;
+}
+.jbtximg{
+  width: 90rpx;
+  float: left;
+  border-radius: 90rpx;
+  margin-right: 20rpx;
+  border: 1px solid #ccc;
+}
+.zjinfo{
+  float: left;
+}
+.zjcap{
+  font-weight: bold;
+  display: block;
+  font-size: 28rpx;
+}
+.zjyy{
+  font-size: 24rpx;
+  color: #999;
+}
+.search-container {  
+  position: relative;  
+  width: 100%;  
+  padding-bottom: 10px; /* 假设下拉列表出现在输入框下方 */  
+}  
+  
+.dropdown {  
+  position: absolute;  
+  width: 100%;  
+  background-color: #fff;  
+  z-index: 10;
+  top: 80rpx;
+  left: 0;
+}  
+  
+.dropdown-item {  
+  padding: 10rpx 30rpx 0 30rpx;
+  background-color: #dadada;
+}  
+.search-container{
+  width: 100%;
+  background-color: #fff;
+  margin: auto;
+  height: 60rpx;
+  padding-top: 10rpx;
+}
+.search-container input{
+  height: 100%;
+  background-color: #dadada;
+  width: 80%;
+  margin:0 auto 0 auto;
+  padding: 0 20rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  font-size: 26rpx;
+}
+.searname{
+  display: block;
+  font-size: 28rpx;
+}
+.searcomp{
+  font-size: 24rpx;
+  width: 100%;
+  display: block;
+  padding-bottom: 15rpx;
+  border-bottom: 1px solid #000;
+}

@@ -1,0 +1,50 @@
+<svg width="200" height="280" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gcGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+    </filter>
+  </defs>
+  
+  <!-- 卡片背景 -->
+  <rect x="10" y="10" width="180" height="260" rx="15" ry="15" fill="url(#gcGradient)" filter="url(#shadow)"/>
+  
+  <!-- 装饰边框 -->
+  <rect x="15" y="15" width="170" height="250" rx="12" ry="12" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+  
+  <!-- 标题区域 -->
+  <rect x="25" y="25" width="150" height="50" rx="8" ry="8" fill="rgba(255,255,255,0.2)"/>
+  <text x="100" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">皓齿卡</text>
+  <text x="100" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.9)">DENTAL CARD</text>
+  
+  <!-- 主图标 - 牙齿 -->
+  <circle cx="100" cy="140" r="35" fill="rgba(255,255,255,0.3)"/>
+  <!-- 牙齿轮廓 -->
+  <path d="M85 125 Q100 120 115 125 Q115 135 115 145 Q100 150 85 145 Q85 135 85 125" fill="white" stroke="#4ecdc4" stroke-width="2"/>
+  <!-- 牙齿细节 -->
+  <line x1="90" y1="130" x2="90" y2="140" stroke="#4ecdc4" stroke-width="1"/>
+  <line x1="95" y1="128" x2="95" y2="142" stroke="#4ecdc4" stroke-width="1"/>
+  <line x1="100" y1="127" x2="100" y2="143" stroke="#4ecdc4" stroke-width="1"/>
+  <line x1="105" y1="128" x2="105" y2="142" stroke="#4ecdc4" stroke-width="1"/>
+  <line x1="110" y1="130" x2="110" y2="140" stroke="#4ecdc4" stroke-width="1"/>
+  
+  <!-- 闪光效果 -->
+  <path d="M95 132 L98 129 L101 132 L98 135 Z" fill="#4ecdc4" opacity="0.8"/>
+  <path d="M105 135 L108 132 L111 135 L108 138 Z" fill="#4ecdc4" opacity="0.6"/>
+  
+  <!-- 装饰元素 -->
+  <circle cx="65" cy="105" r="4" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="135" cy="115" r="3" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="75" cy="175" r="5" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="125" cy="185" r="4" fill="rgba(255,255,255,0.3)"/>
+  
+  <!-- 底部文字 -->
+  <text x="100" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">守护您的口腔健康</text>
+  <text x="100" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">Dental Health</text>
+  
+  <!-- 序列号 -->
+  <text x="100" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.6)">No. GC-2024</text>
+</svg>

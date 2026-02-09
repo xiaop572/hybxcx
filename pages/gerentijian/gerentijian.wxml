@@ -1,0 +1,536 @@
+<!--pages/zzinfo/zzinfo.wxml-->
+<wxs module="utils">
+  var includes = function(arr, value) {
+    if (!arr || arr.length === 0) {
+      return false;
+    }
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] === value) {
+        return true;
+      }
+    }
+    return false;
+  };
+  
+  module.exports = {
+    includes: includes
+  };
+</wxs>
+
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/kdlogo.png" mode="widthFix" class="logo"></image>
+  <image src="https://wx.pmc-wz.com/materials/youzhi.png" mode="widthFix" class="youzhi"></image>
+  <!-- <image src="https://wx.pmc-wz.com/materials/shengming.png" mode="widthFix" class="shengming"></image> -->
+  <view class="title">
+    体检预约
+  </view>
+  <view class="hint">
+    <text>温馨提示：请填写真实身份信息!</text>
+  </view>
+  <view class="containers">
+    <view class="name inTxt">
+      <view class="caption">姓名<i></i></view>
+      <input type="text" class="int" model:value="{{xinmin}}" />
+    </view>
+    <view class="name inTxt">
+      <view class="caption">手机号<i></i></view>
+      <input type="number" class="int" model:value="{{mobile}}" />
+    </view>
+    <view class="name inTxt">
+      <view class="caption">性别<i></i></view>
+      <view class="section int">
+        <picker mode="selector" value="{{index}}" range="{{sexList}}" bindchange="bindsexchange">
+          <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!sex}}">请选择</view>
+          <view class="picker">
+            {{sex}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="name inTxt">
+      <view class="caption">证件类型<i></i></view>
+      <view class="section int">
+        <picker mode="selector" value="{{index}}" range="{{sfztypelist}}" bindchange="bindsfzchange">
+          <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!sfztype}}">请选择</view>
+          <view class="picker">
+            {{sfztype}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="name inTxt" wx:if="{{sfztype=='居民身份证' || sfztype==''}}">
+      <view class="caption">证件号码<i></i></view>
+      <input type="text" class="int" model:value="{{cardno}}" />
+    </view>
+    <view class="name inTxt" wx:if="{{sfztype==='护照号'}}">
+      <view class="caption">出生年月<i></i></view>
+      <view class="section int">
+        <picker mode="date" value="{{index}}" range="{{sfztypelist}}" bindchange="bindcsnychange">
+          <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!cardno}}">请选择</view>
+          <view class="picker">
+            {{cardno}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="name inTxt">
+      <view class="caption">婚姻状况<i></i></view>
+      <view class="section int">
+        <picker mode="selector" value="{{index}}" range="{{array}}" bindchange="bindhunchange">
+          <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!hunyin}}">请选择</view>
+          <view class="picker">
+            {{hunyin}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="name inTxt">
+      <view class="caption">体检套餐<i></i></view>
+      <view class="section int">
+        <picker mode="selector" value="{{product}}" range="{{tjlist}}" bindchange="bindtjchange" range-key="goodsname">
+          <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!product}}">请选择</view>
+          <view class="picker">
+            {{product}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view wx:for="{{txlist}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" class="txrenyuan"  wx:if="{{tjyycs>1}}">
+      {{item.xinmin}}
+      <image src="https://wx.pmc-wz.com/materials/txdel.png" mode="widthFix" bind:tap="deltx" data-index="{{idx}}" />
+    </view>
+    <view class="addtx" bind:tap="showtx" wx:if="{{tjyycs>1}}">添加同行体检人员</view>
+    <view class="name inTxt">
+      <view class="caption">预约时间<i></i></view>
+      <view class="section int">
+        <picker mode="selector" value="{{time}}" bindchange="bindTimeChange" range="{{timeList}}" range-key="sdate">
+          <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!time}}">请选择</view>
+          <view class="picker">
+            {{time}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="name inTxt" wx:if="{{njvis}}">
+      <view class="caption">内镜时间<i></i></view>
+      <view class="section int">
+        <picker mode="selector" value="{{njtime}}" bindchange="bindNjTimeChange" range="{{njtimeList}}" range-key="sdate">
+          <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!njtime}}">请选择</view>
+          <view class="picker">
+            {{njtime}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="submitBtn" bindtap="rtijiao">提交</view>
+    <image src="https://wx.pmc-wz.com/materials/wcjxx.jpg" mode='widthFix' class="wcjxx " wx:if="{{options.summary=='无痛'}}"></image>
+  </view>
+</view>
+<view class="addtxmeng" wx:if="{{addtjvis}}" catch:tap="cancal">
+  <view class="addtxBox">
+    <view class="addinputline">
+      <view class="caption2">姓名</view>
+      <input type="text" placeholder="姓名" model:value="{{xinmint}}" class="addinput" />
+    </view>
+    <view class="addinputline">
+      <view class="caption2">手机号</view>
+      <input type="text" placeholder="手机号" model:value="{{mobilet}}" class="addinput" />
+    </view>
+    <view class="addinputline">
+      <view class="caption2">性别</view>
+      <picker mode="selector" value="{{index}}" range="{{sexList}}" data-changid="sext" data-list="sexList" bindchange="binddatachang" class="addinput">
+        <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!sext}}">请选择</view>
+        <view class="picker" wx:if="{{sext}}">
+          {{sext}}
+        </view>
+      </picker>
+    </view>
+    <view class="addinputline">
+      <view class="caption2">证件类型</view>
+      <picker mode="selector" value="{{index}}" range="{{sfztypelist}}" data-changid="sfztypet" data-list="sfztypelist" bindchange="binddatachang" class="addinput">
+        <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!sfztypet}}">请选择</view>
+        <view class="picker" wx:if="{{sfztypet}}">
+          {{sfztypet}}
+        </view>
+      </picker>
+    </view>
+    <view class="addinputline">
+      <view class="caption2">证件号码</view>
+      <input type="text" placeholder="证件号码" model:value="{{cardnot}}" class="addinput" />
+    </view>
+    <view class="addinputline">
+      <view class="caption2">婚姻状况</view>
+      <picker mode="selector" value="{{index}}" range="{{array}}" data-changid="hunyint" data-list="array" bindchange="binddatachang" class="addinput">
+        <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!hunyint}}">请选择</view>
+        <view class="picker" wx:if="{{hunyint}}">
+          {{hunyint}}
+        </view>
+      </picker>
+    </view>
+    <view class="btnlist">
+      <view class="addbtn" bindtap="addtx">提交</view>
+      <view class="cancalbtn" bindtap="cancalbtn">取消</view>
+    </view>
+  </view>
+</view>
+
+<!-- 检前问卷弹窗 -->
+<view class="questionnaire-modal" wx:if="{{showQuestionnaire}}">
+  <view class="questionnaire-content">
+    <view class="questionnaire-header">
+      <text class="questionnaire-title">检前问卷</text>
+      <view class="close-btn" bindtap="closeQuestionnaire">×</view>
+    </view>
+    
+    <scroll-view class="questionnaire-body" scroll-y="true">
+      <!-- 问题1：姓名 -->
+      <view class="question-item">
+        <view class="question-title">1、姓名</view>
+        <input class="question-input" placeholder="请输入姓名" value="{{questionnaire.name}}" bindinput="onNameInput" />
+      </view>
+
+      <!-- 问题2：民族 -->
+      <view class="question-item">
+        <view class="question-title">2、民族</view>
+        <view class="option-group">
+          <view class="option-item {{questionnaire.ethnicity === '汉族' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="ethnicity" data-value="汉族">汉族</view>
+          <view class="option-item {{questionnaire.ethnicity === '少数民族' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="ethnicity" data-value="少数民族">少数民族</view>
+        </view>
+      </view>
+
+      <!-- 问题3：性别 -->
+      <view class="question-item">
+        <view class="question-title">3、性别</view>
+        <view class="option-group">
+          <view class="option-item {{questionnaire.gender === '男' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="gender" data-value="男">男</view>
+          <view class="option-item {{questionnaire.gender === '女' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="gender" data-value="女">女</view>
+        </view>
+      </view>
+
+      <!-- 问题4：出生日期 -->
+      <view class="question-item">
+        <view class="question-title">4、出生日期</view>
+        <picker mode="date" value="{{questionnaire.birthDate}}" bindchange="selectDate">
+          <view class="date-picker">
+            {{questionnaire.birthDate || '请选择出生日期'}}
+          </view>
+        </picker>
+      </view>
+
+      <!-- 问题5：婚姻状况 -->
+      <view class="question-item">
+        <view class="question-title">5、婚姻状况</view>
+        <view class="option-group">
+          <view class="option-item {{questionnaire.maritalStatus === '未婚' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="maritalStatus" data-value="未婚">未婚</view>
+          <view class="option-item {{questionnaire.maritalStatus === '已婚（含同居）' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="maritalStatus" data-value="已婚（含同居）">已婚（含同居）</view>
+          <view class="option-item {{questionnaire.maritalStatus === '丧偶' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="maritalStatus" data-value="丧偶">丧偶</view>
+          <view class="option-item {{questionnaire.maritalStatus === '离异' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="maritalStatus" data-value="离异">离异</view>
+        </view>
+      </view>
+
+      <!-- 问题6：家族疾病史 -->
+      <view class="question-item">
+        <view class="question-title">6、您的父母或兄弟姐妹是否有以下明确诊断的疾病（可多选）</view>
+        <view class="option-group multi-select">
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '高血压病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="高血压病">A、高血压病</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '脑卒中') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="脑卒中">B、脑卒中</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '冠心病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="冠心病">C、冠心病</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '外周血管病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="外周血管病">D、外周血管病</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '心力衰竭') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="心力衰竭">E、心力衰竭</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '糖尿病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="糖尿病">F、糖尿病</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '肥胖症') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="肥胖症">G、肥胖症</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '慢性肾脏疾病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="慢性肾脏疾病">H、慢性肾脏疾病</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '慢性阻塞性肺病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="慢性阻塞性肺病">I、慢性阻塞性肺病</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '骨质疏松') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="骨质疏松">J、骨质疏松</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '痛风') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="痛风">K、痛风</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '风湿免疫性疾病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="风湿免疫性疾病">L、风湿免疫性疾病</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '精神疾病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="精神疾病">M、精神疾病</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '其他') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="其他">N、其他</view>
+          <view class="option-item {{utils.includes(questionnaire.familyDiseases, '以上均无') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyDiseases" data-value="以上均无">O、以上均无</view>
+        </view>
+      </view>
+
+      <!-- 问题7：家族肿瘤史 -->
+      <view class="question-item">
+        <view class="question-title">7、您的父母或兄弟姐妹是否有以下明确诊断的恶性肿瘤（可多选）</view>
+        <view class="option-group multi-select">
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '肺癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="肺癌">A、肺癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '肝癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="肝癌">B、肝癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '胃癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="胃癌">C、胃癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '食管癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="食管癌">D、食管癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '结直肠癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="结直肠癌">E、结直肠癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '白血病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="白血病">F、白血病</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '脑瘤') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="脑瘤">G、脑瘤</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '乳腺癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="乳腺癌">H、乳腺癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '胰腺癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="胰腺癌">I、胰腺癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '骨癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="骨癌">J、骨癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '膀胱癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="膀胱癌">K、膀胱癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '鼻咽癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="鼻咽癌">L、鼻咽癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '宫颈癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="宫颈癌">M、宫颈癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '子宫癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="子宫癌">N、子宫癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '前列腺癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="前列腺癌">O、前列腺癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '卵巢癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="卵巢癌">P、卵巢癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '甲状腺癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="甲状腺癌">Q、甲状腺癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '皮肤癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="皮肤癌">R、皮肤癌</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '其他') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="其他">S、其他</view>
+          <view class="option-item {{utils.includes(questionnaire.familyCancers, '以上均无') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="familyCancers" data-value="以上均无">T、以上均无</view>
+        </view>
+      </view>
+
+      <!-- 问题8：个人疾病史 -->
+      <view class="question-item">
+        <view class="question-title">8、您是否患有以下明确诊断的疾病或异常？（可多选）</view>
+        <view class="option-group multi-select">
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '高血压') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="高血压">A、高血压</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '脑卒中') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="脑卒中">B、脑卒中</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '冠心病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="冠心病">C、冠心病</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '外周血管病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="外周血管病">D、外周血管病</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '糖尿病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="糖尿病">E、糖尿病</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '脂肪肝') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="脂肪肝">F、脂肪肝</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '慢性肾脏疾病（蛋白尿）') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="慢性肾脏疾病（蛋白尿）">G、慢性肾脏疾病（蛋白尿）</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '慢性胃炎或胃溃疡') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="慢性胃炎或胃溃疡">H、慢性胃炎或胃溃疡</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '胃息肉') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="胃息肉">I、胃息肉</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '肠道息肉') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="肠道息肉">J、肠道息肉</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '慢性阻塞性肺病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="慢性阻塞性肺病">K、慢性阻塞性肺病</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '哮喘') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="哮喘">L、哮喘</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '慢性胰腺炎') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="慢性胰腺炎">M、慢性胰腺炎</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '骨质疏松') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="骨质疏松">N、骨质疏松</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '慢性肝炎或肝硬化') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="慢性肝炎或肝硬化">O、慢性肝炎或肝硬化</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '慢性胆囊炎、胆结石') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="慢性胆囊炎、胆结石">P、慢性胆囊炎、胆结石</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '结核病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="结核病">Q、结核病</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '类风湿性关节炎') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="类风湿性关节炎">R、类风湿性关节炎</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '前列腺炎或肥大') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="前列腺炎或肥大">S、前列腺炎或肥大</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '慢性乳腺疾病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="慢性乳腺疾病">T、慢性乳腺疾病</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '人乳头状瘤病毒感染（HPV阳性）') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="人乳头状瘤病毒感染（HPV阳性）">U、人乳头状瘤病毒感染（HPV阳性）</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '血脂异常') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="血脂异常">V、血脂异常</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '尿酸升高') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="尿酸升高">W、尿酸升高</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '乙肝') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="乙肝">X、乙肝</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '幽门螺杆菌感染（HP阳性）') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="幽门螺杆菌感染（HP阳性）">Y、幽门螺杆菌感染（HP阳性）</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '其他') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="其他">Z、其他</view>
+          <view class="option-item {{utils.includes(questionnaire.personalDiseases, '以上均无') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalDiseases" data-value="以上均无">Ⅰ、以上均无</view>
+        </view>
+      </view>
+
+      <!-- 问题9：手术史 -->
+      <view class="question-item">
+        <view class="question-title">9、手术史</view>
+        <view class="option-group">
+          <view class="option-item {{questionnaire.surgeryHistory === '有' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="surgeryHistory" data-value="有">A、有</view>
+          <view class="option-item {{questionnaire.surgeryHistory === '无' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="surgeryHistory" data-value="无">B、无</view>
+        </view>
+      </view>
+
+      <!-- 问题10：输血史 -->
+      <view class="question-item">
+        <view class="question-title">10、输血史</view>
+        <view class="option-group">
+          <view class="option-item {{questionnaire.transfusionHistory === '有' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="transfusionHistory" data-value="有">A、有</view>
+          <view class="option-item {{questionnaire.transfusionHistory === '无' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="transfusionHistory" data-value="无">B、无</view>
+        </view>
+      </view>
+
+      <!-- 问题11：传染病史 -->
+      <view class="question-item">
+        <view class="question-title">11、传染病史</view>
+        <view class="option-group multi-select">
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '甲型肝炎') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="甲型肝炎">A、甲型肝炎</view>
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '乙型肝炎') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="乙型肝炎">B、乙型肝炎</view>
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '丙型肝炎') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="丙型肝炎">C、丙型肝炎</view>
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '伤寒与副伤寒') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="伤寒与副伤寒">D、伤寒与副伤寒</view>
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '麻疹') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="麻疹">E、麻疹</view>
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '水痘') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="水痘">F、水痘</view>
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '结核病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="结核病">G、结核病</view>
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '艾滋病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="艾滋病">H、艾滋病</view>
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '梅毒') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="梅毒">I、梅毒</view>
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '疟疾') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="疟疾">J、疟疾</view>
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '细菌性痢疾') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="细菌性痢疾">K、细菌性痢疾</view>
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '不详') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="不详">L、不详</view>
+          <view class="option-item {{utils.includes(questionnaire.infectiousDiseases, '无') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="infectiousDiseases" data-value="无">M、无</view>
+        </view>
+      </view>
+
+      <!-- 问题12：个人肿瘤史 -->
+      <view class="question-item">
+        <view class="question-title">12、您既往是否患有以下明确诊断的恶性肿瘤？（可多选）</view>
+        <view class="option-group multi-select">
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '肺癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="肺癌">A、肺癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '肝癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="肝癌">B、肝癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '胃癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="胃癌">C、胃癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '食管癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="食管癌">D、食管癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '结直肠癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="结直肠癌">E、结直肠癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '白血病') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="白血病">F、白血病</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '脑瘤') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="脑瘤">G、脑瘤</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '乳腺癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="乳腺癌">H、乳腺癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '胰腺癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="胰腺癌">I、胰腺癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '骨癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="骨癌">J、骨癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '膀胱癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="膀胱癌">K、膀胱癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '鼻咽癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="鼻咽癌">L、鼻咽癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '宫颈癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="宫颈癌">M、宫颈癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '子宫癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="子宫癌">N、子宫癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '前列腺癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="前列腺癌">O、前列腺癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '卵巢癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="卵巢癌">P、卵巢癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '甲状腺癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="甲状腺癌">Q、甲状腺癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '皮肤癌') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="皮肤癌">R、皮肤癌</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '其他') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="其他">S、其他</view>
+          <view class="option-item {{utils.includes(questionnaire.personalCancers, '以上均无') ? 'selected' : ''}}" 
+                bindtap="toggleMultiOption" data-field="personalCancers" data-value="以上均无">T、以上均无</view>
+        </view>
+      </view>
+
+      <!-- 问题13：职业 -->
+      <view class="question-item">
+        <view class="question-title">13、你的职业？</view>
+        <view class="option-group">
+          <view class="option-item {{questionnaire.occupation === '学生' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="occupation" data-value="学生">学生</view>
+          <view class="option-item {{questionnaire.occupation === '行政事业单位' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="occupation" data-value="行政事业单位">行政事业单位</view>
+          <view class="option-item {{questionnaire.occupation === '企业' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="occupation" data-value="企业">企业</view>
+          <view class="option-item {{questionnaire.occupation === '自由职业者' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="occupation" data-value="自由职业者">自由职业者</view>
+          <view class="option-item {{questionnaire.occupation === '其它' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="occupation" data-value="其它">其它</view>
+        </view>
+      </view>
+
+      <!-- 问题14：体检情况 -->
+      <view class="question-item">
+        <view class="question-title">14、体检情况</view>
+        <view class="option-group">
+          <view class="option-item {{questionnaire.checkupFrequency === '一年一次' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="checkupFrequency" data-value="一年一次">一年一次</view>
+          <view class="option-item {{questionnaire.checkupFrequency === '两年一次' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="checkupFrequency" data-value="两年一次">两年一次</view>
+          <view class="option-item {{questionnaire.checkupFrequency === '两年以上' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="checkupFrequency" data-value="两年以上">两年以上</view>
+          <view class="option-item {{questionnaire.checkupFrequency === '从未体检' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="checkupFrequency" data-value="从未体检">从未体检</view>
+        </view>
+      </view>
+
+      <!-- 问题15：过敏史 -->
+      <view class="question-item">
+        <view class="question-title">15、过敏史</view>
+        <view class="option-group">
+          <view class="option-item {{questionnaire.allergyHistory === '有' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="allergyHistory" data-value="有">A、有</view>
+          <view class="option-item {{questionnaire.allergyHistory === '无' ? 'selected' : ''}}" 
+                bindtap="selectOption" data-field="allergyHistory" data-value="无">B、无</view>
+        </view>
+      </view>
+      
+    </scroll-view>
+    
+    <view class="questionnaire-footer">
+      <view class="footer-btn skip-btn" bindtap="skipQuestionnaire">跳过</view>
+      <view class="footer-btn submit-btn" bindtap="submitQuestionnaire">提交</view>
+    </view>
+  </view>
+</view>

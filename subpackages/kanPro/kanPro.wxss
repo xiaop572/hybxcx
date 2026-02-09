@@ -1,0 +1,257 @@
+/* pages/tcxq/tcxq.wxss */
+
+@import "../../wxParse/wxParse/wxParse.wxss";
+page {
+  background-color: #f2f2f2;
+}
+
+.headline {
+  width: 100%;
+  height: 210rpx;
+  background-color: #fff;
+  padding:0 30rpx;
+  box-sizing: border-box;
+  position: relative;
+  overflow:inherit !important;
+}
+.headline .title {
+  display: block;
+  font-weight: bold;
+  position: relative;
+  top: -10rpx;
+}
+
+.headline .price {
+  display: block;
+  margin-top: 20rpx;
+  color: red;
+  font-weight: bold;
+  font-size: 54rpx;
+  
+}
+.yuanjia{
+  text-decoration:line-through;
+  color: #969696; 
+  font-size: 28rpx;
+  position: relative;
+  top: -10rpx;
+}
+.zuidi{
+  color: #fff;
+  background-color: #256bd5;
+  font-size: 24rpx;
+  padding: 5rpx 10rpx;
+  border-radius: 8rpx;
+  vertical-align: middle;
+  margin-left: 10rpx;
+}
+.yikan{
+  color: #969696; 
+  font-size: 28rpx;
+  position: absolute;
+  right: 25rpx;
+  top: 100rpx;
+}
+.details {
+  overflow: hidden;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.details-title {
+  padding: 40rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.footer {
+  background: #fff;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+}
+
+.buyBtn {
+  height: 100rpx;
+  line-height: 100rpx;
+  display: inline-block;
+  padding: 0 40rpx;
+  color: #Fff;
+  background:linear-gradient(to right,#f76e2f,#ed301e);
+  cursor: pointer;
+}
+.details-content{
+  padding-bottom: 100rpx;
+}
+.details-content image{
+  width: 100%;
+}
+.icon{
+  float: left;
+  font-size: 30rpx;
+  color: #666;
+  margin-top:8rpx !important;
+  margin-left: 60rpx !important;
+  text-align: center;
+  width: auto !important;
+  padding: 0;
+  
+}
+.icon image{
+  display: block;
+  margin: auto;
+}
+.kficon {
+  width: 50rpx;
+}
+.icon text{
+  font-size: 26rpx;
+}
+.daojishi{
+  background-color: #fff;
+  overflow: hidden;
+  clear: both;
+}
+.kjkj{
+  width: 257rpx;
+  height: 100rpx;
+  background:url("https://wx.pmc-wz.com/materials/kjkj.png") no-repeat;
+  background-size: 100% 100%;
+  float: left;
+}
+.residueTime{
+  float: right;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  margin-right: 20rpx;
+}
+.black{
+  background-color: black;
+  color: #fff;
+  padding: 5rpx;
+  margin: 0 5rpx;
+  border-radius: 6rpx;
+}
+.red{
+  background-color: #ff4444;
+  color: #fff;
+  padding: 5rpx;
+  margin: 0 5rpx;
+  border-radius: 6rpx;
+}
+.fxm{
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background:rgba(0, 0, 0, 0.5);
+}
+.fxBox{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  height: 400rpx;
+  background: white;
+  border-radius: 20rpx 20rpx 0 0;
+  overflow: hidden;
+  transition: bottom 0.3s linear;
+}
+.fxcaption{
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin-top: 40rpx;
+  font-size: 36rpx;
+}
+.fxIconList{
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 60rpx;
+}
+.fxwx,.wxewm{
+  width: 40%;
+  display: inline-block;
+  text-align: center;
+  background-color: #fff !important;
+}
+.fxwx image{
+  width: 25%;
+  display: block;
+  margin:0 auto 10rpx auto;
+}
+.wxewm image{
+  width: 25%;
+  display: block;
+  margin:0 auto 10rpx auto;
+}
+.fxwx text,.wxewm text{
+  color: #999;
+  font-size: 26rpx;
+}
+.cancel{
+  display: block;
+  width: 100%;
+  color: #aaa;
+  position: absolute;
+  bottom: 20rpx;
+  text-align: center;
+}
+.fenxiang {
+  width: 100%;
+  position: fixed;
+  right: 40rpx;
+  top: 40rpx;
+  z-index: 10;
+  background-color: #fff;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  text-align: center;
+}
+
+.fenxiang image {
+  width: 70%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.haibao {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 88;
+}
+
+.haibao .haiImg {
+  position: absolute;
+  top: 40rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 70% !important;
+}
+
+.save {
+  position: absolute;
+  top: 88%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  background-color: #fff;
+  width: 300rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 50rpx;
+}

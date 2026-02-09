@@ -1,0 +1,62 @@
+<!--pages/tcxq/tcxq.wxml-->
+<import src="../../wxParse/wxParse/wxParse.wxml" />
+<view>
+  <swiper indicator-dots="true" style="text-align: center;height:{{imgHeight}}px" class="swiper">
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" style="width: 750rpx;"></image>
+    </swiper-item>
+  </swiper>
+  <view class="miaoshaInfo">
+    <view class="seckillPrice">秒杀价¥<text class="sPrice">{{item.price}}</text>
+      <!-- <view class="limitTime">限时直降{{item.pointsDeduction-item.price}}元</view> -->
+    </view>
+    <view class="originPrice">即将恢复<text>¥{{item.pointsDeduction}}</text></view>
+
+    <view class="residue">仅剩{{item.kc-item.sanum<0?0:item.kc-item.sanum}}件</view>
+    <view class="xxianshi">
+      <view>
+        <image src="https://wx.pmc-wz.com/materials/znz.png" mode="widthFix" class="znz"></image><text class="cap">限时秒杀</text>
+      </view>
+      <view class="residueTime">
+        <text class="black">{{hour}}</text>
+        <text class="d">:</text>
+        <text class="black">{{minute}}</text>
+        <text class="d">:</text>
+        <text class="black">{{seconds}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="headline">
+    <text class="title">{{item.pictitle}}</text>
+    <!-- <text class="xiaoliang">已售：{{item.sanum}}</text> -->
+    <text class="price">¥{{item.price}}</text>
+  </view>
+  <view class="details">
+    <view class="details-title">商品详情</view>
+    <view class="details-content">
+      <template is="wxParse" data="{{wxParseData:courseDetail.nodes}}" wx:if="{{item.ishtml==1}}" />
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.detail}}" mode="widthFix" wx:if="{{item.ishtml==0}}"></image>
+    </view>
+  </view>
+  <view class="footer">
+    <button open-type="contact" class="icon" send-message-title="{{item.pictitle}}" send-message-path="/subpackages/miaoshaPro/miaoshaPro?id={{item.id}}" send-message-img="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" show-message-card="true">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xqlxkf.svg" class="kficon"></image>
+      <text>客服</text>
+    </button>
+    <!-- <button open-type="contact" send-message-title="测试" send-message-img="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" send-message-path="/pages/tcxq/tcxq?id={{item.id}}" show-message-card="true" class="icon">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xqlxkf.svg" class="kficon"></image>
+      <text>客服</text>
+    </button> -->
+    <button class="icon" open-type="share" data-imgsrc="{{item.picurl}}" data-id="{{item.id}}">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fenxiang1.svg" class="kficon"></image>
+      <text>分享</text>
+    </button>
+    <block wx:if="{{msvis}}">
+      <view class="buyBtn" bindtap="rbuy" data-item="{{item}}" wx:if="{{item.kc - item.sanum > 0}}">立即购买</view>
+      <view class="buyBtn2" wx:else>已结束</view>
+    </block>
+    <block wx:else>
+      <view class="buyBtn2">未开始</view>
+    </block>
+  </view>
+</view>

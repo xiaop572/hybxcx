@@ -1,0 +1,75 @@
+<!--subpackages/yiliaofuwu/yiliaofuwu.wxml-->
+<view class="myList">
+  <text class="myCaption">门诊服务</text>
+  <view class="myIcon" bindtap="rmzyy">
+    <image src="https://wx.pmc-wz.com/materials/mzyyicon.png" mode='widthFix'></image>
+    <text>门诊预约</text>
+  </view>
+  <view class="myIcon" bindtap="rmybka">
+    <image src="https://wx.pmc-wz.com/materials/mykaquan.png" mode='widthFix'></image>
+    <text>我的绑卡</text>
+  </view>
+  <view class="myIcon" bindtap="rcflist">
+    <image src="https://wx.pmc-wz.com/materials/jkdaIcon.png" mode='widthFix'></image>
+    <text>门诊档案</text>
+  </view>
+  <view class="myIcon" bindtap="ryxList">
+    <image src="https://wx.pmc-wz.com/materials/yxbgIcon.png" mode='widthFix'></image>
+    <text>影像报告</text>
+  </view>
+  <view class="myIcon" bindtap="rjianyan">
+    <image src="https://wx.pmc-wz.com/materials/jianyanIcon.png" mode='widthFix'></image>
+    <text>检验结果</text>
+  </view>
+  <view class="myIcon" bindtap="rMyYy">
+    <image src="https://wx.pmc-wz.com/materials/myyuyue.png" mode='widthFix'></image>
+    <text>我的预约</text>
+  </view>
+  <view class="myIcon" bindtap="rblbg">
+    <image src="https://wx.pmc-wz.com/materials/jianyanIcon.png" mode='widthFix'></image>
+    <text>病理报告</text>
+  </view>
+  <view class="myIcon" bindtap="rc13">
+    <image src="https://wx.pmc-wz.com/materials/c13icon.png" mode='widthFix'></image>
+    <text>碳13报告</text>
+  </view>
+  <view class="myIcon" bindtap="rywz">
+      <image src="https://wx.pmc-wz.com/materials/ywzicon.png" mode='widthFix'></image>
+      <text>预问诊</text>
+    </view>
+</view>
+<view class="myList">
+  <text class="myCaption">住院服务</text>
+  <view class="myIcon" bindtap="rzyjc">
+    <image src="https://wx.pmc-wz.com/materials/zybgicon.png" mode='widthFix'></image>
+    <text>住院报告</text>
+  </view>
+  <view class="myIcon" bindtap="rzybl">
+    <image src="https://wx.pmc-wz.com/materials/jianyanIcon.png" mode='widthFix'></image>
+    <text>住院病理</text>
+  </view>
+</view>
+
+<view class="myList">
+  <text class="myCaption">体检服务</text>
+  <view class="myIcon" bindtap="rtjyy">
+    <image src="https://wx.pmc-wz.com/materials/tjyyicon.png" mode='widthFix'></image>
+    <text>体检预约</text>
+  </view>
+  <view class="myIcon" bindtap="rtjpdf">
+    <image src="https://wx.pmc-wz.com/materials/tjpdf.png" mode='widthFix'></image>
+    <text>体检报告</text>
+  </view>
+  <view class="myIcon" bindtap="rtjjfdh">
+    <image src="https://wx.pmc-wz.com/materials/tjjficon.png" mode='widthFix'></image>
+    <text>积分兑换</text>
+  </view>
+  <view class="myIcon" bindtap="rMyYy2">
+    <image src="https://wx.pmc-wz.com/materials/myyuyue.png" mode='widthFix'></image>
+    <text>我的预约</text>
+  </view>
+  <view class="myIcon" bindtap="rxspdf">
+    <image src="https://wx.pmc-wz.com/materials/xstjpdf.png" mode='widthFix'></image>
+    <text>学生体检报告</text>
+  </view>
+</view>

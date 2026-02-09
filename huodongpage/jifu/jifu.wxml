@@ -1,0 +1,73 @@
+<!--huodongpage/jifu/jifu.wxml-->
+<view class="container1">
+  <image src="https://wx.pmc-wz.com/materials/jifubanner.png" mode="widthFix" class="banner" />
+  <!-- 活动规则按钮 -->
+  <view class="rules-btn" bindtap="showRules">活动规则</view>
+  <image src="https://wx.pmc-wz.com/materials/msjifu.png" mode="widthFix" class="jifucap" />
+  <!-- 主内容区域 -->
+  <!-- 卡片展示区域 -->
+      <!-- 卡片网格 -->
+      <view class="card-grid">
+        <view class="collected-count">{{collectedCount}}人已集齐卡片</view>
+        <!-- 第一行：前3张卡片 -->
+        <view class="card-row">
+          <view wx:for="{{cardConfigs}}" wx:for-index="index" wx:key="key" wx:if="{{index < 3}}" class="card {{userCards[item.key] ? 'active' : ''}}" data-card="{{item.key}}" data-cardkey="{{item.key}}" data-cardname="{{item.name}}" data-hascard="{{userCards[item.key]}}" bindtap="exchangeSingleCard">
+            <view class="card-wrapper">
+              <image class="card-bg" src="{{baseImageUrl + (userCards[item.key] ? item.ownedImage : item.unownedImage)}}" mode="widthFix"></image>
+            </view>
+          </view>
+        </view>
+        <!-- 第二行：剩余卡片 -->
+        <view class="card-row">
+          <view wx:for="{{cardConfigs}}" wx:for-index="index" wx:key="key" wx:if="{{index >= 3}}" class="card {{userCards[item.key] ? 'active' : ''}}" data-card="{{item.key}}" data-cardkey="{{item.key}}" data-cardname="{{item.name}}" data-hascard="{{userCards[item.key]}}" bindtap="exchangeSingleCard">
+            <view class="card-wrapper">
+              <image class="card-bg" src="{{baseImageUrl + (userCards[item.key] ? item.ownedImage : item.unownedImage)}}" mode="widthFix"></image>
+            </view>
+          </view>
+        </view>
+        <image src="https://wx.pmc-wz.com/materials/hcfk.png" mode="widthFix" class="hcfk" />
+      </view>
+      <image src="https://wx.pmc-wz.com/materials/msnafu.png" mode="widthFix" class="jifucap" style="margin-top: 60rpx;"/>
+      <image src="https://wx.pmc-wz.com/materials/pldfq.png" mode="widthFix" class="dfq"/>
+      <image src="https://wx.pmc-wz.com/materials/axdfq.png" mode="widthFix" class="dfq"/>
+      <image src="https://wx.pmc-wz.com/materials/jkdfq.png" mode="widthFix" class="dfq"/>
+      <image src="https://wx.pmc-wz.com/materials/yqdfq.png" mode="widthFix" class="dfq"/>
+  <!-- 活动规则弹窗 -->
+  <view class="rules-popup" wx:if="{{showRulesPopup}}">
+    <view class="rules-content-wrap">
+      <view class="rules-close" bindtap="closeRules">×</view>
+      <image class="rules-img" src="{{baseImageUrl}}hdgz.png" mode="widthFix" bindtap="noop" />
+    </view>
+    <view class="rules-mask" bindtap="closeRules"></view>
+  </view>
+
+  <!-- 首次进入欢迎弹窗 -->
+  <view class="welcome-overlay" wx:if="{{showWelcomePopup}}">
+    <view class="welcome-popup">
+      <view class="welcome-title">恭喜获得</view>
+      <image src="https://wx.pmc-wz.com/materials/ymfg.png" mode="widthFix" class="getcard" />
+      <view class="welcome-button" bindtap="claimCard">开心收下</view>
+    </view>
+  </view>
+
+  <!-- 兑换确认弹窗 -->
+  <view class="exchange-overlay" wx:if="{{showExchangePopup}}">
+    <view class="exchange-popup">
+      <view class="exchange-title">
+        <text>确认用【</text>
+        <text class="card-name-highlight">{{exchangeCardInfo.name}}</text>
+        <text>】兑换吗？</text>
+      </view>
+      <view class="exchange-image-wrapper">
+        <image src="{{baseImageUrl}}{{exchangeImages[exchangeCardInfo.name]}}" mode="widthFix" class="exchange-image"/>
+      </view>
+      <view class="exchange-buttons">
+        <view class="exchange-confirm-btn" bindtap="confirmExchange">确认兑换</view>
+        <view class="exchange-cancel-btn" bindtap="cancelExchange">取消去集福</view>
+      </view>
+      <view class="exchange-tip">*兑换后将不可兑换其他福卡礼及合成福卡</view>
+    </view>
+    <view class="exchange-close" bindtap="cancelExchange">×</view>
+  </view>
+
+</view>

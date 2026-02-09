@@ -1,0 +1,14 @@
+<!--pages/jianyankaidan/jianyankaidan.wxml-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/kdlogo.png" mode="widthFix" class="logo"></image>
+  <image src="https://wx.pmc-wz.com/materials/youzhi.png" mode="widthFix" class="youzhi"></image>
+  <!-- <image src="https://wx.pmc-wz.com/materials/shengming.png" mode="widthFix" class="shengming"></image> -->
+  <view class="list">
+    <view wx:for="{{imgList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" class="xmItem" bindtap="rkaidan"  data-kd="{{item}}">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix"></image>
+      <view class="title">{{item.summary}}</view>
+      <view class="remark">{{item.pictitle}}</view>
+    </view>
+    <!-- <image src="https://wx.pmc-wz.com/materials/life.png" class="life" mode="widthFix"></image> -->
+  </view>
+</view>

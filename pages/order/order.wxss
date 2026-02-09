@@ -1,0 +1,28 @@
+/* pages/order/order.wxss */
+page{
+  background-color: #f2f2f2;
+}
+.articleBlock{
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-top: 40rpx;
+  width: 90%;
+  margin: 20rpx auto 0 auto;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #333;
+}
+.line{
+  overflow: hidden;
+  clear: both;
+}
+.left{
+  float: left;
+}
+.right{
+  float:right;
+}
+.time{
+  margin-top:20rpx;
+}

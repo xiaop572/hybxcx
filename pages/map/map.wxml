@@ -1,0 +1,1 @@
+<map class="map" bindmarkertap="biaoji" data-mark="{{markers[0]}}" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" scale="17" style="height: 100%;width: 100%;"></map>

@@ -1,0 +1,24 @@
+<!--pages/facility/facility.wxml-->
+<view wx:for="{{facilityList}}" wx:key="id" wx:for-item="item">
+  <view class="title">{{item.ZCMC}}</view>
+  <text class="pinpai">设备品牌: {{item.CNJC?item.CNJC:''}} {{item.ZCGG?item.ZCGG:''}}</text>
+  <text class="pinpai">设备类型: {{item.name?item.name:''}}</text>
+  <text class="tiaoma">条码: {{item.sbbh?item.sbbh:''}}</text>
+  <text class="tiaoma">S/N: {{item.xlid?item.xlid:''}}</text>
+  <view class="pinpai">科室名称: {{item.ksmc?item.ksmc:''}}</view>
+  <view class="pinpai">科室地点: {{item.ksdd?item.ksdd:''}}</view>
+  <view class="pinpai">领用日期: {{m1.rq(item.QYRQ)?m1.rq(item.QYRQ):''}}</view>
+  <view class="pinpai">领用人: {{item.lyxm?item.lyxm:''}}</view>
+  <wxs module="m1">
+    var rq = function (r) {
+      var da = getDate(r)
+      var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+      return dataStr;
+    }
+    module.exports.rq = rq;
+  </wxs>
+  <view class="BtnLine">
+    <button class="subBtn">盘点</button>
+    <button class="subBtn">报修</button>
+  </view>
+</view>

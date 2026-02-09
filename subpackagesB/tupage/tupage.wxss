@@ -1,0 +1,4 @@
+/* subpackagesB/tupage/tupage.wxss */
+.page{
+  width: 100%;
+}

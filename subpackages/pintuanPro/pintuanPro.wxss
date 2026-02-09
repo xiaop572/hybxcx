@@ -1,0 +1,404 @@
+/* pages/tcxq/tcxq.wxss */
+
+@import "../../wxParse/wxParse/wxParse.wxss";
+
+page {
+  background-color: #f2f2f2;
+}
+
+.headline {
+  width: 100%;
+  height: 210rpx;
+  background-color: #fff;
+  padding: 40rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.headline .title {
+  display: block;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.xiaoliang {
+  position: absolute;
+  right: 50rpx;
+  bottom: 40rpx;
+  font-size: 30rpx;
+  color: #888;
+}
+
+.headline .price {
+  display: block;
+  margin-top: 20rpx;
+  color: red;
+  font-weight: bold;
+  position: absolute;
+  left: 40rpx;
+  bottom: 40rpx;
+}
+
+.details {
+  overflow: hidden;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.details-title {
+  padding: 40rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.footer {
+  background: #fff;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+}
+
+.buyBtn {
+  height: 70rpx;
+  line-height: 70rpx;
+  display: inline-block;
+  padding: 0 40rpx;
+  color: #ff402e;
+  background-color: #faebe6;
+  cursor: pointer;
+  border-radius: 40rpx;
+  border: 1px solid #ff402e;
+  margin-right: 30rpx;
+  margin-top: 15rpx;
+  font-size: 32rpx;
+}
+
+.buyBtn2 {
+  font-size: 32rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  display: inline-block;
+  padding: 0 40rpx;
+  color: #Fff;
+  background-color: #ff402d;
+  cursor: pointer;
+  border-radius: 40rpx;
+  margin-top: 15rpx;
+  margin-right: 30rpx;
+}
+
+.details-content {
+  padding-bottom: 100rpx;
+}
+
+.details-content image {
+  width: 100%;
+}
+
+.poster {
+  float: left;
+  font-size: 30rpx;
+  color: #666;
+  margin-top: 8rpx !important;
+  text-align: center;
+  width: auto !important;
+  padding: 0;
+}
+
+.icon {
+  float: left;
+  font-size: 30rpx;
+  color: #666;
+  margin-top: 8rpx !important;
+  margin-left: 30rpx !important;
+  text-align: center;
+  width: auto !important;
+  padding: 0;
+}
+
+.icon image {
+  display: block;
+  margin: 0 auto 5rpx auto;
+}
+
+.icon2 {
+  float: left;
+  font-size: 30rpx;
+  color: #666;
+  margin-top: 14rpx !important;
+  margin-left: 30rpx !important;
+  text-align: center;
+  width: auto !important;
+  padding: 0;
+}
+
+.icon2 image {
+  display: block;
+  margin: 0 auto 5rpx auto;
+}
+
+.kficon {
+  width: 40rpx;
+}
+
+.kficon2 {
+  width: 50rpx;
+}
+
+.icon2 text {
+  font-size: 26rpx;
+  color: #ff402f;
+}
+
+.icon text {
+  font-size: 26rpx;
+  color: #ff402f;
+}
+
+.miaoshaInfo {
+  height: 140rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.seckillPrice {
+  color: #fff;
+  position: absolute;
+  left: 0;
+  padding-left: 30rpx;
+  top: 0;
+  width: 340rpx;
+  font-size: 40rpx;
+  height: 140rpx;
+  line-height: 140rpx;
+  background-color: #ff402d;
+  overflow: initial;
+  z-index: 999;
+}
+
+.seckillPrice .sPrice {
+  font-size: 60rpx;
+}
+
+.jt {
+  display: block;
+  content: "";
+  width: 140rpx;
+  height: 140rpx;
+  position: absolute;
+  left: 270rpx;
+  top: 0;
+  background-color: #ff402d;
+  border-radius: 20rpx;
+  transform: rotate(45deg);
+}
+
+.yuanjia {
+  font-weight: normal;
+  color: #fefefe;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  text-decoration: line-through;
+}
+
+.originPrice {
+  color: #fffeff;
+  position: absolute;
+  left: 30rpx;
+  top: 80rpx;
+  font-size: 32rpx;
+}
+
+.limitTime {
+  color: #b71520;
+  font-size: 26rpx;
+  background: linear-gradient(to right, #f9c1cc, #fef2f2, #f7ffff, #b9e7ff);
+  padding: 0 30rpx;
+  border-radius: 50rpx;
+  display: inline-block;
+  margin-left: 30rpx;
+}
+
+.residue {
+  color: #fffeff;
+  position: absolute;
+  left: 280rpx;
+  top: 80rpx;
+  font-size: 32rpx;
+}
+
+.xxianshi {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background-color: #f4efec;
+  border-radius: 20rpx 0 0 20rpx;
+  width: 400rpx;
+  box-sizing: border-box;
+  padding: 20rpx 10rpx 20rpx 80rpx;
+  font-weight: bold;
+  font-size: 28rpx;
+  z-index: -10;
+  text-align: center;
+}
+
+.znz {
+  width: 30rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+
+.cap {
+  vertical-align: middle;
+  color: #ff3e2c;
+  letter-spacing: 5rpx;
+}
+
+.residueTime {
+  color: #fff;
+  margin-top: 10rpx;
+  font-size: 26rpx;
+}
+
+.residueTime .black {
+  background-color: #fe3f2d;
+  display: inline-block;
+  font-weight: normal;
+  padding: 0 5rpx;
+  border-radius: 5rpx;
+}
+
+.residueTime .d {
+  margin: 0 5rpx;
+  color: #fe3f2d;
+}
+
+.haibao {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.haibao .haiImg {
+  position: absolute;
+  top: 40rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 70% !important;
+}
+
+.save {
+  position: absolute;
+  top: 88%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  background-color: #fff;
+  width: 300rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 50rpx;
+}
+
+.tm {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 666;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 0 20rpx;
+  display: inline-block;
+  overflow: hidden;
+  color: #eee;
+  font-size: 28rpx;
+  animation: tmrun 15s linear infinite;
+}
+
+.tm image {
+  width: 40rpx;
+  vertical-align: middle;
+  border-radius: 40rpx;
+}
+
+@keyframes tmrun {
+  0% {}
+
+  100% {
+    left: -110%
+  }
+}
+
+.proroll {
+  height: 240rpx;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+}
+
+.tmbox {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.prorollBox {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform:translateY(0);
+  overflow: hidden;
+}
+.pro{
+  height: 120rpx;
+  padding: 0 20rpx;
+  line-height: 120rpx;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+}
+.pro image{
+  width: 60rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.gopd{
+  float: right;
+  background-color: red;
+  color: #fff;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+  margin-top: 35rpx;
+}
+.cha{
+  float: right;
+  margin-right: 20rpx;
+  font-size: 28rpx;
+}
+.cha text{
+  color: red;
+}
+.ptcap{
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 0 20rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}

@@ -1,0 +1,48 @@
+<!--pages/ArrangeTime/ArrangeTime.wxml-->
+<view>
+  <view class="card">
+    <image src="https://his.pmc-wz.com/pmcmobileweb/images/photos/{{doctor.YGDM}}.jpg" mode="widthFix"></image>
+    <view class="info">
+      <view class="ysxm">
+        {{doctor.YGXM}}
+        <text>{{doctor.YGZC}}</text>
+      </view>
+      <view class="yymc">温州和平国际医院</view>
+      <view class="bumen">{{doctor.KSMC}}</view>
+    </view>
+    <view class="jianjie">
+      {{doctor.YGJS}}
+    </view>
+  </view>
+  <view class="card">
+    <view class="jianjie">
+      {{doctor.YGSC}}
+    </view>
+  </view>
+  <!-- <view class="haoyuanBox {{idx===selectIndex?'showHao':''}}" wx:for="{{haoyuan}}" wx:for-index="idx" wx:key="idx"
+    bindtap="showTime" data-idx="{{idx}}" data-row="{{item}}" data-rq="{{m1.rq(item.Rq)}}">
+    <view class="riqi">
+      <wxs module="m1">
+        var rq = function (r) {
+          var da = getDate(r)
+          var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+          return dataStr;
+        }
+        module.exports.rq = rq;
+        var time = function (r) {
+          var da = getDate(r)
+          var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '00' : da.getMinutes());
+          return dataStr;
+        }
+        module.exports.time = time;
+      </wxs>
+      <text> {{m1.rq(item.Rq)}} {{item.Bcmc}} </text>
+      <text>余号:{{item.Yyrs}}个</text>
+    </view>
+    <view class="haoyuanTime {{idx===selectIndex?'showTime':''}}">
+      <text class="timeBox {{m1.time(it.RQ)===selectTime?'selectTime':''}}" catchtap="selectTime" wx:for="{{timeList}}"
+        wx:for-item="it" wx:key="id" wx:for-index="id" data-xh="{{it.XH}}" data-rq="{{it.RQ}}" data-time="{{m1.time(it.RQ)}}">{{m1.time(it.RQ)}}</text>
+    </view>
+  </view> -->
+  <!-- <view class="yuyueBtn  {{selectTime?'selectBtn':''}}" bindtap="submit">预约</view> -->
+</view>

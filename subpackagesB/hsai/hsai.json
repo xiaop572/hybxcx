@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "cell": "plugin://contactPlugin/cell"
+  },
+  "navigationBarTitleText": "AI助手小和",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#ffffff"
+}

@@ -1,0 +1,14 @@
+<!--huodongpage/kqetj/kqetj.wxml-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/ckqxtop.png" mode="widthFix" class="banner"></image>
+  <image src="https://wx.pmc-wz.com/materials/tianmicap.png" mode="widthFix" class="w96" style="margin-bottom: 60rpx;"></image>
+  <image src="https://wx.pmc-wz.com/materials/xfl.png" mode="widthFix" class="w98"></image>
+  <image src="https://wx.pmc-wz.com/materials/tjl.png" mode="widthFix" class="w98"></image>
+  <image src="https://wx.pmc-wz.com/materials/fxl.png" mode="widthFix" class="w98"></image>
+  <image src="https://wx.pmc-wz.com/materials/zhuanshucap.png" mode="widthFix" class="w96" style="margin: 60rpx auto;"></image>
+  <view class="itemBox">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" wx:for="{{kqList}}" wx:for-index="idx" wx:key="idx" class="proitem" bindtap="rpro" data-id="{{item.id}}"></image>
+  </view>
+  <image src="https://wx.pmc-wz.com/materials/dnx.png" mode="widthFix" style="width:50%;margin: 60rpx auto;display: block;"></image>
+  <image src="https://wx.pmc-wz.com/materials/ckqxaddress.png" mode="widthFix" class="w96" style="margin: 60rpx auto;"></image>
+</view>

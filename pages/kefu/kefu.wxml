@@ -1,0 +1,11 @@
+<!--pages/kefu/kefu.wxml-->
+<view>
+  <text class="caption">客服登录</text>
+  <view class="weui-cell weui-cell_input">
+    <input placeholder="用户名" class="weui-input" model:value="{{mobile}}" />
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <input placeholder="密码" class="weui-input" model:value="{{password}}" type="password" />
+  </view>
+  <button type="primary" class="btn" bindtap="submit">登录</button>
+</view>

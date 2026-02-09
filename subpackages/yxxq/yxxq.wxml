@@ -1,0 +1,2 @@
+<!--subpackages/yxxq/yxxq.wxml-->
+<web-view src="https://zj.wxcx.kayicloud.com/wzhpgjyy/index.aspx?accessno={{id}}"></web-view>

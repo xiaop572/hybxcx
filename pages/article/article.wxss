@@ -1,0 +1,26 @@
+/* pages/article/article.wxss */
+.title{
+  display: block;
+  font-size: 20px;
+  width: 92%;
+  margin:20rpx auto;
+  color: #333;
+}
+.authorDate{
+  width: 92%;
+  margin:0 auto;
+}
+.author{
+  font-size: 14px;
+  color: #999;
+}
+.date{
+  font-size: 14px;
+  color: #999;
+  margin-left: 10rpx;
+}
+.contentImg{
+  width: 100%;
+  margin-top: 20rpx;
+  height: 100%;
+}

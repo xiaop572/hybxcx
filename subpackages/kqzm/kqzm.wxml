@@ -1,0 +1,5 @@
+<!--subpackages/kqzm/kqzm.wxml-->
+<view class="box">
+  <image src="https://wx.pmc-wz.com/materials/kqzmbg.png" mode="widthFix" class="bg"></image>
+<image  src="https://wx.pmc-wz.com/materials/kqzmBtn.png" mode="widthFix" class="bmbtn"  bindtap="rlxkf"></image>
+</view>

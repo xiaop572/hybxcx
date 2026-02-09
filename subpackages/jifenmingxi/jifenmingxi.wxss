@@ -1,0 +1,66 @@
+/* subpackages/jifenmingxi/jifenmingxi.wxss */
+.header{
+  height: 160rpx;
+  background:linear-gradient(to right,#03a7fd,#015cf5);
+}
+.jifen{
+  font-size: 32rpx;
+  color: #fff;
+  line-height: 160rpx;
+  margin-left: 80rpx;
+}
+.jifen text{
+  font-size: 70rpx;
+  margin-right: 30rpx;
+}
+.xialajt{
+  width: 24rpx;
+}
+.selectItem{
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #333;
+}
+.selectItem:nth-child(1){
+  border-right: 1px solid #d4d4d4;
+  box-sizing: border-box;
+}
+.selectBox{
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #f7f8fa;
+}
+.wujifen{
+  display: block;
+  margin: auto;
+  width: 80%;
+}
+.xllist{
+  padding: 0 60rpx;
+  margin-top: 60rpx;
+  overflow: hidden;
+  height: 100rpx;
+}
+.xlitem{
+  float: left;
+}
+.xlcaption{
+  color: #000;
+  display: block;
+  font-size: 34rpx;
+}
+.xltime{
+  display: block;
+  color: #999;
+  font-size: 32rpx;
+}
+.xlscore{
+  display: block;
+  float: right;
+  color: #015cf5;
+  font-size: 46rpx;
+  line-height: 100rpx;
+}

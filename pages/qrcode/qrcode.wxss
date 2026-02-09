@@ -1,0 +1,22 @@
+/* pages/qrcode/qrcode.wxss */
+.logo{
+  width: 120rpx;
+  display: block;
+  margin:60rpx auto 100rpx auto;
+}
+.tishi{
+  display: block;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666;
+}
+.code{
+  display: block;
+  text-align: center;
+  font-size: 36rpx;
+  color: #333;
+  width: 88%;
+  margin: auto;
+  padding-bottom: 40rpx;
+  border-bottom: 1px solid #eee;
+}

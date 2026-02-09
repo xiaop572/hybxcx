@@ -1,0 +1,56 @@
+<!--聚合活动 直接购买-->
+<image src="https://wx.pmc-wz.com/materials/jhbanner.jpg" mode="widthFix" class="topBanner"></image>
+<view class="main">
+  <!-- <view class="lblist">
+    <view bindtap="getkqcard">
+      <image src="https://wx.pmc-wz.com/materials/jhkqlb.png" mode="widthFix"  />
+    </view>
+    <view bindtap="getzxcard">
+      <image src="https://wx.pmc-wz.com/materials/jhzxlb.png" mode="widthFix"  />
+    </view>
+    <view bindtap="getckcard">
+      <image src="https://wx.pmc-wz.com/materials/jhcklb.png" mode="widthFix"  />
+    </view>
+    <view bindtap="getyzcard">
+      <image src="https://wx.pmc-wz.com/materials/jhyzlb.png" mode="widthFix"  />
+    </view>
+  </view> -->
+  <view class="zxBox">
+    <!--<view class="caption">
+       <image src="https://wx.pmc-wz.com/materials/jkflower.png" mode="widthFix"></image> 
+      <text>整形美容中心</text>
+      <image src="https://wx.pmc-wz.com/materials/jhzhi.png" mode="widthFix" />
+    </view>-->
+    <image src="https://wx.pmc-wz.com/materials/jhzxcap.png" mode="widthFix" class="procap cap1" />
+    <view class="proList">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" mode="widthFix" wx:for="{{zxList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" data-id="{{item.id}}" class="kapic" bindtap="rtcxq"></image>
+    </view>
+  </view>
+  <view class="zxBox">
+    <image src="https://wx.pmc-wz.com/materials/jhkqcap.png" mode="widthFix" class="procap cap2"/>
+    <view class="proList">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" mode="widthFix" wx:for="{{kqList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" data-id="{{item.id}}" class="kapic" bindtap="rtcxq"></image>
+    </view>
+  </view>
+  <view class="zxBox">
+    <image src="https://wx.pmc-wz.com/materials/jhtjcap.png" mode="widthFix" class="procap cap3"/>
+    <view class="proList">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" mode="widthFix" wx:for="{{tjList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" data-id="{{item.id}}" class="kapic" bindtap="rtcxq"></image>
+    </view>
+  </view>
+  <view class="zxBox">
+    <image src="https://wx.pmc-wz.com/materials/jhckcap.png" mode="widthFix" class="procap cap4" />
+    <view class="proList">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" mode="widthFix" wx:for="{{ckList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" data-id="{{item.id}}" class="kapic" bindtap="rtcxq"></image>
+    </view>
+  </view>
+  <view class="zxBox">
+    <image src="https://wx.pmc-wz.com/materials/jhkfcap.png" mode="widthFix" class="procap cap5" />
+    <view class="proList">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" mode="widthFix" wx:for="{{kflist}}" wx:for-index="idx" wx:key="idx" wx:for-item="item" data-id="{{item.id}}" class="kapic" bindtap="rtcxq"></image>
+    </view>
+  </view>
+</view>
+<view class="address">
+  <image src="https://wx.pmc-wz.com/materials/jhaddress.png" mode="widthFix"></image>
+</view>

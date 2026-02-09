@@ -1,0 +1,31 @@
+/* subpackages/ytbmsel/ytbmsel.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  background: url("https://wx.pmc-wz.com/materials/ytbg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-bottom: 0 !important;
+}
+
+.ytbt {
+  width: 90%;
+  display: block;
+  margin: 40rpx auto 0 auto;
+}
+
+.main {
+  overflow: hidden;
+}
+
+.ytcwgk {
+  width: 65%;
+  display: block;
+  margin:0 auto 0 auto;
+}
+
+.ytsngk {
+  width: 65%;
+  display: block;
+  margin:50rpx auto 0 auto;
+}

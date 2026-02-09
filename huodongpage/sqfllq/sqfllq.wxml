@@ -1,0 +1,60 @@
+<!--医美福利领取-->
+<view class="welfare-page">
+  <!-- 头部标题 -->
+  <view class="header">
+    <view class="title">医美福利专区</view>
+    <view class="rule-btn" bindtap="showRules">活动规则</view>
+  </view>
+  
+  <!-- 主要内容区域 -->
+  <view class="main-content">
+    <!-- 医美福利标题 -->
+    <view class="main-title">
+      <text class="title-text">「医美」福利礼包</text>
+    </view>
+    
+    <!-- 医美专享标签 -->
+    <view class="exclusive-tag">医美专享</view>
+    
+    <!-- 优惠券展示区域 -->
+    <view class="coupon-section">
+      <view class="coupon-row">
+        <view class="coupon-item coupon-left">
+          <view class="coupon-price">水光针</view>
+          <view class="coupon-desc">医美项目</view>
+        </view>
+        <view class="coupon-item coupon-right">
+          <view class="coupon-price">500</view>
+          <view class="coupon-unit">元</view>
+          <view class="coupon-desc">代金券</view>
+        </view>
+      </view>
+      
+      <view class="coupon-row">
+        <view class="coupon-item coupon-wide coupon-left">
+          <view class="coupon-text">满1000-200</view>
+        </view>
+        <view class="coupon-item coupon-wide coupon-middle">
+          <view class="coupon-text">免费体验</view>
+        </view>
+        <view class="coupon-item coupon-wide coupon-right">
+          <view class="coupon-text">专家咨询</view>
+        </view>
+      </view>
+    </view>
+    
+    
+    <!-- 底部文字说明 -->
+    <view class="bottom-text">
+      <view class="brand-info">
+        <text class="brand-name">专业医美 | 安全可靠</text>
+      </view>
+      <view class="promotion-text">美丽从这里开始</view>
+    </view>
+  </view>
+  
+  <!-- 立即领取按钮 -->
+  <view class="receive-btn {{isReceived ? 'received' : ''}}" bindtap="receiveWelfare">
+    {{isReceived ? '已领取' : '立即领取'}}
+  </view>
+</view>

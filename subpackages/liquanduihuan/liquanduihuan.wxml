@@ -1,0 +1,17 @@
+<!--subpackages/liquanduihuan/liquanduihuan.wxml-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/lqBg.jpg" mode="widthFix" class="bg" />
+  <view class="inMain">
+    <label class="inputLine">
+      <image src="https://wx.pmc-wz.com/materials/lqcard.png" mode="widthFix" class="inicon"/>
+      <input class="weui-input" placeholder="卡号" model:value="{{card}}" confirm-hold="true" type="number" />
+    </label>
+    <label class="inputLine">
+      <image src="https://wx.pmc-wz.com/materials/lqpwd.png" mode="widthFix" class="inicon"/>
+      <input class="weui-input" placeholder="密码" model:value="{{pwd}}" confirm-hold="true"  type="number"/>
+    </label>
+    <view bindtap="submit" class="submit">立即兑换</view>
+    <image src="https://wx.pmc-wz.com/materials/fanhuaka.png" mode="widthFix" class="fanhuaka"/>
+    <image src="https://wx.pmc-wz.com/materials/fanhuaxq.png" mode="widthFix" class="fanhuaxq"/>
+  </view>
+</view>

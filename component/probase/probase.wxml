@@ -1,0 +1,7 @@
+<!--component/probase/probase.wxml-->
+<view class="proitem">
+  <image src="{{inImage}}" mode="widthFix" class="proimg"/>
+  <view class="proright">
+    <slot></slot>
+  </view>
+</view>

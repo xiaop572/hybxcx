@@ -1,0 +1,272 @@
+/* pages/tcxq/tcxq.wxss */
+
+@import "../../wxParse/wxParse/wxParse.wxss";
+
+page {
+  background-color: #f2f2f2;
+}
+
+.headline {
+  width: 94%;
+  margin:20rpx auto 0 auto;
+  height: 210rpx;
+  background-color: #fff;
+  padding:0 40rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20rpx;
+}
+
+.headline .title {
+  display: block;
+  font-weight: bold; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: absolute;
+  top: 80rpx;
+  font-size: 34rpx;
+}
+
+.xiaoliang {
+  position: absolute;
+  right: 50rpx;
+  bottom: 40rpx;
+  font-size: 24rpx;
+  color: #888;
+}
+
+.headline .price {
+  display: block;
+  margin-top: 10rpx;
+  position: absolute;
+  left: 40rpx;
+  top: 0rpx;
+  
+}
+.cuxiao{
+  color: red;
+  font-size: 46rpx;
+}
+.yuanjia{
+  color:#999;
+  text-decoration:line-through;
+  margin-left: 20rpx;
+}
+.details {
+  overflow: hidden;
+  background-color: #fff;
+  width: 94%;
+  margin:20rpx auto 0 auto;
+  border-radius: 20rpx;
+}
+
+.details-title {
+  padding: 40rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.footer {
+  background: #fff;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+}
+
+.buyBtn {
+  height: 70rpx;
+  line-height: 70rpx;
+  display: inline-block;
+  padding: 0 40rpx;
+  color: #Fff;
+  background-color: #ff7f4e;
+  cursor: pointer;
+  margin: 20rpx 20rpx 0 0;
+  border-radius: 70rpx;
+}
+
+.details-content {
+  padding-bottom: 100rpx;
+}
+
+.details-content image {
+  width: 100%;
+}
+
+.icon {
+  float: left;
+  font-size: 30rpx;
+  color: #666;
+  margin-top: 8rpx !important;
+  margin-left: 60rpx !important;
+  text-align: center;
+  width: auto !important;
+  padding: 0;
+
+}
+
+.icon image {
+  display: block;
+  margin: auto;
+}
+
+.kficon {
+  width: 50rpx;
+}
+
+.icon text {
+  font-size: 26rpx;
+}
+
+.specBox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.spec {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 580rpx;
+  background-color: #fff;
+  border-radius: 40rpx 40rpx 0 0;
+}
+
+.specProImg {
+  width: 200rpx;
+}
+
+.proinfoLeft {
+  float: left;
+  margin: 30rpx 30rpx 10rpx 30rpx;
+}
+
+.proinforight {
+  margin-top: 30rpx;
+  height: 200rpx;
+
+}
+
+.specPrice {
+  display: block;
+  font-weight: bold;
+  color: red;
+  font-size: 40rpx;
+  margin-top: 90rpx;
+}
+
+.spectishi {
+  color: #666;
+}
+
+.specList {
+  margin: 0 30rpx 0 30rpx;
+  padding: 20rpx 0 0 0;
+  border-top: 1px solid #eee;
+}
+
+.specSel {
+  font-weight: bold;
+}
+
+.specItemList {
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+
+.specItem {
+  font-size: 28rpx;
+  background: #faf8fb;
+  padding: 10rpx 20rpx;
+  margin-right: 16rpx;
+}
+
+.specNext {
+  margin:40rpx 30rpx 0 30rpx;
+  background-color: #fa4f48;
+  text-align: center;
+  color: #fff;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 70rpx;
+}
+
+.active{
+  background:#fa4f48;
+  color: #fff;
+}
+.fan{
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 10rpx;
+  border:1px solid #ff322d;
+  font-size: 26rpx;
+  position: relative;
+  top: -10rpx;
+  margin-left: 40rpx;
+}
+.fancap{
+  background-color:#ff322d;
+  color: #fff;
+  padding:0 10rpx;
+  border-radius: 10rpx;
+  display: inline-block;
+}
+.jg{
+  padding: 0 10rpx;
+  color: #ff322d;
+}
+.fxwx,.wxewm{
+  width: 40%;
+  display: inline-block;
+  text-align: center;
+  background-color: #fff !important;
+}
+.fxwx image{
+  width: 25%;
+  display: block;
+  margin:0 auto 10rpx auto;
+}
+.fxwx text,.wxewm text{
+  color: #999;
+  font-size: 26rpx;
+}
+.haibao {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 88;
+}
+.haibao .haiImg {
+  position: absolute;
+  top: 40rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 70% !important;
+}
+
+.save {
+  position: absolute;
+  top: 88%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  background-color: #fff;
+  width: 300rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 50rpx;
+}

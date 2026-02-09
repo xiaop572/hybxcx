@@ -1,0 +1,48 @@
+<!--subpackages/jifenmingxi/jifenmingxi.wxml-->
+<!--subpackages/jifenzhongxin/jifenzhongxin.wxml-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<view class="header">
+  <view class="jifen"><text>{{alljf}}</text>可用积分</view>
+</view>
+<view class="selectBox">
+  <view class="selectItem">
+    <picker mode="date" value="{{time}}" fields="month" start="1999-01-01" end="2999-12-30" bindchange="bindDateChange">
+      <view>
+        {{selectTime}}
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xialajt.png" class="xialajt"></image>
+      </view>
+    </picker>
+  </view>
+  <view class="selectItem">
+    <picker mode="selector" value="{{index}}" range="{{stateType}}" bindchange="bindTypeChange">
+      <view>
+        {{state}}
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xialajt.png" class="xialajt"></image>
+      </view>
+    </picker>
+  </view>
+</view>
+<image src="https://wx.pmc-wz.com/materials/wujifen.png" mode="widthFix" wx:if="{{itemList.length==0}}" class="wujifen"></image>
+<view wx:else>
+  <view class="xllist" wx:for="{{itemList}}" wx:for-item="it" wx:key="idx">
+    <view class="xlitem">
+      <text class="xlcaption">{{it.remarks}}</text>
+      <text class="xltime">{{m1.rq(it.addtime)}} {{m1.time(it.addtime)}}</text>
+    </view>
+    <text class="xlscore">{{typeid==2?"-"+it.num:"+"+it.num}}</text>
+  </view>
+</view>

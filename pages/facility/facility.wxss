@@ -1,0 +1,41 @@
+/* pages/facility/facility.wxss */
+.title {
+  text-align: center;
+  margin: 80rpx auto 40rpx auto;
+  font-size: 34rpx;
+  width: 90%;
+  line-height: 44rpx;
+}
+
+.tiaoma {
+  display: block;
+  width: 90%;
+  margin:20rpx auto 0 auto;
+  font-size: 30rpx;
+  color: #999;
+}
+
+.pinpai {
+  display: block;
+  width: 90%;
+  margin:20rpx auto 0 auto;
+  font-size: 30rpx;
+  color: #333;
+}
+.BtnLine{
+  width: 100%;
+  overflow: hidden;
+  margin-top: 60rpx;
+  padding-left: 40rpx;
+}
+.subBtn{
+  width: 34% !important;
+  height: 60rpx;
+  line-height: 1;
+  font-weight: normal;
+  font-size: 30rpx;
+  background-color: #527ffc;
+  color: #fff;
+  display: inline-block;
+  margin-right: 40rpx !important;
+}

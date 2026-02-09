@@ -1,0 +1,26 @@
+/* pages/kefuList/kefuList.wxss */
+.caption {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-weight: bold;
+  margin: 60rpx 0 40rpx 0;
+  font-size: 20px;
+}
+
+.kefuBlock {
+  width: 33%;
+  float: left;
+  text-align: center;
+  margin-top: 40rpx;
+}
+
+.kefuBlock image {
+  width: 30%;
+  display: block;
+  margin:0 auto 20rpx auto;
+}
+
+.kefuBlock text {
+  font-size: 14px;
+}

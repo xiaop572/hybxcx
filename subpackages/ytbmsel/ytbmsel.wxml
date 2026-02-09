@@ -1,0 +1,8 @@
+<!--subpackages/ytbmsel/ytbmsel.wxml-->
+
+<!--subpackages/ytbmsel/ytbmsel.wxml-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/ytbt.png" mode="widthFix" class="ytbt"/>
+  <image src="https://wx.pmc-wz.com/materials/ytcwgk2.png" mode="widthFix" class="ytcwgk" bind:tap="rytbm" data-typeid="1" style="margin:70rpx auto 50rpx auto;"/>
+  <image src="https://wx.pmc-wz.com/materials/ytsngk.png" mode="widthFix" class="ytcwgk" bind:tap="rytbm" data-typeid="8"/>
+</view>

@@ -1,0 +1,25 @@
+<!--subpackages/tsal/tsal.wxml-->
+<view class="container1">
+  <!-- 顶部导航栏 -->
+  <view class="nav-container">
+    <view class="nav-arrow left" bindtap="scrollLeft">
+      <view class="arrow-icon">《</view>
+    </view>
+    <scroll-view class="nav-bar" scroll-x="true" scroll-with-animation="true" scroll-into-view="item{{currentTab}}" enhanced="true" show-scrollbar="false">
+      <view wx:for="{{tabs}}" wx:key="index" id="item{{index}}" class="nav-item {{currentTab === index ? 'active' : ''}}" bindtap="switchTab" data-index="{{index}}">{{item}}</view>
+    </scroll-view>
+    <view class="nav-arrow right" bindtap="scrollRight">
+      <view class="arrow-icon">》</view>
+    </view>
+  </view>
+
+  <!-- 案例展示区域 -->
+  <view class="case-container">
+    <view class="case-grid">
+      <view class="case-item" wx:for="{{caseList}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
+        <image class="case-image" src="https://wx.pmc-wz.com/hyb/images/{{item.coverimg}}" mode="aspectFill"></image>
+        <view class="case-desc">{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,47 @@
+<!--huodongpage/ysjzj/ysjzj.wxml-->
+  <view class="header">
+    <text class="title">填写信息</text>
+  </view>
+  
+  <view class="form-section">
+    <view class="form-item">
+      <view class="item-header">
+        <text class="item-number">*</text>
+        <text class="item-title">1.医生科室</text>
+      </view>
+      <input class="input-field" placeholder="请输入内容" model:value="{{department}}" />
+    </view>
+    
+    <view class="form-item">
+      <view class="item-header">
+        <text class="item-number">*</text>
+        <text class="item-title">2.医生姓名</text>
+      </view>
+      <input class="input-field" placeholder="请输入内容" model:value="{{doctorName}}" />
+    </view>
+    
+    <view class="form-item">
+      <view class="item-header">
+        <text class="item-number">*</text>
+        <text class="item-title">3.对TA说出心里话</text>
+      </view>
+      <textarea class="textarea-field" placeholder="请输入内容" model:value="{{thankLetter}}" maxlength="500"></textarea>
+    </view>
+    
+    <view class="form-item">
+      <view class="item-header">
+        <text class="item-title">4.一张照片记录感动时刻</text>
+        <view class="optional-tag">选填</view>
+      </view>
+      <view class="upload-section">
+        <view class="upload-box" bindtap="chooseImage">
+          <image wx:if="{{imageUrl}}" src="https://wx.pmc-wz.com/hyb/ximages/{{imageUrl}}" class="uploaded-image" mode="aspectFill"></image>
+          <view wx:else class="upload-placeholder">
+            <image src="/images/upload-icon.svg" class="upload-icon"></image>
+            <text class="upload-text">上传图片</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btn" bind:tap="submitForm">提交</view>

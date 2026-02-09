@@ -1,0 +1,11 @@
+<!--pages/productDetails/productDetails.wxml-->
+<view>
+  <view class="proHeader">
+    <image src="https://wx.pmc-wz.com/materials/shuiguang.jpg" mode="widthFix" class="proPicture"></image>
+    <text class="proTitle">水光针大礼包</text>
+    <text class="price">¥ 100.00</text>
+  </view>
+  <view class="buyTab">
+    
+  </view>
+</view>

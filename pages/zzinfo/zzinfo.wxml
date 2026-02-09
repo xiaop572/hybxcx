@@ -1,0 +1,99 @@
+<!--pages/zzinfo/zzinfo.wxml-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+  var gettime = function (r) {
+    var da = getDate()
+    da.setDate(da.getDate()+r)
+    var dataStr = (da.getMonth() + 1) + "-" + (da.getDate());
+    return dataStr;
+  }
+  module.exports.gettime = gettime;
+  var getzj = function (r) {
+    var da = getDate();
+    var week = ['日', '一', '二', '三', '四', '五', '六'];
+    da.setDate(da.getDate() + r);
+    var dataStr = da.getDay();
+    return week[dataStr];
+  }
+  module.exports.getzj = getzj;
+</wxs>
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/kdlogo.png" mode="widthFix" class="logo"></image>
+  <image src="https://wx.pmc-wz.com/materials/youzhi.png" mode="widthFix" class="youzhi"></image>
+  <!-- <image src="https://wx.pmc-wz.com/materials/shengming.png" mode="widthFix" class="shengming"></image> -->
+  <view class="title">
+    {{options.summary}}{{options.title}}
+  </view>
+  <view class="hint">
+    温馨提示：请填写真实身份信息!
+  </view>
+  <view class="containers">
+    <view class="name inTxt1">
+      <view class="caption1">姓名<i></i></view>
+      <input type="text" class="int1" model:value="{{name}}" />
+    </view>
+    <view class="name inTxt1">
+      <view class="caption1">手机号<i></i></view>
+      <input type="number" class="int1" model:value="{{phone}}" />
+    </view>
+    <view class="number inTxt1">
+      <view class="caption1">部位数<i></i></view>
+      <input type="number" class="int1" model:value="{{num}}" disabled="false" />
+    </view>
+    <view class="number inTxt1">
+      <view class="caption2">预约时间<i></i></view>
+      <input type="number" class="int1" disabled="false" bind:tap="selecttime" model:value="{{yuyuedate.item}}" />
+    </view>
+    <view class="remark inTxt">
+      <view class="caption">初步诊断<i></i></view>
+      <textarea name="" id="" class="int textarea" model:value="{{remark}}"></textarea>
+    </view>
+    <view class="submitBtn" bindtap="rfukuan">确认</view>
+  </view>
+  <view class="timebox" wx:if="{{showtime}}" catchtap="cat">
+    <view class="kytop">
+      <text catch:tap="closetime">关闭</text>
+    </view>
+    <view class="riqilist">
+      <view wx:for="{{7}}" wx:for-item="item" wx:key="idx" class="riqi {{curriqi===index?'active':''}}" bind:tap="selRiqi" data-index="{{index}}" data-item="{{item}}">
+        <text class="ri">{{m1.gettime(item)}}</text>
+        <text class="zhou">周{{m1.getzj(item)}}</text>
+      </view>
+      <view wx:if="{{kydatelist.length>0}}" class="kybox">
+        <view wx:for="{{kydatelist}}" wx:for-item="item" wx:key="idx" class="kydate" data-id="{{item.ID}}" bind:tap="gettimelist">
+          <text class="kyte1">{{item.BEGIN_TIME}}-{{item.END_TIME}}</text>
+          <text class="kyte2">{{item.CHECK_CLASS}}</text>
+        </view>
+      </view>
+      <view class="kytimebox" wx:if="{{showkytime && showtime}}">
+        <view class="kytop">
+          <text catch:tap="closekytime">关闭</text>
+        </view>
+        <view class="kytimelist">
+          <text>序号</text>
+          <text>时间</text>
+          <text>操作</text>
+        </view>
+        <view class="kytimelistbox">
+          <view wx:for="{{kytimelist}}" wx:for-item="item" wx:key="idx" class="kytimelist">
+            <text>{{item.id}}</text>
+            <text>{{item.time}}</text>
+            <text class="yu" catch:tap="yuyue" data-id="{{item.id}}" data-deparea="{{item.dep_area}}" data-dep="{{item.dep}}" data-room="{{item.check_room}}" data-memo="{{item.memo}}" data-date="{{item.date}}" data-modality="{{item.modality}}" data-medcine="{{item.medcine}}" data-item="{{item.time}}">预约</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

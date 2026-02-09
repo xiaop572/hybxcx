@@ -1,0 +1,14 @@
+<!--异业合作提现 -->
+<view class="txMethodBox">
+  <text class="tiLeft">提现到：</text>
+  <text class="tiRight">默认微信钱包</text>
+</view>
+<view class="txMain">
+  <text class="txCaption">提现金额</text>
+  <input type="text" placeholder="请输入金额" class="moneyInput" model:value="{{qxje}}"/>
+  <view class="txMainBottom">
+    <text class="keti">可提现金额¥{{prominfo.keti}}</text>
+    <text class="alltiBtn" bindtap="alltx">全部提现</text>
+  </view>
+</view>
+<view class="subBtn" bindtap="sqtx">申请提现</view>

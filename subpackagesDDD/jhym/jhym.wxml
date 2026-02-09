@@ -1,0 +1,57 @@
+<view class="container">
+  <!-- 顶部banner区域 -->
+  <view class="banner">
+    <image class="banner-img" src="https://wx.pmc-wz.com/materials/jhym-title.png" mode="widthFix"></image>
+  </view>
+
+  <!-- 待领权益区域 -->
+  <view class="rights-section">
+    <view class="section-title">待领权益：</view>
+    
+    <view class="rights-list">
+      <!-- 高端体检套餐 -->
+      <view class="rights-item">
+        <view class="item-left">
+          <image src="https://wx.pmc-wz.com/materials/jhym-tjtc.png" mode="aspectFill"></image>
+        </view>
+        <view class="item-right">
+          <view class="item-title">高端体检套餐</view>
+          <view class="item-price">价值¥2888</view>
+        </view>
+      </view>
+
+      <!-- 智能超声炮 -->
+      <view class="rights-item">
+        <view class="item-left">
+          <image src="https://wx.pmc-wz.com/materials/jhym-zncsp.png" mode="aspectFill"></image>
+        </view>
+        <view class="item-right">
+          <view class="item-title">智能超声炮</view>
+          <view class="item-price">价值¥2400</view>
+        </view>
+      </view>
+
+      <!-- 美白洁牙 -->
+      <view class="rights-item">
+        <view class="item-left">
+          <image src="https://wx.pmc-wz.com/materials/jhym-mbjy.png" mode="aspectFill"></image>
+        </view>
+        <view class="item-right">
+          <view class="item-title">美白洁牙</view>
+          <view class="item-price">价值¥600</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分割线 -->
+  <view class="divider"></view>
+
+  <!-- 激活码区域 -->
+  <view class="activation-section">
+    <view class="section-title2">激活码：</view>
+    <input class="activation-input" placeholder="请输入激活码" model:value="{{jhm}}"/>
+    <button class="activation-btn" bind:tap="handleActivate">立即领取</button>
+    
+  </view>
+</view>

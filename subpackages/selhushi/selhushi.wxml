@@ -1,0 +1,53 @@
+<!--subpackages/selhushi/selhushi.wxml-->
+<view class="top">
+  <view class="dingwei"></view>
+  <view class="jianjie">
+    <view class="jianjieCap">把月子中心带回家</view>
+    <view class="jianjiecont">
+      <view class="jjleft">
+        <image src="https://wx.pmc-wz.com/materials/jianjielogo.png" mode="widthFix" />
+      </view>
+      <view class="jjright">
+        <view class="jjrcap">
+          <text class="dhj">把月子中心带回家</text>
+          <text class="yys">预约数 128</text>
+        </view>
+        <view class="jjnw">
+          和平国际产后康复中心上门服务，让您产褥期足不出户在家就能享受一站式月子中心服务。通过提前预约，由专业产康师根据您的时间、产后身体情况，为您提供全套的上门产后护理，在家也能享受舒心、全方位的照顾。
+        </view>
+        <view class="jjjg">
+          5980.00元/19800.00元
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="main">
+  <view class="kqBox">
+    <view class='navBox'>
+      <view class='titleBox' bindtap='titleClick' data-idx='0'>
+        <text class="{{0 == currentIndex ? 'fontColorBox' : ''}}">上门护士</text>
+        <hr class="{{0 == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+      </view>
+    </view>
+    <view>
+    
+      <view class="hulist" wx:for="{{hulist}}" wx:for-item="item" wx:key="idx" bind:tap="rhsyy" data-item="{{item}}">
+        <image src="https://wx.pmc-wz.com/hyb/images/{{item.picture}}" mode="widthFix" class="avatar" />
+        <view class="huright">
+          <view class="hucap">{{item.name}}</view>
+          <view class="hucw">{{item.hospital}}<text class="cw">女性健康中心产康师</text></view>
+          <view class="hupf">
+            <image src="https://wx.pmc-wz.com/materials/wuxing.png" class="wuxing" mode="widthFix" />
+            <text class="xingji">5.0</text>
+            <text class="fwcs">服务人次{{item.num}}</text>
+          </view>
+          <view class="hujj">
+            {{item.memo}}
+          </view>
+        </view>
+      </view>
+      
+    </view>
+  </view>
+</view>

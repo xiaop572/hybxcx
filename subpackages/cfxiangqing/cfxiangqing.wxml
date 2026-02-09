@@ -1,0 +1,26 @@
+<!--subpackages/cfxiangqing/cfxiangqing.wxml-->
+<view class="jzxx">
+  <view class="cap">就诊信息</view>
+  <text>{{cfdetail.Brxm}} {{cfdetail.Sex}}</text>
+  <text class="jzsj">{{cfdetail.Jzsj}}</text>
+  <text class="bl">{{cfdetail.Doctor}} {{cfdetail.Ksmc}}</text>
+</view>
+<view class="bqxx">
+  <view class="cap">病情信息</view>
+  <view class="bqlin"><text>病人主诉：</text>{{cfdetail.Brzs}}</view>
+  <view class="bqlin"><text>简要病史：</text>{{cfdetail.Jybs}}</view>
+  <view class="bqlin"><text>体格检查：</text>{{cfdetail.Tgjc}}</view>
+  <view class="bqlin"><text>初步诊断：</text>{{cfdetail.Cbzd}}</view>
+</view>
+<view class="clyj">
+  <view class="cap">处理意见</view>
+  <view wx:for="{{cfdetail.yjlist}}" wx:for-item="item" wx:key="idx" class="yplist">
+    <view class="yjname">{{item.yjname}}</view>
+    <view class="jcdz" wx:if="{{item.zxks}}">检查地址:{{item.zxks}}</view>
+  </view>
+  <view wx:for="{{cfdetail.cflist}}" wx:for-item="item" wx:key="idx" class="yplist">
+    <view class="ypmc">{{item.ypmc}}</view>
+    <view>{{item.yyff}}{{item.jl}}{{item.gypc}}{{item.ypsl}}</view>
+    <view class="fph">发票号:{{item.fplsh}} 取药地址:{{item.fyzd}}</view>
+  </view>
+</view>

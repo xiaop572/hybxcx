@@ -1,0 +1,21 @@
+<!--pages/yyhd-zf/yyhd-zf.wxml-->
+<image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="bg" bindtap="showPlace"></image>
+<!-- <view class="place {{active===idx?'':'activity'}} ">
+  <view class="liaojie">
+          了解活动
+        </view> 
+  <view class="yuyue border" bindtap="showPlace" data-idx="{{idx}}">立即抢购</view>
+</view> -->
+<view class="wicket place {{active?'show':''}}">
+  <text class="wicketCaption">{{item.pictitle}}</text>
+  <view class="wicketList">
+    <text class="left1">限期体验，更多福利请加客服企微</text>
+  </view>
+  <view class="wicketList">
+    <text class="left">手机号</text>
+    <text class="right" wx:if="{{mobile}}">{{mobile}}</text>
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="right rightBtn"
+      wx:if="{{!mobile}}">一键获取</button>
+  </view>
+  <button class="yuyueBtn" bindtap="submit">立即购买</button>
+</view>

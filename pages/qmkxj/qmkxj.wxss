@@ -1,0 +1,169 @@
+/* pages/nzkh/nzkh.wxss */
+page{
+  padding-bottom: 0;
+  height: 100%;
+}
+.main{
+  min-height: 100%;
+  background:url("https://wx.pmc-wz.com/materials/qmkxjBg.png") no-repeat;
+  background-size: 100% 100%;
+  padding-bottom: 100rpx;
+  overflow: hidden;
+}
+.banner{
+  width: 100%;
+  display: block;
+}
+.proBox{
+  border-radius: 40rpx;
+  width: 640rpx;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: auto;
+  position: relative;
+  padding-bottom: 50rpx;
+}
+.nzpro{
+  width: 750rpx;
+  position: relative;
+  right: 0rpx;
+  margin-bottom: -80rpx;
+}
+.shou{
+  width: 120rpx;
+  position: absolute;
+  right: -55rpx;
+  top: 220rpx;
+}
+.khpro{
+  width: 92%;
+  margin:0 auto -10rpx auto;
+  display: block;
+}
+.khjia{
+  width: 40rpx;
+  display: block;
+  margin:30rpx auto;
+}
+.kh5tuan{
+  width: 86%;
+  display: block;
+  margin:0 auto 30rpx auto;
+}
+.khhaoli{
+  width: 92%;
+  margin:100rpx 0 0 10rpx;
+  display: block;
+}
+.khguize{
+  width: 92%;
+  float: right;
+  margin:60rpx 0 0 0;
+  display: block;
+}
+.address{
+  display: block;
+  margin:0 auto 0 auto;
+  width: 82%;
+}
+.block{
+  height: 50rpx;
+  width: 100%;
+  display: block;
+  clear: both;
+}
+.qmkxjhd{
+  width: 92%;
+  display: block;
+  margin: auto;
+}
+.tz{
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0, 0, 0, 0.3);
+}
+.tzbox{
+  padding:20rpx 40rpx 20rpx 40rpx;
+  background-color: #fff;
+  width: 86%;
+  position: absolute;
+  box-sizing: border-box;
+  top: 25%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.tzcap{
+  display: block;
+  text-align: center;
+  letter-spacing: 5rpx;
+  color: #000;
+  font-weight: 500;
+  margin-bottom: 40rpx;
+}
+.tzinp{
+  border: 1px solid #666;
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.tzinp text{
+  display: inline-block;
+  height:50rpx;
+  line-height: 50rpx;
+  vertical-align: middle;
+}
+.tzinp input{
+  width: 350rpx;
+  display: inline-block;
+  height: 50rpx;
+  line-height: 50rpx;
+  vertical-align: middle;
+}
+.submit{
+  background-color: rgb(79, 140, 229);
+  width: 300rpx;
+  color: #fff;
+  margin: 40rpx auto 0 auto;
+  text-align: center;
+  height:60rpx;
+  line-height: 60rpx;
+}
+.tmbox{
+  position: absolute;
+  height: 600rpx;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.tm{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 666;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 0 20rpx;
+  display: inline-block;
+  overflow: hidden;
+  color: #eee;
+  font-size: 28rpx;
+  animation: tmrun 15s linear infinite;
+}
+.tm image{
+  width: 40rpx;
+  vertical-align: middle;
+  border-radius: 40rpx;
+}
+@keyframes tmrun{
+  0%{
+
+  }
+  100%{
+    left:-110%
+  }
+}

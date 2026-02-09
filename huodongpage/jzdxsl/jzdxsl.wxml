@@ -1,0 +1,21 @@
+<!--subpageB/51hjz/51hjz.wxml-->
+<image src="https://wx.pmc-wz.com/materials/hmb/jzsl.jpg" mode="widthFix" style="width: 100%;"/>
+
+<!-- 底部报名框 -->
+<view class="signup-form">
+  <form bindsubmit="submitForm">
+    <view class="form-item">
+      <label>姓名</label>
+      <input name="name" placeholder=""  model:value="{{name}}"/>
+    </view>
+    <view class="form-item">
+      <label>手机</label>
+      <input name="phone" placeholder="" type="number"  model:value="{{phone}}"/>
+    </view>
+    <view class="form-item">
+      <label>到院人数</label>
+      <input name="visitCount" placeholder="" type="number" model:value="{{visitCount}}" style="padding: 0 10rpx 0 140rpx;"/>
+    </view>
+    <view class="submit-btn" bind:tap="submitForm">提交报名</view>
+  </form>
+</view>

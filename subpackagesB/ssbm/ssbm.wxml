@@ -1,0 +1,19 @@
+<image src="https://wx.pmc-wz.com/materials/qkh/home2top.png" mode="widthFix" class="page" />
+<text class="ssbmcap">鼻整形手术观摩</text>
+<text class="ssbmcap">手术者：黄金龙-南京中医药大学附属医院</text>
+<view class="row">
+  <text>姓名：</text>
+  <input type="text" model:value="{{xinmin}}" />
+</view>
+<view class="row">
+  <text>电话：</text>
+  <input type="number" model:value="{{mobile}}" />
+</view>
+<view class="row">
+  <text>单位：</text>
+  <input type="text" model:value="{{corp}}" />
+</view>
+<view class="nextBtn" bindtap="next">提交</view>
+<text class="beiz2">手术时间：2024年10月27日  13：30--17：30</text>
+<text class="beiz2">手术地点：温州和平国际医院手术室</text>
+<text class="beiz2">人数限5人，费用：500元</text>

@@ -1,0 +1,21 @@
+<!--院内报备-->
+<text class="cap">添加诊所</text>
+<label class="inputLine">
+  <view class="inputcap"><text class="war">*</text>公司名称</view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="请输入" model:value="{{gsmz}}" disabled="disabled"/>
+  </view>
+</label>
+<label class="inputLine">
+  <view class="inputcap"><text class="war">*</text>诊所名称</view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="请输入" model:value="{{name}}" />
+  </view>
+</label>
+<label class="inputLine">
+  <view class="inputcap"><text class="war">*</text>市场人员</view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="请输入" model:value="{{scry}}" />
+  </view>
+</label>
+<view class="submitBtn" bindtap="rtijiao">提交</view>

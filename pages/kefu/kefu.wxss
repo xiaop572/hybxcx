@@ -1,0 +1,21 @@
+/* pages/kefu/kefu.wxss */
+.caption {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-weight: bold;
+  margin: 100rpx 0 0 0;
+  font-size: 20px;
+}
+
+input {
+  height: 2.6rem;
+  padding: 0 40rpx;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-top: 60rpx;
+}
+
+.btn {
+  margin-top: 60rpx;
+}

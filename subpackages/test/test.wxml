@@ -1,0 +1,2 @@
+<!--subpackages/test/test.wxml-->
+<text bindtap="sendhb">红包测试</text>

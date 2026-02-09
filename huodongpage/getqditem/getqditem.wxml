@@ -1,0 +1,5 @@
+<view class="welcome-overlay">
+  <view class="welcome-popup">
+    <image src="{{cardInfo.image}}" mode="widthFix" class="card-img" bindtap="claimCard" />
+  </view>
+</view>

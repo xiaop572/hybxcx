@@ -1,0 +1,8 @@
+<!--pages/search/search.wxml-->
+<view class="searchBox">
+  <view class="search">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fangdajing.png" class="searchIcon"></image>
+    <input type="text" placeholder="搜索商品" class="searchInput" model:value="{{searchData}}"/>
+  </view>
+  <text class="searchBtn" bindtap="searchSumbit">搜索</text>
+</view>

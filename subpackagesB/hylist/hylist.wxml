@@ -1,0 +1,19 @@
+<!--subpackagesB/hylist/hylist.wxml-->
+<view class="search-container">
+  <input type="text" placeholder="请输入演讲嘉宾姓名查看演讲内容" bindinput="handleInput" value="{{searchText}}" />
+  <view class="dropdown" wx:if="{{searchResults.length > 0}}">
+    <view wx:for="{{searchResults}}" wx:key="index" class="dropdown-item" bindtap="rjbinfo" data-item="{{item}}" data-id="{{item.id}}">
+      <text class="searname">{{item.name}}</text>
+      <text class="searcomp">{{item.company}}</text>
+    </view>
+  </view>
+</view>
+<view class="item" bind:tap="rjbinfo" wx:for="{{jblist}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" data-id="{{item.id}}">
+  <image src="https://wx.pmc-wz.com/materials/zxdh/yanjingzj.png" mode="widthFix" class="jbtximg" />
+  <view class="zjinfo">
+    <text class="zjcap">{{item.name}}</text>
+    <text class="zjyy">{{item.company}}</text>
+  </view>
+  <image src="https://wx.pmc-wz.com/materials/jbjiantou.png" mode="widthFix" class="jt" />
+</view>
+<zx-fc></zx-fc>

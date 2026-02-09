@@ -1,0 +1,6 @@
+/* subpackages/jkhq/jkhq.wxss */
+image{
+  width: 90%;
+  display: block;
+  margin: auto;
+}

@@ -1,0 +1,14 @@
+<!--subpackages/addjzka/addjzka.wxml-->
+<view>
+  <view>
+    <view class="row">
+      <text>患者姓名</text>
+      <input type="text" model:value="{{brxm}}"/>
+    </view>
+    <view class="row">
+      <text>身份证</text>
+      <input type="text" model:value="{{sfzh}}"/>
+    </view>
+  </view>
+  <view class="nextBtn" bindtap="next">下一步</view>
+</view>

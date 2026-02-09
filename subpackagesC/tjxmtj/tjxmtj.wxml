@@ -1,0 +1,59 @@
+<view class="tjxmtj-wrapper">
+
+  <!-- 问卷结果展示 -->
+  <view class="survey-result">
+    <view class="result-title">问卷调查结果</view>
+    <view class="result-item" wx:for="{{surveyData.questions}}" wx:key="id">
+      <view class="question">{{item.text}}</view>
+      <view class="answer">您的回答: {{userAnswers[item.id]}}</view>
+    </view>
+  </view>
+
+  <!-- 重点建议提示 -->
+  <view class="recommend-tip">
+    <view class="tip-icon">👨‍⚕️</view>
+    <view class="tip-content">
+      <view class="tip-title">根据问卷答案，建议检查以下项目:</view>
+      <view class="tip-subtitle">标准源于《健康体检基本项目专家共识》</view>
+    </view>
+  </view>
+
+  <!-- 主体内容区 -->
+  <view class="main-content">
+    <!-- 左侧分类导航 -->
+    <view class="category-nav">
+      <view wx:for="{{categories}}" wx:key="id" class="nav-item {{currentCategory === item.id ? 'active' : ''}}" bindtap="switchCategory" data-id="{{item.id}}">
+        <view class="nav-icon">{{item.icon}}</view>
+        <view class="nav-text">{{item.name}}</view>
+        <view class="badge" wx:if="{{item.badge > 0}}">{{item.badge}}</view>
+      </view>
+    </view>
+
+    <!-- 右侧项目列表 -->
+    <view class="item-list">
+      <!-- 动态渲染项目列表 -->
+      <view wx:for="{{filteredItems}}" wx:key="id" class="exam-item {{item.isSelected ? 'selected' : ''}}">
+        <view class="item-header">
+          <view class="item-name">{{item.name}}</view>
+          <view class="item-tag" wx:if="{{item.isApplicable}}">适用</view>
+          <view class="item-recommend" wx:if="{{item.isRecommend}}">推荐</view>
+        </view>
+        <view class="item-desc">{{item.desc}}</view>
+        <view class="item-reason">推荐理由: {{item.reason}}</view>
+        <view class="item-price">¥ {{item.price}}</view>
+        <view class="item-check {{item.isSelected ? 'selected' : ''}}" bindtap="toggleItem" data-id="{{item.id}}"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部结算栏 -->
+  <view class="footer">
+    <view class="cart">
+      <view class="cart-icon">🛒</view>
+      <view class="cart-badge">{{cartCount}}</view>
+    </view>
+    <view class="total-price">合计 <text class="price">¥ {{totalPrice}}</text></view>
+    <view class="btn-cancel" bindtap="cancelSelection">不加了</view>
+    <view class="btn-confirm" bindtap="confirmSelection">去结算</view>
+  </view>
+</view>

@@ -1,0 +1,3 @@
+<!--subpackagesB/tupage/tupage.wxml-->
+
+<image src="https://wx.pmc-wz.com/materials/zxdh/jiaofei.jpg" mode="widthFix" class="page" wx:if="{{type=='jiaofei'}}" show-menu-by-longpress/>

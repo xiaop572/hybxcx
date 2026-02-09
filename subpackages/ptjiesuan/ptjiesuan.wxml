@@ -1,0 +1,35 @@
+<!--pages/jiesuan/jiesuan.wxml-->
+<view class="tishi">
+  <text>购买默认为实名姓名，也可修改</text> 
+</view>
+<view>
+  <view class="informmation">
+    <label for="js_input1" class="weui-cell weui-cell_active">
+      <view class="weui-cell__hd"><text class="weui-label">姓名</text></view>
+      <view class="weui-cell__bd">
+        <input id="js_input1" class="weui-input" placeholder="填写本人姓名" model:value="{{name}}"/>
+      </view>
+    </label>
+    <label for="js_input1" class="weui-cell weui-cell_active">
+      <view class="weui-cell__hd"><text class="weui-label">手机号</text></view>
+      <view class="weui-cell__bd">
+        <input id="js_input1" class="weui-input" placeholder="手机号" rules="[bytelength:11]" type="number" model:value="{{phone}}"/>
+      </view>
+    </label>
+  </view>
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__hd">项目内容</view>
+    <view class="weui-panel__bd">
+      <view role="option" class="weui-media-box weui-media-box_text">
+        <strong class="weui-media-box__title">{{item.pictitle}}</strong>
+      </view>
+      <view role="option" class="weui-media-box weui-media-box_text" wx:for="{{item.list}}" wx:for-item="it" wx:key="idx">
+        <strong class="weui-media-box__title padleft40">{{it.goodsname}}</strong>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <text class="money">¥{{item.price}}</text>
+    <view class="buyBtn" bindtap="payment" data-item="总计:{{item}}">去支付</view>
+  </view>
+</view>

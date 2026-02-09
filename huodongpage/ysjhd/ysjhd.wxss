@@ -1,0 +1,45 @@
+/* huodongpage/ysjhd/ysjhd.wxss */
+page {
+  padding-bottom: 0 !important;
+  background-color: #f2f2f2;
+}
+
+.yjsmain {
+  width: 90%;
+  background-color: #fff;
+  margin: auto;
+  box-sizing: border-box;
+  padding: 20rpx 40rpx;
+  margin-top: 40rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.yjsmain text {
+  display: block;
+}
+
+.yjscap {
+  text-align: center;
+  font-size: 38rpx;
+  margin-bottom: 10rpx;
+  color: #333;
+}
+
+.yjsnr {
+  text-indent: 2em;
+  margin-top: 10rpx;
+  color: #666;
+}
+.btn{
+  background-color: #1aad19;
+  width: 90%;
+  margin:auto;
+  color: #fff;
+  margin-top: 40rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 36rpx;
+  display: block;
+}

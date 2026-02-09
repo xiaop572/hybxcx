@@ -1,0 +1,69 @@
+/* subpackagesB/jbinfo/jbinfo.wxss */
+page{
+  background: url("https://wx.pmc-wz.com/materials/gerenbg.png") no-repeat;
+  background-size: 100%;
+  background-color: #E6E6E6;
+}
+.jbavatar{
+  width: 200rpx;
+  height: 200rpx;
+  background: #E7E7E7;
+  border-radius: 200rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 170rpx;
+  margin: auto;
+  box-shadow: 0 5rpx 10rpx 0 #ccc;
+}
+.jbtximg{
+  width: 180rpx;
+  border-radius: 400rpx;
+  display: block;
+  margin: auto;
+  margin-top: 12rpx;
+}
+.jbinfo{
+  margin-top: 460rpx;
+}
+.jbinfo text{
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+.jbinfo .name{
+  font-size: 46rpx;
+}
+.touxian{
+  font-size: 30rpx;
+}
+.jbneirong{
+  width: 84%;
+  margin:70rpx auto 0 auto;
+}
+.kelist{
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-top: 10rpx;
+  padding:16rpx 40rpx;
+  min-height: 100rpx;
+  box-sizing: border-box;
+}
+.yjcap{
+  font-size: 40rpx;
+}
+.kelist text{
+  display: block;
+}
+.yjtime{
+  color: #003F86;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+.yjzt{
+  font-weight: bold;
+}
+.yjhc{
+  font-size:26rpx;
+}

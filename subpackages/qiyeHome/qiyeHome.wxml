@@ -1,0 +1,63 @@
+<!--异业首页-->
+<view class="userinfo">
+  <image src="{{userInfo.avatarUrl?userInfo.avatarUrl:'https://wx.pmc-wz.com/materials/moren.jpg'}}" mode="widthFix" bindtap="routeMyInfo" class="acator"></image>
+  <text class="nameText" bindtap="routeMyInfo">{{prominfo.xinmin}}</text>
+  <text bindtap="rxieyi" class="xieyi">分销协议</text>
+</view>
+<view class="yueBox">
+  <view class="tiBtn" bindtap="rtixian">立即提现</view>
+  <view class="yueList">
+    <view class="yueLeft">
+      <text class="yuCaption">余额(元)</text>
+      <text class="yunum">{{prominfo.yuer}}</text>
+    </view>
+    <view class="ketiRight">
+      <text class="ketiCaption">可提(元)</text>
+      <text class="yunum">{{prominfo.keti}}</text>
+    </view>
+  </view>
+</view>
+<view class="protj">产品推荐</view>
+<view class='navBox'>
+  <view class='titleBox' bindtap='titleClick' data-idx='0'>
+    <text class="{{0 == currentIndex ? 'fontColorBox' : ''}}">最新推荐</text>
+    <hr class="{{0 == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+  </view>
+  <view class='titleBox' bindtap='titleClick' data-idx='1'>
+    <text class="{{1 == currentIndex ? 'fontColorBox1' : ''}}">销量最高</text>
+    <hr class="{{1 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+  </view>
+  <view class='titleBox' bindtap='titleClick' data-idx='2'>
+    <text class="{{2 == currentIndex ? 'fontColorBox1' : ''}}">佣金最高</text>
+    <hr class="{{2 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+  </view>
+</view>
+<view class="proBox" wx:if="{{currentIndex===0}}">
+  <view class="jplist" wx:for="{{zxproList}}" wx:for-item="item" data-id="{{item.id}}" wx:key="idx" bindtap="rpro">
+    <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="jpImg"></image>
+    <text class="jpcaption">{{item.pictitle}}</text>
+    <text class="jiazhi">价格¥{{item.price}}</text>
+    <text class="yongjin">佣金¥{{item.yj1}}</text>
+    <view class="dhBtn" data-id="{{item.id}}">海报</view>
+  </view>
+</view>
+<view class="proBox" wx:if="{{currentIndex===1}}">
+  <view class="jplist" wx:for="{{xlproList}}" wx:for-item="item"data-id="{{item.id}}" wx:key="idx" bindtap="rpro">
+    <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="jpImg"></image>
+    <text class="jpcaption">{{item.pictitle}}</text>
+    <text class="jiazhi">价格¥{{item.price}}</text>
+    <text class="yongjin">佣金¥{{item.yj1}}</text>
+    <view class="dhBtn" data-id="{{item.id}}">海报</view>
+  </view>
+</view>
+
+<view class="proBox" wx:if="{{currentIndex===2}}">
+  <view class="jplist" wx:for="{{yjproList}}" data-id="{{item.id}}" wx:for-item="item" wx:key="idx" bindtap="rpro">
+    <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="jpImg"></image>
+    <text class="jpcaption">{{item.pictitle}}</text>
+    <text class="jiazhi">价格¥{{item.price}}</text>
+    <text class="yongjin">佣金¥{{item.yj1}}</text>
+    <view class="dhBtn" data-id="{{item.id}}">海报</view>
+  </view>
+</view>
+<tabbar></tabbar>

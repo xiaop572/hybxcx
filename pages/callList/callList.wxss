@@ -1,0 +1,45 @@
+/* pages/callList/callList.wxss */
+page{
+  background-color: #f2f2f2;
+}
+.list{
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding: 20rpx;
+}
+.pageList{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: #f2f2f2;
+  text-align: center;
+  height: 160rpx;
+  line-height: 160rpx;
+}
+.pageList text{
+  color: #666;
+}
+.upBtn,.downBtn{
+  position: absolute;
+  color: #fff;
+  background-color: #4e82fa;
+  width: 200rpx !important;
+  font-size: 30rpx;
+  border-radius: 40rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 !important;
+}
+.upBtn{
+  left: 40rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.downBtn{
+  right: 40rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}

@@ -1,0 +1,43 @@
+<!--subpackages/tcshiyong/tcshiyong.wxml-->
+<view class="tishi">
+  为保证车辆正常出场，请提前5分钟领券。
+</view>
+<view class="cpBox">
+  <text class="cpcap">请输入车牌</text>
+  <view class="cpList" bindtap="cpjptrue">
+    <view class="cph">{{plate[0]}}</view>
+    <view class="cph">{{plate[1]}}</view>
+    <view class="cph">{{plate[2]}}</view>
+    <view class="cph">{{plate[3]}}</view>
+    <view class="cph">{{plate[4]}}</view>
+    <view class="cph">{{plate[5]}}</view>
+    <view class="cph">{{plate[6]}}</view>
+    <view class="cph2">{{plate[7]?plate[7]:""}}
+      <image src="https://wx.pmc-wz.com/materials/xny.png" class="xny" mode="widthFix" wx:if="{{!plate[7]}}"></image>
+    </view>
+  </view>
+</view>
+<plateKeyboard showPlateKeyboard="{{isShowKeyboard}}" bind:plateKeyboardChange="onPlateKeyboardValueChange"></plateKeyboard>
+<view class="subBtn" bindtap="submit">
+  确定
+</view>
+<view class="youxuanBox">
+  <view class="youxuanCaption">
+    <view class="youLeft">
+      <image src="https://wx.pmc-wz.com/materials/whiteXin.png" mode="widthFix"></image>
+    </view>
+    <view class="youRight">和平国际优选</view>
+  </view>
+  <view class="youxuanitemList">
+    <view class="youxuanitem" wx:for="{{youxuanList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" bindtap="rtcxq2" data-id="{{item.id}}">
+      <view class="youxuanfengimg">
+        <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix"></image>
+      </view>
+      <text class="youxuanCaption">{{item.pictitle}}</text>
+      <view class="youxuanpriceFlex">
+        <view class="youxuanprice"><text class="symbol">￥</text><text>{{item.price}}</text></view>
+        <view class="ms">马上抢</view>
+      </view>
+    </view>
+  </view>
+</view>

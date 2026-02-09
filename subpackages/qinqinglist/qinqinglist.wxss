@@ -1,0 +1,66 @@
+/* subpackages/qinqinglist/qinqinglist.wxss */
+page{
+  background-color: #f2f2f2;
+}
+.personList{
+  background:url("https://wx.pmc-wz.com/materials/jzlinebg.png") no-repeat;
+  background-size: 100% 100%;
+  padding: 26rpx 40rpx;
+  align-items: center;
+  box-sizing: border-box;
+  width: 94%;
+  margin:20rpx auto 0 auto;
+  border-radius: 16rpx;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+.jztx{
+  width: 80rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+.info{
+  float: left;
+}
+.acrio{
+  width: 50rpx;
+  float: right;
+  margin-top: 20rpx;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  background-color: #70afe5;
+}
+.sel{
+  background-color: #ffb171;
+  padding: 10rpx 40rpx;
+  font-size: 24rpx;
+  color: #333;
+  border-radius: 10rpx;
+}
+.addjzr{
+  background-color: #5e9be0;
+  color: #fff;
+  width: 92%;
+  margin: 40rpx auto;
+  text-align: center;
+  padding: 10rpx 0;
+  border-radius: 10rpx;
+}
+.canper{
+  background-color: red;
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+}

@@ -1,0 +1,14 @@
+<!--我的绑卡-->
+<view class="addcard" bindtap="raddka">
+  <image src="https://wx.pmc-wz.com/materials/addcardIcon.png" mode="widthFix" class="addcardicon"></image>
+  新增就诊卡
+</view>
+<view wx:for="{{cardlist}}" wx:for-item="item" wx:key="idx" class="cardlist">
+  <text class="cardtype">[{{item.cardtype}}、已实名] </text>
+  <text class="brxm">{{item.brxm}}</text>
+  <text class="jiebang" bind:tap="jiebang" data-brbm="{{item.brbm}}" >解绑</text>
+</view>
+<view class="addcard1" bindtap="raddtjcard">
+  <image src="https://wx.pmc-wz.com/materials/addcardIcon.png" mode="widthFix" class="addcardicon"></image>
+  新增体检卡
+</view>

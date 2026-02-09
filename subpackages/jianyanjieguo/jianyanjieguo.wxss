@@ -1,0 +1,149 @@
+/* subpackages/jianyanjieguo/jianyanjieguo.wxss */
+
+.danxiangItem {
+    margin: 20rpx auto 0 auto;
+    background: #fff;
+    width: 92%;
+    box-sizing: border-box;
+    padding: 40rpx 30rpx;
+    border-radius: 20rpx;
+    font-size: #000;
+    border: 1px solid #d5e0fa;
+}
+
+.danxiangItem .one {
+    font-weight: bold;
+    color: #333;
+}
+
+.danxiangItem .two {
+    display: block;
+    margin: 20rpx 0;
+    font-size: 14px;
+    color: #999;
+}
+
+.danxiangItem .tree {
+    font-size: 14px;
+    color: #333;
+}
+
+.danxiangItem .four {
+    font-size: 14px;
+    color: #666;
+    margin-left: 5rpx;
+}
+
+.danxiangContent {
+    padding-bottom: 20rpx;
+}
+
+.danxiangItem .five {
+    font-size: 16px;
+    color: #333;
+}
+
+.danxiangItem .blue {
+    color: blue;
+}
+
+.danxiangItem .red {
+    color: red;
+}
+
+.aifxbtn {
+    background-color: #22a3f4;
+    color: #fff;
+}
+
+.aibox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10rpx 50rpx 50rpx 50rpx;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600rpx;
+    max-height: 900rpx;
+
+}
+
+.aifxhead {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30rpx;
+    border-bottom: 1px solid #ccc;
+    padding: 30rpx;
+}
+.aifxClose{
+    width: 50rpx;
+    height: 50rpx;
+}
+.aifxmain{
+    overflow-y: auto;
+    max-width: 600rpx;
+    max-height: 700rpx;
+}
+.poi{
+    color: #999999;
+    font-size: 20rpx;
+    letter-spacing: 2rpx;
+}
+
+.stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    margin: 0 -5%;
+    overflow: hidden;
+}
+
+.dot-flashing {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #bbc6cc;
+    color: #bbc6cc;
+    animation: dotFlashing 1s infinite linear alternate;
+    animation-delay: .5s;
+}
+
+.dot-flashing::before {
+    left: -15px;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 0s;
+}
+
+.dot-flashing::after {
+    left: 15px;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 1s;
+}
+
+.dot-flashing::before,
+.dot-flashing::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    color: #f3f3f3;
+}
+
+@keyframes dotFlashing {
+    0% {
+        background-color: #f3f3f3
+    }
+    100% {
+        background-color: #bbc6cc
+    }
+}

@@ -1,0 +1,46 @@
+<!--pages/exmineResult/exmineResult.wxml-->
+<view class="exmineResult">
+  <view class="nameRow">
+    <text class="left">客人姓名</text>
+    <text class="right">{{brxm}}</text>
+  </view>
+  <view class="timeRow">
+    <text class="left">就诊日期</text>
+    <text class="right">{{date}}</text>
+  </view>
+  <view class="stateRow">
+    <text class="left">状态汇总</text>
+    <text class="right"> 总体检条数：{{total}},已完成：{{complete}},未完成：{{undone}}</text>
+  </view>
+  <view class="showBtn" bindtap="changeResult">
+    {{btnWord}}
+  </view>
+  <wxs module="m1">
+    var rq = function (r) {
+      var da = getDate(r)
+      var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+      return dataStr;
+    }
+    module.exports.rq = rq;
+    var time = function (r) {
+      var da = getDate(r)
+      var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '00' : da.getMinutes());
+      return dataStr;
+    }
+    module.exports.time = time;
+  </wxs>
+  <view class="result" wx:for="{{resultList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx"
+    wx:if="{{btnWord==='按总项目查看'}}">
+    <text class="title">{{item.pm}}</text>
+    <text class="state,{{item.zt==='暂无结果'?'noResult':''}}">{{item.zt}}</text>
+    <text class="resultTime1">操作时间:{{m1.rq(item.czrq)}} {{m1.time(item.czrq)}}</text>
+    <text class="resultTime2">报告时间:<text wx:if="{{item.zt==='已有结果'}}">{{m1.rq(item.bgsj)}}
+        {{m1.time(item.bgsj)}}</text></text>
+  </view>
+  <view class="result" wx:for="{{resultList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx"
+    wx:if="{{btnWord==='按分项目查看'}}">
+    <text class="title">{{item.fymc}}</text>
+    <text class="state,{{item.zt==='暂无结果'?'noResult':''}}">{{item.zt}}</text>
+    <text class="resultTime1">操作时间:{{m1.rq(item.czrq)}} {{m1.time(item.czrq)}}</text>
+  </view>
+</view>

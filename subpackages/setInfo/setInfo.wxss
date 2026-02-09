@@ -1,0 +1,47 @@
+/* subpackages/setInfo/setInfo.wxss */
+.avatarUrl {
+  width: 140rpx;
+  display: block;
+  margin: auto;
+  border-radius: 20rpx;
+}
+
+.nick {
+  width: 100%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  display: block;
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  margin-top: 100rpx;
+}
+
+.nick text {
+  width: 100rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nick input {
+  display: inline-block;
+  vertical-align: middle;
+  color: #666;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: calc(100% - 100rpx);
+}
+
+.submit {
+  margin-top: 100rpx;
+}
+
+.avatarBtn {
+  width: 140rpx !important;
+  height: 140rpx !important;
+  margin: 100rpx auto 0 auto !important;
+  padding: 0 !important;
+  margin-top: 100rpx;
+}

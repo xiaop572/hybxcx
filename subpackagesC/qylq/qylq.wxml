@@ -1,0 +1,30 @@
+<view class="container1">
+  <image class="banner" src="https://wx.pmc-wz.com/materials/qylq-top.png" mode="widthFix"></image>
+
+  <view class="content-box">
+
+    <view class="form-container">
+      <view class="form-title">待领权益：</view>
+      <view class="form-card">
+        <image class="product-image" src="https://wx.pmc-wz.com/materials/qylq-pro.png" mode="widthFix"></image>
+        <view class="card-info">
+          <view class="card-title">高端体检套餐</view>
+          <view class="card-price">（价值2588元）</view>
+        </view>
+      </view>
+
+      <view class="form-label" style="margin-top: 60rpx;">权益码：</view>
+      <view class="form-group">
+        <input class="input" type="password" placeholder="请输入权益码" model:value="{{pwd}}" />
+      </view>
+
+      <view class="form-group">
+        <view class="submit-btn" bindtap="handleSubmit">立即领取</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="float-button" bindtap="handleFloatButton">
+    <image src="https://wx.pmc-wz.com/materials/qylq-fc.png" mode="widthFix" bind:tap="rmycard"></image>
+  </view>
+</view>

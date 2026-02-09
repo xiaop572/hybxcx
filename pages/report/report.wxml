@@ -1,0 +1,14 @@
+<!--pages/report/report.wxml-->
+<view wx:if="{{islogin}}">
+  <image src="https://wx.pmc-wz.com/materials/tijianbaogao.jpg" class="tijianbaogao" mode='widthFix'></image>
+  <view wx:if="{{!isshiming}}">您未实名，请去<text class="login" bind:tap="rshiming">实名</text></view>
+  <view wx:for="{{reportList}}" wx:key="id" wx:for-item="item" wx:for-index="idx" data-idx="{{idx}}" bindtap="rContent" class="tijianBlock">
+    <text class="serial">{{idx+1}}</text>
+    <text class="one">第{{idx+1}}次体检</text>
+    <text class="two">{{item.myDate}}</text>
+  </view>
+</view>
+<view wx:if="{{!islogin}}">
+  <image src="https://wx.pmc-wz.com/materials/tijianbaogao.jpg" class="tijianbaogao" mode='widthFix'></image>
+  <view wx:if="{{!islogin}}">您未登录，没有体检报告 请去<text class="login" bind:tap="rlogin">登录</text></view>
+</view>

@@ -1,0 +1,138 @@
+/* huodongpage/ysjzj/ysjzj.wxss */
+
+.header {
+  background-color: #ffffff;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.form-section {
+  padding: 20rpx 0;
+  width: 90%;
+}
+
+.form-item {
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+  width: 100%;
+}
+
+.item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+.item-number {
+  font-size: 28rpx;
+  color: red;
+  font-weight: 500;
+  margin-right: 10rpx;
+}
+
+.item-title {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: 500;
+}
+
+.optional-tag {
+  background-color: #52c41a;
+  color: #ffffff;
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 12rpx;
+  margin-left: 20rpx;
+}
+
+.input-field {
+  width: 100%;
+  height: 80rpx;
+  background-color: #f8f8f8;
+  border: 1rpx solid #e5e5e5;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+.input-field::placeholder {
+  color: #999999;
+}
+
+.textarea-field {
+  width: 100%;
+  min-height: 200rpx;
+  background-color: #f8f8f8;
+  border: 1rpx solid #e5e5e5;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+.textarea-field::placeholder {
+  color: #999999;
+}
+
+.upload-section {
+  margin-top: 20rpx;
+}
+
+.upload-box {
+  width: 200rpx;
+  height: 200rpx;
+  border: 2rpx dashed #d9d9d9;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 10rpx;
+  opacity: 0.6;
+}
+
+.upload-text {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.uploaded-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 6rpx;
+}
+.btn{
+  background-color: #1aad19;
+  width: 90%;
+  margin:auto;
+  color: #fff;
+  margin-top: 40rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 36rpx;
+  display: block;
+}

@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="input-area">
+    <textarea class="base64-input" placeholder="请粘贴base64编码内容" bindinput="onInputChange"></textarea>
+  </view>
+  
+  <view class="preview-area" wx:if="{{imageUrl}}">
+    <image class="preview-image" src="{{imageUrl}}" mode="aspectFit"></image>
+  </view>
+  
+  <view class="button-group">
+    <view class="convert-btn" bindtap="convertToImage">转换</view>
+    <view class="save-btn" bindtap="saveImage" wx:if="{{imageUrl}}">保存到相册</view>
+  </view>
+  
+  <view class="loading" wx:if="{{isLoading}}">
+    <view class="loading-text">处理中...</view>
+  </view>
+</view>

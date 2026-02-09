@@ -1,0 +1,39 @@
+<!--subpackages/ytbmsel/ytbmsel.wxml-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/ytbt.png" mode="widthFix" class="ytbt" />
+  <view class="bmmain">
+
+    <view class="bmline">
+      <text decode="true">姓&nbsp;&nbsp;&nbsp;&nbsp;名：</text>
+      <input type="text" model:value="{{xinmin}}" />
+    </view>
+    <view class="bmline">
+      <text>手机号：</text>
+      <input type="number" model:value="{{mobile}}" />
+    </view>
+    <view class="bmline">
+      <text decode="true">单&nbsp;&nbsp;&nbsp;&nbsp;位：</text>
+      <input type="text" model:value="{{corp}}" />
+    </view>
+    
+    <!-- 观看方式选择 -->
+    <view class="watch-mode-section">
+      <text class="section-title">观看方式：</text>
+      <view class="watch-mode-options">
+        <view class="watch-option {{watchMode === 'inside' ? 'active' : ''}}" bind:tap="selectWatchMode" data-mode="inside">
+          <view class="option-icon">{{watchMode === 'inside' ? '●' : '○'}}</view>
+          <text>内场观看(限6人)</text>
+        </view>
+        <view class="watch-option {{watchMode === 'outside' ? 'active' : ''}}" bind:tap="selectWatchMode" data-mode="outside">
+          <view class="option-icon">{{watchMode === 'outside' ? '●' : '○'}}</view>
+          <text>外场观看</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 动态显示按钮 -->
+    <view class="bmbtn" bind:tap="{{watchMode === 'inside' ? 'zf' : 'bm'}}">
+      {{watchMode === 'inside' ? '立即支付' : '立即报名'}}
+    </view>
+  </view>
+</view>

@@ -1,0 +1,20 @@
+<!--subpackages/jianyanjieguo/jianyanjieguo.wxml-->
+<import src="../../wxParse/wxParse/wxParse.wxml" />
+<view class="danxiangContent">
+    <view><button class="aifxbtn" bind:tap="aifx">AI分析</button></view>
+    <view class="aibox" wx:if="{{aifxstatus}}">
+        <view class="aifxhead">
+            <view class="titleaifx">AI分析内容如下</view>
+            <image src="https://wx.pmc-wz.com/materials/close.png" class="aifxClose" bind:tap="closeaifx" mode="" />
+        </view>
+        <view wx:if="{{noneStatus}}" class="poi">AI分析可能较慢，请耐心等待</view>
+        <view class="aifxmain" wx:if="{{aifxtextStatus}}">{{aifxtext}}</view>
+    </view>
+
+    <view wx:for="{{list}}" wx:for-item="its" wx:key="ids" wx:for-index="ids" class="danxiangItem">
+        <text class="one">{{its.itemna}}</text>
+        <text class="two">{{its.ref!=="" &&
+      its.ref?"参考值":""}}{{its.ref?its.ref:""}}</text>
+        <text class="tree">{{its.printval!==""?"结果:":""}}</text><text class="five,{{its.color==='blue' || its.color==='red'?its.color:''}}">{{its.printval}}</text>
+    </view>
+</view>

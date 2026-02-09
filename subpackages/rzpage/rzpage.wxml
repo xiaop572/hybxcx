@@ -1,0 +1,10 @@
+<!--入驻页面-->
+<image src="https://wx.pmc-wz.com/materials/rztop.png" mode="widthFix" class="rztop" />
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/rzlxfs.png" mode="widthFix" class="rztop" />
+  <button open-type="contact" class="resetBtn" catchtap="wu">
+    <image src="https://wx.pmc-wz.com/materials/rzyjyy.png" mode="widthFix" />
+  </button>
+  <image src="https://wx.pmc-wz.com/materials/rzzxkf.png" mode="widthFix" class="rzzxkf" />
+  <image src="https://wx.pmc-wz.com/materials/rzewm.png" mode="widthFix" class="rzewm" show-menu-by-longpress="true"/>
+</view>

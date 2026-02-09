@@ -1,0 +1,64 @@
+<!--体检pdf-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<view wx:if="{{!chasuc}}">
+  <view>
+    <view class="row">
+      <text>姓名</text>
+      <input type="text" model:value="{{xinmin}}" />
+    </view>
+    <view class="row">
+      <text>手机号码</text>
+      <input type="text" bindinput="changephone" value="{{phone}}" />
+    </view>
+    <view class="row">
+      <text>验证码</text>
+      <input type="text" model:value="{{checkcode}}" />
+      <view class="getcode" bindtap="getcode" wx:if="{{num<=0}}">获取校验码</view>
+      <view class="getcode" wx:if="{{num>0}}" style="padding: 10rpx 60rpx;">{{num}}</view>
+    </view>
+  </view>
+  <view class="nextBtn" bindtap="next">查询</view>
+  <view class="lishibox" wx:if="{{!chasuc}}">
+    <text class="lishicap">历史记录</text>
+    <view wx:for="{{lslist}}" wx:key="id" wx:for-item="item" wx:for-index="idx" class="lsitem" bind:tap="lschaxun" data-item="{{item}}">
+      {{item.xinmin}}
+    </view>
+  </view>
+  <view class="tixing">
+    <text style="font-weight: bold;">体检报告查询</text>
+    <text>1.可以输入已在本院体检过的姓名，手机号登录查看历史体检报告。</text>
+    <text>2.体检报告的PDF文件，可以保存也可以发送给好友。</text>
+    <text>3.如需咨询，可携带报告至我院一楼体检专家咨询室咨询。</text>
+    <text>4.点击历史记录中的姓名可直接查看报告,无需再次验证。</text>
+  </view>
+</view>
+<view class="nextBtn" bindtap="cx" wx:if="{{chasuc}}">重新查询</view>
+<view class="ccxx" wx:if="{{chasuc}}">查询信息：{{xinmin}} {{phone}}</view>
+<view wx:if="{{chasuc}}" class="tishi">
+  <text>提示：</text>
+  <text>1.体检PDF文件可能比较慢，加载一会儿，请耐心等待</text>
+  <text>2.点击报告，就可以预览PDF详细内容，再右上角...可以发送给好友或另存到手机上</text>
+  <text>3.预览PDF可以用手势操作放大缩小。</text>
+  <text style="color: rgb(33, 151, 248);">4.若打开PDF显示乱码，复制PDF网址在浏览器中打开尝试。</text>
+</view>
+<view wx:for="{{tjlist}}" wx:key="id" wx:for-item="item" wx:for-index="idx" data-idx="{{idx}}" class="tijianBlock" wx:if="{{chasuc}}" data-pdf="{{item.pdfdir}}">
+  <text class="serial">{{tjlist.length-idx}}</text>
+  <text class="one">第{{tjlist.length-idx}}次体检</text>
+  <text class="two">{{m1.rq(item.CheckDate)}}</text>
+  <image src="https://wx.pmc-wz.com/materials/tjckxq.png" mode="widthFix" data-pdf="{{item.pdfdir}}" data-idx="{{idx}}" bindtap="lookpdf" class="ckxq"/>
+  <image src="https://wx.pmc-wz.com/materials/tjfzwz.png" mode="widthFix" data-pdf="{{item.pdfdir}}" bindtap="copyPath"  class="fzwz"/>
+</view>

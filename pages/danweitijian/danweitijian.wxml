@@ -1,0 +1,65 @@
+<!--pages/zzinfo/zzinfo.wxml-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/kdlogo.png" mode="widthFix" class="logo"></image>
+  <image src="https://wx.pmc-wz.com/materials/youzhi.png" mode="widthFix" class="youzhi"></image>
+  <!-- <image src="https://wx.pmc-wz.com/materials/shengming.png" mode="widthFix" class="shengming"></image> -->
+  <view class="title">
+    单位体检预约
+  </view>
+  <view class="hint">
+    <text>温馨提示：请填写真实身份信息!</text>
+  </view>
+  <view class="containers">
+    <view class="name inTxt">
+      <view class="caption">姓名<i></i></view>
+      <input type="text" class="int" model:value="{{xinmin}}" bindchange="inputXmCardno"/>
+    </view>
+    <view class="name inTxt">
+      <view class="caption">手机号<i></i></view>
+      <input type="number" class="int" model:value="{{mobile}}" />
+    </view>
+    <view class="name inTxt">
+      <view class="caption">性别<i></i></view>
+      <view class="section int">
+        <picker mode="selector" value="{{index}}" range="{{sexList}}" bindchange="bindsexchange">
+          <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!sex}}">请选择</view>
+          <view class="picker">
+            {{sex}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="name inTxt">
+      <view class="caption">身份证号码<i></i></view>
+      <input type="text" class="int" model:value="{{cardno}}" bindinput="inputCardno"/>
+    </view>
+    <view class="name inTxt">
+      <view class="caption">婚姻状况<i></i></view>
+      <view class="section int">
+        <picker mode="selector" value="{{index}}" range="{{array}}" bindchange="bindhunchange">
+          <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!hunyin}}">请选择</view>
+          <view class="picker">
+            {{hunyin}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="name inTxt">
+      <view class="caption">单位<i></i></view>
+      <input type="text" class="int" model:value="{{corp}}" disabled="disabled"/>
+    </view>
+    <view class="name inTxt">
+      <view class="caption">预约时间<i></i></view>
+      <view class="section int">
+        <picker mode="selector" value="{{time}}" bindchange="bindTimeChange" range="{{timeList}}" range-key="sdate">
+          <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!time}}">请选择</view>
+          <view class="picker">
+            {{time}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="submitBtn" bindtap="rtijiao">提交</view>
+    <image src="https://wx.pmc-wz.com/materials/wcjxx.jpg" mode='widthFix' class="wcjxx " wx:if="{{options.summary=='无痛'}}"></image>
+  </view>
+</view>

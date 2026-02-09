@@ -1,0 +1,88 @@
+<!--subpackages/xinxuan/xinxuan.wxml-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<view class='navBox'>
+  <view class='titleBox' bindtap='titleClick' data-idx='0'>
+    <text class="{{0 == currentIndex ? 'fontColorBox' : ''}}">待使用</text>
+    <hr class="{{0 == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+  </view>
+  <view class='titleBox' bindtap='titleClick' data-idx='1'>
+    <text class="{{1 == currentIndex ? 'fontColorBox1' : ''}}">已核销</text>
+    <hr class="{{1 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+  </view>
+  <view class='titleBox' bindtap='titleClick' data-idx='2'>
+    <text class="{{2 == currentIndex ? 'fontColorBox1' : ''}}">未付款</text>
+    <hr class="{{2 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+  </view>
+  <view class='titleBox' bindtap='titleClick' data-idx='3'>
+    <text class="{{3 == currentIndex ? 'fontColorBox1' : ''}}">已退款</text>
+    <hr class="{{3 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+  </view>
+</view>
+<swiper class='swiperTtemBox' bindchange='pagechange' current='{{currentIndex}}'>
+  <swiper-item class='swiperTtemBox'>
+    <text class="tishi">您的好友购买了以下订单：</text>
+    <view wx:if="{{weihelist.length === 0}}" class="empty-tip">暂无订单</view>
+    <view wx:for="{{weihelist}}" wx:key="id" wx:for-item="item" class="articleBlock">
+      <view class="line"><text class="left">项目名称：{{item.goodsname}}</text><text class="right">价格：{{item.PayPrice}}元</text>
+      </view>
+      <view class="time">
+        姓名:{{item.xinmin}}
+      </view>
+      <view class="line time"><text class="left">订单时间：{{item.ExpressNo==='未付款'?'':m1.rq(item.PayTime)}} {{item.ExpressNo==='未付款'?'':m1.time(item.PayTime)}}</text><text class="right">订单状态：待使用</text>
+      </view>
+    </view>
+  </swiper-item>
+  <swiper-item class='swiperTtemBox'>
+    <text class="tishi">您的好友购买了以下订单：</text>
+    <view wx:if="{{yihelist.length === 0}}" class="empty-tip">暂无订单</view>
+    <view wx:for="{{yihelist}}" wx:key="id" wx:for-item="item" class="articleBlock">
+      <view class="line"><text class="left">项目名称：{{item.goodsname}}</text><text class="right">价格：{{item.PayPrice}}元</text>
+      </view>
+      <view class="time">
+        姓名:{{item.xinmin}}
+      </view>
+      <view class="line time"><text class="left">核销时间：{{item.ExpressNo==='未付款'?'':m1.rq(item.ReceipTime)}} {{item.ExpressNo==='未付款'?'':m1.time(item.ReceipTime)}}</text><text class="right">订单状态：已使用</text>
+      </view>
+    </view>
+  </swiper-item>
+  <swiper-item class='swiperTtemBox'>
+    <text class="tishi">您的好友购买了以下订单：</text>
+    <view wx:if="{{weifulist.length === 0}}" class="empty-tip">暂无订单</view>
+    <view wx:for="{{weifulist}}" wx:key="id" wx:for-item="item" class="articleBlock">
+      <view class="line"><text class="left">项目名称：{{item.goodsname}}</text><text class="right">价格：{{item.PayPrice}}元</text>
+      </view>
+      <view class="time">
+        姓名:{{item.xinmin}}
+      </view>
+      <view class="line time"><text class="left">订单时间：{{item.ExpressNo==='未付款'?'':m1.rq(item.PayTime)}} {{item.ExpressNo==='未付款'?'':m1.time(item.PayTime)}}</text><text class="right">订单状态：未付款</text>
+      </view>
+    </view>
+  </swiper-item>
+  <swiper-item class='swiperTtemBox'>
+    <text class="tishi">您的好友购买了以下订单：</text>
+    <view wx:if="{{yituilist.length === 0}}" class="empty-tip">暂无订单</view>
+    <view wx:for="{{yituilist}}" wx:key="id" wx:for-item="item" class="articleBlock">
+      <view class="line"><text class="left">项目名称：{{item.goodsname}}</text><text class="right">价格：{{item.PayPrice}}元</text>
+      </view>
+      <view class="time">
+        姓名:{{item.xinmin}}
+      </view>
+      <view class="line time"><text class="left">订单时间：{{item.ExpressNo==='未付款'?'':m1.rq(item.PayTime)}} {{item.ExpressNo==='未付款'?'':m1.time(item.PayTime)}}</text><text class="right">订单状态：已退款</text>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>

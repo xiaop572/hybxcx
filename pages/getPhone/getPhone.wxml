@@ -1,0 +1,8 @@
+<!--pages/getPhone/getPhone.wxml-->
+
+<view class="getPhone">
+  <image src="https://wx.pmc-wz.com/materials/logo.png" class="logo"></image>
+  <text class="a">慧医宝申请获得以下权限：</text>
+  <text class="b">获取您的信息(手机号)</text>
+  <button class="loginBtn"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">一键授权手机号</button>
+</view>

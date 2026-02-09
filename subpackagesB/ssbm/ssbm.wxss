@@ -1,0 +1,61 @@
+/* subpackagesB/yongcan/yongcan.wxss */
+page {
+  background: #f2f2f2;
+}
+
+image {
+  width: 100%;
+  display: block;
+}
+
+.row {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  width: 90%;
+  margin: 30rpx auto 0 auto;
+  padding: 10rpx 20rpx;
+}
+
+.row text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.row input {
+  width: calc(100% - 240rpx);
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20rpx;
+  padding: 10rpx 0;
+}
+
+.nextBtn {
+  background-color: rgb(67, 113, 199);
+  color: #fff;
+  width: 92%;
+  margin: 40rpx auto 0 auto;
+  text-align: center;
+  padding: 10rpx 0;
+  border-radius: 10rpx;
+}
+
+.beiz2 {
+  width: 90%;
+  margin: 10px auto;
+  line-height: 24px;
+  font-size: 14px;
+  display: block;
+}
+.ssbmcap{
+  display: block;
+  text-align: center;
+  font-size: 34rpx;
+  margin-top: 20rpx;
+  margin-bottom: -10rpx;
+}
+.beiz {
+  width: 90%;
+  margin: 10px auto;
+  color: red;
+  display: block;
+}

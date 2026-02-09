@@ -1,0 +1,66 @@
+<!--pages/zzinfo/zzinfo.wxml-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/yxtuwen.png" mode="widthFix" class="youzhi"></image>
+  <!-- <image src="https://wx.pmc-wz.com/materials/shengming.png" mode="widthFix" class="shengming"></image> -->
+  <view class="containers">
+    <view class="name inTxt">
+      <view class="caption">姓名<i></i></view>
+      <input type="text" class="int" model:value="{{xinmin}}" />
+    </view>
+    <view class="name inTxt">
+      <view class="caption">年龄<i></i></view>
+      <input type="number" class="int" model:value="{{nl}}" />
+    </view>
+    <view class="name inTxt">
+      <view class="caption">性别<i></i></view>
+      <view class="section int">
+        <picker mode="selector" value="{{index}}" range="{{sexList}}" bindchange="bindsexchange">
+          <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!sex}}">请选择</view>
+          <view class="picker">
+            {{sex}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="name inTxt">
+      <view class="caption">联系方式<i></i></view>
+      <input type="number" class="int" model:value="{{mobile}}" />
+    </view>
+    <view class="name inTxt">
+      <view class="caption">身份证号<i></i></view>
+      <input type="number" class="int" model:value="{{cardno}}" />
+    </view>
+    <view class="name inTxt">
+      <view class="caption">地址<i></i></view>
+      <input type="text" class="int" model:value="{{address}}"  />
+    </view>
+    <view class="name inTxt">
+      <view class="caption">微信号<i></i></view>
+      <input type="text" class="int" model:value="{{weixin}}" placeholder="（方便医生沟通病情）" />
+    </view>
+    <view class="name inTxt">
+      <view class="caption">实时体温<i></i></view>
+      <input type="text" class="int" disabled="false" placeholder="（上传体温测量照片）" />
+    </view>
+    <view class="imgList">
+      <image src="https://wx.pmc-wz.com/hyb/ximages/{{twImg}}" mode="widthFix"  wx:if="{{twImg}}"/>
+      <image src="https://wx.pmc-wz.com/materials/selkuang.png" mode="widthFix" class="twkuang" bindtap="selectImg" />
+    </view>
+    <text class="miaoshu">病情描述:</text>
+    <textarea value="" class="textarea" model:value="{{memo}}" placeholder="请描述您的疾病发生部位、主要症状、持续时间、已就诊的信息和希望得到的帮助"/>
+    <view class="imgList1">
+      <image src="https://wx.pmc-wz.com/hyb/ximages/{{bqImg}}" mode="widthFix"  wx:if="{{bqImg}}"/>
+      <image src="https://wx.pmc-wz.com/materials/selkuang.png" mode="widthFix" class="twkuang" bindtap="selectImg2" />
+    </view>
+    <text class="zhu">注：请上传跟病情有关的图片</text>
+    <view class="submitBtn" bindtap="rtijiao">提交</view>
+    <text class="tishi">温馨提示：</text>
+    <text class="tishinei">在线咨询不同于医院就医，仅提供与疾病相关的咨询，内容仅供参考。若病情较为严重或进行性加重的患者，请及时到附近的医疗机构就诊，并做好个人防护措施。</text>
+  </view>
+</view>
+<view class="cgBox" wx:if="{{show}}" catchtap="guanbi" >
+  <view class="cgmeng" catchtap>
+    <image src="https://wx.pmc-wz.com/materials/yxtjcg.png" mode="widthFix" class="qdcg"></image>
+    <image src="https://wx.pmc-wz.com/materials/guanbi.svg" mode="widthFix" class="guanbi" bindtap="guanbi"></image>
+  </view>
+</view>

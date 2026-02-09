@@ -1,0 +1,25 @@
+<!--pages/zxkrList/zxkrList.wxml-->
+<view class="pageBlock">
+  <view class="front" bindtap="frontPage">上一页</view>
+  <view class="page">{{curpage}}/{{page}}</view>
+  <view class="next" bindtap="nextPage">下一页</view>
+</view>
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '00' : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<view wx:for="{{krList}}" wx:for-item="item" wx:key="id" class="zxbrBlock" bindtap="rzxbrTimeList" data-brbm="{{item.brbm}}">
+  <text class="name">{{item.brxm}}</text>
+  <text class="bm">{{item.brbm}}</text>
+  <text class="time">{{m1.rq(item.addsj)}} {{m1.time(item.addsj)}}</text>
+</view>

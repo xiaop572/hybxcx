@@ -1,0 +1,47 @@
+<!--pages/addZx/addZX.wxml-->
+<label class="inputLine">
+  <view class="fu">
+    <text class="line">二维码类型</text>
+    <text class="x">*</text>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <picker mode="selector" value="{{index}}" range="{{pageType}}"  bindchange="bindTypeChange">
+      <view wx:if="{{!nowtype}}">
+        请选择:
+      </view>
+      <view class="picker"wx:if="{{nowtype}}">
+         {{nowtype}}
+      </view>
+    </picker>
+  </view>
+</label>
+<label class="inputLine">
+  <view class="fu">
+    <text class="line">医生姓名</text>
+    <text class="x">*</text>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="医生姓名" model:value="{{ysxm}}" />
+  </view>
+</label>
+<label class=" inputLine">
+  <view class="fu">
+    <text class="line">医生手机号</text>
+    <text class="x">*</text>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="医生手机号" model:value="{{mobile}}" />
+  </view>
+</label>
+<label class=" inputLine">
+  <view class="fu">
+    <text class="line">协调员姓名</text>
+    <text class="x">*</text>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="协调员姓名" model:value="{{tiaojie}}" />
+  </view>
+</label>
+<button type="primary" class="btn" bindtap="submit">生成</button>
+<canvas style="width: 200px; height: 200px;margin:40rpx auto;" canvas-id="myQrcode"></canvas>
+<button type="primary" wx:if="{{imgsrc}}" bindtap="saveImg" class="btn">保存到相册</button>

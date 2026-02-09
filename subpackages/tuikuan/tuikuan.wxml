@@ -1,0 +1,42 @@
+<!--subpackages/tuikuan/tuikuan.wxml-->
+<view class="proBox">
+  <text class="dingdan">订单号:{{item.orderno}}</text>
+  <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix"></image>
+  <view class="proRight">
+    <text class="goodname">{{item.goodsname}}</text>
+    <text class="shuliang">x1</text>
+    <text class="shifu">￥{{item.price}}</text>
+  </view>
+</view>
+<view class="tjyy">
+  <text class="tjyycap">退款原因:</text>
+  <picker class="yy" mode="selector" value="{{typeid}}" range="{{resonList}}" range-key="typename" bindchange="bindTypeChange">
+    <view wx:if="{{!typeid}}">
+      请选择
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/right.png" class="right"></image>
+    </view>
+    <view class="picker" wx:if="{{typeid}}">
+      {{typename}}
+    </view>
+  </picker>
+</view>
+<view class="tjyy" wx:if="{{yuanyinvis}}">
+  <text>退款原因描述:</text>
+  <textarea name="" id="" cols="30" rows="10" placeholder="请您详细描述申请退款的原因" model:value="{{reson}}"></textarea>
+</view>
+<view class="tuie">退款金额:<text>￥{{item.price}}</text></view>
+<view wx:if="{{iftui==30}}">
+  <view class="tjyy">
+    <text>收款人姓名:</text>
+    <input type="text" model:value="{{bankxinmin}}"/>
+  </view>
+  <view class="tjyy">
+    <text>收款人银行:</text>
+   <input type="text" model:value="{{bankname}}"/>
+  </view>
+  <view class="tjyy">
+    <text>收款人银行账号:</text>
+    <input type="text" model:value="{{bankcode}}"/>
+  </view>
+</view>
+<view class="submit" bindtap="refund">提交申请</view>

@@ -1,0 +1,3 @@
+<!--subpackages/lipin/lipin.wxml-->
+<image src="https://wx.pmc-wz.com/materials/xnhk.gif" mode="widthFix" class="lihe {{openlihe?'openlihe':''}}" wx:if="{{!open}}" bind:tap="openlihe"/>
+<image src="https://wx.pmc-wz.com/materials/xnhkopen.jpg" mode="widthFix" class="lihenext" wx:if="{{onload}}"/>

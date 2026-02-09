@@ -1,0 +1,110 @@
+/* subpackages/tuikuan/tuikuan.wxss */
+page{
+  background-color: #f2f2f2;
+}
+.proBox{
+  width: 92%;
+  background-color: #fff;
+  margin:30rpx auto;
+  box-sizing: border-box;
+  padding: 30rpx 40rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+} 
+.dingdan{
+  display: block;
+  color: #767676;
+  font-size: 30rpx;
+  margin-bottom: 30rpx;
+}
+.proBox image{
+  float: left;
+  width: 170rpx;
+  margin-right: 20rpx;
+}
+.proRight{
+  float: left;
+  width: 420rpx;
+}
+.goodname{
+  font-weight: bold;
+  color: #000;
+  display:block;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 36rpx;
+}
+.shuliang{
+  display: block;
+  text-align: right;
+  color: #666;
+}
+.shifu{
+  display: block;
+  text-align: right;
+  color: #000;
+  margin-top: 20rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.tjyy{
+  width: 92%;
+  background-color: #fff;
+  margin:30rpx auto;
+  box-sizing: border-box;
+  padding: 30rpx 40rpx;
+  border-radius: 20rpx;
+  color: #000;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+.tjyy input{
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+  font-size: 30rpx;
+  width: 100%;
+}
+.tjyy textarea{
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  width: 100%;
+}
+.tuie{
+  width: 86%;
+  margin: auto;
+  color: #000;
+}
+.tuie text{
+  color: rgba(194, 0, 0, 1);
+}
+.submit{
+  width: 92%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #4c82fb;
+  border-radius: 100rpx;
+  text-align: center;
+  color: #fff;
+  margin:150rpx auto 0 auto;
+  font-size:40rpx;
+}
+.tjyycap{
+  vertical-align: middle;
+}
+.yy{
+  display: inline-block;
+  width: 350rpx;
+  vertical-align: middle;
+  text-align: right;
+}
+.right{
+  width: 40rpx;
+  vertical-align: middle;
+}

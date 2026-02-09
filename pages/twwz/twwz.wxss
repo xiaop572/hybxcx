@@ -1,0 +1,4 @@
+/* pages/twwz/twwz.wxss */
+.wzbanner{
+  width: 100%;
+}

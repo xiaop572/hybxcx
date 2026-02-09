@@ -1,0 +1,16 @@
+<!--subpackages/zuji/zuji.wxml-->
+<text class="cap">近30天</text>
+<view class="itemList" wx:if="{{list.length!=0}}">
+  <view class="item" wx:for="{{list}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" bindtap="rtcxq" data-id="{{item.id}}">
+    <view class="fengimg">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" lazy-load="true"></image>
+    </view>
+    <text class="caption">{{item.pictitle}}</text>
+    <view class="priceFlex">
+      <view class="price"><text class="symbol">￥</text><text>{{item.price}}</text></view>
+      <view class="ms">
+        <image src="https://wx.pmc-wz.com/materials/gwc.png" mode="widthFix" />
+      </view>
+    </view>
+  </view>
+</view>

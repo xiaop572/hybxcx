@@ -1,0 +1,270 @@
+/* subpackages/hsyy/hsyy.wxss */
+page{
+  height: 100%;
+  background-color: #f2f2f2;
+}
+.banner{
+  width: 100%;
+}
+.top{
+  overflow: hidden;
+  background:linear-gradient(to right,#86538e,#8b5893)
+}
+.dingwei{
+  height: 80rpx;
+}
+.jianjie{
+  padding-bottom: 20rpx;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 30rpx 30rpx 0 0;
+}
+.jianjieCap{
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+.jianjiecont{
+  width: 100%;
+  overflow: hidden;
+}
+.jjleft{
+  width: 240rpx;
+  text-align: center;
+  height: 100%;
+  float: left;
+}
+.jjleft image{
+  width: 60%;
+  margin-top: 40rpx;
+}
+.jjright{
+  width: 512rpx;
+  text-align: center;
+  height: 100%;
+  float: left;
+  padding: 30rpx 0;
+  text-align: left;
+}
+.jjrcap{
+  display: flex;
+  justify-content: space-between;
+}
+.dhj{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.yys{
+  font-size: 26rpx;
+  margin-right: 40rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+.jjnw{
+  width: 95%;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+  color: #999;
+}
+.jjjg{
+  color: #d63334;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  font-weight: bold;
+}
+.containers{
+  margin-top: 20rpx;
+  background-color: #fff;
+  overflow: hidden;
+  padding-bottom: 80rpx;
+}
+.hulist{
+  overflow: hidden;
+}
+.avatar{
+  width: 120rpx;
+  float: left;
+  margin:40rpx;
+}
+.huright{
+  margin-top: 40rpx;
+  float: right;
+  width: calc(100% - 200rpx);
+}
+.hucap{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.wuxing{
+  width: 140rpx;
+}
+.hucw{
+  font-size: 26rpx;
+  margin-top: 5rpx;
+}
+.cw{
+  margin-left: 10rpx;
+}
+.hupf{
+  font-size: 26rpx;
+}
+.hujj{
+  font-size: 26rpx;
+}
+
+.kqBox{
+}
+.swiperTtemBox{
+  height: 100%;
+  overflow: scroll;
+  font-size: 28rpx;
+  -webkit-overflow-scrolling: touch;
+}
+.switem{
+  overflow: scroll;
+}
+.xingji{
+  color: #ffb900;
+  margin-left: 10rpx;
+}
+.fwcs{
+  color: #999;
+  margin-left: 20rpx;
+}
+.hujj{
+  width: 96%;
+  color: #999;
+  font-size: 24rpx;
+}
+.inTxt {
+  background-color: #fff;
+  width: 80%;
+  border-radius: 0rpx;
+  margin: 40rpx auto;
+  overflow: hidden;
+  border: 1px solid #0068da;
+}
+
+.inTxt1 {
+  background-color: #fff;
+  width: 80%;
+  border-radius: 10rpx;
+  margin: 40rpx auto;
+  overflow: hidden;
+  padding-left: 170rpx;
+  box-sizing: border-box;
+  border: 1px solid #0068da;
+}
+
+.caption {
+  position: absolute;
+  height: 62rpx;
+  line-height: 62rpx;
+  background-color: #0068da;
+  padding: 5rpx 20rpx 5rpx 20rpx;
+  font-size: 26rpx;
+  color: #fff;
+  width: 140rpx;
+  text-align: justify;
+}
+
+.caption1 {
+  position: absolute;
+  height: 80rpx;
+  line-height: 60rpx;
+  background-color: #0068da;
+  border-radius: 10rpx;
+  padding: 0 20rpx 0 20rpx;
+  font-size: 24rpx;
+  color: #fff;
+  width: 120rpx;
+  text-align: justify;
+  left: 10%;
+  box-sizing: border-box;
+}
+
+.caption i {
+  display: inline-block;
+  width: 100%;
+}
+
+.caption1 i {
+  display: inline-block;
+  width: 100%;
+}
+
+.int {
+  display: block;
+  font-size: 34rpx;
+  color: #333;
+  box-sizing: border-box;
+  height: 70rpx;
+  padding-left: 200rpx;
+}
+
+.int1 {
+  display: block;
+  height: 60rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.textarea {
+  height: 80rpx;
+  height: 150rpx;
+}
+
+.submitBtn {
+  color: #fff;
+  background-color: #0068da;
+  width: 80%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  letter-spacing: 10rpx;
+  border-radius: 10rpx;
+  margin: auto;
+  font-size: 26rpx;
+}
+
+.hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 57%;
+  margin: auto;
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #0b71d0;
+  letter-spacing: 3rpx;
+}
+
+.wcjxx {
+  margin-top: 40rpx;
+  width: 100%;
+}
+
+.picker {
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.xieyi{
+  text-align: center;
+  margin: 40rpx 0;
+  font-size: 28rpx;
+}
+.xieyi .dx{
+  vertical-align: middle;
+}
+.xieyi text{
+  vertical-align: middle;
+  position: relative;
+  top: 5rpx;
+}
+.hsxy{
+  color: blue;
+  margin-left: 10rpx;
+}

@@ -1,0 +1,29 @@
+<!--subpackages/kqzt/kqzt.wxml-->
+<image mode="widthFix" src="https://wx.pmc-wz.com/materials/kqztBanner1.png" class="topBan"></image>
+<view class="main">
+  <image mode="widthFix" src="https://wx.pmc-wz.com/materials/kqztMain1.png" class="mainBg"></image>
+  <view class="proList">
+    <view class="pro">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/jy.png" bindtap="rpro" data-id="508"></image>
+    </view>
+    <view class="pro">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/mb.png" bindtap="rpro" data-id="509"></image>
+    </view>
+    <view class="pro">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/jz.png" bindtap="rpro" data-id="510"></image>
+    </view>
+    <view class="pro">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/tm.png" bindtap="rpro" data-id="511"></image>
+    </view>
+    <view class="pro" style="margin-top: 60rpx;">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/kqdb.png"></image>
+    </view>
+    <!-- <view class="pro">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/zzybg.png"></image>
+      <view class="itemList">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/nuobeier.png" bindtap="rpro" data-id="333"></image>
+      </view>
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/kqli.png" class="kqli2"></image>
+    </view> -->
+  </view>
+</view>

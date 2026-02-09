@@ -1,0 +1,18 @@
+/* subpackages/kqzm/kqzm.wxss */
+page{
+  padding-bottom: 0 !important;
+}
+.bg{
+  width: 100%;
+}
+.bmbtn{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 160rpx;
+  margin: auto;
+  width: 300rpx;
+}
+.box{
+  position: relative;
+}

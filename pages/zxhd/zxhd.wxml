@@ -1,0 +1,79 @@
+<!--pages/zxhd/zxhd.wxml-->
+<view class="main">
+  <view class="zxContainer">
+    <image src="https://wx.pmc-wz.com/materials/baomingBg.png" mode="widthFix" class="zxImg"></image>
+    <view class="myshare" bindtap="showMyShare">我的<view>邀请</view></view>
+    <view class="zhuanfa" bindtap="createhaibao">
+      <image src="https://wx.pmc-wz.com/materials/zhuanfa.png" mode="widthFix" class="icon">
+      </image>
+      <image src="https://wx.pmc-wz.com/materials/zhuanfawenzi.png" mode="widthFix" class="wenzi">
+      </image>
+    </view>
+    <view class="shuru">
+      <view class="shurulist">
+        <view class="type1">
+          <text>姓名：</text><input type="text" model:value="{{xinmin}}" />
+        </view>
+        <view class="type2">
+          <text>性别：</text><input type="text" model:value="{{sex}}" />
+        </view>
+        <view class="type1">
+          <text>职业：</text><input type="text" model:value="{{job}}" />
+        </view>
+        <view class="type2">
+          <text>年龄：</text><input type="text" model:value="{{age}}" />
+        </view>
+        <view class="type3">
+          <text>联系方式：</text><input type="text" model:value="{{mobile}}" />
+        </view>
+        <button class="submit" bindtap="submit">点击报名</button>
+      </view>
+    </view>
+
+  </view>
+  <view class="footerWenzi">
+    <text>这一季，1：1：1 3d数字化私人定制鼻整形 高端美鼻独家技术</text>
+    <text>打造唯一的你</text>
+  </view>
+  <view class="image-modal" style='display:{{display}}'>
+    <view class="modal-mask"></view>
+    <view class="modal-main">
+      <image class="image" src="{{shareImgSrc}}" style="width:{{haiBaoShowWidth}}px;height:{{haiBaoShowHeight}}px;">
+      </image>
+      <view class="btnList">
+        <button bindtap="hideModal" class="hide">关闭</button>
+        <button bindtap="savePic" class="saveBtn">保存到相册</button>
+      </view>
+      <view class="canvas-box">
+        <canvas canvas-id="myCanvas" style="width:{{haiBaoWidth}}px ;height:{{haiBaoHeight}}px;"></canvas>
+      </view>
+    </view>
+  </view>
+  <canvas class="myQrcode" canvas-id="myQrcode"
+    style="width:{{shareQrcodeWidth}}px ;height:{{shareQrcodeHeight}}px; "></canvas>
+    <wxs module="m1">
+    var rq = function (r) {
+      var da = getDate(r)
+      var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+      return dataStr;
+    }
+    module.exports.rq = rq;
+    var time = function (r) {
+      var da = getDate(r)
+      var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '00' : da.getMinutes());
+      return dataStr;
+    }
+    module.exports.time = time;
+  </wxs>
+  <view class="shareListBox" style='display:{{showMyShareDisplay}}'>
+    <view class="close" bindtap="closeShare">关闭</view>
+    <view class="shareListCaption">我的</view>
+    <view class="shareList">
+      <text>姓名</text><text>邀请时间</text>
+    </view>
+    <view wx:for="{{shareList}}" wx:key="id" wx:for-item="item" class="shareList">
+      <text>{{item.xinmin}}</text>
+      <text>{{m1.rq(item.CreateTime)}} {{m1.time(item.CreateTime)}}</text>
+    </view>
+  </view>
+</view>

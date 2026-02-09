@@ -1,0 +1,28 @@
+<!--pages/kefuList/kefuList.wxml-->
+<view>
+  <text class="caption">功能列表</text>
+  <view class="kefuBlock" bindtap="rZxList">
+    <image src="https://wx.pmc-wz.com/materials/keren.png" mode="widthFix"></image>
+    <text>整形客人</text>
+  </view>
+  <view class="kefuBlock" bindtap="rAddZx"> 
+    <image src="https://wx.pmc-wz.com/materials/add.png" mode="widthFix"></image>
+    <text>添加整形客人</text>
+  </view>
+  <view class="kefuBlock"  bindtap="rTjList">
+    <image src="https://wx.pmc-wz.com/materials/kefuTijian.png" mode="widthFix"></image>
+    <text>体检客人</text>
+  </view>
+  <view class="kefuBlock" bindtap="rAddTj">
+    <image src="https://wx.pmc-wz.com/materials/tijianAdd.png" mode="widthFix"></image>
+    <text>添加体检客人</text>
+  </view>
+  <view class="kefuBlock" bindtap="rAddTj">
+    <image src="https://wx.pmc-wz.com/materials/tijianAdd.png" mode="widthFix"></image>
+    <text>添加体检客人</text>
+  </view>
+  <view class="kefuBlock" bindtap="rCreateQrcode">
+    <image src="https://wx.pmc-wz.com/materials/qrcode.png" mode="widthFix"></image>
+    <text>生成转诊二维码</text>
+  </view>
+</view>

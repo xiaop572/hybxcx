@@ -1,0 +1,41 @@
+<!--subpackagesC/aifx/aifx.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="back-button" bindtap="goBack">
+      <image src="https://wx.pmc-wz.com/materials/back.png" mode="widthFix" class="back-icon"></image>
+    </view>
+    <view class="title">AI健康分析报告</view>
+  </view>
+  
+  <view class="disclaimer">
+    <text class="disclaimer-text">本系统提供的所有医疗健康信息仅供一般参考和科普用途，不能替代专业医疗机构的诊断与治疗建议。系统呈现的内容基于现有医学知识库，但医学实践具有个体差异性，具体诊疗方案请以执业医师的面对面评估为准。对于因参考本系统信息而采取的任何医疗行为，开发方不承担相应责任。如您有健康疑虑或出现急症，请及时前往正规医疗机构就诊。</text>
+  </view>
+  
+  <view class="card">
+    <view class="patient-info" wx:if="{{name}}">
+      <view class="info-item">
+        <text class="label">姓名：</text>
+        <text class="value">{{name}}</text>
+      </view>
+      <view class="info-item" wx:if="{{serialno}}">
+        <text class="label">体检流水号：</text>
+        <text class="value">{{serialno}}</text>
+      </view>
+      <view class="info-item" wx:if="{{myDate}}">
+        <text class="label">体检日期：</text>
+        <text class="value">{{myDate}}</text>
+      </view>
+    </view>
+    
+    <view class="divider"></view>
+    
+    <view class="content">
+      <view class="section-title">分析结果</view>
+      <rich-text nodes="{{aifxtext}}" class="analysis-text"></rich-text>
+    </view>
+  </view>
+  
+  <view class="footer">
+    <text>本分析结果仅供参考，请以医生诊断为准</text>
+  </view>
+</view>

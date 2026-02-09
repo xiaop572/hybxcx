@@ -1,0 +1,10 @@
+<!--huodongpage/ysjhd/ysjhd.wxml-->
+<view class="yjsmain">
+  <text class="yjscap">温州和平国际医院征集活动"医生，我想对你说"</text>
+  <text style="margin:10rpx 0">截止日期:2025年8月12日21:00</text>
+  <text class="yjsnr">8月19日，第八个中国医师节的脚步渐近。在这个属于白衣天使的节日里，我们总在思索：如何向那些以仁心守护生命、以专业捍卫健康的身影，献上最真挚的敬意？
+  </text>
+  <text class="yjsnr">今年医师节，和平国际医院特别发起“见字如面”主题征集。我们诚邀曾被医者温暖过的你，执笔为念，见字传情。将那份深藏心底的话，讲给TA听。</text>
+  <text class="yjsnr">让你的心声，汇聚成这个医师节里最独特、最动人的回响——致敬生命路上，每一束不灭的微光！</text>
+</view>
+<view class="btn" bind:tap="rysjzj">参与收集</view>

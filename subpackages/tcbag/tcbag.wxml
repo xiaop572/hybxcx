@@ -1,0 +1,71 @@
+<!--pages/kaquan/kaquan.wxml-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<view class="kqBox">
+  <view class='navBox'>
+    <view class='titleBox' bindtap='titleClick' data-idx='0'>
+      <text class="{{0 == currentIndex ? 'fontColorBox' : ''}}">未使用</text>
+      <hr class="{{0 == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+    </view>
+    <view class='titleBox' bindtap='titleClick' data-idx='1'>
+      <text class="{{1 == currentIndex ? 'fontColorBox1' : ''}}">已使用</text>
+      <hr class="{{1 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+    </view>
+    <view class='titleBox' bindtap='titleClick' data-idx='2'>
+      <text class="{{2 == currentIndex ? 'fontColorBox1' : ''}}">已过期</text>
+      <hr class="{{2 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+    </view>
+  </view>
+
+  <swiper class='swiperTtemBox' bindchange='pagechange' current='{{currentIndex}}'>
+    <swiper-item class='swiperTtemBox'>
+      <view wx:for="{{kaList}}" wx:for-item="it" wx:key="idx" class="kapianList">
+        <view class="kaLeft">
+          <image src="https://wx.pmc-wz.com/materials/tckblue.png" mode="widthFix"></image>
+        </view>
+        <view class="kaRight">
+          <view class="bt">温州和平国际医院电子停车券(负一层、负二层)</view>
+          <text class="time">有效期：{{m1.rq(it.expiretime)}}</text>
+          <view class="shiyong" bindtap="rtcsy" data-parkcode="{{it.couponcode}}">立即使用</view>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item class='swiperTtemBox'>
+      <view wx:for="{{wanList}}" wx:for-item="it" wx:key="idx" class="kapianList">
+        <view class="kaLeft">
+          <image src="https://wx.pmc-wz.com/materials/tckblack.png" mode="widthFix"></image>
+        </view>
+        <view class="kaRight">
+          <view class="bt">温州和平国际医院电子停车券(负一层、负二层)</view>
+          <text class="time">有效期：{{m1.rq(it.expiretime)}}</text>
+          <image src="https://wx.pmc-wz.com/materials/ysy.png" mode="widthFix" class="ysy"></image>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item class='swiperTtemBox'>
+      <view wx:for="{{tuiList}}" wx:for-item="it" wx:key="idx" class="kapianList">
+        <view class="kaLeft">
+          <image src="https://wx.pmc-wz.com/materials/tckblack.png" mode="widthFix"></image>
+        </view>
+        <view class="kaRight">
+          <view class="bt">温州和平国际医院电子停车券(负一层、负二层)</view>
+          <text class="time">有效期：{{m1.rq(it.expiretime)}}</text>
+          <image src="https://wx.pmc-wz.com/materials/ygq.png" mode="widthFix" class="ysy"></image>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

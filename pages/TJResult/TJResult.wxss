@@ -1,0 +1,62 @@
+/* pages/exmineResult/exmineResult.wxss */
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.nameRow,.timeRow,.stateRow,.showBtn{
+  clear: both;
+  width: 96%;
+  margin: auto;
+  overflow: hidden;
+}
+.timeRow,.stateRow{
+  font-size: 14px;
+  color: #999999;
+}
+.nameRow{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.nameRow .left{
+  color: #999999;
+}
+.nameRow .right{
+  font-size: 18px;
+  color: #333;
+}
+.timeRow{
+  margin-bottom: 10rpx;
+}
+.showBtn{
+  border:1px solid #04be02;
+  color:#04be02;
+  text-align: center;
+  line-height: 60rpx;
+  height: 60rpx;
+  border-radius: 10rpx;
+  margin: 40rpx auto;
+}
+.result{
+  width: 96%;
+  margin:40rpx auto 0 auto;
+}
+.result text{
+  display: block;
+}
+.result .title{
+  color: #333;
+  font-size: 18px;
+}
+.resultTime1,.resultTime2,.state{
+  font-size: 14px;
+  margin-top: 10rpx;
+  color: #999;
+}
+.resultTime2 text{
+  display: inline;
+}
+.noResult{
+  color: blue;
+}

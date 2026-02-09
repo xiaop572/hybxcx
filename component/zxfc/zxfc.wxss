@@ -1,0 +1,64 @@
+/* component/zxfc/zxfc.wxss */
+.fc {
+  position: fixed;
+  right: 0;
+  bottom: 100rpx;
+  transition: all 0.5s;
+}
+
+.fcline {
+  height: 60rpx;
+  box-sizing: border-box;
+  border-radius: 40rpx 0 0 40rpx;
+  padding: 0 10rpx 0 40rpx;
+  margin-top: 10rpx;
+  color: #fff;
+}
+
+.fcline text {
+  display: inline-block;
+  line-height: 60rpx;
+  vertical-align: middle;
+  font-size: 26rpx;
+}
+
+.fcline image {
+  width: 36rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+
+.ydjd {
+  margin-top: 0;
+  background-color: rgb(255, 167, 60);
+}
+
+.gmcq {
+  background-color: rgb(229, 74, 56);
+}
+
+.fhsy {
+  background-color: rgb(0, 63, 133);
+}
+.shousuo{
+  position: absolute;
+  height: 100%;
+  width: 30rpx;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 30rpx 0 0 30rpx;
+}
+.shousuo image{
+  width: 24px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -7rpx;
+  margin: auto;
+  transform: rotate(180deg);
+}
+.active{
+  right: -180rpx;
+}
+.imgro{
+  transform: rotate(0) !important;
+}

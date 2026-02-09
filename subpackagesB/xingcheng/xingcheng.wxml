@@ -1,0 +1,135 @@
+<!--subpackagesB/xingcheng/xingcheng.wxml-->
+<image src="https://wx.pmc-wz.com/materials/qkh/qkhbt.png" mode="widthFix" class="qkhbt" />
+<view class="info">
+  <text class="infoname">尊敬的：{{jbinfo.name}} 先生/女士</text>
+  <text class="topinfo" wx:for="{{topinfo}}" wx:for-item="item" wx:key="id">{{item}}</text>
+</view>
+<view class="youRoute">
+  <text class="xcCap">您的行程安排如下</text>
+  <text class="xcCapY">Your Ltinerary</text>
+  <view wx:for="{{jbxc}}" wx:for-item="item" wx:key="id">
+    <view class="xctitle">{{item.typeid==1?"来程·":"回程·"}}{{item.title}}</view>
+    <view class="xcmain">
+      <view class="lcbox">
+        <image src="https://wx.pmc-wz.com/materials/qkh/lcicon.png" mode="widthFix" class="lcicon" wx:if="{{item.cateid==1}}" />
+        <image src="https://wx.pmc-wz.com/materials/qkh/hb2.png" mode="widthFix" class="lcicon" wx:if="{{item.cateid==2}}" />
+        <image src="https://wx.pmc-wz.com/materials/qkh/zzout.png" mode="widthFix" class="lcicon" wx:if="{{item.cateid==3}}" />
+        <text class="startTime" wx:if="{{item.cateid!==3}}">{{item.starttime}}</text>
+        <text class="startdata" wx:if="{{item.cateid!==3}}">{{item.startdate}}</text>
+        <text class="startdd" wx:if="{{item.cateid!==3}}">{{item.start}}</text>
+      </view>
+      <view class="liechebox" wx:if="{{item.cateid==1}}">
+        <view class="lcleft"></view>
+        <image src="https://wx.pmc-wz.com/materials/qkh/lieche.png" mode="widthFix" class="lieche"/>
+        <view class="lcRight"></view>
+        <text class="flycode">{{item.flycode}}</text>
+      </view>
+      <view class="liechebox" wx:if="{{item.cateid==2}}">
+        <view class="lcleft"></view>
+        <image src="https://wx.pmc-wz.com/materials/qkh/fx.png" mode="widthFix" class="fjtb"/>
+        <view class="lcRight"></view>
+        <text class="flycode">{{item.flycode}}</text>
+      </view>
+      <view class="liechebox2" wx:if="{{item.typeid==3}}">
+        <image src="https://wx.pmc-wz.com/materials/qkh/zzcap.png" mode="widthFix" class="zzcap"/>
+        <image src="https://wx.pmc-wz.com/materials/qkh/xcright.png" mode="widthFix" class="zzright"/>
+      </view>
+      <view class="dzbox">
+        <image src="https://wx.pmc-wz.com/materials/qkh/dzicon.png" mode="widthFix" class="dzicon" wx:if="{{item.cateid==1}}" />
+        <image src="https://wx.pmc-wz.com/materials/qkh/hb.png" mode="widthFix" class="lcicon" wx:if="{{item.cateid==2}}" />
+        <image src="https://wx.pmc-wz.com/materials/qkh/zzav.png" mode="widthFix" class="lcicon" wx:if="{{item.cateid==3}}" />
+        <text class="startTime" wx:if="{{item.typeid!==3}}">{{item.endtime}}</text>
+        <text class="startdata" wx:if="{{item.typeid!==3}}">{{item.enddate}}</text>
+        <text class="startdd" wx:if="{{item.typeid!==3}}">{{item.end}}</text>
+      </view>
+      <view class="xcmemo" wx:if="{{item.typeid!==3 && item.memo}}">提示：{{item.memo}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- <view class="jiejibox">
+  <image src="https://wx.pmc-wz.com/materials/qkh/jieji.png" mode="widthFix" class="jiejibanner" />
+  <view class="jjmain">
+    <text class="jjword">1、关于接机:{{dhinfo[0].jieji}}</text>
+    <text class="jjword">2、关于送机:{{dhinfo[0].songji}}</text>
+  </view>
+</view> -->
+<view class="yihchengBox">
+  <text class="yichengCap">您的演讲议程安排如下</text>
+  <text class="yichengCapY">Your Specific Agenda for The Meeting is as Follows</text>
+  <view class="yclist" wx:for="{{jbyj}}" wx:for-item="item" wx:key="id">
+    <text class="yctime">{{item.content}} {{item.typename}}</text>
+    <text class="ychc">演讲会场：{{item.classname}}</text>
+    <text class="yczt" wx:if="{{item.title!=='和平国际医院分会场'}}">演讲主题：{{item.title}}</text>
+  </view>
+</view>
+<view class="yihchengBox">
+  <text class="yichengCap">您的主持议程安排如下</text>
+  <text class="yichengCapY">The agenda for your chairmanship is as follows</text>
+  <view class="yclist" wx:for="{{jbzc}}" wx:for-item="item" wx:key="id">
+    <text class="yctime">{{item.riqi}} {{item.shijian}}</text>
+    <text class="yczt" wx:if="{{item.title!=='和平国际医院分会场'}}">演讲主题：{{item.typename}}</text>
+  </view>
+</view>
+<!-- <view class="dhzyinfoBox">
+  <image src="https://wx.pmc-wz.com/materials/dhzyxx.png" mode="widthFix" class="jiejibanner" />
+  <view class="dhzymain">
+    <text>本次大会我们为您准备了专属的专家胸牌，进出会场及用餐等参会服务的获取，都将凭此胸牌享有。请您要善保管并随身携带，胸牌仅限本人使用，如有遇失，请及时联系会务工作人员，并前往签到处进行补办。</text>
+    <text class="dhzyfu">我们诚意您参与以下重要大会活动：</text>
+    <text class="dhline">主题：{{dhinfo[0].topic}}</text>
+    <text class="dhline">时间：{{dhinfo[0].startdate}}</text>
+    <text class="dhline">地点：{{dhinfo[0].address}}</text>
+    <text class="dhline">着装：{{dhinfo[0].zhuozhuang}}</text>
+  </view>
+</view> -->
+<view class="dhzyinfoBox" wx:if="{{jbzs[0].title}}">
+  <image src="https://wx.pmc-wz.com/materials/zsap.png" mode="widthFix" class="jiejibanner" />
+  <view class="dhzymain">
+    <text class="dhline">酒店名称：{{jbzs[0].title}}</text>
+    <text class="dhline">酒店地址：{{jbzs[0].address}}</text>
+  </view>
+</view>
+<view class="dhzyinfoBox">
+  <image src="https://wx.pmc-wz.com/materials/ycap.png" mode="widthFix" class="jiejibanner" />
+  <view class="dhzymain">
+    <view wx:for="{{jbyc}}" wx:for-item="item" wx:key="id" class="jbycitem">
+      <text class="dhline">时间：{{item.startdate}}</text>
+      <text class="dhline">地点：{{item.address}}</text>
+      <text class="dhline">类型：{{item.typename}}</text>
+    </view>
+  </view>
+</view>
+<view class="dhzyinfoBox">
+  <image src="https://wx.pmc-wz.com/materials/cwbx.png" mode="widthFix" class="jiejibanner" />
+  <view class="dhzymain">
+    <!-- <text class="dhline">时间：{{cwbx.startdate}}</text>
+    <text class="dhline">地点：{{cwbx.address}}</text>
+    <text class="dhline">方式：{{cwbx.typename}}</text>
+    <text class="dhline">凭证：{{cwbx.pinzheng}}</text> -->
+    <text class="dhline">方式：{{cwbx.memo}}</text>
+  </view>
+</view>
+<!-- <view class="dhzyinfoBox">
+  <image src="https://wx.pmc-wz.com/materials/txl.png" mode="widthFix" class="jiejibanner" />
+  <view class="dhzymain">
+    <view wx:for="{{txl}}" wx:for-item="item" wx:key="id" class="jbycitem">
+      <text class="dhline">{{item.title}}：{{item.name}} {{item.phone}}</text>
+    </view>
+    <text class="beizhu">注：如您在参会期间有任何问题，请联系大会的相关人员</text>
+  </view>
+</view> -->
+<view class="dhzyinfoBox">
+  <image src="https://wx.pmc-wz.com/materials/tqtx.png" mode="widthFix" class="jiejibanner" />
+  <view class="dhzymain">
+    <view wx:for="{{tq}}" wx:for-item="item" wx:key="id" class="jbycitem">
+      <text class="tqrq">{{item.startdate}}</text>
+      <text class="tqline">气温：{{item.qiwen}}</text>
+      <text class="tqline">穿衣指数：{{item.chuanyi}}</text>
+      <text class="tqline">注意事项：{{item.memo}}</text>
+    </view>
+  </view>
+</view>
+<view class="boda">
+  <text>行程负责人:{{jbinfo.fuzeren}}</text>
+  <view class="bodabtn" bind:tap="boda">一键拨打</view>
+</view>

@@ -1,0 +1,26 @@
+/* pages/login/login.wxss */
+.logo {
+  width: 260rpx;
+  height: 260rpx;
+  display: block;
+  margin: auto;
+}
+page{
+  height: 100%;
+}
+.login {
+  height: 100%;
+  width: 100%;
+  padding-top: 200rpx;
+}
+
+.loginBtn {
+  background: #3177DF;
+  width: 80%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 40px;
+  color: #fff;
+  margin: 100rpx auto 0 auto;
+}

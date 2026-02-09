@@ -1,0 +1,149 @@
+/* subpackages/tjdhhome/tjdhhome.wxss */
+page {
+  background: url("https://wx.pmc-wz.com/materials/tjdhbg.png") no-repeat;
+  background-size: 100% auto;
+  padding-top: 80rpx;
+}
+
+.tjdhcap {
+  display: block;
+  font-weight: bold;
+  font-size: 40rpx;
+  color: #fff;
+  text-align: center;
+  margin-top: 5rpx;
+}
+
+.xia {
+  width: 80rpx;
+  display: block;
+  margin: auto;
+  margin-top: 20rpx;
+}
+
+.main {
+  background-color: #fff;
+  width: 90%;
+  padding: 50rpx 0;
+  margin: 40rpx auto 0 auto;
+  border-radius: 30rpx;
+  box-shadow: inset 0 0 20rpx 0 rgba(72, 149, 255, 0.8);
+}
+
+.inline {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 16rpx;
+  position: relative;
+  width: 90%;
+  margin: 20rpx auto 0 auto;
+}
+
+.inline label {
+  width: 170rpx;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 20rpx;
+}
+
+.inline input,
+.pick {
+  width: calc(100% - 300rpx);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.inline text {
+  color: red;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+
+.btn {
+  margin-top: 60rpx;
+}
+
+.capp {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+
+.sys {
+  width: 50rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 0rpx;
+  z-index: 999;
+  background-color: #fff;
+}
+
+.maincap {
+  width: 90%;
+  display: block;
+  margin: 0 auto 0 auto;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.getcode {
+  display: inline-block;
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  color: #3e8cf1;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.nextBtn {
+  background-color: #5e9be0;
+  color: #fff;
+  width: 92%;
+  margin: 40rpx auto 0 auto;
+  text-align: center;
+  padding: 10rpx 0;
+  border-radius: 10rpx;
+}
+
+.tscap {
+  display: block;
+  width: 84%;
+  margin: 10rpx auto 0 auto;
+  font-size: 26rpx;
+}
+
+.pdficon {
+  display: block;
+  margin: 40rpx auto 0 auto;
+  width: 50%;
+}
+
+.btnlist {
+  display: flex;
+  justify-content: space-between;
+  width: 86%;
+  margin: auto;
+  margin-top: 60rpx;
+}
+
+.btnlist view {
+  display: inline-block;
+}
+
+.btx {
+  padding: 10rpx 60rpx;
+  border: 1px solid #666;
+  border-radius: 40rpx;
+  color: #666;
+}
+
+.tx {
+  padding: 10rpx 120rpx;
+  border: 1px solid rgb(43, 128, 255);
+  border-radius: 40rpx;
+  background: rgb(43, 128, 255);
+  color: #fff;
+}

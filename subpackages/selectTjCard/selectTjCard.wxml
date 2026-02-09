@@ -1,0 +1,34 @@
+<!--subpackages/selectCard/selectCard.wxml-->
+
+<view wx:if="{{selectCardVis===1}}">
+  <view class="table">
+    <view class="tableRow">
+      <view class="tableTd">体检编码</view>
+      <view class="tableTd">体检姓名</view>
+      <view class="tableTd">请选择</view>
+    </view>
+      <view class="tableRow" wx:for="{{daList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
+        <view class="tableTd">{{item.BRBM}}</view>
+        <view class="tableTd">{{item.BRXM}}</view>
+        <view class="tableTd">
+          <view bindtap="changeradio" class="radio" data-index="{{idx}}">
+              <image mode="widthFix" src="https://wx.pmc-wz.com/materials/duigou2.svg" class="duigou" wx:if="{{selectindex===idx}}"></image>
+          </view>
+        </view>
+      </view>
+  </view>
+  <view class="nextBtn" bindtap="bindbrda">下一步</view>
+</view>
+<view wx:if="{{selectCardVis===9}}">
+  <view class="table">
+    <view class="tableRow">
+      <view class="tableTd">联系地址</view>
+      <view class="tableTd">体检姓名</view>
+      <view class="tableTd">请选择</view>
+    </view>
+  </view>
+  <view class="tableContent">
+    未找到与您输入信息相符的就诊卡，无法进行绑定操作。也可以返回上一页重新填写联系电话重新匹配信息。
+  </view>
+  <view class="nextBtn" bindtap="raddjzka">上一步</view>
+</view>

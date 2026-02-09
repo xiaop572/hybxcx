@@ -1,0 +1,151 @@
+/* subpackages/addjzka/addjzka.wxss */
+page {
+  background-color: #f2f2f2;
+}
+
+.row {
+  border:1px solid #ddd;
+  background-color: #fff;
+  width: 90%;
+  margin:40rpx auto 0 auto;
+  padding: 10rpx 20rpx;
+}
+
+.row text {
+  display: inline-block;
+  vertical-align: middle;
+}
+.row input{
+  width: 380rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20rpx;
+  padding:10rpx 0;
+}
+.getcode{
+  display: inline-block;
+  padding: 10rpx 20rpx;
+  font-size: 26rpx;
+  border:1px solid #3e8cf1;
+  color: #3e8cf1;
+  margin: 20rpx 0;
+}
+.nextBtn{
+  background-color: #5e9be0;
+  color: #fff;
+  width: 92%;
+  margin:40rpx auto;
+  text-align: center;
+  padding:10rpx 0;
+  border-radius: 10rpx;
+}
+.table{
+  display: table;
+  width: 90%;
+  margin: auto;
+  background-color: #fff;
+  border-collapse: collapse;
+}
+.tableRow{
+  display: table-row;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.tableTd{
+  display: table-cell;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.tableContent{
+  width: 90%;
+  margin:auto;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 20rpx;
+  border-top: 0;
+  text-align: center;
+}
+.tijianBlock{
+  width: 92%;
+  height: 200rpx;
+  background: #fff;
+  margin:20rpx auto;
+  overflow: hidden;
+  position: relative;
+}
+.serial{
+  font-size: 30px;
+  color: #4c82fb;
+  position: relative;
+  top: 30rpx;
+  left: 40rpx;
+  font-weight: bold;
+}
+.one{
+  position: absolute;
+  left: 110rpx;
+  top: 30rpx;
+}
+.two{
+  position: absolute;
+  top: 80rpx;
+  left: 110rpx;
+  font-size: 14px;
+  color: #999;
+}
+.tijianbaogao{
+  width:100%;
+}
+.tishi{
+  font-size: 28rpx;
+  width: 90%;
+  margin: auto;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.tishi text{
+  display: block;
+  color: #333;
+}
+.open{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 20rpx;
+  margin: auto;
+  line-height: 140rpx;
+  color: #666;
+}
+.tixing{
+  width: 92%;
+  margin: auto;
+  box-sizing: border-box;
+  padding: 20rpx 40rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.tixing text{
+  display: block;
+  font-size: 26rpx;
+  color: #333;
+  margin-top: 10rpx;
+}
+.btnlist{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.btnlist text{
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  box-sizing: border-box;
+}
+.btnlist text:nth-child(1){
+  border-right: 1px solid #ccc;
+}

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "agent-ui":"/subpackagesB/components/agent-ui/index"
+  },
+  "navigationBarTitleText": "Coze AI助手",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "disableScroll": true
+}

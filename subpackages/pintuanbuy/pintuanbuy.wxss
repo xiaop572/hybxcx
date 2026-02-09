@@ -1,0 +1,144 @@
+/* subpackages/pintuanbuy/pintuanbuy.wxss */
+page{
+  background-color: #f6f6f6;
+}
+.main{
+  background-color: #fff;
+  width: 92%;
+  margin:40rpx auto 0 auto;
+  border-radius: 30rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+.propic{
+  width: 200rpx;
+  border-radius: 10rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+.residueTime{
+  color: #fff;
+  font-size: 26rpx;
+  display: inline-block;
+  margin: 0 10rpx 0 10rpx;
+}
+.residueTime .black{
+  background-color: #fe3f2d;
+  display: inline-block;
+  font-weight: normal;
+  padding:0 5rpx;
+  border-radius: 5rpx;
+}
+.residueTime .d{
+  margin: 0 5rpx;
+  color:#fe3f2d;
+}
+.proinfo{
+}
+.pictitle{
+  font-weight: bold;
+  display: block;
+}
+.zprice{
+  display: block;
+  color:#fe0000;
+  font-weight: bold;
+  margin-top: 30rpx;
+}
+.sprice{
+  color: #868686;
+  font-size: 26rpx;
+  text-decoration: line-through;
+}
+.personList{
+  clear: both;
+  display: block;
+  text-align: center;
+  margin-top: 70rpx;
+}
+.personList image{
+  width: 60rpx;
+  display: inline-block;
+  margin-right: 30rpx;
+  border-radius: 50rpx;
+}
+.daojishi{
+  text-align: center;
+  color: #000;
+  margin-top: 20rpx;
+}
+.buyBtn {
+  height: 70rpx;
+  line-height:70rpx;
+  display: inline-block;
+  padding: 0 70rpx !important;
+  color: #ff402e;
+  background-color: #faebe6;
+  cursor: pointer;
+  border-radius: 40rpx;
+  border:1px solid #ff402e;
+  margin-top: 15rpx;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+.buyBtn2 {
+  height: 70rpx !important;
+  line-height: 70rpx !important;
+  display: inline-block;
+  padding: 0 40rpx !important;
+  color: #Fff;
+  background-color: #ff402d;
+  cursor: pointer;
+  border-radius: 40rpx;
+  margin-top: 15rpx !important;
+  margin-right: 30rpx !important;
+  width: auto !important;
+  vertical-align: middle;
+}
+.btnlist{
+  text-align: center;
+  margin-top: 50rpx;
+  padding-bottom: 20rpx;
+}
+.yqbox{
+  background-color: #fff;
+  width: 92%;
+  margin:40rpx auto 0 auto;
+  border-radius: 30rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+.yqcap{
+  color: #fe3f2d;
+  font-size:46rpx;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20rpx;
+}
+.table {
+  display: table;
+  width: 100%;
+  text-align: center;
+  margin-top: 20rpx;
+  /*display: table时padding会失效*/
+}
+.row {
+  display: table-row;
+  vertical-align: middle;
+  /*display: table-row时margin、padding同时失效*/
+}
+.th{
+  color: #666;
+}
+.cell {
+  display: table-cell;
+  padding: 5px;
+  vertical-align: middle;
+  /*display: table-cell时margin会失效*/
+}
+.yqtou{
+  width: 100rpx;
+  border-radius: 100rpx;
+}

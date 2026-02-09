@@ -1,0 +1,57 @@
+<!--subpackagesB/home/home.wxml-->
+<image src="https://wx.pmc-wz.com/materials/zxdh/home2top.png" mode="widthFix" class="top" />
+<view class="daojishi">
+  <view class="dcap">距离会议开始还有</view>
+  <view class="daotime">
+    <text>{{
+          day === 0 || day < 0 ? "00" : day < 10 ? "0" + day : day
+        }}</text>天<text>{{
+          hour === 0 || hour < 0 ? "00" : hour < 10 ? "0" + hour : hour
+        }}</text>时<text>{{
+          minute === 0 || minute < 0
+            ? "00"
+            : minute < 10
+            ? "0" + minute
+            : minute
+        }}</text>分<text>{{
+          seconds === 0 || seconds < 0
+            ? "00"
+            : seconds < 10
+            ? "0" + seconds
+            : seconds
+        }}</text>秒
+  </view>
+</view>
+<view class="navlist">
+  <view class="w50left" style="text-align: left">
+    <image src="https://wx.pmc-wz.com/materials/zxdh/dhzjjg.png" mode="widthFix" class="img" bind:tap="rdhzjjg" data-type="hytz"/>
+  </view>
+  <view class="w50left" style="text-align: right">
+    <image src="https://wx.pmc-wz.com/materials/h2hyrc.png" mode="widthFix" class="img" bind:tap="rricheng"/>
+  </view>
+  <view class="w50left" style="text-align: left">
+    <image src="https://wx.pmc-wz.com/materials/h2hytz.png" mode="widthFix" class="img" bind:tap="rtupage" data-type="hytz"/>
+  </view>
+  
+  <view class="w50left" style="text-align: left">
+    <image src="https://wx.pmc-wz.com/materials/h2hyyqh.png" mode="widthFix" class="img"  bind:tap="rtupage" data-type="yqh"/>
+  </view>
+  <view class="w50left" style="text-align: left">
+    <image src="https://wx.pmc-wz.com/materials/h2yjjb.png" mode="widthFix" class="img" bind:tap="rhylist"/>
+  </view>
+  <view class="w50left" style="text-align: left">
+    <image src="https://wx.pmc-wz.com/materials/h2hyzs.png" mode="widthFix" class="img" bind:tap="rtupage" data-type="hyzs"/>
+  </view>
+  <view class="w50left" style="text-align: right">
+    <image src="https://wx.pmc-wz.com/materials/h2lwzj.png" mode="widthFix" class="img"   bind:tap="rtupage" data-type="lwzj"/>
+  </view>
+  <view class="w50left" style="text-align: right">
+    <image src="https://wx.pmc-wz.com/materials/h2lxwm.png" mode="widthFix" class="img" bind:tap="rtupage" data-type="lxwm"/>
+  </view>
+  <view class="w50left" style="text-align: right">
+    <image src="https://wx.pmc-wz.com/materials/zxdh/hslwzj.png" mode="widthFix" class="img"  bind:tap="rhslwzj"/>
+  </view>
+  <view class="w50left" style="text-align: right">
+    <image src="https://wx.pmc-wz.com/materials/h2tpzb.png" mode="widthFix" class="img"/>
+  </view>
+</view>

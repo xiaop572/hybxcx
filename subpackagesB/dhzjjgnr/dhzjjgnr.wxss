@@ -1,0 +1,8 @@
+/* subpackagesB/dhzjjgnr/dhzjjgnr.wxss *//* subpackagesB/hslwzjnr/hslwzjnr.wxss */
+page{
+  padding-bottom: 0 !important;
+}
+image{
+  width: 100%;
+  display: block;
+}

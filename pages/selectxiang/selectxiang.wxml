@@ -1,0 +1,11 @@
+<!--pages/selectxiang/selectxiang.wxml-->
+<view>
+  <view class="xiang" bindtap="subgu">
+    <image src="https://wx.pmc-wz.com/materials/xiang1.svg" mode="widthFix" class="icon"></image>
+    <view class="btn">固定套餐</view>
+  </view>
+  <view class="xiang" bindtap="rjiaxiang">
+    <image src="https://wx.pmc-wz.com/materials/xiang2.svg" mode="widthFix" class="icon"></image>
+    <view class="btn">1+X套餐</view>
+  </view>
+</view>

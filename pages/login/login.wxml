@@ -1,0 +1,4 @@
+<view class="login">
+  <image src="https://wx.pmc-wz.com/materials/logo.png" mode="widthFix" class="logo"></image>
+  <view class="loginBtn" bindtap="getUserInfo">一键授权登录</view>
+</view>

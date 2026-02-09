@@ -1,0 +1,12 @@
+/* huodongpage/lqrbyyhq/lqrbyyhq.wxss */
+page{
+  background: rgba(0, 0, 0,0.6);
+}
+image{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}

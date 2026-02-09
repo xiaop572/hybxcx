@@ -1,0 +1,89 @@
+<!--pages/tcxq/tcxq.wxml-->
+<import src="../../wxParse/wxParse/wxParse.wxml" />
+<view>
+  <swiper indicator-dots="true" style="text-align: center;height:{{imgHeight}}px" class="swiper">
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" style="width: 750rpx;"></image>
+    </swiper-item>
+  </swiper>
+  <view class="tmbox" style="height:{{imgHeight}}px">
+    <view class="tm" wx:for="{{tmlist}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" style="top:{{item.y}}rpx;left:{{item.x}}%;animation-delay:{{idx*3}}s">
+      <image src="{{item.avatarUrl}}" mode="widthFix" />
+      <text>{{item.xinmin}}</text>
+      <text> 刚刚抢购成功</text>
+    </view>
+  </view>
+  <view class="miaoshaInfo">
+    <view class="seckillPrice">¥<text class="sPrice">{{item.price}}</text>
+      <text class="yuanjia">原价¥{{item.pointsDeduction}}</text>
+    </view>
+    <view class="jt"></view>
+    <view class="xxianshi">
+      <view>
+        <text class="cap">距结束剩</text>
+      </view>
+      <view class="residueTime">
+        <text class="black">{{day===0|| day<0?'00':day<10?'0'+day:day}}</text>
+            <text class="d">天</text>
+            <text class="black">{{hour===0 || hour<0?'00':hour<10?'0'+hour:hour}}</text>
+                <text class="d">:</text>
+                <text class="black">{{minute===0 || minute <0?'00':minute<10?'0'+minute:minute}}</text>
+                    <text class="d">:</text>
+                    <text class="black">{{seconds===0 || seconds<0?'00':seconds<10?'0'+seconds:seconds}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="headline">
+    <text class="title">{{item.pictitle}}</text>
+    <text class="xiaoliang">已售：{{item.sanum}}</text>
+    <text class="price">¥{{item.price}}</text>
+  </view>
+  <view class="ptcap">
+    {{rolllist.length}}人在拼，参与可立即拼成
+  </view>
+  <view class="proroll">
+    <view class="prorollBox" style="height:{{rolllist.length*2*120}}rpx;transform:translateY(-{{rollnum*120}}rpx);transition: {{rollnum==0?'none':'all'}} 1s ease;">
+      <view class="pro" wx:for="{{rolllist}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
+          <image src="{{item.avatarUrl}}" mode="widthFix"/>
+          <text>{{rolllist[idx].xinmin}}</text>
+          <text class="gopd" data-id="{{rolllist[idx].id}}"  bind:tap="gopd">去拼单</text>
+          <view class="cha">还差<text>1</text>人拼成</view>
+      </view>
+      <view class="pro" wx:for="{{rolllist}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
+        <image src="{{rolllist[idx].avatarUrl}}" mode="widthFix"/>
+          <text>{{rolllist[idx].xinmin}}</text>
+          <text class="gopd" data-id="{{item.id}}" bind:tap="gopd">去拼单</text>
+          <text class="cha">还差1人拼成</text>
+      </view>
+    </view>
+  </view>
+  <view class="details">
+    <view class="details-title">商品详情</view>
+    <view class="details-content">
+      <template is="wxParse" data="{{wxParseData:courseDetail.nodes}}" wx:if="{{item.ishtml==1}}" />
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.detail}}" mode="widthFix" wx:if="{{item.ishtml==0}}"></image>
+    </view>
+  </view>
+  <view class="footer">
+    <!-- <button open-type="contact" send-message-title="测试" send-message-img="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" send-message-path="/pages/tcxq/tcxq?id={{item.id}}" show-message-card="true" class="icon">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xqlxkf.svg" class="kficon"></image>
+      <text>客服</text>
+    </button> -->
+    <poster class="poster" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail" >
+      <button class="icon" data-imgsrc="{{item.picurl}}" data-id="{{item.id}}">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/khfx.png" class="kficon"></image>
+        <text>分享</text>
+      </button>
+    </poster>
+    <button class="icon2" data-imgsrc="{{item.picurl}}" data-id="{{item.id}}" bindtap="rmypt">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/mypt.png" class="kficon2"></image>
+      <text>我的拼团</text>
+    </button>
+    <!-- <view class="buyBtn" bindtap="rbuy" data-item="{{item}}">单独购买</view> -->
+    <view class="buyBtn2" bindtap="rptbuy" data-item="{{item}}">立即开团</view>
+  </view>
+</view>
+<view class="haibao" wx:if="{{posterSrc}}" catchtap="close">
+  <image src="{{posterSrc}}" mode="heightFix" class="haiImg" catchtap="test"></image>
+  <view class="save" catchtap="saveImg">保存到相册</view>
+</view>

@@ -1,0 +1,109 @@
+<!--pages/tcxq/tcxq.wxml-->
+<import src="../../wxParse/wxParse/wxParse.wxml" />
+<view>
+  <swiper indicator-dots="true" style="text-align: center;height:{{imgHeight}}px" class="swiper" wx:if="{{item.picurl}}">
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" style="width: 750rpx;"></image>
+    </swiper-item>
+  </swiper>
+  <!-- 数据加载中的占位图 -->
+  <view class="swiper-placeholder" wx:else>
+    <text>图片加载中...</text>
+  </view>
+  <view class="miaoshaInfo" wx:if="{{item.id===1073}}">
+    <view class="seckillPrice">¥<text class="sPrice">{{item.price}}</text>
+      <text class="yuanjia">原价¥520</text>
+    </view>
+    <view class="jt"></view>
+    <view class="xxianshi">
+      <view>
+        <text class="cap">距结束剩</text>
+      </view>
+      <view class="residueTime">
+        <text class="black">{{day===0|| day<0?'00':day<10?'0'+day:day}}</text>
+            <text class="d">天</text>
+            <text class="black">{{hour===0 || hour<0?'00':hour<10?'0'+hour:hour}}</text>
+                <text class="d">:</text>
+                <text class="black">{{minute===0 || minute <0?'00':minute<10?'0'+minute:minute}}</text>
+                    <text class="d">:</text>
+                    <text class="black">{{seconds===0 || seconds<0?'00':seconds<10?'0'+seconds:seconds}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="headline" wx:if="{{!item.depositflag}}">
+    <text class="title">{{item.pictitle}}</text>
+    <text class="xiaoliang">已售：{{item.salenum}}</text>
+    <text class="price">¥{{item.price}}</text>
+  </view>
+  <view class="headline dingjin" wx:if="{{item.depositflag==1}}">
+    <text class="title">{{item.pictitle}}</text>
+    <text class="xiaoliang">已售：{{item.salenum}}</text>
+    <view class="price">预约金：<text>¥{{item.price}}</text><image src="https://wx.pmc-wz.com/materials/info-icon.png" class="info-icon" bindtap="showDepositInfo" mode="widthFix"></image></view>
+    <view class="daoyuanfu">到院再付：<text>¥{{item.remainmoney}}</text></view>
+  </view>
+  <view class="details" wx:if="{{item.detail}}">
+    <view class="details-title">商品详情</view>
+    <view class="details-content">
+      <template is="wxParse" data="{{wxParseData:courseDetail.nodes}}" wx:if="{{item.ishtml==1}}" />
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.detail}}" mode="widthFix" wx:if="{{item.ishtml==0}}"></image>
+    </view>
+  </view>
+  <view class="footer">
+    <button open-type="contact" class="icon" send-message-title="{{item.pictitle}}" send-message-path="/pages/tcxq/tcxq?id={{item.id}}" send-message-img="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" show-message-card="true">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xqlxkf.svg" class="kficon"></image>
+      <text>客服</text>
+    </button>
+    <!-- <button open-type="contact" send-message-title="测试" send-message-img="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" send-message-path="/pages/tcxq/tcxq?id={{item.id}}" show-message-card="true" class="icon">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xqlxkf.svg" class="kficon"></image>
+      <text>客服</text>
+    </button> -->
+    <button class="icon" open-type="share" data-imgsrc="{{item.picurl}}" data-id="{{item.id}}">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fenxiang1.svg" class="kficon"></image>
+      <text>分享</text>
+    </button>
+    <view class="buyBtn" bindtap="rbuy" data-item="{{item}}">立即购买</view>
+  </view>
+
+  <view class="specBox" catchtap="cancelSec" wx:if="{{specVis}}">
+    <view class="spec" catchtap="no">
+      <view class="proinfo">
+        <view class="proinfoLeft">
+          <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="specProImg"></image>
+        </view>
+        <view class="proinforight">
+          <text class="specPrice">¥{{item.price}}</text>
+          <text class="spectishi">请选择规格</text>
+        </view>
+      </view>
+      <view class="specList">
+        <text class="specSel">规格选择</text>
+        <view class="specItemList">
+          <text class="specItem {{spec===it.addon?'active':''}}" wx:for="{{item.spec}}" wx:for-item="it" wx:key="idx" wx:for-index="idx" bindtap="selSpec" data-spec="{{it.addon}}">{{it.addon}}</text>
+        </view>
+      </view>
+      <view class="specNext" bindtap="specBuy"  data-item="{{item}}">
+        下一步
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 预约金说明弹框 -->
+  <view class="modal-overlay" wx:if="{{showModal}}" bindtap="hideDepositInfo">
+    <view class="modal-content" catchtap="stopPropagation">
+      <view class="modal-header">
+        <text class="modal-title">预约金说明</text>
+        <image src="https://wx.pmc-wz.com/materials/close-icon.svg" class="close-icon" bindtap="hideDepositInfo" mode="widthFix"></image>
+      </view>
+      <view class="modal-body">
+        <text class="modal-text">• 预约金用于确保您的预约有效性</text>
+        <text class="modal-text">• 到院消费时，支付其余部分即可</text>
+        <text class="modal-text">• 即预约金+到院支付金额=慧医宝价格</text>
+        <text class="modal-text">• 预约金到院消费前可退，过期未消费也可退。在我的订单中退款。</text>
+      </view>
+      <view class="modal-footer">
+        <view class="modal-btn" bindtap="hideDepositInfo">我知道了</view>
+      </view>
+    </view>
+  </view>
+</view>

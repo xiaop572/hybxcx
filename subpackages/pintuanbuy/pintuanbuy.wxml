@@ -1,0 +1,68 @@
+<!--subpackages/pintuanbuy/pintuanbuy.wxml-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<view class="main">
+  <view>
+    <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="propic"></image>
+    <view class="proinfo">
+      <text class="pictitle">{{item.pictitle}}</text>
+      <text class="zprice">¥{{item.price}}</text>
+      <text class="sprice">原价：¥{{item.pointsDeduction}}</text>
+    </view>
+  </view>
+  <view class="personList">
+    <image src="{{ptmx[index].avatarUrl?ptmx[index].avatarUrl:'https://wx.pmc-wz.com/materials/khwen.png'}}" mode="widthFix" wx:for="{{2}}" wx:for-item="item" wx:for-index="index" wx:key="idx"></image>
+  </view>
+  <view class="daojishi">
+    还差<text>{{2-ptmx.length<0?0:2-ptmx.length}}</text>人成团
+        <view class="residueTime">
+          <text class="black">{{day===0|| day<0?'00':day<10?'0'+day:day}}</text>
+              <text class="d">天</text>
+              <text class="black">{{hour===0 || hour<0?'00':hour<10?'0'+hour:hour}}</text>
+                  <text class="d">:</text>
+                  <text class="black">{{minute===0 || minute <0?'00':minute<10?'0'+minute:minute}}</text>
+                      <text class="d">:</text>
+                      <text class="black">{{seconds===0 || seconds<0?'00':seconds<10?'0'+seconds:seconds}}</text>
+        </view>
+        后结束
+  </view>
+  <view class="btnlist">
+    <button class="buyBtn2" open-type="share" data-imgsrc="{{item.picurl}}" data-id="{{item.id}}" wx:if="{{!isptw}}">邀请好友拼团</button>
+    <view class="buyBtn" bindtap="rptbuy" data-item="{{item}}" wx:if="{{isbuy && !isptw}}">立即购买</view>
+    <button class="buyBtn2" wx:if="{{isptw}}" bindtap="rpro">我也要拼团</button>
+    <view class="buyBtn" wx:if="{{isptw}}">拼团完成</view>
+  </view>
+</view>
+<!-- <view class="yqbox" wx:if="{{istz}}">
+  <text class="yqcap">我的邀请</text>
+  <view class="table">
+    <view class="row th">
+      <view class="cell">头像</view>
+      <view class="cell">好友昵称</view>
+      <view class="cell">邀请时间</view>
+    </view>
+    <view class="row" wx:for="{{ptmx}}" wx:for-item="item" wx:for-index="index" wx:if="{{index!==0}}">
+      <view class="cell">
+        <image src="{{item.avatarUrl}}" mode="widthFix" class="yqtou"></image>
+      </view>
+      <view class="cell">
+        <text>{{item.xinmin}}</text>
+      </view>
+      <view class="cell">
+        <text>{{m1.rq(item.paytime)}} {{m1.time(item.paytime)}}</text>
+      </view>
+    </view>
+  </view>
+</view> -->

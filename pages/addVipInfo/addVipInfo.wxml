@@ -1,0 +1,9 @@
+<!--pages/addVipInfo/addVipInfo.wxml-->
+<text class="turnCation">极速申请</text>
+<view class="infoBox">
+  <input type="text" placeholder="姓名" class="ins" model:value="{{xinmin}}" disabled="{{state===2}}"/>
+  <input type="text" placeholder="身份证号码" class="ins" model:value="{{cardno}}" disabled="{{state===2}}"/>
+  <input type="text" placeholder="手机号" class="ins" model:value="{{mobile}}" disabled="{{state===2}}"/>
+  <button class="ktBtn" bindtap="submit" disabled="{{state===2}}">{{state===2?"审核中":"立即开通"}}</button>
+  <text class="tixing">*慧医宝尊重并保护用户信息，我们不会向第三方透露您的信息</text>
+</view>

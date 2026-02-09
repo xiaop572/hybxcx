@@ -1,0 +1,37 @@
+/* pages/getkaquan/getkaquan.wxss */
+page{
+  background-color: #f2f2f2;
+}
+.kainfo{
+  width: 92%;
+  background-color: #fff;
+  margin:60rpx auto 0 auto;
+  border-radius: 10rpx;
+}
+.kainfo image{
+  width: 100%;
+}
+.kainfo view{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 20rpx;
+}
+.inputmobile{
+  background-color: #fff;
+  width: 92%;
+  margin:40rpx auto 0 auto;
+  border-radius: 40rpx;
+  height: 80rpx;
+}
+.inputmobile input{
+  height: 80rpx;
+  padding: 0 40rpx;
+}
+.jiesubmit{
+  width: 92% !important;
+  margin:60rpx auto;
+  border-radius: 40rpx;
+  color: #fff;
+  background-color: rgba(252, 154, 106,1);
+  font-weight: normal;
+}

@@ -1,0 +1,48 @@
+/* pages/jiesuan/jiesuan.wxss */
+page{
+  background-color: #f2f2f2;
+}
+.informmation{
+  background-color: #ffffff;
+}
+.padleft40{
+  margin-left: 40rpx;
+  font-size: 28rpx !important;
+}
+.footer {
+  background: #fff;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.buyBtn {
+  height: 100rpx;
+  line-height: 100rpx;
+  display: inline-block;
+  padding: 0 40rpx;
+  color: #Fff;
+  background-color: red;
+  cursor: pointer;
+  float: right;
+}
+.money{
+  color: red;
+  font-size: 40rpx;
+  line-height: 100rpx;
+  padding: 0 40rpx;
+}
+.tishi{
+  font-size: 28rpx;
+  width: 100%;
+  margin: auto;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding:20rpx 40rpx;
+  border-bottom: 1px solid #eee;
+}
+.tishi text{
+  display: block;
+  color: #333;
+  color: red;
+}

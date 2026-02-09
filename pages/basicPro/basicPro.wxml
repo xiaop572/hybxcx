@@ -1,0 +1,32 @@
+<!--pages/basicPro/basicPro.wxml-->
+<view class="search" bindtap="rSearch">
+  <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fangdajing.png" class="searchIcon"></image>
+  <text>Search</text>
+</view>
+<view class="sort">
+  <text style="{{sortIndex===1?'color:#e30012':''}}" bindtap="sortPro" data-sort="1">综合</text>
+  <view style="{{sortIndex===2 || sortIndex===9?'color:#e30012':''}}" bindtap="PriceSortPro">价格
+    <view class="arr">
+      <view class="arrUp {{sortIndex===9?'bgRed1':''}}"></view>
+      <view class="arrDown {{sortIndex===2?'bgRed2':''}}"></view>
+    </view>
+  </view>
+  <text style="{{sortIndex===3?'color:#e30012':''}}" bindtap="sortPro" data-sort="3">上新</text>
+</view>
+<view class="itemList" wx:if="{{proList.length!=0}}">
+  <view class="item" wx:for="{{proList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" bindtap="rtcxq" data-id="{{item.id}}">
+    <view class="fengimg">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" lazy-load="true"></image>
+    </view>
+    <text class="caption">{{item.pictitle}}</text>
+    <view class="priceFlex">
+      <view class="price"><text class="symbol">￥</text><text>{{item.price}}</text></view>
+      <view class="ms">
+        <image src="https://wx.pmc-wz.com/materials/gwc.png" mode="widthFix" />
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{proList.length==0}}" class="nopro">
+  <image mode="widthFix" src="https://wx.pmc-wz.com/materials/noPro.png"></image>
+</view>

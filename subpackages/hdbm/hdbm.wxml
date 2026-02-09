@@ -1,0 +1,23 @@
+<!--subpackages/hdbm/hdbm.wxml-->
+<image src="https://wx.pmc-wz.com/materials/bmbanner.jpg" mode="widthFix" class="banner" />
+<label for="js_input1" class="weui-cell weui-cell_active">
+  <view class="weui-cell__hd"><text class="weui-label">姓名</text></view>
+  <view class="weui-cell__bd">
+    <input id="js_input1" class="weui-input" placeholder="填写本人姓名" model:value="{{xinmin}}" />
+  </view>
+</label>
+<label for="js_input1" class="weui-cell weui-cell_active">
+  <view class="weui-cell__hd"><text class="weui-label">手机号</text></view>
+  <view class="weui-cell__bd">
+    <input id="js_input1" class="weui-input" placeholder="手机号" rules="[bytelength:11]" type="number" model:value="{{mobile}}" />
+  </view>
+</label>
+<label for="js_input1" class="weui-cell weui-cell_active">
+  <view class="weui-cell__hd"><text class="weui-label">单位</text></view>
+  <view class="weui-cell__bd">
+    <input id="js_input1" class="weui-input" placeholder="单位"  model:value="{{corp}}" />
+  </view>
+</label>
+<view class="footer">
+  <view bindtap="submit" class="sum">提交</view>
+</view>

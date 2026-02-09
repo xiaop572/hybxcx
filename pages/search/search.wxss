@@ -1,0 +1,30 @@
+/* pages/search/search.wxss */
+.searchBox{
+  text-align: center;
+}
+.search{
+  background-color: #f2f2f2;
+  width: 600rpx;
+  display: inline-block;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 70rpx;
+  text-align: left;
+}
+.searchIcon{
+  width: 40rpx;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+}
+.searchInput{
+  display: inline-block;
+  height: 70rpx;
+  line-height: 70rpx;
+  vertical-align: middle;
+  font-size: 30rpx;
+}
+.searchBtn{
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}

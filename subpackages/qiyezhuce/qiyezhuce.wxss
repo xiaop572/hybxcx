@@ -1,0 +1,61 @@
+/* subpackages/qiyezhuce/qiyezhuce.wxss */
+page {
+  height: 100%;
+  padding-bottom: 0 !important;
+}
+
+.main {
+  overflow: hidden;
+  position: relative;
+}
+.bg{
+  display: block;
+  width: 100%;
+}
+.subBox{
+  background-color: #fff;
+  width: 670rpx;
+  height: 900rpx;
+  position: absolute;
+  bottom: 20rpx;
+  border-radius: 20rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding-top: 60rpx;
+  box-sizing: border-box;
+}
+.input{
+  background-color: #ddf3ff;
+  width: 80%;
+  margin: auto;
+  height: 100rpx;
+  margin-top: 30rpx;
+  box-sizing: border-box;
+  padding: 0 50rpx;
+  border-radius: 100rpx;
+}
+.subBtn{
+  width: 80%;
+  height: 100rpx;
+  margin: auto;
+  text-align: center;
+  color: #fff;
+  background:linear-gradient(to right,#03b8fd,#0092e5);
+  line-height: 100rpx;
+  border-radius: 100rpx;
+  margin-top: 50rpx;
+  font-weight: bold;
+}
+.yzm{
+  width: 60%;
+  height: 100%;
+  float: left;
+}
+.getcode{
+  width: 40%;
+  display: inline-block;
+  height: 100%;
+  line-height: 100rpx;
+  text-align: center;
+}

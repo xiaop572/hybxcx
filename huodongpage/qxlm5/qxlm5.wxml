@@ -1,0 +1,2 @@
+<!--subpackages/lipin/lipin.wxml-->
+<image src="https://wx.pmc-wz.com/materials/qxyymm.png" mode="widthFix" class="pro" bindtap="clickPro" />

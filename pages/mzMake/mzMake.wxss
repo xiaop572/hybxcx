@@ -1,0 +1,16 @@
+/* pages/mzMake/mzMake.wxss */
+.ksItem{
+  width: 33%;
+  float: left;
+  text-align: center;
+  margin-top: 40rpx;
+}
+.ksItem text{
+  font-size: 14px;
+  color: #333;
+}
+.ksItem image{
+  width: 30%;
+  display: block;
+  margin: auto;
+}

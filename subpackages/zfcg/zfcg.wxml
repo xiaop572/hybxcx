@@ -1,0 +1,5 @@
+<!--subpackages/zfcg/zfcg.wxml-->
+<image src="https://wx.pmc-wz.com/materials/zfcg.png" mode="widthFix"/>
+<text class="zfcap">支付成功</text>
+<text class="zfcap">具体支付信息以短信通知</text>
+<view class="nextBtn" bind:tap="rindex">确认</view>

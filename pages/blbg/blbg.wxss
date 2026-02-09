@@ -1,0 +1,219 @@
+/* subpackages/cflist/cflist.wxss */
+page {
+  height: 100%;
+  background-color: #f2f2f2
+}
+
+.cflistBox {
+  width: 100%;
+  background-color: #fff;
+}
+
+.cflistitem {
+  overflow: hidden;
+  padding: 0 40rpx;
+  border-bottom: 1px solid #eee;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+
+.sj {
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.ys {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+  position: relative;
+  vertical-align: middle;
+  /* 设置容器的宽度，你可以根据需要调整 */
+}
+
+.ys text {
+  display: inline-block;
+  height: 100%;
+  line-height: 100rpx;
+  margin: 0;
+  padding: 0;
+  margin-right: 20rpx;
+  vertical-align: middle;
+  overflow: hidden;
+  /* 隐藏超出的文本 */
+  text-overflow: ellipsis;
+  /* 当文本溢出时显示省略号 */
+  white-space: nowrap;
+  /* 防止文本换行 */
+  width: 220px;
+  text-align: right;
+}
+
+.right {
+  width: 40rpx;
+  vertical-align: middle;
+  display: inline-block;
+  position: absolute;
+  top: 32rpx;
+  right: -26rpx;
+}
+
+.header {
+  height: 80rpx;
+  width: 100%;
+  clear: both;
+  background-color: #b2dffc;
+  line-height: 80rpx;
+}
+
+.qie {
+  width: 120rpx;
+  margin-top: 20rpx;
+  position: absolute;
+  right: 20rpx;
+}
+
+.kabao {
+  width: 50rpx;
+  margin-top: 20rpx;
+  position: absolute;
+  right: 160rpx;
+}
+
+.bang {
+  position: absolute;
+  top: 15rpx;
+  left: 10rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 0 20rpx;
+  background-color: #22a3f4;
+  color: #fff;
+  border-radius: 50rpx;
+}
+
+.coverBox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.swiperBox {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 400rpx;
+}
+
+.swiperitem {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.zfCard {
+  background: linear-gradient(to right, #ed9e41, #f1d072);
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  border-radius: 30rpx;
+  position: relative;
+}
+
+.ybCard {
+  background: linear-gradient(to right, #4186ed, #0cb9fb);
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  border-radius: 30rpx;
+  position: relative;
+}
+
+.cardtype {
+  position: absolute;
+  right: 40rpx;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 0 20rpx;
+  top: 30rpx;
+}
+
+.name {
+  position: absolute;
+  left: 60rpx;
+  top: 80rpx;
+  color: #fff;
+}
+
+.cardnum {
+  position: absolute;
+  left: 60rpx;
+  top: 130rpx;
+  color: #fff;
+}
+
+.selectBtn {
+  position: absolute;
+  left: 60rpx;
+  bottom: 60rpx;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 5rpx 20rpx;
+}
+
+.yxitem {
+  color: #666;
+  padding: 20rpx 40rpx;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #999;
+  width: 92%;
+  margin: auto;
+  box-sizing: border-box;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.changecardvis {}
+
+.brxm {
+  border-bottom: 1rpx solid #999;
+  width: 92%;
+  margin: auto;
+  padding: 40rpx 40rpx 10rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.brname {
+  font-size: 40rpx;
+  margin-right: 10rpx;
+}
+
+.brcard {
+  color: #666;
+}
+
+.brtype {
+  color: #22a3f4;
+  float: right;
+  border: 1px solid #22a3f4;
+  border-radius: 10rpx;
+  padding: 0 10rpx;
+}

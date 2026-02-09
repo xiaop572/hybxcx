@@ -1,0 +1,32 @@
+<!--影像列表页-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+  var floor = function (r) {
+    return Math.floor(r)
+  }
+  module.exports.floor = floor;
+</wxs>
+<view class="brxm">
+  <text class="brname">{{brxm}}</text>
+  <!-- <text class="brcard">{{it.brbm}}</text> -->
+  <text class="brtype">{{type=='jy'?'检验':'影像'}}</text>
+</view>
+<view wx:if="{{list.length>0 && type=='jy'}}" wx:for="{{list}}" wx:for-item="item" wx:key="idx" data-sampleno="{{item.sampleno}}" data-instrid="{{item.instrid}}" data-sampleda="{{item.sampleda}}" bindtap="rjyjg">
+  <view class="yxitem">{{m1.rq(item.sampleda)}}  {{item.DJLBMC}}</view>
+</view>
+<view wx:if="{{list.length>0 && type=='yx'}}" wx:for="{{list}}" wx:for-item="item" wx:key="idx"  data-id="{{item.PATIENT_ID}}" bindtap="ryxyq">
+  <view class="yxitem">{{m1.rq(item.APPOINT_DATE)}}  {{item.EXAM_PART}}</view>
+</view>
+<view wx:if="{{list.length===0}}">暂无报告</view>

@@ -1,0 +1,24 @@
+<!--subpackages/tcshiyong/tcshiyong.wxml-->
+<view class="cpBox">
+  <text class="cpcap">请输入车牌</text>
+  <view class="cpList" bindtap="cpjptrue">
+    <view class="cph">{{plate[0]}}</view>
+    <view class="cph">{{plate[1]}}</view>
+    <view class="cph">{{plate[2]}}</view>
+    <view class="cph">{{plate[3]}}</view>
+    <view class="cph">{{plate[4]}}</view>
+    <view class="cph">{{plate[5]}}</view>
+    <view class="cph">{{plate[6]}}</view>
+    <view class="cph2">{{plate[7]?plate[7]:""}}
+      <image src="https://wx.pmc-wz.com/materials/xny.png" class="xny" mode="widthFix" wx:if="{{!plate[7]}}"></image>
+    </view>
+  </view>
+</view>
+<plateKeyboard showPlateKeyboard="{{isShowKeyboard}}" bind:plateKeyboardChange="onPlateKeyboardValueChange"></plateKeyboard>
+<view class="cpBox">
+  <text class="cpcap">请输入手机号</text>
+  <input type="number" class="phone" bindtap="cpjpfalse" model:value="{{mobile}}"/>
+</view>
+<view class="subBtn" bindtap="submit">
+  确定
+</view>

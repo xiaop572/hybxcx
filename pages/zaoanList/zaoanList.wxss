@@ -1,0 +1,20 @@
+/* pages/zaoanList/zaoanList.wxss */page{
+  height: 100%;
+  background-color: #ffffff;
+}
+.kqBox{
+  /* background: url("https://wx.pmc-wz.com/materials/kaquanBg.png") no-repeat; */
+  background-size: 100% 100%;
+  height: 100%;
+  padding-bottom: 40rpx;
+}
+.kapianList image{
+  width: 96%;
+  display: block;
+  margin:40rpx auto 0 auto;
+  box-shadow: 0px 0px 4px 1px #ccc;
+  border-radius: 20rpx;
+}
+.kapianList image:active{
+  opacity: 0.8;
+}

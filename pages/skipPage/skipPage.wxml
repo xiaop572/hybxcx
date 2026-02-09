@@ -1,0 +1,143 @@
+<!--subpackages/skipPage/skipPage.wxml-->
+<view class="search" bindtap="rSearch">
+  <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fangdajing.png" class="searchIcon"></image>
+  <text>Search</text>
+</view>
+<view class="itemList">
+  <view class="item" bindtap="rBasicPro" data-id="77" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon12.png"></image>
+    <text>外科</text>
+  </view>
+  <view class="item" bindtap="rBasicPro" data-id="67" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon2.png"></image>
+    <text>皮肤</text>
+  </view>
+  <view class="item" bindtap="rBasicPro" data-id="68" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon3.png"></image>
+    <text>整形</text>
+  </view>
+  <view class="item" bindtap="rBasicPro" data-id="60" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon4.png"></image>
+    <text>体检</text>
+  </view>
+  <view class="item" bindtap="rBasicPro" data-id="62" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon5.png"></image>
+    <text>口腔</text>
+  </view>
+  <view class="item" bindtap="rBasicPro" data-id="66" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon6.png"></image>
+    <text>妇产</text>
+  </view>
+  <view class="item" bindtap="rBasicPro" data-id="63" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon7.png"></image>
+    <text>产康</text>
+  </view>
+  <view class="item" bindtap="rBasicPro" data-id="72" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon8.png"></image>
+    <text>植发</text>
+  </view>
+  <view class="item" bindtap="rBasicPro" data-id="71" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon9.png"></image>
+    <text>内科</text>
+  </view>
+
+  <view class="item" bindtap="rBasicPro" data-id="99" data-mername="微整形">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon16.png"></image>
+    <text>微整形</text>
+  </view>
+  <view class="item" bindtap="rBasicPro" data-id="75" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon11.png"></image>
+    <text>创伤</text>
+  </view>
+  <view class="item" bindtap="rBasicPro" data-id="69" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon17.png"></image>
+    <text>康复</text>
+  </view>
+  <view class="item" bindtap="rBasicPro" data-id="78" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon13.png"></image>
+    <text>超声科</text>
+  </view>
+  <view class="item" bindtap="rBasicPro" data-id="65" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon14.png"></image>
+    <text>影像</text>
+  </view>
+  <view class="item" bindtap="rZjjs" data-id="64" data-mername="儿童">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/skipIcon15.png"></image>
+    <text>专家</text>
+  </view>
+</view>
+<view class="pro">
+  <view class='navBox'>
+    <view class='titleBox' bindtap='titleClick' data-idx='0'>
+      <text class="{{0 == currentIndex ? 'fontColorBox' : ''}}">销量榜</text>
+      <hr class="{{0 == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+    </view>
+    <view class='titleBox' bindtap='titleClick' data-idx='1'>
+      <text class="{{1 == currentIndex ? 'fontColorBox1' : ''}}">人气榜</text>
+      <hr class="{{1 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+    </view>
+    <view class='titleBox' bindtap='titleClick' data-idx='2'>
+      <text class="{{2 == currentIndex ? 'fontColorBox1' : ''}}">新品榜</text>
+      <hr class="{{2 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+    </view>
+  </view>
+  <swiper class='swiperTtemBox' bindchange='pagechange' current='{{currentIndex}}'>
+    <swiper-item class='swiperTtemBox'>
+      <view class="proitemList" wx:if="{{xlList.length!=0}}">
+        <view class="proitem" wx:for="{{xlList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" bindtap="rtcxq" data-id="{{item.id}}">
+          <view class="profengimg">
+            <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix"></image>
+          </view>
+          <image mode="widthFix" src="https://wx.pmc-wz.com/materials/guanjun.png" wx:if="{{idx===0}}" class="jiangpai"></image>
+          <image mode="widthFix" src="https://wx.pmc-wz.com/materials/yajun.png" wx:if="{{idx===1}}" class="jiangpai"></image>
+          <image mode="widthFix" src="https://wx.pmc-wz.com/materials/jijun.png" wx:if="{{idx===2}}" class="jiangpai"></image>
+          <view class="proitemRight">
+            <text class="procaption">{{item.pictitle}}</text>
+            <text class="proviceCaption">{{item.summary}}</text>
+            <view class="priceFlex">
+              <view class="price"><text class="symbol">￥</text><text>{{item.price}}</text></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item class='swiperTtemBox'>
+      <view class="proitemList" wx:if="{{renqiList.length!=0}}">
+        <view class="proitem" wx:for="{{renqiList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" bindtap="rtcxq" data-id="{{item.id}}">
+          <view class="profengimg">
+            <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix"></image>
+          </view>
+          <image mode="widthFix" src="https://wx.pmc-wz.com/materials/guanjun.png" wx:if="{{idx===0}}" class="jiangpai"></image>
+          <image mode="widthFix" src="https://wx.pmc-wz.com/materials/yajun.png" wx:if="{{idx===1}}" class="jiangpai"></image>
+          <image mode="widthFix" src="https://wx.pmc-wz.com/materials/jijun.png" wx:if="{{idx===2}}" class="jiangpai"></image>
+          <view class="proitemRight">
+            <text class="procaption">{{item.pictitle}}</text>
+            <text class="proviceCaption">{{item.summary}}</text>
+            <view class="priceFlex">
+              <view class="price"><text class="symbol">￥</text><text>{{item.price}}</text></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item class='swiperTtemBox'>
+      <view class="proitemList" wx:if="{{xpList.length!=0}}">
+        <view class="proitem" wx:for="{{xpList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" bindtap="rtcxq" data-id="{{item.id}}">
+          <view class="profengimg">
+            <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix"></image>
+          </view>
+          <image mode="widthFix" src="https://wx.pmc-wz.com/materials/guanjun.png" wx:if="{{idx===0}}" class="jiangpai"></image>
+          <image mode="widthFix" src="https://wx.pmc-wz.com/materials/yajun.png" wx:if="{{idx===1}}" class="jiangpai"></image>
+          <image mode="widthFix" src="https://wx.pmc-wz.com/materials/jijun.png" wx:if="{{idx===2}}" class="jiangpai"></image>
+          <view class="proitemRight">
+            <text class="procaption">{{item.pictitle}}</text>
+            <text class="proviceCaption">{{item.summary}}</text>
+            <view class="priceFlex">
+              <view class="price"><text class="symbol">￥</text><text>{{item.price}}</text></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

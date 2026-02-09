@@ -1,0 +1,83 @@
+<!--pages/kaquan/kaquan.wxml-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<view class="kqBox">
+  <view class='navBox'>
+    <view class='titleBox' bindtap='titleClick' data-idx='0'>
+      <text class="{{0 == currentIndex ? 'fontColorBox' : ''}}">未使用</text>
+      <hr class="{{0 == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+    </view>
+    <view class='titleBox' bindtap='titleClick' data-idx='1'>
+      <text class="{{1 == currentIndex ? 'fontColorBox1' : ''}}">已使用</text>
+      <hr class="{{1 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+    </view>
+    <view class='titleBox' bindtap='titleClick' data-idx='2'>
+      <text class="{{2 == currentIndex ? 'fontColorBox1' : ''}}">已过期</text>
+      <hr class="{{2 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+    </view>
+  </view>
+
+  <swiper class='swiperTtemBox' bindchange='pagechange' current='{{currentIndex}}'>
+    <swiper-item class='swiperTtemBox'>
+      <view wx:for="{{kaList}}" wx:for-item="it" wx:key="idx" class="kapianList">
+        <text class="orderno">订单号：{{it.OrderNo}}</text>
+        <image src="https://wx.pmc-wz.com/hyb/images/{{it.picurl}}" mode="widthFix"></image>
+        <view class="proRight">
+          <text class="goodsname">{{it.spec?it.spec:it.goodsname}}</text>
+          <text class="price">实付款￥{{it.TotalPrice}}</text>
+        </view>
+        <view class="btnlist">
+          <view wx:if="{{it.buy2url}}" class="shiyong2" data-url="{{it.buy2url}}" bind:tap="ryy">
+            立即预约
+          </view>
+          <view class="shiyong" bindtap="rkaqrcode" data-deli="{{it.DeliveryStatus}}" data-ids="{{it.Id}}" data-price="{{it.PayPrice}}" data-goodsname="{{it.goodsname}}" data-orderno="{{it.OrderNo}}" data-imgsrc="{{it.kapic}}" data-xinmin="{{it.xinmin}}" data-picurl="{{it.picurl}}" data-paytime="{{it.PayTime}}">立即使用</view>
+          <!-- <button class="zengsong" bindtap="setshare" open-type="share" data-price="{{it.PayPrice}}" data-goodsname="{{it.goodsname}}" data-orderno="{{it.OrderNo}}" data-imgsrc="{{it.kapic}}">赠送他人</button> -->
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item class='swiperTtemBox'>
+      <view wx:for="{{wanList}}" wx:for-item="it" wx:key="idx" class="kapianList">
+        <text class="orderno">订单号：{{it.OrderNo}}</text>
+        <image src="https://wx.pmc-wz.com/hyb/images/{{it.picurl}}" mode="widthFix"></image>
+        <view class="proRight">
+          <text class="goodsname">{{it.spec?it.spec:it.goodsname}}</text>
+          <text class="price">实付款￥{{it.TotalPrice}}</text>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item class='swiperTtemBox'>
+      <view wx:for="{{yiguoqi}}" wx:for-item="it" wx:key="idx" class="kapianList">
+        <text class="orderno">订单号：{{it.OrderNo}}</text>
+        <image src="https://wx.pmc-wz.com/hyb/images/{{it.picurl}}" mode="widthFix"></image>
+        <view class="proRight">
+          <text class="goodsname">{{it.goodsname}}</text>
+          <text class="price">实付款￥{{it.TotalPrice}}</text>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item class='swiperTtemBox'>
+      <view wx:for="{{zengkaList}}" wx:for-item="it" wx:key="idx" class="zengkaList">
+        <image src="https://wx.pmc-wz.com/hyb/images/{{it.picurl}}" mode="widthFix"></image>
+        <view class="proRight">
+          <text class="goodsname">{{it.goodsname}}</text>
+          <text class="orderno">订单号：{{it.OrderNo}}</text>
+          <text class="orderno">赠送人：{{it.orgvalue}}</text>
+          <text class="orderno">赠卡时间：{{m1.rq(it.dt)}} {{m1.time(it.dt)}}</text>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

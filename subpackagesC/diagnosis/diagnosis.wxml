@@ -1,0 +1,185 @@
+<!-- subpageC/diagnosis/diagnosis.wxml -->
+<view class="container1">
+  <!-- 顶部标题 -->
+  <view class="header-title">Hi, 我是小慧，你AI朋友</view>
+
+  <!-- 欢迎页 -->
+  <view wx:if="{{showWelcome}}" class="main-content">
+    <!-- 左上角装饰图片 -->
+    <image class="intro-img" src="https://wx.pmc-wz.com/materials/hmb/heniyiqimei.png" mode="widthFix"></image>
+
+    <!-- 中间人物形象 -->
+    <view class="character-section">
+      <image class="character-img" src="https://wx.pmc-wz.com/materials/hmb/xiaohuiAi.png" mode="widthFix"></image>
+    </view>
+
+    <!-- 右侧提示泡泡 -->
+    <view class="bubble bubble-1">
+      <text class="bubble-text">小慧看一眼
+就懂你的美</text>
+    </view>
+
+    <!-- 左侧提示泡泡1 -->
+    <view class="bubble bubble-2">
+      <text class="bubble-text">小慧能为你
+量身定制变美计划</text>
+    </view>
+
+    <!-- 右侧提示泡泡2 -->
+    <view class="bubble bubble-3">
+      <text class="bubble-text">小慧能为你做一次
+全面的AI面诊</text>
+    </view>
+  </view>
+
+  <!-- 消息列表区域 -->
+  <view wx:else class="message-area">
+    <view class="message-item" wx:for="{{messageList}}" wx:key="time" id="msg-{{index}}">
+      <!-- 用户消息 -->
+      <view wx:if="{{item.type === 'user'}}" class="user-message">
+        <!-- 图片消息 -->
+        <view wx:if="{{item.msgType === 'image'}}" class="message-bubble user-bubble-image">
+          <image class="message-image" src="{{item.imageUrl}}" mode="widthFix"></image>
+        </view>
+        <!-- 文字消息 -->
+        <view wx:else class="message-bubble user-bubble" bindlongpress="copyMessage" data-content="{{item.content}}">
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+      
+      <!-- AI消息 -->
+      <view wx:else class="ai-message">
+        <view class="message-bubble ai-bubble" bindlongpress="copyMessage" data-content="{{item.content}}">
+          <block wx:for="{{item.messageParts}}" wx:key="index" wx:for-item="part">
+            <!-- 普通文本 -->
+            <rich-text wx:if="{{part.type === 'text'}}" nodes="{{part.content}}"></rich-text>
+            <!-- 见面礼链接 -->
+            <text wx:if="{{part.type === 'gift-link'}}" class="gift-link-text" bindtap="handleGiftLinkTap">{{part.content}}</text>
+          </block>
+        </view>
+      </view>
+    </view>
+
+    <!-- AI正在输入 -->
+    <view wx:if="{{isAiTyping}}" class="ai-message" id="loading-msg">
+      <view class="loading-card">
+        <view class="loading-spinner"></view>
+        <text class="loading-text">小慧正在努力分析中</text>
+        <text class="loading-subtext">请耐心等待...</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 变美的事找小慧卡片（仅欢迎页显示） -->
+  <view wx:if="{{showWelcome}}" class="action-card">
+    <view class="card-title">变美的事，找小慧就对了</view>
+    
+    <!-- 上传照片区域 -->
+    <view class="upload-section" bindtap="chooseImage">
+      <view class="upload-box">
+        <image wx:if="{{imageUrl}}" class="uploaded-img" src="{{imageUrl}}" mode="aspectFit"></image>
+        <view wx:else class="upload-placeholder">
+          <image class="camera-icon" src="https://wx.pmc-wz.com/materials/hmb/scsxt.png" mode="widthFix"></image>
+          <text class="upload-text">上传照片AI面诊</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部固定区域 -->
+  <view class="bottom-fixed-area">
+    <!-- 功能按钮（可左右滑动） -->
+    <scroll-view class="function-buttons" scroll-x="true" show-scrollbar="false">
+      <view class="func-btn-wrapper">
+        <view class="func-btn" bindtap="handleButton1">
+          <image class="func-icon" src="https://wx.pmc-wz.com/materials/hmb/newmzbtn1.png" mode="widthFix"></image>
+          <text class="func-text">关于小慧</text>
+        </view>
+        <view class="func-btn" bindtap="handleButton2">
+          <image class="func-icon" src="https://wx.pmc-wz.com/materials/hmb/newmzbtn2.png" mode="widthFix"></image>
+          <text class="func-text">点亮「心灵之窗」</text>
+        </view>
+        <view class="func-btn" bindtap="handleButton3">
+          <image class="func-icon" src="https://wx.pmc-wz.com/materials/hmb/newmzbtn5.png" mode="widthFix" ></image>
+          <text class="func-text">重塑「面中之王」</text>
+        </view>
+        <view class="func-btn" bindtap="handleButton4">
+          <image class="func-icon" src="https://wx.pmc-wz.com/materials/hmb/newmzbtn3.png" mode="widthFix"></image>
+          <text class="func-text">雕琢「身体曲线」</text>
+        </view>
+        <view class="func-btn" bindtap="handleButton5">
+          <image class="func-icon" src="https://wx.pmc-wz.com/materials/hmb/newmzbtn4.png" mode="widthFix"></image>
+          <text class="func-text">打造「上镜轮廓」</text>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 输入框区域 -->
+    <view class="input-section">
+      <!-- 相机按钮（仅在聊天模式显示） -->
+      <view wx:if="{{!showWelcome}}" class="camera-btn" bindtap="chooseImage">
+        <image class="camera-icon-btn" src="https://wx.pmc-wz.com/materials/hmb/camera-icon.png" mode="widthFix"></image>
+      </view>
+      <input class="message-input {{showWelcome ? 'input-full' : ''}}" 
+             placeholder="给小慧发送消息" 
+             value="{{message}}"
+             bindinput="handleMessageInput"
+             confirm-type="send"
+             bindconfirm="sendMessage" />
+      <view class="send-btn" bindtap="sendMessage">
+        <image class="send-icon" src="https://wx.pmc-wz.com/materials/hmb/shangchuan.png" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 见面礼弹窗 -->
+  <view wx:if="{{showGiftModal}}" class="gift-modal-overlay" bindtap="hideGiftModal">
+    <view class="gift-modal-content" catchtap="">
+      <button class="gift-modal-button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+        <image class="gift-modal-image" src="https://wx.pmc-wz.com/materials/hmb/xhlqkq.png" mode="widthFix"></image>
+      </button>
+    </view>
+  </view>
+
+  <!-- 实名验证弹窗 -->
+  <view wx:if="{{showRealNameModal}}" class="real-name-modal-overlay">
+    <view class="real-name-modal-content">
+      <view class="real-name-title">实名验证</view>
+      <view class="real-name-subtitle">为了更好地为您服务，请完成实名验证</view>
+      
+      <!-- 姓名输入 -->
+      <view class="real-name-input-group">
+        <view class="input-label">姓名</view>
+        <input class="real-name-input" 
+               placeholder="请输入您的真实姓名" 
+               value="{{realName}}"
+               bindinput="handleNameInput"
+               maxlength="20" />
+      </view>
+      
+      <!-- 手机号获取 -->
+      <view class="real-name-input-group">
+        <view class="input-label">手机号</view>
+        <view class="phone-row">
+          <input class="real-name-input phone-input" 
+                 placeholder="请输入手机号" 
+                 value="{{realPhone}}"
+                 bindinput="handlePhoneInput"
+                 type="number"
+                 maxlength="11" disabled="false"/>
+          <button class="get-phone-btn" 
+                  open-type="getPhoneNumber" 
+                  bindgetphonenumber="getRealPhoneNumber">
+            一键获取
+          </button>
+        </view>
+      </view>
+      
+      
+      <!-- 提交按钮 -->
+      <view class="real-name-submit-btn" bindtap="submitRealName">
+        提交
+      </view>
+    </view>
+  </view>
+</view>

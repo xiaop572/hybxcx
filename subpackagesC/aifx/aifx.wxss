@@ -1,0 +1,152 @@
+/* subpackagesC/aifx/aifx.wxss */
+.container {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  padding: 0 0 40rpx 0;
+  box-sizing: border-box;
+}
+
+.header {
+  position: relative;
+  height: 120rpx;
+  background-color: #497eef;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.back-button {
+  position: absolute;
+  left: 30rpx;
+}
+
+.back-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.card {
+  margin: 30rpx;
+  background-color: white;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.patient-info {
+  padding: 30rpx;
+  background-color: #f9fbff;
+}
+
+.info-item {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  color: #666;
+  width: 200rpx;
+  font-size: 28rpx;
+}
+
+.value {
+  color: #333;
+  font-weight: 500;
+  font-size: 28rpx;
+}
+
+.divider {
+  height: 2rpx;
+  background-color: #f0f0f0;
+}
+
+.content {
+  padding: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  position: relative;
+  padding-left: 20rpx;
+}
+
+.section-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10rpx;
+  width: 8rpx;
+  height: 30rpx;
+  background-color: #497eef;
+  border-radius: 4rpx;
+}
+
+.analysis-text {
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+}
+
+/* 富文本样式 */
+.title-level-1 {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin: 30rpx 0 20rpx 0;
+  color: #222;
+}
+
+.title-level-2 {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin: 26rpx 0 16rpx 0;
+  color: #333;
+}
+
+.list-item {
+  padding-left: 20rpx;
+  margin: 16rpx 0;
+  position: relative;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.footer {
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 40rpx;
+}
+
+.disclaimer {
+  margin: 20rpx 30rpx 0;
+  background-color: #fff8e6;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  border: 1rpx solid #ffe7ba;
+}
+
+.disclaimer-text {
+  font-size: 24rpx;
+  color: #996b25;
+  line-height: 1.6;
+  text-align: justify;
+}

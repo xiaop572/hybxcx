@@ -1,0 +1,21 @@
+<view class="container">
+  <!-- 顶部banner区域 -->
+  <view class="banner">
+    <image class="banner-img" src="https://wx.pmc-wz.com/materials/hqmyqy.png" mode="widthFix"></image>
+  </view>
+
+  <!-- 待领权益区域 -->
+  <view class="rights-section">
+    
+    
+  </view>
+
+
+  <!-- 激活码区域 -->
+  <view class="activation-section">
+    <view class="section-title2">卡号：</view>
+    <input class="activation-input" placeholder="请输入卡号" model:value="{{jhm}}"/>
+    <button class="activation-btn" bind:tap="handleActivate">权益查询</button>
+    
+  </view>
+</view>

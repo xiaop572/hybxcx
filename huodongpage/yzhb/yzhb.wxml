@@ -1,0 +1,11 @@
+<!--huodongpage/ckhb/ckhb.wxml-->
+
+<view class="containers">
+  <image src="https://wx.pmc-wz.com/materials/nsyzbg.jpg" mode="widthFix" class="bg"></image>
+  <view class="main">
+    <image src="https://wx.pmc-wz.com/materials/yzlh.png" mode="widthFix" class="lh" bindtap="getcard"></image>
+  </view>
+</view>
+<view class="shade" wx:if="{{shadevis}}" catchtap="closeShade">
+  <image src="{{qsrc}}" class="card" mode="widthFix" catchtap="rcard"></image>
+</view>

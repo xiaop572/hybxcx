@@ -1,0 +1,78 @@
+/* subpackages/kqzt/kqzt.wxss */
+page{
+  padding-bottom: 0 !important;
+}
+.topBan{
+  width: 100%;
+  display: block;
+}
+.main{
+  position: relative;
+  display: block;
+}
+.mainBg{
+  width: 100%;
+  display: block;
+}
+.proList{
+  position: absolute;
+  top: -250rpx;
+  width: 100%;
+  overflow: hidden;
+}
+.pro{
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin-top: -30rpx;
+}
+.pro image{
+  width: 85%;
+}
+.itemList{
+  position: absolute;
+  width: 100%;
+  bottom: 50rpx;
+  text-align: center;
+}
+.itemList image{
+  width: 76%;
+}
+.itemList2{
+  position: absolute;
+  width: 100%;
+  bottom: 50rpx;
+  text-align: center;
+}
+.itemList2 image{
+  width: 76%;
+  margin-top: 20rpx;
+}
+.kqxin{
+  position: absolute;
+  z-index: 100;
+  width: 240rpx !important;
+  right:-40rpx;
+  top: 80rpx;
+}
+.kqli{
+  position: absolute;
+  z-index: 100;
+  width: 200rpx !important;
+  top:-120rpx;
+  left: -10rpx;
+}
+.kqxin2{
+  position: absolute;
+  z-index: 100;
+  width: 220rpx !important;
+  right:-40rpx;
+  top: -75rpx;
+}
+.kqli2{
+  position: absolute;
+  z-index: 100;
+  width: 160rpx !important;
+  top:240rpx;
+  left: -10rpx;
+}

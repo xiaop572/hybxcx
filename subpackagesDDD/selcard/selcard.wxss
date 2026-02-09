@@ -1,0 +1,156 @@
+page {
+  background-color: #fff;
+}
+
+.container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* 顶部banner样式 */
+.banner {
+    width: 100%;
+    /* position: relative; */
+    /* height: 200px; */
+    overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+}
+
+.banner-text {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  z-index: 2;
+}
+
+.title-main {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0066cc;
+  margin-bottom: 5px;
+}
+
+.title-sub {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0066cc;
+  margin-bottom: 5px;
+}
+
+.title-desc {
+  font-size: 16px;
+  color: #0066cc;
+}
+
+/* 待领权益区域 */
+.rights-section {
+    width: 100%;
+    margin-top: -50rpx;
+    background-color: #fff;
+    padding-top: 80rpx;
+    border-top-left-radius: 30rpx;
+    border-top-right-radius: 30rpx;
+    box-shadow: 20rpx -40rpx 50rpx -30rpx #a0d9ff;
+}
+
+.section-title {
+  font-size: 30rpx;
+  /* font-weight: bold; */
+  margin-bottom: 20rpx;
+  margin-left: 50rpx;
+}
+.section-title2 {
+    font-size: 30rpx;
+    /* font-weight: bold; */
+    margin-bottom: 5rpx;
+    margin-left: 10rpx;
+  }
+
+.rights-list {
+  width: 100%;
+}
+
+.rights-item {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  margin: 0 60rpx 25rpx;
+  box-shadow: 0 0 10rpx 0 #a0d9ff;
+  letter-spacing: 3rpx;
+}
+
+.item-left {
+  width: 180rpx;
+  height: 140rpx;
+  margin-right: 15px;
+}
+
+.item-left image {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.item-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+
+.item-title {
+  font-size: 37rpx;
+  font-weight: bold;
+  /* margin-bottom: 8px; */
+  /* line-height: 20rpx; */
+}
+
+.item-price {
+  font-size: 25rpx;
+  color: #999;
+}
+
+/* 分割线 */
+.divider {
+  width: 90%;
+  height: 1px;
+  background-color: #eee;
+  margin: 60rpx 0 20px 0;
+}
+
+/* 激活码区域 */
+.activation-section {
+  width: 90%;
+  margin-bottom: 30px;
+}
+
+.activation-input {
+  width: 100%;
+  height: 45px;
+  background-color: #f5f7fa;
+  border-radius: 5px;
+  padding: 0 15rpx;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.activation-btn {
+  width: 100%;
+  height: 70rpx;
+  background-color: #0066cc;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 3rpx;
+}

@@ -1,0 +1,30 @@
+<!--huodongpage/xlybm/xlybm.wxml-->
+<image src="https://wx.pmc-wz.com/materials/zxbzBanner.jpg" mode="widthFix" class="banner"/>
+<view class="name inTxt">
+  <view class="caption">参加者姓名<i></i></view>
+  <input type="text" class="int" model:value="{{xinmin}}" />
+</view>
+<view class="name inTxt">
+  <view class="caption">年龄<i></i></view>
+  <input type="number" class="int" model:value="{{age}}" />
+</view>
+<view class="name inTxt">
+  <view class="caption">性别<i></i></view>
+  <view class="section int">
+    <picker mode="selector" value="{{index}}" range="{{sexList}}" bindchange="bindsexchange">
+      <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!sex}}">请选择</view>
+      <view class="picker">
+        {{sex}}
+      </view>
+    </picker>
+  </view>
+</view>
+<view class="name inTxt">
+  <view class="caption">监护人姓名<i></i></view>
+  <input type="text" class="int" model:value="{{jhr}}" />
+</view>
+<view class="name inTxt">
+  <view class="caption">手机号<i></i></view>
+  <input type="number" class="int" model:value="{{mobile}}" />
+</view>
+<view class="submitBtn" bindtap="rtijiao">提交</view>

@@ -1,0 +1,132 @@
+const util = require('../../utils/util')
+const {
+  req
+} = require('../../utils/request')
+
+// subpackages/selectCard/selectCard.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    selectCardVis: 9,
+    daList: [],
+    selectindex: 0
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+    req({
+      url: util.baseUrl + "/newapi/api/brda/getwltjbrdalist",
+      method: "POST",
+      data: {
+        brxm: options.name,
+        yddh: options.phone
+      },
+      success: (res) => {
+        if (res.data.data.length > 0) {
+          this.setData({
+            daList: res.data.data,
+            selectCardVis: 1
+          })
+        } else {
+          this.setData({
+            selectCardVis: 9
+          })
+        }
+      }
+    })
+  },
+  changeradio(e) {
+    console.log(e)
+    this.setData({
+      selectindex: e.currentTarget.dataset.index
+    })
+  },
+  raddjzka(){
+    wx.redirectTo({
+      url: '../addtjCard/addtjCard',
+    })
+  },
+  bindbrda() {
+    let data = this.data.daList[this.data.selectindex];
+    req({
+      url: util.baseUrl + "/newapi/api/brda/bindbrdacard",
+      method: "POST",
+      data: {
+        openid: wx.getStorageSync('openid'),
+        brbm: data.BRBM,
+        brxm: data.BRXM,
+        yddh: data.YDDH,
+        sfzh: data.SFZH
+      },
+      success: (res) => {
+        if (res.data.status) {
+          wx.showToast({
+            title: '绑定成功',
+          })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '../yxList/yxList',
+            })
+          }, 2000)
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+          })
+        }
+      }
+    })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+
+  }
+})

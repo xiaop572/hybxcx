@@ -1,0 +1,55 @@
+/* subpackages/wenjuan/wenjuan.wxss */
+.wenjuancap{
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  font-size: 36rpx;
+  margin-top: 30rpx;
+  margin-bottom: 40rpx;
+}
+.ibox{
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  
+}
+.ibox text{
+  color: red;
+  margin-right: 6rpx;
+}
+.iboxcap{
+  display: inline-block;
+}
+.ibox input{
+  width: 200rpx;
+  display: inline-block;
+  border-bottom: 1px solid #ccc;
+  padding-left: 20rpx;
+}
+.ibox textarea{
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.sel{
+  margin-top: 20rpx;
+}
+.caption{
+  display: inline-block;
+}
+.section{
+  display: inline-block;
+  margin-left: 20rpx;
+}
+.tj{
+  margin-top: 20rpx;
+  width: 94% !important;
+}
+.jjsj{
+  display: inline-block;
+  margin-left: 20rpx;
+  border-bottom: 1px solid #cccc;
+}

@@ -1,0 +1,77 @@
+<!--pages/yizhenbaoming/yizhenbaoming.wxml-->
+<view class="main">
+<image mode="widthFix" src="https://wx.pmc-wz.com/materials/hylogo.png" class="hylogo"></image>
+  <view class="containers">
+    <image src="https://wx.pmc-wz.com/materials/yizhencaption.png" mode="widthFix" class="caption"></image>
+    <view>
+      <label for="" class="name"><text>姓名：</text><input type="text" model:value="{{name}}" /></label>
+      <label for="" class="age"><text>年龄：</text><input type="number" model:value="{{age}}" /></label>
+      <label for="" class="sex"><text>性别：</text><input type="text" model:value="{{sex}}" /></label>
+      <label for="" class="address">
+        <text>地点(请选择)：</text>
+        <view class="addselect">
+          <text bindtap="changeselect" data-target="addresscheck" data-value="平阳鳌江" class="{{addresscheck==='平阳鳌江'?'active':''}}">平阳鳌江</text>
+          <text bindtap="changeselect" data-target="addresscheck" data-value="苍南金乡" class="{{addresscheck==='苍南金乡'?'active':''}}">苍南金乡</text>
+        </view>
+      </label>
+      <label for="" class="phone"><text>电话：</text><input type="text" model:value="{{phone}}" /></label>
+      <label for="" class="checkList">
+        <text>1.有无长期饮酒，平均每天白酒2两。</text>
+        <view class="select">
+          <text bindtap="changeselect" data-target="da1" data-value="有" class="{{da1==='有'?'active':''}}">A.有</text>
+          <text bindtap="changeselect" data-target="da1" data-value="无" class="{{da1==='无'?'active':''}}">B.无</text>
+        </view>
+      </label>
+      <label for="" class="checkList">
+        <text>2.有无长期辛辣咸口味饮食。</text>
+        <view class="select">
+          <text bindtap="changeselect" data-target="da2" data-value="有" class="{{da2==='有'?'active':''}}">A.有</text>
+          <text bindtap="changeselect" data-target="da2" data-value="无" class="{{da2==='无'?'active':''}}">B.无</text>
+        </view>
+      </label>
+      <label for="" class="checkList">
+        <text>3.兄弟姐妹、叔舅姑姨、父母中是否有肿瘤病史。</text>
+        <view class="select">
+          <text bindtap="changeselect" data-target="da3" data-value="有" class="{{da3==='有'?'active':''}}">A.有</text>
+          <text bindtap="changeselect" data-target="da3" data-value="无" class="{{da3==='无'?'active':''}}">B.无</text>
+        </view>
+      </label>
+      <label for="" class="checkList">
+        <text>4.有无体重减轻，反复恶心、腹痛、腹胀、饱嗝、反酸其中之一症状。</text>
+        <view class="select">
+          <text bindtap="changeselect" data-target="da4" data-value="有" class="{{da4==='有'?'active':''}}">A.有</text>
+          <text bindtap="changeselect" data-target="da4" data-value="无" class="{{da4==='无'?'active':''}}">B.无</text>
+        </view>
+      </label>
+      <label for="" class="checkList">
+        <text>5.有无体表包块，反复便秘、腹泻、黑便及便血其中之一症状。</text>
+        <view class="select">
+          <text bindtap="changeselect" data-target="da5" data-value="有" class="{{da5==='有'?'active':''}}">A.有</text>
+          <text bindtap="changeselect" data-target="da5" data-value="无" class="{{da5==='无'?'active':''}}">B.无</text>
+        </view>
+      </label>
+      <label for="" class="checkList">
+        <text>6.既往有无胃肠息肉摘除过。</text>
+        <view class="select">
+          <text bindtap="changeselect" data-target="da6" data-value="有" class="{{da6==='有'?'active':''}}">A.有</text>
+          <text bindtap="changeselect" data-target="da6" data-value="无" class="{{da6==='无'?'active':''}}">B.无</text>
+        </view>
+      </label>
+      <label for="" class="checkList">
+        <text>7.既往有无胃肠道病史、恶性肿瘤病史。</text>
+        <view class="select">
+          <text bindtap="changeselect" data-target="da7" data-value="有" class="{{da7==='有'?'active':''}}">A.有</text>
+          <text bindtap="changeselect" data-target="da7" data-value="无" class="{{da7==='无'?'active':''}}">B.无</text>
+        </view>
+      </label>
+      <label for="" class="checkList">
+        <text>8.既往有无高血压、糖尿病、高血脂症等慢性疾病史。</text>
+        <view class="select">
+          <text bindtap="changeselect" data-target="da8" data-value="有" class="{{da8==='有'?'active':''}}">A.有</text>
+          <text bindtap="changeselect" data-target="da8" data-value="无" class="{{da8==='无'?'active':''}}">B.无</text>
+        </view>
+      </label>
+      <button class="subbtn" bindtap="submit">确认</button>
+    </view>
+  </view>
+</view>

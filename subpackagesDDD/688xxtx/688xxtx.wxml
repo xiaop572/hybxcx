@@ -1,0 +1,38 @@
+<view class="container">
+    <!-- 顶部banner区域 -->
+    <view class="banner">
+        <image class="banner-img" src="https://wx.pmc-wz.com/materials/xxtx-title.png" mode="widthFix"></image>
+        <view class="banner-text">
+        </view>
+    </view>
+
+    <!-- 开卡立享以下权益 -->
+    <view class="show">
+        <view class="card-title">
+            <view class="line2"></view>
+            <text>开卡立享以下权益</text>
+            <view class="line1"></view>
+        </view>
+
+        <!-- 权益图标区域 -->
+        <view class="rights-icons">
+            <image src="https://wx.pmc-wz.com/materials/xxtx-gdtj2.png" class="icon-item"></image>
+        </view>
+    </view>
+
+    <view class="form">
+        <input class="form-input" placeholder="姓名" model:value="{{name}}"/>
+        <input class="form-input" placeholder="国家" model:value="{{country}}" />
+        <input class="form-input2" placeholder="手机号" model:value="{{phone}}"  type="number"/>
+        <input class="form-input2" placeholder="请输入实体卡上的卡号" model:value="{{cardno}}"  type="number"/>
+        <input class="form-input2" placeholder="权益码(建议为证件后6位)" model:value="{{code}}" />
+        <view class="linex"></view>
+        <input class="form-input2" placeholder="附属人1姓名" model:value="{{name1}}" />
+        <input class="form-input2" placeholder="权益码（选填 建议为证件后6位）" model:value="{{code1}}" />
+        <view class="linex"></view>
+        <input class="form-input2" placeholder="附属人2姓名" model:value="{{name2}}" />
+        <input class="form-input2" placeholder="权益码（选填 建议为证件后6位）" model:value="{{code2}}" />
+
+        <button class="ka" style="width: 230px;" bind:tap="submitForm">确认开卡</button>
+    </view>
+</view>

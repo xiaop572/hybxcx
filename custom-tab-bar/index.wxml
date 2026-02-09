@@ -1,0 +1,17 @@
+<!--miniprogram/custom-tab-bar/index.wxml-->
+<view class="tab-bar">
+  <view wx:for="{{list}}" wx:key="index" class="tab-bar-item {{item.bulge?'bulge':''}}" data-path="{{item.pagePath}}" data-index="{{index}}" data-type="{{item.type}}" bindtap="switchTab">
+    <block wx:if="{{item.type==='text'}}">
+      <view wx:if="item.bulge" class="tab-bar-bulge"></view>
+      <image src="{{selected === index ? item.selectedIconPath : item.iconPath}}" mode="widthFix"></image>
+      <view wx:if="{{item.text}}" class="bugle" style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</view>
+    </block>
+    <block wx:if="{{item.type==='contact'}}">
+      <button open-type="contact" class="resetBtn" catchtap="wu">
+        <view wx:if="item.bulge" class="tab-bar-bulge"></view>
+        <image src="{{selected === index ? item.selectedIconPath : item.iconPath}}" mode="widthFix"></image>
+        <view wx:if="{{item.text}}" class="bugle" style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</view>
+      </button>
+    </block>
+  </view>
+</view>

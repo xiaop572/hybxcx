@@ -1,0 +1,222 @@
+/* huodongpage/sqfllq/sqfllq.wxss - 医美福利页面样式 */
+page {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  padding-bottom: 0 !important;
+}
+
+.welfare-page {
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* 头部样式 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+  position: relative;
+}
+
+.header .title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #4a5568;
+  text-shadow: none;
+}
+
+.rule-btn {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  color: #718096;
+  border: 1rpx solid rgba(160, 174, 192, 0.3);
+}
+
+/* 主要内容区域 */
+.main-content {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+/* 主标题样式 */
+.main-title {
+  margin-bottom: 30rpx;
+}
+
+.title-text {
+  font-size: 72rpx;
+  font-weight: bold;
+  color: #2d3748;
+  text-shadow: none;
+}
+
+/* 医美专享标签 */
+.exclusive-tag {
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+  color: #4a5568;
+  padding: 12rpx 40rpx;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 40rpx;
+  box-shadow: 0 4rpx 15rpx rgba(160, 174, 192, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 优惠券区域 */
+.coupon-section {
+  margin: 40rpx 0;
+}
+
+.coupon-row {
+  display: flex;
+  justify-content: center;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.coupon-item {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1rpx solid rgba(226, 232, 240, 0.8);
+  color: #4a5568;
+  padding: 25rpx 20rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  position: relative;
+  min-height: 80rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4rpx 20rpx rgba(160, 174, 192, 0.15);
+  transition: all 0.3s ease;
+}
+
+.coupon-left {
+  width: 200rpx;
+}
+
+.coupon-right {
+  width: 200rpx;
+  position: relative;
+}
+
+.coupon-wide {
+  width: 140rpx;
+  padding: 15rpx 10rpx;
+}
+
+.coupon-price {
+  font-size: 48rpx;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.coupon-unit {
+  font-size: 24rpx;
+  position: absolute;
+  top: 15rpx;
+  right: 15rpx;
+}
+
+.coupon-desc {
+  font-size: 24rpx;
+  margin-top: 5rpx;
+}
+
+.coupon-text {
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+/* 产品展示区域 */
+.product-section {
+  margin: 60rpx 0 40rpx;
+}
+
+
+/* 底部文字说明 */
+.bottom-text {
+  margin: 40rpx 0;
+}
+
+.brand-info {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-bottom: 20rpx;
+}
+
+.brand-name {
+  font-size: 28rpx;
+  color: #4a5568;
+  margin-right: 10rpx;
+  text-shadow: none;
+}
+
+.discount {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #805ad5;
+  margin-right: 5rpx;
+  text-shadow: none;
+}
+
+.discount-text {
+  font-size: 28rpx;
+  color: #4a5568;
+  text-shadow: none;
+}
+
+.promotion-text {
+  font-size: 24rpx;
+  color: #718096;
+  text-align: center;
+  text-shadow: none;
+}
+
+/* 立即领取按钮 */
+.receive-btn {
+  background: linear-gradient(135deg, #805ad5, #9f7aea);
+  color: white;
+  font-size: 36rpx;
+  font-weight: bold;
+  padding: 30rpx 0;
+  border-radius: 60rpx;
+  text-align: center;
+  margin: 60rpx 40rpx 40rpx;
+  box-shadow: 0 8rpx 25rpx rgba(128, 90, 213, 0.3);
+  position: relative;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.receive-btn:active {
+  transform: translateY(4rpx) scale(0.98);
+  box-shadow: 0 4rpx 15rpx rgba(128, 90, 213, 0.4);
+}
+
+.receive-btn.received {
+  background: rgba(226, 232, 240, 0.8);
+  color: #a0aec0;
+  box-shadow: none;
+  border: 1rpx solid rgba(203, 213, 224, 0.5);
+}
+
+/* 简化动画效果 */
+.coupon-item:hover {
+  transform: translateY(-2rpx);
+  box-shadow: 0 6rpx 25rpx rgba(160, 174, 192, 0.2);
+}
+
+.receive-btn.received:active {
+  transform: none;
+  box-shadow: none;
+}

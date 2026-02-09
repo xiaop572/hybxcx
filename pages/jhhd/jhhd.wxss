@@ -1,0 +1,124 @@
+/* huodongPage/jiankangjie/jiankangjie.wxss */
+page{
+}
+.main{
+  background:url("https://wx.pmc-wz.com/materials/jhbg.jpg");
+  display: block;
+  border-top: 1px solid rgb(29, 194, 240);
+  margin-top: -30rpx;
+}
+.topBanner{
+  width: 100%;
+  display: block;
+}
+.zxBox{
+  width: 92%; 
+  border-radius:40rpx;
+  padding:20rpx 0  60rpx 0;
+  margin:75rpx auto 0 auto;
+  position: relative;
+}
+.caption{
+  border-radius: 40rpx;
+  padding-right: 40rpx;
+  font-weight: bold;
+  font-size: 40rpx;
+  letter-spacing: 5rpx;
+}
+.caption image{
+  width: 38rpx;
+  vertical-align: middle;
+  margin-left: 20rpx;
+}
+.kapic{
+  width: 100%;
+  display: block;
+}
+.kapic:nth-child(2n+1){
+}
+.proList{
+  text-align: left;
+  background:rgb(156,228,253);
+  padding: 110rpx 20rpx 40rpx 20rpx;
+  margin-top: -1rpx;
+  position: relative;
+  z-index: 10;
+  box-shadow: inset 0 0 30rpx 5rpx #fff;
+}
+.procap{
+ 
+  margin-top: 30rpx;
+  display: block;
+  position: absolute;
+  
+  z-index: 200;
+}
+.cap1{
+  width:90%;
+  top: -116rpx;
+  right: 0;
+}
+.cap2{
+  width:80%;
+  top: -128rpx;
+  right: 40rpx;
+}
+.cap3{
+  width:80%;
+  top: -145rpx;
+  right: 55rpx;
+}
+.cap4{
+  width:80%;
+  top: -153rpx;
+  right: 60rpx;
+}
+.cap5{
+  width:80%;
+  top: -113rpx;
+  right: 40rpx;
+}
+.lblist{
+  width: 84%;
+  margin:-140rpx auto 0rpx auto;
+}
+.lblist view{
+  width: 48%;
+  margin-bottom: 20rpx;
+  display: inline-block;
+}
+.lblist text{
+  display: block;
+  text-align: center;
+  font-size: 28rpx;
+}
+.lblist image{
+  width: 100%;
+}
+.lblist view:nth-child(2n+1){
+  margin-right: 4%;
+}
+.address{
+  width: 100%;
+  background-color: rgb(0, 78, 161);
+  overflow: hidden;
+  padding: 40rpx 0;
+  position: relative;
+  z-index: 10;
+}
+.address image{
+  display: block;
+  margin: auto;
+}
+.hua{
+  position: absolute;
+  bottom: -100rpx;
+  right: -80rpx;
+  width: 200rpx;
+}
+.hua2{
+  position: absolute;
+  bottom: -100rpx;
+  left: -220rpx;
+  width: 200rpx;
+}

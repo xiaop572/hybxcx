@@ -1,0 +1,28 @@
+/* pages/addZx/addZX.wxss */
+.inputLine {
+  overflow: hidden;
+}
+
+.inputLine .line {
+  padding: 20rpx;
+  font-size: 14px;
+}
+
+.inputLine .x {
+  color: red;
+}
+
+.inputLine input {
+  height: 2.6rem;
+  padding: 0 20rpx;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+button{
+  width: 86% !important;
+  margin-top: 40rpx;
+}
+.fu{
+  height: 60rpx;
+  line-height: 60rpx;
+}

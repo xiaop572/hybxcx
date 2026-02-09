@@ -1,0 +1,18 @@
+<!--subpackages/sfyjiaofei/sfyjiaofei.wxml-->
+<view class="row">
+  <text>住院号</text>
+  <input type="text" model:value="{{brbm}}" />
+</view>
+<view class="row">
+  <text>金额</text>
+  <input type="number" model:value="{{je}}" />
+</view>
+<view class="nextBtn" bindtap="next">生成支付二维码</view>
+<view wx:if="{{brinfo.BRXM}}" class="brinfo">
+  <view>缴费信息:</view>
+  <view>科室：{{brinfo.BQMC}}</view>
+  <view>住院号：{{brinfo.ZYHM}}</view>
+  <view>姓名：{{brinfo.BRXM}}</view>
+  <view>床号：{{brinfo.BRCH}}</view>
+</view>
+<canvas style="width: 200px; height: 200px;margin:40rpx auto;" canvas-id="myQrcode"></canvas>

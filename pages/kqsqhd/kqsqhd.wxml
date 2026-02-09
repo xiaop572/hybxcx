@@ -1,0 +1,14 @@
+<!--pages/kqsqhd/kqsqhd.wxml-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/kqsq-top.png" mode="widthFix" class="banner"></image>
+  <image src="https://wx.pmc-wz.com/materials/kqsq-my.png" mode="widthFix" class="my"></image>
+  <image src="https://wx.pmc-wz.com/materials/kqsq-daoyuan.png" mode="widthFix" class="daoyuan"></image>
+  <image src="https://wx.pmc-wz.com/materials/kqsq-jizan.png" mode="widthFix" class="daoyuan"></image>
+  <image src="https://wx.pmc-wz.com/materials/kqsq-tongxing.png" mode="widthFix" class="daoyuan"></image>
+  <image src="https://wx.pmc-wz.com/materials/kqsq-chengjiao.png" mode="widthFix" class="daoyuan"></image>
+  <image src="https://wx.pmc-wz.com/materials/kqsq-ck.png" mode="widthFix" class="ck"></image>
+  <view class="itemBox">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" wx:for="{{kqList}}" wx:for-index="idx" wx:key="idx" class="proitem" bindtap="rpro" data-id="{{item.id}}"></image>
+  </view>
+  <image src="https://wx.pmc-wz.com/materials/kqsq-address.png" mode="widthFix" class="address"></image>
+</view>

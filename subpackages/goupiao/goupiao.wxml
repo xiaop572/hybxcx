@@ -1,0 +1,3 @@
+<!--subpackages/hdbm/hdbm.wxml-->
+<image src="https://wx.pmc-wz.com/materials/bmbanner.jpg" mode="widthFix" class="banner" />
+<button bindtap="submit" type="primary" class="btn">{{jginfo}}</button>

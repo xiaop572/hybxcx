@@ -1,0 +1,111 @@
+/* subpackages/xinxuan/xinxuan.wxss */
+page{
+  background: #f2f2f2;
+  height: 100%;
+}
+.tishi{
+  width: 92%;
+  margin:30rpx auto;
+  display: block;
+  color: #666;
+  font-size: 32rpx;
+}
+.articleBlock{
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-top: 40rpx;
+  width: 90%;
+  margin: 20rpx auto 0 auto;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #333;
+}
+.line{
+  overflow: hidden;
+  clear: both;
+}
+.left{
+  float: left;
+  color: #2c68fa;
+}
+.right{
+  float:right;
+}
+.time{
+  margin-top:20rpx;
+}
+
+.navBox {
+  /* 顶部tab盒子样式 */
+  width: 90%;
+  margin: auto;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 5%;
+  position: relative;
+  background-color: #fff;
+}
+
+.navBox view {
+  /* 最后一个tab标题的样式 */
+  padding-left: 10%;
+}
+
+.navBox view:first-child {
+  /* 最后一个tab标题的样式 */
+  padding-left: 0;
+}
+
+.titleBox {
+  /* 未选中文字的样式 */
+  color: #666666;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: 3rpx;
+}
+
+.lineBox,
+.notLineBox {
+  /* 选中及未选中底线共同样式 */
+  width: 32rpx;
+  height: 8rpx;
+  color: #2c68fa;
+}
+
+.fontColorBox,
+.fontColorBox1 {
+  /* 文字默认颜色 */
+  color: #2c68fa;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.lineBox {
+  /* 选中底线样式 */
+  background: #2c68fa;
+  margin-top: 5rpx;
+  border-radius: 4rpx;
+}
+.swiperTtemBox {
+  /* 底部内容样式 */
+  height: calc(100% - 100rpx);
+  overflow: scroll;
+  font-size: 28rpx;
+  -webkit-overflow-scrolling: touch;
+}
+
+.empty-tip {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 40rpx 0;
+  background: #fff;
+  border-radius: 20rpx;
+  margin: 20rpx auto;
+  width: 90%;
+}

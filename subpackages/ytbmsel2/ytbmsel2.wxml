@@ -1,0 +1,6 @@
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/ytbt.png" mode="widthFix" class="ytbt"/>
+  <image src="https://wx.pmc-wz.com/materials/ytcwgk.png" mode="widthFix" class="ytcwgk" bind:tap="rytbm" data-typeid="1" style="margin:70rpx auto 50rpx auto;"/>
+  <image src="https://wx.pmc-wz.com/materials/ytsngk2.png" mode="widthFix" class="ytcwgk" bind:tap="rytbm" data-typeid="8"/>
+  <image src="https://wx.pmc-wz.com/materials/ytsngk1.png" mode="widthFix" class="ytsngk" bind:tap="rytbm" data-typeid="9"/>
+</view>

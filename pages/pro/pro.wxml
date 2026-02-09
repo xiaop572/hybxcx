@@ -1,0 +1,3 @@
+<!--pages/pro/pro.wxml-->
+<view><view bindtap="goumai">退款</view>
+</view>

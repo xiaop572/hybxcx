@@ -1,0 +1,9 @@
+<!--subpackages/setInfo/setInfo.wxml-->
+<button open-type="chooseAvatar" bindchooseavatar="changeAvatar" class="avatarBtn">
+  <image src="{{userInfo.avatarUrl}}" mode="widthFix" class="avatarUrl"/>
+</button>
+<label for="" class="nick">
+  <text>昵称</text>
+  <input type="nickname" model:value="{{nickname}}"/>
+</label>
+<button bindtap="submit" type="primary" class="submit">提交</button>

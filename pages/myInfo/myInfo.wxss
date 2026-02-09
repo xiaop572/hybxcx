@@ -1,0 +1,33 @@
+/* pages/myInfo/myInfo.wxss */
+.infoBlock{
+  padding: 20rpx 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  overflow: hidden;
+}
+.leftText{
+  display: block;
+  width: 200rpx;
+  height: 100%;
+  float: left;
+  margin-left: 20rpx;
+}
+.rightEle{
+  min-width: 200rpx;
+  display: inline-block;
+  float: right;
+  vertical-align: middle;
+  margin-right: 40rpx;
+  color: #999;
+  text-align: right;
+}
+.right2{
+  width: 60rpx;
+  vertical-align: middle;
+}
+.touxiang{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  display: inline-block;
+}

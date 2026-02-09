@@ -1,0 +1,93 @@
+<!--pages/qiandaoMain/qiandaoMain.wxml-->
+<view class="caption">
+  <text class="cap1">签到赢好礼</text>
+  <text class="cap2">已连续签到{{allnum}}天</text>
+</view>
+<text class="rule" bindtap="showRule">活动规则</text>
+<text class="prize" bindtap="myAward">我的奖品</text>
+<image mode="widthFix" src="https://wx.pmc-wz.com/materials/adorn.png" class="shuBg"></image>
+<view class="qianList">
+  <image src="https://wx.pmc-wz.com/materials/shuTop.png" mode="widthFix" class="shuTop"></image>
+  <view class="list">
+    <view class="item">
+      <view class="itemState">签到</view>
+      <text>1天</text>
+      <view wx:if="{{allnum>0}}" class="qianMeng">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/qiangou.png" class="qiangou"></image>
+      </view>
+    </view>
+    <view class="item">
+      <view class="itemState">签到</view>
+      <text>2天</text>
+      <view wx:if="{{allnum>1}}" class="qianMeng">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/qiangou.png" class="qiangou"></image>
+      </view>
+    </view>
+    <view class="item">
+      <view class="itemState">签到</view>
+      <text>3天</text>
+      <view wx:if="{{allnum>2}}" class="qianMeng">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/qiangou.png" class="qiangou"></image>
+      </view>
+    </view>
+    <view class="item">
+      <view class="itemState">签到</view>
+      <text>4天</text>
+      <view wx:if="{{allnum>3}}" class="qianMeng">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/qiangou.png" class="qiangou"></image>
+      </view>
+    </view>
+  </view>
+  <view class="list2">
+    <view class="item3">
+      <text class="itemCap2">超声波洁牙1次</text>
+      <text class="day2">5天</text>
+      <image src="https://wx.pmc-wz.com/materials/mianmo.png" mode="widthFix" class="item2Tu"></image>
+      <view wx:if="{{allnum>4}}" class="qianMeng">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/qiangou.png" class="qiangou"></image>
+      </view>
+    </view>
+    <view class="item">
+      <view class="itemState">签到</view>
+      <text>6天</text>
+      <view wx:if="{{allnum>5}}" class="qianMeng">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/qiangou.png" class="qiangou"></image>
+      </view>
+    </view>
+    <view class="item3">
+      <text class="itemCap2">M22光子嫩肤1次</text>
+      <text class="day2">7天</text>
+      <image src="https://wx.pmc-wz.com/materials/M22.png" mode="widthFix" class="item2Tu2"></image>
+      <view wx:if="{{allnum>6}}" class="qianMeng">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/qiangou.png" class="qiangou"></image>
+      </view>
+    </view>
+  </view>
+  <view class="qianBtn" bindtap="qiandao" wx:if="{{todaysign===0}}">立即签到</view>
+  <view class="qianBtn" wx:if="{{todaysign==1}}">今日已签到</view>
+</view>
+<view class="explain">
+  <text>连续签到可领取以下奖励：</text>
+  <view class="explainItem1">
+    <text class="expTitle">连续5天</text>
+    <text class="shuoming">【超声波洁牙1次】签到...</text>
+    <image src="https://wx.pmc-wz.com/materials/qiandao5.png" mode="widthFix"></image>
+  </view>
+  <view class="explainItem2">
+    <text class="expTitle">连续7天</text>
+    <text class="shuoming">【光子嫩肤1次】签到...</text>
+    <image src="https://wx.pmc-wz.com/materials/qiandao7.png" mode="widthFix"></image>
+  </view>
+</view>
+<view class="rules" wx:if="{{show}}">
+  <view class="signRule">
+  <image src="https://wx.pmc-wz.com/materials/chacha.svg" mode="widthFix" class="cha" bindtap="showRule"></image>
+    <text class="ruleCaption">签到规则</text>
+    <view class="ruleContent">
+      <text>1、用户连续签到5天并分享朋友圈，即可获得超声波洁牙一次；连续签到7天并分享朋友圈，即可获得M22光子嫩肤一次。</text>
+      <text>2、每日最多可签到1次，断签后则会重新计算连签天数。</text>
+      <text>3、每位用户仅限参与签到1次，超声波洁牙/M22光子嫩肤福利二选一。</text>
+    </view>
+    <view class="got" bindtap="showRule">知道了</view>
+  </view>
+</view>

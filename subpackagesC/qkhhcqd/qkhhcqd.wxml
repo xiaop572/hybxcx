@@ -1,0 +1,150 @@
+<!--subpackagesC/dingwei/dingwei.wxml-->
+<view class="container1">
+  <!-- 顶部蓝色背景区域 -->
+  <view class="header-section">
+    <!-- 背景装饰圆形 -->
+    <view class="bg-circle bg-circle-1"></view>
+    <view class="bg-circle bg-circle-2"></view>
+    
+    <!-- 活动信息 -->
+    <view class="activity-info">
+      <view class="activity-details">
+        <text class="activity-title" wx:if="{{configInfo && configInfo.title}}">{{configInfo.title}}</text>
+        <text class="activity-time" wx:if="{{configInfo && configInfo.summary}}">{{configInfo.summary}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 签到信息卡片 -->
+  <view class="checkin-card">
+    <view class="card-title" wx:if="{{configInfo && configInfo.typename}}">{{configInfo.typename}}</view>
+    
+    <!-- 签到详情 -->
+    <view class="checkin-details">
+      <view class="detail-item" wx:if="{{configInfo && configInfo.classname}}">
+        <text class="label">{{configInfo.classname}}</text>
+      </view>
+      <view class="detail-item" wx:if="{{configInfo && configInfo.content}}">
+        <text class="label">{{configInfo.content}}</text>
+      </view>
+      <view class="detail-item" wx:if="{{configInfo && configInfo.dtime}}">
+        <text class="label">{{configInfo.dtime}}</text>
+      </view>
+    </view>
+    
+    <!-- 活动描述 -->
+    <view class="activity-description" wx:if="{{configInfo && configInfo.datestr}}">
+      <text>{{configInfo.datestr}}</text>
+    </view>
+  </view>
+
+  <!-- 定位签到功能区域 -->
+  <view class="checkin-form">
+    <!-- 1. 姓名 -->
+    <view class="form-section">
+      <view class="section-header">
+        <text class="required-mark">*</text>
+        <text class="section-title">1. 姓名</text>
+        <text class="section-subtitle">（不公开）</text>
+      </view>
+      <view class="input-container">
+        <input class="form-input" placeholder="请输入姓名" value="{{selectedName}}" bindinput="onNameInput" />
+      </view>
+    </view>
+
+    <!-- 2. 单位 -->
+    <view class="form-section">
+      <view class="section-header">
+        <text class="required-mark">*</text>
+        <text class="section-title">2. 单位</text>
+      </view>
+      <view class="input-container">
+        <input class="form-input" placeholder="请输入单位名称" value="{{company}}" bindinput="onCompanyInput" />
+      </view>
+    </view>
+
+    <!-- 3. 定位打卡 -->
+    <view class="form-section">
+      <view class="section-header">
+        <text class="required-mark">*</text>
+        <text class="section-title">3. 定位打卡</text>
+      </view>
+      <view class="location-section">
+        <button class="location-btn" bindtap="getLocation">点此获取定位</button>
+        <view class="location-requirement">
+          需在【{{configInfo.address}}】{{configInfo.memo}}米内定位
+        </view>
+        <view class="current-location" wx:if="{{currentAddress}}">
+          当前位置: {{currentAddress}}
+        </view>
+        <view class="distance-status {{canCheckIn ? 'in-range' : 'out-of-range'}}" wx:if="{{currentAddress}}">
+          距离目标: {{distance}}米 {{canCheckIn ? '✓ 在范围内' : '✗ 不在范围内'}}
+        </view>
+      </view>
+    </view>
+
+    <!-- 4. 手写签名 -->
+    <view class="form-section">
+      <view class="section-header">
+        <text class="required-mark">*</text>
+        <text class="section-title">4. 手写签名</text>
+      </view>
+      
+      <!-- 签名预览/编辑区域 -->
+      <view class="signature-container">
+        <!-- 如果已有签名，显示预览 -->
+        <view wx:if="{{signatureImage}}" class="signature-preview">
+          <image class="signature-image" src="{{signatureImage}}" mode="aspectFit"></image>
+          <view class="signature-actions">
+            <button class="signature-btn edit-btn" bindtap="showSignatureModal">重新签名</button>
+          </view>
+        </view>
+        
+        <!-- 如果没有签名，显示签名按钮 -->
+        <view wx:else class="signature-placeholder" bindtap="showSignatureModal">
+          <text class="signature-icon">✍️</text>
+          <text class="signature-text">点击进行手写签名</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class="submit-section">
+      <button class="submit-btn" bindtap="submitCheckin" disabled="{{!canSubmit}}">提交</button>
+    </view>
+  </view>
+
+  <!-- 右侧浮动按钮 -->
+  <!-- <view class="floating-btn" bindtap="showSignInfoModal">
+    <view class="floating-btn-icon">📋</view>
+    <text class="floating-btn-text">报到信息</text>
+  </view> -->
+
+  <!-- 签名弹窗 -->
+  <view wx:if="{{showSignatureModal}}" class="signature-modal-overlay" bindtap="hideSignatureModal">
+    <view class="signature-modal" catchtap="stopPropagation">
+      <view class="signature-modal-header">
+        <text class="signature-modal-title">请在下方签名</text>
+        <button class="signature-close-btn" bindtap="hideSignatureModal">✕</button>
+      </view>
+      
+      <view class="signature-canvas-container">
+        <canvas 
+          canvas-id="signatureCanvas" 
+          class="signature-canvas"
+          bindtouchstart="onTouchStart"
+          bindtouchmove="onTouchMove"
+          bindtouchend="onTouchEnd"
+          disable-scroll="true"
+        ></canvas>
+        <text wx:if="{{!hasDrawn}}" class="signature-hint">请在此处签名</text>
+      </view>
+      
+      <view class="signature-modal-buttons">
+        <button class="signature-modal-btn clear-btn" bindtap="clearSignature">清除</button>
+        <button class="signature-modal-btn save-btn" bindtap="saveSignature" disabled="{{!hasDrawn}}">保存</button>
+      </view>
+    </view>
+  </view>
+
+</view>

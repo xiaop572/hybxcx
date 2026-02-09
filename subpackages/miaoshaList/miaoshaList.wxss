@@ -1,0 +1,189 @@
+/* subpackages/miaoshaList/miaoshaList.wxss */
+page {
+  /* background-color: #3486f2; */
+  padding-bottom: 0 !important;
+  height: 100%;
+}
+.page{
+  overflow: hidden;
+  background: linear-gradient(to bottom,#3d8cf3,#cfe3fc);
+  background-size: 100%;
+  padding-bottom: 80rpx;
+  min-height: 100%;
+}
+.msListTop {
+  width: 100%;
+  margin-top: 30rpx;
+}
+
+.TimeSection {
+  background-color: #fff;
+  width: 88%;
+  margin: auto;
+  border-radius: 40rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+
+.TimeSection text {
+  background-color: #fff;
+  line-height: 60rpx;
+  height: 60rpx;
+  display: inline-block;
+  color: #000;
+  padding: 0 15rpx;
+  border-radius: 60rpx;
+  box-shadow: inset 0 0 10rpx 0 #fff;
+}
+
+.TimeSection .active {
+  background-color: #0b61c8;
+  color: #fff;
+}
+
+.proItem {
+  background-color: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  padding: 10rpx;
+  width: 88%;
+  margin: 30rpx auto 0 auto;
+  position: relative;
+}
+
+.proImg {
+  width: 270rpx;
+  float: left;
+  margin-right: 30rpx;
+  border-radius: 20rpx;
+}
+
+.proRight {
+  float: left;
+  overflow: hidden;
+  display: block;
+  width: 330rpx;
+}
+
+.procaption {
+  color: #000;
+  font-weight: 500;
+  font-size: 28rpx;
+  display: block;
+  margin-top: 10rpx;
+}
+
+.planLine {
+  height: 30rpx;
+  width: 210rpx;
+  border-radius: 30rpx;
+  background-color: #efa9ab;
+  overflow: hidden;
+  float: left;
+}
+
+.complete {
+  background-color: #fa311f;
+  height: 30rpx;
+  border-radius: 30rpx;
+  position: relative;
+}
+
+.buyNumBox {
+  margin-top: 20rpx;
+}
+
+.planNum {
+  font-size: 24rpx;
+  color: #fff;
+  position: absolute;
+  right: 10rpx;
+  top: -3rpx;
+}
+
+.buyNum {
+  float: left;
+  font-size: 26rpx;
+  position: relative;
+  top: -7rpx;
+  left: 15rpx;
+  color: #999;
+}
+
+.seckillPrice {
+  position: absolute;
+  bottom: 65rpx;
+  font-size: 22rpx;
+  color: #f82512;
+}
+
+.sPrice {
+  font-weight: bold;
+  font-size: 34rpx;
+  margin-left: 10rpx;
+}
+
+.originPrice {
+  color: #999;
+  font-size: 28rpx;
+  text-decoration: line-through;
+  position: absolute;
+  bottom: 26rpx;
+}
+
+.playBtn {
+  background-color: #f82512;
+  color: #fff;
+  position: absolute;
+  padding: 0 24rpx;
+  border-radius: 20rpx;
+  right: 40rpx;
+  bottom: 30rpx;
+  font-size: 28rpx;
+}
+
+.StartTime {
+  color: #fe6335;
+  font-size: 26rpx;
+  margin-top: 40rpxx;
+}
+.remidBtn{
+  background:linear-gradient(to right,#ff8441,40rpx,#ed4030);
+  color: #fff;
+  position: absolute;
+  padding: 0 10rpx;
+  border-radius: 20rpx;
+  right: 40rpx;
+  bottom: 30rpx;
+  font-size: 28rpx;
+  vertical-align: middle;
+}
+.bnz{
+  width: 36rpx;
+  vertical-align: middle;
+}
+.remidBtn text{
+  vertical-align: middle;
+  margin-left: 5rpx;
+}
+.cancelRemid{
+  background:#ffa67a;
+  color: #fff;
+  position: absolute;
+  padding: 0 10rpx;
+  border-radius: 20rpx;
+  right: 40rpx;
+  bottom: 30rpx;
+  font-size: 28rpx;
+  vertical-align: middle;
+}
+.shuoming{
+  display: block;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+}

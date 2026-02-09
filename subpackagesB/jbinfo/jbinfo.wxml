@@ -1,0 +1,25 @@
+<!--subpackagesB/jbinfo/jbinfo.wxml-->
+<view class="jbavatar">
+  <image src="https://wx.pmc-wz.com/materials/zxdh/yanjingzj.png" mode="widthFix" class="jbtximg" />
+</view>
+<view class="jbinfo">
+  <text class="name">{{yjlist[0].name}}</text>
+  <text class="touxian">{{yjlist[0].company}}</text>
+</view>
+<view class="jbneirong">
+  <text class="yjcap">Ta的演讲</text>
+  <view class="kelist">
+    <view wx:for="{{yjlist}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
+      <text class="yjtime">{{item.content}} {{item.typename}}</text>
+      <text class="yjzt">{{item.title}}</text>
+      <text class="yjhc">会场/板块:{{item.classname}}</text>
+    </view>
+
+  </view>
+</view>
+<!-- <view class="jbneirong">
+  <text class="yjcap">Ta的主持</text>
+  <view class="kelist">
+
+  </view>
+</view> -->

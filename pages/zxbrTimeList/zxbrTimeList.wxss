@@ -1,0 +1,35 @@
+/* pages/zxbrTimeList/zxbrTimeList.wxss */
+page {
+  background-color: #f2f2f2;
+}
+
+.main:first-child {
+  border-top: 1px solid #eee;
+}
+
+.line {
+  background-color: #fff;
+  overflow: hidden;
+  clear: both;
+  border-bottom: 1px solid #eee;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.right2 {
+  width: 60rpx;
+  vertical-align: middle;
+}
+
+.left {
+  float: left;
+  vertical-align: middle;
+}
+
+.right {
+  float: right;
+}
+
+.time {
+  vertical-align: middle;
+}

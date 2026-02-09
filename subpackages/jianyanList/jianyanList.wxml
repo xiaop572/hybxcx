@@ -1,0 +1,58 @@
+<!--影像列表页-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+  var floor = function (r) {
+    return Math.floor(r)
+  }
+  module.exports.floor = floor;
+</wxs>
+<view class="header">
+  <text class="bang" bindtap="rbangka">绑卡</text>
+  <image src="https://wx.pmc-wz.com/materials/kabao.png" mode="widthFix" class="kabao"></image>
+  <image bindtap="changecardvis" class="qie" src="https://wx.pmc-wz.com/materials/qiecard.png" mode="widthFix"></image>
+</view>
+<view class="brxm">
+  <text class="brname">{{it.brxm}}</text>
+  <!-- <text class="brcard">{{it.brbm}}</text> -->
+  <text class="brtype">{{it.cardtype}}</text>
+</view>
+<view wx:if="{{yxList.length>0}}" wx:for="{{yxList}}" wx:for-item="item" wx:key="idx" data-sampleno="{{item.sampleno}}" data-instrid="{{item.instrid}}" data-sampleda="{{item.sampleda}}" bindtap="rjyjg">
+  <view class="yxitem">{{m1.rq(item.sampleda)}}  {{item.DJLBMC}}</view>
+</view>
+<view wx:if="{{yxList.length===0}}">此卡无检验报告</view>
+<view class="coverBox" wx:if="{{cardvis}}" catchtap="changecardvis">
+  <swiper class="swiperBox" indicator-dots="true" indicator-active-color="white" catchtap="no">
+    <swiper-item wx:for="{{cardList}}" wx:for-item="item" wx:key="idx" class="swiperitem">
+      <view class="zfCard" wx:if="{{item.cardtype==='一般自费'}}">
+        <text class="cardtype">自费</text>
+        <text class="name">{{item.brxm}}</text>
+        <text class="cardnum">卡号：{{item.brbm}}</text>
+        <text class="selectBtn" data-brbm="{{item.brbm}}" data-item="{{item}}" bindtap="selectCard">选择此卡</text>
+      </view>
+      <view class="ybCard" wx:if="{{item.cardtype==='智慧医保'}}">
+        <text class="cardtype">医保</text>
+        <text class="name">{{item.brxm}}</text>
+        <text class="cardnum">卡号：{{item.brbm}}</text>
+        <text class="selectBtn" data-brbm="{{item.brbm}}" data-item="{{item}}" bindtap="selectCard">选择此卡</text>
+      </view>
+      <view class="ybCard" wx:if="{{item.cardtype==='体检'}}">
+        <text class="cardtype">体检</text>
+        <text class="name">{{item.brxm}}</text>
+        <text class="cardnum">卡号：{{item.brbm}}</text>
+        <text class="selectBtn" data-brbm="{{item.brbm}}" data-item="{{item}}" bindtap="selectCard">选择此卡</text>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

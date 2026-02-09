@@ -1,0 +1,50 @@
+<!--大转盘和拼团-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/nxjkjBanner.png" mode="widthFix" class="banner"></image>
+  <view class="jikabox">
+    <image src="https://wx.pmc-wz.com/materials/jiyueyouli.png" mode="widthFix" class="jiyueyouli" />
+    <view class="jika-content">
+      <text class="jika-text">集齐<text class="red-text">5</text>张明月卡即可兑换<text class="red-text">超值集卡好礼</text></text>
+      <text class="jika-subtext">(医用面膜一盒/M22光子嫩肤/超声波洁牙，3选1)</text>
+    </view>
+    <image src="https://wx.pmc-wz.com/materials/jikaimg.png" mode="widthFix" class="jikaimg" />
+    <image src="https://wx.pmc-wz.com/materials/jyk-djjr.png" mode="widthFix" class="djjr" />
+  </view>
+  <view class="dzpbox">
+    <image src="https://wx.pmc-wz.com/materials/jiyueyouli.png" mode="widthFix" class="jiyueyouli" />
+    <text class="zp-text">每人<text class="red-text">每天</text>可参与抽奖一次</text>
+    <!-- 指针 -->
+    <!-- 大转盘 -->
+    <view class="dzp">
+      <image src="https://wx.pmc-wz.com/materials/dzpzp.png" mode="widthFix" class="jkjdzp" style="transform: rotate({{rotateDeg}}deg); transition: transform 3s ease-out;" />
+      <image src="https://wx.pmc-wz.com/materials/dzpzz.png" mode="widthFix" class="dzpzz" />
+      <image src="https://wx.pmc-wz.com/materials/dzpdz.png" mode="widthFix" class="dzpdz" />
+    </view>
+    <image bindtap="startLottery" src="https://wx.pmc-wz.com/materials/jyk-djcj.png" mode="widthFix" class="dzpan" />
+    <image src="https://wx.pmc-wz.com/materials/tuzi.png" mode="widthFix" class="tuzi" />
+    <!-- 抽奖按钮 -->
+  </view>
+  <view class="proList">
+    <text wx:for="{{prolist}}" wx:for-item="it" wx:key="{{it.id}}" class="proListItem {{it.id==curindex?'active':''}}" data-id="{{it.id}}" bind:tap="changeproindex">{{it.label}}</text>
+  </view>
+  <image src="https://wx.pmc-wz.com/materials/gqhdprocap.png" mode="widthFix" class="jkjprobanner"></image>
+  <view class="nzkhCont">
+    <view wx:for="{{pros}}" wx:for-item="item" wx:key="idx" class="pro" bind:tap="rpro" data-id="{{item.id}}">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" />
+      <view class="proprice">
+        <text>2人团</text>
+        <view>拼团价¥<text>{{item.price}}</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="meng" wx:if="{{showjp}}" catchtap="guanbi">
+  <view class="jpbox" catchtap>
+    <image src="https://wx.pmc-wz.com/materials/jlkjp.png" mode="widthFix" class="jlkjpjh" />
+    <text class="gxncm">恭喜您抽中</text>
+    <image src="{{priimg[priindex]}}" mode="widthFix" class="jp" />
+    <view class="djck" bind:tap="guanbi" wx:if="{{prizes[priindex]=='积分5分'}}">确定</view>
+    <view class="djck" bind:tap="rdjck" wx:else>点击查看</view>
+  </view>
+</view>
+<image src="https://wx.pmc-wz.com/materials/zjlu.png" mode="widthFix" class="zjlu" bind:tap="rdjck" />

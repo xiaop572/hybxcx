@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="popup {{showCard ? 'show' : ''}}">
+    <canvas type="2d" id="animCanvas"></canvas>
+    <view class="card">
+      <image class="card-bg" src="https://wx.pmc-wz.com/hyb/images/hongbao-bg.png" mode="aspectFit"></image>
+      <view class="card-content">
+        <view class="amount-wrapper">
+          <text class="amount">健康护侨</text>
+        </view>
+        <view class="blue-button" hover-class="button-hover" bind:tap="jkhq">立即进入</view>
+      </view>
+      <view class="card-decorations">
+        <view class="decoration left"></view>
+        <view class="decoration right"></view>
+      </view>
+    </view>
+  </view>
+</view>

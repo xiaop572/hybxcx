@@ -1,0 +1,71 @@
+<!--pages/tcxq/tcxq.wxml-->
+<import src="../../wxParse/wxParse/wxParse.wxml" />
+<view>
+  <swiper indicator-dots="true" style="text-align: center;height:{{imgHeight}}px" class="swiper">
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" style="width: 750rpx;"></image>
+    </swiper-item>
+  </swiper>
+  <view class="daojishi">
+    <view class="kjkj"></view>
+    <view class="residueTime">
+      <text>活动剩余</text>
+      <text class="black">{{day===0|| day<0?'00':day<10?'0'+day:day}}</text>
+          天
+          <text class="black">{{hour===0 || hour<0?'00':hour<10?'0'+hour:hour}}</text>
+              :
+              <text class="black">{{minute===0 || minute <0?'00':minute<10?'0'+minute:minute}}</text>
+                  :
+                  <text class="red">{{seconds===0 || seconds<0?'00':seconds<10?'0'+seconds:seconds}}</text>
+    </view>
+  </view>
+  <view class="headline">
+    <view class="price"><text>¥{{item.price}}</text><text class="zuidi">最低</text></view>
+    <text class="yuanjia">¥{{item.pointsDeduction}}</text>
+    <text class="title">{{item.pictitle}}</text>
+    <text class="yikan">{{item.kanjianum}}人已砍</text>
+  </view>
+  <view class="details">
+    <view class="details-title">商品详情</view>
+    <view class="details-content">
+      <template is="wxParse" data="{{wxParseData:courseDetail.nodes}}" wx:if="{{item.ishtml==1}}" />
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.detail}}" mode="widthFix" wx:if="{{item.ishtml==0}}"></image>
+    </view>
+  </view>
+  <view class="footer">
+    <button open-type="contact" class="icon" send-message-title="{{item.pictitle}}" send-message-path="/subpackages/kanPro/kanPro?id={{item.id}}" send-message-img="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}"	show-message-card="true">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xqlxkf.svg" class="kficon"></image>
+      <text>客服</text>
+    </button>
+    <!-- <button class="icon" open-type="share" data-imgsrc="{{item.picurl}}" data-id="{{item.id}}">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fenxiang1.svg" class="kficon"></image>
+      <text>分享</text>
+    </button> -->
+    <view bindtap="showfx" class="icon">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fenxiang1.svg" class="kficon"></image>
+      <text>分享</text>
+    </view>
+    <view class="buyBtn" bindtap="rkanState" data-item="{{item}}">发起砍价</view>
+  </view>
+</view>
+<view class="fxm" wx:if="{{show}}" bindtap="showfx">
+
+</view>
+<view class="fxBox" catchtap="cancel" style="bottom:{{show?'0':'-500rpx'}}">
+  <text class="fxcaption">分享至</text>
+  <view class="fxIconList">
+    <button class="fxwx" open-type="share" data-imgsrc="{{item.picurl}}" data-id="{{item.id}}">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fxwx.png" mode="widthFix"></image>
+      <text>微信好友</text>
+    </button>
+    <poster class="fxwx" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fxewm.png" mode="widthFix"></image>
+      <text>生成海报</text>
+    </poster>
+  </view>
+  <text class="cancel" catchtap="showfx">取消</text>
+</view>
+<view class="haibao" wx:if="{{posterSrc}}" catchtap="close">
+  <image src="{{posterSrc}}" mode="heightFix" class="haiImg" catchtap="test"></image>
+  <view class="save" catchtap="saveImg">保存到相册</view>
+</view>

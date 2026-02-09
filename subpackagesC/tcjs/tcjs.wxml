@@ -1,0 +1,27 @@
+<view class="contai">
+  <view class="package-card">
+    <view class="package-title">高端体检套餐</view>
+    <view class="package-price">¥2888</view>
+  </view>
+
+  <view class="package-card">
+    <view class="package-title">智能超声炮</view>
+    <view class="package-price">¥2400</view>
+  </view>
+
+  <view class="package-card">
+    <view class="package-title">美白洁牙</view>
+    <view class="package-price">¥600</view>
+  </view>
+</view>
+<view class="form-container">
+  <view class="form-group">
+    <input class="input" type="text" placeholder="请输入姓名" model:value="{{xinmin}}" />
+  </view>
+  <view class="form-group">
+    <input class="input" type="text" placeholder="请输入权益码" model:value="{{pwd}}" />
+  </view>
+  <view class="form-group">
+    <view class="submit-btn" bindtap="handleSubmit">立即领取</view>
+  </view>
+</view>

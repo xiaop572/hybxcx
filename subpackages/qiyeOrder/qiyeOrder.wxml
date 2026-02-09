@@ -1,0 +1,87 @@
+<!--异业合作订单页-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<view class="kqBox">
+  <view class='navBox'>
+    <view class='titleBox' bindtap='titleClick' data-idx='0'>
+      <text class="{{0 == currentIndex ? 'fontColorBox' : ''}}">全部</text>
+      <hr class="{{0 == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+    </view>
+    <view class='titleBox' bindtap='titleClick' data-idx='1'>
+      <text class="{{1 == currentIndex ? 'fontColorBox1' : ''}}">已支付</text>
+      <hr class="{{1 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+    </view>
+    <view class='titleBox' bindtap='titleClick' data-idx='2'>
+      <text class="{{2 == currentIndex ? 'fontColorBox1' : ''}}">已核销</text>
+      <hr class="{{2 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+    </view>
+    <view class='titleBox' bindtap='titleClick' data-idx='3'>
+      <text class="{{3 == currentIndex ? 'fontColorBox1' : ''}}">已退款</text>
+      <hr class="{{3 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+    </view>
+  </view>
+
+  <swiper class='swiperTtemBox' bindchange='pagechange' current='{{currentIndex}}'>
+    <swiper-item class='swiperTtemBox'>
+      <view wx:for="{{allList}}" wx:for-item="it" wx:key="idx" class="kapianList">
+        <view style="overflow: hidden;"><text class="orderno">订单号：{{it.OrderNo}}</text>
+          <image src="https://wx.pmc-wz.com/hyb/images/{{it.goodspic}}" mode="widthFix"></image>
+          <view class="proRight">
+            <text class="goodsname">{{it.goodsname}}</text>
+            <text class="price">实付款￥{{it.TotalPrice}}</text>
+          </view>
+        </view>
+        <view class="orderBottom">
+            <text class="ordername">姓名:{{it.xinmin}}</text>
+            <text class="ordertime">订单时间:{{m1.rq(it.PayTime)}} {{m1.time(it.PayTime)}}</text>
+            <text class="ordermoney">佣金￥{{it.promje}}</text>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item class='swiperTtemBox'>
+      <view wx:for="{{fuList}}" wx:for-item="it" wx:key="idx" class="kapianList">
+        <text class="orderno">订单号：{{it.OrderNo}}</text>
+        <image src="https://wx.pmc-wz.com/hyb/images/{{it.goodspic}}" mode="widthFix"></image>
+        <view class="proRight">
+          <text class="goodsname">{{it.goodsname}}</text>
+          <text class="price">实付款￥{{it.TotalPrice}}</text>
+          <text class="orderno1">核销时间：{{m1.rq(it.ReceipTime)}} {{m1.time(it.ReceipTime)}}</text>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item class='swiperTtemBox'>
+      <view wx:for="{{heList}}" wx:for-item="it" wx:key="idx" class="kapianList">
+        <text class="orderno">订单号：{{it.OrderNo}}</text>
+        <image src="https://wx.pmc-wz.com/hyb/images/{{it.goodspic}}" mode="widthFix"></image>
+        <view class="proRight">
+          <text class="goodsname">{{it.goodsname}}</text>
+          <text class="price">实付款￥{{it.TotalPrice}}</text>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item class='swiperTtemBox'>
+      <view wx:for="{{tuiList}}" wx:for-item="it" wx:key="idx" class="zengkaList">
+        <image src="https://wx.pmc-wz.com/hyb/images/{{it.goodspic}}" mode="widthFix"></image>
+        <view class="proRight">
+          <text class="goodsname">{{it.goodsname}}</text>
+          <text class="orderno">订单号：{{it.OrderNo}}</text>
+          <text class="orderno">退款时间：{{m1.rq(it.DeliveryTime)}} {{m1.time(it.DeliveryTime)}}</text>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+<tabbar></tabbar>

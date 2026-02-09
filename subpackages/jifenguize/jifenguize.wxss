@@ -1,0 +1,13 @@
+/* subpackages/jifenguize/jifenguize.wxss */
+.header {
+  height: 160rpx;
+  background: linear-gradient(to right, #03a7fd, #015cf5);
+  text-align: center;
+}
+
+.guize {
+  font-size: 34rpx;
+  color: #fff;
+  line-height: 160rpx;
+  text-align: center;
+}

@@ -1,0 +1,3 @@
+<!--视频号内页-->
+<video src="{{item.videourl}}" class="xcp"></video>
+<text class="cap">{{item.title}}</text>

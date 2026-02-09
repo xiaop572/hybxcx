@@ -1,0 +1,68 @@
+<!--pages/ArrangeTime/ArrangeTime.wxml-->
+<view>
+  <view class="header">
+    <view>当前就诊人：<text>{{currentBr.brxm}}</text></view>
+    <text bind:tap="rqqlist">切换</text>
+  </view>
+  <view class="card">
+    <image src="https://his.pmc-wz.com/pmcmobileweb/images/photos/{{doctor.YGDM}}.jpg" mode="widthFix"></image>
+    <view class="info">
+      <view class="ysxm">
+        {{doctor.YGXM}}
+        <text>{{doctor.YGZC}}</text>
+      </view>
+      <view class="yymc">温州和平国际医院</view>
+      <view class="bumen">{{doctor.KSMC}}</view>
+    </view>
+    <view class="jianjie">
+      {{doctor.YGJS}}
+    </view>
+  </view>
+  <view class="haoyuanBox {{idx===selectIndex?'showHao':''}}" wx:for="{{haoyuan}}" wx:for-index="idx" wx:key="idx" bindtap="showTime" data-idx="{{idx}}" data-row="{{item}}" data-rq="{{m1.rq(item.Rq)}}">
+    <view class="riqi">
+      <wxs module="m1">
+        var rq = function (r) {
+          var da = getDate(r)
+          var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+          return dataStr;
+        }
+        module.exports.rq = rq;
+        var time = function (r) {
+          var da = getDate(r)
+
+          var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+          return dataStr;
+        }
+        module.exports.time = time;
+      </wxs>
+      <text> {{m1.rq(item.Rq)}} {{item.Bcmc}} </text>
+      <text>余号:{{item.Xhrs-item.Sjyyrs}}个</text>
+    </view>
+    <view class="haoyuanTime {{idx===selectIndex?'showTime':''}}">
+      <text class="timeBox {{it.dtm===selectTime?'selectTime':''}} {{it.utctime==1?'utctime':''}}" catchtap="selectTime" wx:for="{{timeList}}" wx:for-item="it" data-utctime="{{it.utctime}}" wx:key="id" wx:for-index="id" data-xh="{{it.XH}}" data-rq="{{it.RQ}}" data-time="{{it.dtm}}">{{it.dtm}}</text>
+    </view>
+  </view>
+  <view class="yuyueBtn  {{selectTime?'selectBtn':''}}" bindtap="submit">预约</view>
+</view>
+<view>
+
+</view>
+<view wx:if="{{addqinqing}}" class="addqqmeng">
+  <view class="addqinqing">
+  <text class="addcap">添加就诊人</text>
+  <image src="https://wx.pmc-wz.com/materials/guanbi.svg" mode="widthFix" class="guanbi" bind:tap="gbadd"/>
+  <view class="row">
+    <text>姓名：</text>
+    <input type="text" model:value="{{brxm}}" />
+  </view>
+  <view class="row">
+    <text>身份证号：</text>
+    <input type="text" model:value="{{sfzh}}" />
+  </view>
+  <view class="row">
+    <text>手机号码：</text>
+    <input type="text" bindinput="changephone" />
+  </view>
+  <view class="yuyueBtn selectBtn" bindtap="qqsubmit" style="bottom: 30rpx;">预约</view>
+</view>
+</view>

@@ -1,0 +1,52 @@
+/* pages/kqsqhd/kqsqhd.wxss */
+page{
+  height: 100%;
+  width:100%;
+}
+.banner{
+  width: 100%;
+}
+.main{
+  overflow: hidden;
+  background:url("https://wx.pmc-wz.com/materials/kqsq-bg.png") no-repeat;
+  background-size: 100% 100%;
+  min-height: 100%;
+  padding-bottom: 80rpx;
+}
+.my{
+  width: 70%;
+  margin: auto;
+  display: block;
+}
+.ck{
+  width: 70%;
+  margin:60rpx auto 0 auto;
+  display: block;
+}
+.daoyuan{
+  width: 92%;
+  display: block;
+  margin:40rpx auto;
+}
+.address{
+  padding-bottom: 80rpx;
+  display: block;
+  margin:40rpx auto 0 auto;
+  width: 88%;
+}
+.itemBox{
+  width: 92%;
+  margin:50rpx auto 0 auto;
+  border-radius: 40rpx;
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+}
+.proitem{
+  display: inline-block;
+  width: 47.5%;
+  margin-top: 40rpx;
+}
+.proitem:nth-child(2n-1){
+  margin-right: 20rpx;
+}

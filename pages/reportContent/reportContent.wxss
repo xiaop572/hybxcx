@@ -1,0 +1,346 @@
+/* pages/reportContent/reportContent.wxss */
+page{
+  background: #f2f2f2;
+}
+.tijianBanner{
+  height: 400rpx;
+  width:100%;
+  background: url("https://wx.pmc-wz.com/materials/tijianBanner.png") no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+.tijianBanner text{
+  display: block;
+  color: #eee;
+  text-align: center;
+}
+.biaoti{
+  margin-top: 80rpx;
+  font-size: 24px;
+}
+.name{
+  margin-top: 30rpx;
+  font-size: 16px;
+  color: #ccc;
+}
+.liushui{
+  font-size: 14px;
+  margin-top: 25rpx;
+  color: #ccc;
+}
+.riqi{
+  font-size: 14px;
+  margin-top: 15rpx;
+  color: #ccc;
+}
+.zhujian{
+  margin-top: 40rpx;
+  overflow: hidden;
+}
+.zhujianBt{
+  background: #fff;
+  padding: 40rpx 0;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+.zhujianIcon{
+  width: 100rpx;
+  position: relative;
+  left: 40rpx;
+}
+.zhujianContent{
+  padding-bottom: 40rpx;
+}
+.zjbgText{
+   position: absolute;
+   left:200rpx;
+   font-size: 18px;
+}
+.zjbgFu{
+  position: absolute;
+  left: 200rpx;
+  top: 100rpx;
+  font-size: 14px;
+  color: #999;
+}
+.right{
+  width: 60rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 60rpx;
+}
+.rote{
+  transform: rotate(90deg);
+}
+.zjContentText{
+  font-size: 14px;
+  display: block;
+  width: 92%;
+  margin:auto;
+  line-height: 26px;
+  color: #666;
+}
+.danxiangBtBlock{
+  padding: 26rpx 20rpx;
+  background: #fff;
+  position: relative;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.danxiangBt{
+  margin-left: 20rpx;
+  vertical-align: middle;
+}
+.danxiangBt::before{
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 20px;
+  background: #4c82fb;
+  margin-right: 10rpx;
+  vertical-align: middle;
+  border-radius: 3px;
+  position: relative;
+  top: -2px;
+}
+.zjDoctor{
+  display: block;
+  text-align: right;
+  width: 86%;
+  margin: auto;
+  color: #333;
+}
+.xin{
+  width: 40rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.danxiangLine{
+  background:#fff;
+  border-bottom:1px solid #eee;
+  padding: 26rpx;
+  position: relative;
+}
+.right2{
+  width: 60rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 20rpx;
+}
+.xiaojie{
+  margin:20rpx auto 0 auto;
+  background: #fff;
+  width: 92%;
+  border:1px solid #d5e0fa;
+  box-sizing: border-box;
+  padding: 30rpx 30rpx;
+  border-radius: 10rpx;
+  font-size: #666;
+}
+.xiaojie .one,.xiaojie .jie{
+  font-size: 16px;
+  margin-right: 20rpx;
+  font-weight: bold;
+  color: #333;
+}
+.danxiangItem{
+  margin:20rpx auto 0 auto;
+  background: #fff;
+  width: 92%;
+  box-sizing: border-box;
+  padding: 40rpx 30rpx;
+  border-radius: 20rpx;
+  font-size: #000;
+  border: 1px solid #d5e0fa;
+}
+.danxiangItem .one{
+  font-weight: bold;
+  color: #333;
+}
+.danxiangItem .two{
+  display: block;
+  margin: 20rpx 0;
+  font-size: 14px;
+  color: #999;
+}
+.danxiangItem .tree{
+  font-size: 14px;
+  color: #333;
+}
+.danxiangItem .four{
+  font-size: 14px;
+  color: #666;
+  margin-left: 5rpx;
+}
+.danxiangContent{
+  padding-bottom: 20rpx;
+}
+
+.danxiangItem .five{
+  font-size: 16px;
+  color: #333;
+}
+.danxiangItem .blue{
+  color: blue;
+}
+.danxiangItem .red{
+  color: red;
+}
+.ai{
+  position: absolute;
+  right: 20rpx;
+  top: 200rpx;
+  width: 80rpx;
+}
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  height: 600rpx;
+  overflow-y: scroll;
+  
+}
+
+.aibtn{
+    margin-top: 30rpx;
+    background-color: #497eef;
+    color: white;
+}
+.aibox {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10rpx 0 20rpx 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600rpx;
+    max-height: 900rpx;
+    
+  }
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.dialog-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.dialog-text {
+  font-size: 14px;
+}
+
+.aifxhead{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30rpx;
+    border-bottom: 1px solid #ccc;
+    padding: 30rpx;
+}
+.titleaifx{
+    font-weight: bold;
+    font-size: 35rpx;
+}
+.aifxClose{
+    width: 50rpx;
+    height: 50rpx;
+}
+.aifxmain{
+  overflow-y: auto;
+  max-width: 600rpx;
+  max-height: 700rpx;
+  padding: 20rpx 20rpx;
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.poi{
+    color: #999999;
+    font-size: 20rpx;
+    letter-spacing: 2rpx;
+}
+.stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    margin: 0 -5%;
+    overflow: hidden;
+}
+
+.dot-flashing {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #bbc6cc;
+    color: #bbc6cc;
+    animation: dotFlashing 1s infinite linear alternate;
+    animation-delay: .5s;
+}
+
+.dot-flashing::before {
+    left: -15px;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 0s;
+}
+
+.dot-flashing::after {
+    left: 15px;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 1s;
+}
+
+.dot-flashing::before,
+.dot-flashing::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    color: #f3f3f3;
+}
+
+@keyframes dotFlashing {
+    0% {
+        background-color: #f3f3f3
+    }
+    100% {
+        background-color: #bbc6cc
+    }
+}

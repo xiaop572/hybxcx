@@ -1,0 +1,32 @@
+<!--pages/jiaxiang/jiiaxiang.wxml-->
+<view class="dxline">
+  <text class="dxcao">套餐选择(固定套餐或自选)</text>
+</view>
+<view wx:for="{{tcList}}" wx:key="id" wx:for-index="idx" wx:for-item="item" class="item">
+  <text bindtap="showExplain" data-exp="{{item.pjmemo}}">{{item.mxid}}.{{item.pjname2}}</text>
+  <view class="select {{item.select?'active':''}}" bindtap="selectTcIitem" data-index="{{idx}}">
+    <image src="https://wx.pmc-wz.com/materials/gou.svg" mode="widthFix" wx:if="{{item.select}}"></image>
+  </view>
+</view>
+<view class="dxline" wx:if="{{hasSelectedTcWithIfcheck}}">
+  <text class="dxcao">自选包</text>
+</view>
+<block wx:if="{{dxvis && hasSelectedTcWithIfcheck}}">
+  <view wx:for="{{xmList}}" wx:key="id" wx:for-index="idx" wx:for-item="item" class="item">
+    <text bindtap="showExplain" data-exp="{{item.pjmemo}}">{{item.mxid}}.{{item.pjname2}}</text>
+    <view class="select {{item.select?'active':''}}" bindtap="selectItem" data-index="{{idx}}">
+      <image src="https://wx.pmc-wz.com/materials/gou.svg" mode="widthFix" wx:if="{{item.select}}"></image>
+    </view>
+  </view>
+</block>
+<view class="footer">
+  <view class="buyBtn" bindtap="payment" data-item="总计:{{sum}}">提交</view>
+</view>
+<view class="explainMask" wx:if="{{explainShow}}" catchtap="close">
+  <image class="close" src="https://wx.pmc-wz.com/materials/cha.svg" mode="widthFix" catchtap="close"></image>
+  <view class="explainShow" catchtap="noclose">
+    <text>
+      {{explainContent}}
+    </text>
+  </view>
+</view>

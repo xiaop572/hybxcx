@@ -1,0 +1,8 @@
+<!--pages/mzMake/mzMake.wxml-->
+<view>
+  <view wx:for="{{keshiList}}" wx:for-item="item" wx:for-index="idx" wx:key="idx" class="ksItem">
+    <image src="{{keshiImgs[item.SRM]?'https://wx.pmc-wz.com/materials/'+keshiImgs[item.SRM]:'https://wx.pmc-wz.com/materials/yiliao.png'}}" mode="widthFix">
+    </image>
+    <text>{{item.MC}}</text>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+<!--subpackagesDDD/tjqw/tjqw.wxml-->
+
+<view class="tjqwmain">
+    <view class="qwcode">
+      <text>长按识别加福利官</text>
+      <image src="https://wx.pmc-wz.com/materials/cpqw.png" mode="widthFix" class="cpqw" show-menu-by-longpress="true"/>
+      <image src="https://wx.pmc-wz.com/materials/hqshouzhi.png" mode="widthFix" class="hqshouzhi"/>
+      <view class="btn">长按识别加福利官</view>
+    </view>
+    
+    <!-- 社群福利版块 -->
+    <view class="welfare-section">
+      <view class="welfare-title">更多社群福利</view>
+      <view class="welfare-grid">
+        <view class="welfare-item">
+          <view class="welfare-icon welfare-icon-1"></view>
+          <view class="welfare-text">每一免费赠药日
+下单享社群专属折扣</view>
+        </view>
+        <view class="welfare-item">
+          <view class="welfare-icon welfare-icon-2"></view>
+          <view class="welfare-text">主管制第三
+新品社群专享体验</view>
+        </view>
+        <view class="welfare-item">
+          <view class="welfare-icon welfare-icon-3"></view>
+          <view class="welfare-text">限定新品抽奖
+0元抽免单</view>
+        </view>
+      </view>
+    </view>
+</view>

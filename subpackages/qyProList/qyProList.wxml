@@ -1,0 +1,17 @@
+<!--subpackages/jifenduihuan/jifenduihuan.wxml-->
+<view class="search">
+  <view class="searchInput">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fangdajing.png" class="searchIcon"></image><input type="text" placeholder="搜索海报标题" model:value="{{searchkey}}" />
+  </view>
+  <text class="seaBtns" bindtap="search">搜索</text>
+</view>
+<view class="proBox">
+  <view class="jplist" wx:for="{{jfspList}}" wx:for-item="item" wx:key="idx" bindtap="rjfxq" data-id="{{item.id}}">
+    <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="jpImg"></image>
+    <text class="jpcaption">{{item.pictitle}}</text>
+    <text class="jiazhi">价格¥{{item.price}}</text>
+    <text class="yongjin">佣金¥{{item.yj1}}</text>
+    <view class="dhBtn" data-id="{{item.id}}">海报</view>
+  </view>
+</view>
+<tabbar></tabbar>

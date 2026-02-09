@@ -1,0 +1,17 @@
+<!--pages/doctorAppoint/doctorAppoint.wxml-->
+<view>
+  <view class="nav {{showNav?'showNav':''}}">
+    <view class="navItem">全部</view>
+    <view class="navItem" wx:for="{{keshiList}}" wx:for-item="item" wx:key="idx">{{item.MC}}</view>
+  </view>
+  <view class="doctorList {{showNav?'showList':''}}">
+    <view class="doctorItem" bindtap="rZjxj" data-ygdm="{{item.YGDM}}" wx:for="{{doctorList}}" wx:for-item="item" wx:key="item.YSBM">
+      <image src='https://his.pmc-wz.com/pmcmobileweb/images/photos/{{item.YGDM}}.jpg' mode="widthFix"></image>
+      <view class="right">
+        <text class="name">{{item.YGXM}}</text>
+        <text class="jibie">{{item.YGZC}}</text>
+        <text class="p">{{item.YGJS}}</text>
+      </view>
+    </view>
+  </view>
+</view>

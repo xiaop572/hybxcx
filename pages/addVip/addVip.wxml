@@ -1,0 +1,34 @@
+<!--pages/addVip/addVip.wxml-->
+<view class="quanyiList">
+  <view class="item"> 
+    <view class="itemIcon"><image src="https://wx.pmc-wz.com/materials/qyshangcheng.svg" mode="widthFix"></image></view>
+    <text>积分商城</text>
+  </view>
+  <view class="item"> 
+    <view class="itemIcon"><image src="https://wx.pmc-wz.com/materials/qyqiche.svg" mode="widthFix"></image></view>
+    <text>免费停车</text>
+  </view>
+  <view class="item"> 
+    <view class="itemIcon"><image src="https://wx.pmc-wz.com/materials/qyshipin.svg" mode="widthFix"></image></view>
+    <text>专家视频</text>
+  </view>
+  <view class="item"> 
+    <view class="itemIcon"><image src="https://wx.pmc-wz.com/materials/qyhuodong.svg" mode="widthFix"></image></view>
+    <text>会员活动</text>
+  </view>
+  <view class="item">
+    <view class="itemIcon"><image src="https://wx.pmc-wz.com/materials/qyzhekou.svg" mode="widthFix"></image></view>
+    <text>会员折扣</text>
+  </view>
+  <view class="item"> 
+    <view class="itemIcon"><image src="https://wx.pmc-wz.com/materials/qyhuangguan.svg" mode="widthFix"></image></view>
+    <text>终身享受</text>
+  </view>
+</view>
+<view class="kaitong">
+  <view>
+    <text class="huiyuan">终身会员</text>
+    <view class="card">一次会员，永久有效</view>
+  </view>
+  <button class="ktBtn" bindtap="raddVipInfo">立即开通，尽享权益 ></button>
+</view>

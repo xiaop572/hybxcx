@@ -1,0 +1,231 @@
+/* pages/yzcfk/yzcfk.wxss */
+
+.top,
+.bottom {
+  width: 100%;
+  display: block;
+}
+
+.main {
+  background: #6B0001;
+  padding: 40rpx 0;
+}
+
+.caption {
+  font-size: 60rpx;
+  color: #fff;
+  display: block;
+  text-align: center;
+  font-family: 楷体;
+  font-weight: bold;
+}
+
+.daotime {
+  font-size: 30rpx;
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.daotime .num {
+  color: #000;
+  font-weight: bold;
+  font-size: 40rpx;
+}
+
+.daotime text {
+  display: inline-block;
+  vertical-align: middle;
+  color: #Fff;
+}
+
+.num {
+  display: inline-block;
+  vertical-align: middle;
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: linear-gradient(225deg, #F5EDE1 10px, #ECE1D0 30%, #B49162);
+  border-radius: 10rpx;
+  margin: 0 20rpx 0 20rpx;
+}
+
+.num:nth-child(1) {
+  margin-left: 0;
+}
+
+.num:last-child {
+  margin-right: 0;
+}
+
+.rbs {
+  background-color: #F0E6E6;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  width: 90%;
+  margin: 80rpx auto 0 auto;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.rbsleft {
+  float: left;
+}
+
+.bmnum {
+  color: #8B0000;
+  font-weight: bold;
+  font-size: 50rpx;
+}
+
+.liulan {
+  float: right;
+  margin-top: 24rpx;
+}
+
+.gdbox {
+  width: 90%;
+  margin: 30rpx auto 0 auto;
+  background-color: #F0E6E6;
+  padding: 40rpx 40rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.personlist {
+  position: relative;
+  top: -580rpx;
+}
+
+.person {
+  width: 20%;
+  float: left;
+  height: 145rpx;
+  overflow: hidden;
+}
+.perbox{
+  overflow: hidden;
+  height: 580rpx;
+}
+.perimg {
+  width: 50%;
+  display: block;
+  margin:10rpx auto 0 auto;
+  border-radius: 100%;
+  min-height: 50rpx;
+}
+
+.pername {
+  font-size: 26rpx;
+  display: block;
+  text-align: center;
+  margin: 10rpx 0 0 0;
+}
+.footer {
+  background: #fff;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+}
+
+.buyBtn {
+  height: 80rpx;
+  line-height: 80rpx;
+  display: inline-block;
+  color: #Fff;
+  background-color: red;
+  cursor: pointer;
+  margin-top: 10rpx;
+  border-radius: 60rpx;
+  margin-right: 40rpx;
+  font-size: 30rpx;
+  width: 300rpx;
+  text-align: center;
+  animation: sizeani 1s ease infinite;
+  letter-spacing: 5rpx;
+}
+.details-content {
+  padding-bottom: 100rpx;
+}
+
+.details-content image {
+  width: 100%;
+}
+
+.icon {
+  float: left;
+  font-size: 30rpx;
+  color: #666;
+  margin-top: 8rpx !important;
+  margin-left: 60rpx !important;
+  text-align: center;
+  width: auto !important;
+  padding: 0;
+
+}
+
+.icon image {
+  display: block;
+  margin: auto;
+}
+
+.kficon {
+  width: 50rpx;
+}
+
+.icon text {
+  font-size: 26rpx;
+}
+.cgBox{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.cgmeng{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20%;
+  margin:auto;
+  text-align: left;
+  background-color: #fff;
+  width: 80%;
+  padding: 40rpx 20rpx;
+}
+.cgcap{
+  text-align: center;
+  display: block;
+}
+.cgint{
+  font-size: 26rpx;
+  color: #000;
+  border: 1px solid #999;
+  margin-top: 20rpx;
+  padding: 5px 10rpx;
+}
+.tj{
+  background-color: #6B0001;
+  width: 360rpx;
+  margin: auto;
+  color: #FFf;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 40rpx;
+  font-weight: bold;
+  letter-spacing: 10rpx;
+}
+@keyframes sizeani{
+  0%{
+    font-size: 30rpx;
+  }
+  50%{
+    font-size: 34rpx;
+  }
+  100%{
+    font-size: 30rpx;
+  }
+}

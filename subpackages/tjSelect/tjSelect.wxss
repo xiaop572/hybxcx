@@ -1,0 +1,28 @@
+/* pages/zzinfo/zzinfo.wxss */
+body {
+  height: 100%;
+}
+
+page {
+  height: 100%;
+  background-color: #f7fcff;
+}
+
+.main {
+  height: 100%;
+  background: url("https://wx.pmc-wz.com/materials/infoBg2.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  text-align: center;
+  overflow: hidden;
+}
+.infoBg{
+  width: 100%;
+}
+.itemList{
+  text-align: center;
+}
+.itemList image{
+  width:90%;
+  margin-top: 30rpx;
+}

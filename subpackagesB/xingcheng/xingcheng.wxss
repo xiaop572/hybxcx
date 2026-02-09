@@ -1,0 +1,338 @@
+/* subpackagesB/xingcheng/xingcheng.wxss */
+page {
+  background:linear-gradient(to right,#005D9B,#003F86);
+  padding-bottom: 160rpx !important;
+}
+
+.qkhbt {
+  width: 100%;
+}
+
+.info {
+  width: 88%;
+  border-radius: 40rpx;
+  background-color: #fff;
+  padding: 40rpx 40rpx;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.infoname {
+  font-weight: bold;
+}
+
+.topinfo {
+  display: block;
+  text-indent: 2em;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+}
+
+.youRoute {
+  width: 88%;
+  border-radius: 40rpx;
+  background-color: #fff;
+  padding: 40rpx 40rpx;
+  margin: 30rpx auto 0 auto;
+  box-sizing: border-box;
+}
+
+.xcCap {
+  display: block;
+  text-align: center;
+  font-size: 46rpx;
+  font-weight: bold;
+}
+
+.xcCapY {
+  display: block;
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.xctitle {
+  text-align: center;
+  color: #fff;
+  background: rgb(253, 84, 83);
+  border-radius: 40rpx;
+  padding: 5rpx 0;
+  margin-top: 40rpx;
+}
+
+.lcicon {
+  width: 110rpx
+}
+.zzright{
+  width: 250rpx;
+  vertical-align: middle;
+  margin-top: -20rpx;
+}
+.dzicon {
+  width: 110rpx;
+}
+
+.lieche {
+  width: 130rpx;
+  vertical-align: middle;
+}
+.fjtb{
+  width: 130rpx;
+  vertical-align: middle;
+  margin-top: -20rpx;
+}
+.lcbox {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.liechebox {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 30rpx;
+}
+.liechebox2{
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 20rpx;
+}
+.dzbox {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.xcmain {
+  text-align: center;
+  margin-top: 40rpx;
+}
+
+.startTime {
+  color: rgb(91, 191, 91);
+  font-weight: bold;
+  font-size: 40rpx;
+  display: block;
+  text-align: left;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  line-height: 32rpx;
+}
+
+.startdata {
+  font-weight: bold;
+  font-size: 24rpx;
+  display: block;
+  text-align: left;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+}
+
+.startdd {
+  font-weight: bold;
+  font-size: 24rpx;
+  display: block;
+  text-align: left;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  line-height: 22rpx;
+}
+
+.flycode {
+  display: block;
+  font-weight: bold;
+  line-height: 40rpx;
+  text-align: center;
+}
+.zzcap{
+  width: 150rpx;
+  vertical-align: middle;
+  display: block;
+  margin: auto;
+  position: relative;
+  top: 10rpx;
+}
+.lcleft {
+  width: 50rpx;
+  height: 4rpx;
+  display: inline-block;
+  vertical-align: middle;
+  background: rgb(0, 115, 244);
+  margin-right: 10rpx;
+}
+
+.lcRight {
+  width: 50rpx;
+  height: 4rpx;
+  display: inline-block;
+  vertical-align: middle;
+  background: rgb(0, 49, 125);
+  margin-left: 10rpx;
+}
+
+.jiejibox {
+  width: 88%;
+  margin: 30rpx auto 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.jjmain {
+  width: 100%;
+  background-color: #fff;
+  padding-bottom: 60rpx;
+  border-radius: 0 0 40rpx 40rpx;
+  padding-top: 20rpx;
+}
+
+.jiejibanner {
+  width: 100%;
+  display: block;
+  margin: auto;
+  box-sizing: border-box;
+  border:1px solid #ddd;
+  border-bottom: none;
+  border-radius: 40rpx 40rpx 0 0;
+}
+
+.jjword {
+  width: 84%;
+  display: block;
+  margin: auto;
+  font-size: 26rpx;
+}
+
+.yihchengBox {
+  width: 88%;
+  border-radius: 40rpx;
+  background-color: #fff;
+  margin: 30rpx auto 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 40rpx 40rpx;
+}
+
+.yichengCap {
+  display: block;
+  text-align: center;
+  font-size: 46rpx;
+  font-weight: bold;
+  letter-spacing: 5rpx;
+}
+
+.yichengCapY {
+  display: block;
+  text-align: center;
+  font-size: 22rpx;
+  font-weight: bold;
+}
+
+.yclist {
+  margin-top: 20rpx;
+}
+
+.yctime {
+  display: block;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: rgb(0, 81, 172);
+}
+
+.ychc {
+  display: block;
+  font-weight: bold;
+  font-size: 26rpx;
+}
+
+.yczt {
+  display: block;
+  font-weight: bold;
+  font-size: 26rpx;
+}
+
+.dhzyinfoBox {
+  width: 88%;
+  margin: 30rpx auto 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.dhzymain {
+  width: 100%;
+  background-color: #fff;
+  padding-bottom: 60rpx;
+  border-radius: 0 0 40rpx 40rpx;
+  padding: 20rpx 50rpx 30rpx 50rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+}
+
+.dhzyfu {
+  display: block;
+}
+
+.dhline {
+  display: block;
+  font-weight: bold;
+  margin-top: 5rpx;
+}
+
+.beizhu {
+  color: red;
+  display: block;
+  margin-top: 8rpx;
+}
+
+.jbycitem {
+  margin-top: 20rpx;
+}
+
+.tqrq {
+  color: red;
+  font-size: 26rpx;
+}
+
+.tqline {
+  display: block;
+  font-size: 26rpx;
+  margin-top: 2rpx;
+}
+
+.boda {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40rpx;
+  background: rgb(255, 147, 60);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.boda text{
+  font-weight: bold;
+  color: #fff;
+}
+.bodabtn{
+  color: #fff;
+  background-color: rgb(65, 44, 207);
+  line-height: 70rpx;
+  height: 70rpx;
+  margin-top: 18rpx;
+  font-size: 32rpx;
+  padding: 0 40rpx;
+}
+.memo{
+  display: block;
+  font-size: 22rpx;
+  width: 160rpx;
+  text-align: center;
+  margin:20rpx auto 0 auto;
+}
+.xcmemo{
+  text-align: left;
+  font-size: 26rpx;
+  margin-left:34rpx;
+  margin-top: 20rpx;
+  font-weight: bold;
+  color: rgb(245, 89, 89);
+}

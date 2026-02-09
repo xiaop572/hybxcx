@@ -1,0 +1,2 @@
+<!--subpackages/lookpdf/lookpdf.wxml-->
+<view bind:tap="lookpdf" style="text-align:center;">查看pdf</view>

@@ -1,0 +1,25 @@
+/* subpackages/ygtuiguangma/ygtuiguangma.wxss */
+page{
+  background-color: #f2f2f2;
+}
+.dm{
+  text-align: center;
+  margin-top: 20rpx;
+}
+.ygdm{
+  background-color: #fff;
+  width: 400rpx;
+  display: inline-block;
+  padding: 10rpx;
+  text-align: left;
+  vertical-align: middle;
+  height: 50rpx;
+}
+.submit{
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  background-color: #fff;
+}

@@ -1,0 +1,10 @@
+<!--subpackagesB/jdyd/jdyd.wxml-->
+<image src="https://wx.pmc-wz.com/materials/zxdh/jdyd.png" mode="widthFix" class="jdyd" />
+<image src="https://wx.pmc-wz.com/materials/zxdh/jdzx.png" mode="widthFix" class="jdzx" />
+<view class="jdlist" wx:if="{{false}}">
+  <pro-base in-image="https://wx.pmc-wz.com/materials/zxdh/jd1.png">
+    <text class="jdcap">温州君庭酒店</text>
+    <text class="jieshao">距离会场1.3公里，驾车时间5分钟，每日早晚提供大巴车接驳服务(具体看酒店大厅展示)</text>
+    <text class="tel">预定电话:12345678910</text>
+  </pro-base>
+</view>

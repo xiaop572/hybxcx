@@ -1,0 +1,8 @@
+<!--pages/zzinfo/zzinfo.wxml-->
+  <image src="https://wx.pmc-wz.com/materials/infoBg2.png" mode="widthFix" class="infoBg"></image>
+  <view class="itemList">
+    <image src="https://wx.pmc-wz.com/materials/gerenIcon.png" mode="widthFix" bindtap="rgerentj"></image>
+    <image src="https://wx.pmc-wz.com/materials/danweiIcon.png" mode="widthFix" bindtap="rdanweitj"></image>
+    <image src="https://wx.pmc-wz.com/materials/myyuyueIcon.png" mode="widthFix" bindtap="rMyYy2"></image>
+    <!-- <image src="https://wx.pmc-wz.com/materials/gongwuIcon.png" mode="widthFix" bindtap="rgongwutj"></image> -->
+  </view>

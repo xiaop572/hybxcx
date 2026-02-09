@@ -1,0 +1,30 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+  current="{{current}}" bindchange="changeIndex" indicator-active-color="#fff" class="swiper">
+  <block wx:for="{{exList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
+    <swiper-item class="bg" wx:if="{{item.picurl}}" style="background-image:url(https://wx.pmc-wz.com/hyb/images/{{item.picurl}})">
+      <view class="place {{active===idx?'':'activity'}} ">
+        <!-- <view class="liaojie">
+          了解活动
+        </view> -->
+        <view class="yuyue border" bindtap="showPlace" data-idx="{{idx}}">医技预约</view>
+      </view>
+      <view class="wicket place {{active===idx?'show':''}}">
+        <text class="wicketCaption">医技预约</text>
+        <view class="wicketList">
+          <text class="left">预约项目</text>
+          <text class="right">{{item.pictitle}}</text>
+        </view>
+        <view class="wicketList">
+          <text class="left">姓名</text>
+          <input class="rightInput">{{xinmin}}</input>
+        </view>
+        <view class="wicketList">
+          <text class="left">手机号</text>
+          <text class="right" wx:if="{{mobile}}">{{mobile}}</text>
+          <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="right rightBtn" wx:if="{{!mobile}}">一键获取</button>
+        </view>
+        <button  class="yuyueBtn" bindtap="submit">立即预约</button>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>

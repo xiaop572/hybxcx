@@ -1,0 +1,297 @@
+<view class="survey-container">
+  <view class="yinshi-title">
+    <image src="https://wx.pmc-wz.com/materials/hmb/yswj-title.png" mode="widthFix" class="surveyCap" />
+    <image src="https://wx.pmc-wz.com/materials/hmb/yswj-sq.png" mode="widthFix" class="yxjzsq" />
+  </view>
+  <view class="form-box">
+    <text class="form-title">感谢您参与本次调查!本问卷旨在了解成年人的日常饮食习惯，所有数据仅用于统计分析，匿名填写，请放心作答。请根据您的实际情况选择或填写答案。</text>
+    <form bindsubmit="submitSurvey">
+      <!-- 一、基本信息 -->
+      <view class="form-group">
+        <view class="form-group-title">一、基本信息</view>
+        <view class="form-main">
+          <view class="form-item">
+            <view class="label" data-index="01.">性别：</view>
+            <radio-group name="sex">
+              <radio value="男">男</radio>
+              <radio value="女">女</radio>
+              <radio value="其他">其他</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="02.">年龄：</view>
+            <radio-group name="age">
+              <radio value="18-25岁">18-25岁</radio>
+              <radio value="26-35岁">26-35岁</radio>
+              <radio value="36-45岁">36-45岁</radio>
+              <radio value="46-55岁">46-55岁</radio>
+              <radio value="56岁以上">56岁以上</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="03.">职业：</view>
+            <radio-group name="occupation">
+              <radio value="上班族">上班族</radio>
+              <radio value="学生">学生</radio>
+              <radio value="自由职业">自由职业</radio>
+              <radio value="退休">退休</radio>
+              <radio value="其他">其他</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="04.">身高（cm）：</view>
+            <input name="height" type="number" placeholder="请输入身高" />
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="05.">体重（kg）：</view>
+            <input name="weight" type="number" placeholder="请输入体重" />
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="06.">联系电话：<text class="required">*</text></view>
+            <input name="phone" type="number" placeholder="请输入联系电话（必填）" />
+          </view>
+        </view>
+      </view>
+
+      <!-- 二、饮食习惯 -->
+      <view class="form-group" style="margin-top: 60rpx;">
+        <view class="form-group-title">二、饮食习惯</view>
+        <view class="form-main">
+          <view class="form-item">
+            <view class="label" data-index="01.">您每日正餐（早/中/晚）的规律性如何？</view>
+            <radio-group name="diet_pattern">
+              <radio value="非常规律">非常规律</radio>
+              <radio value="较规律">较规律</radio>
+              <radio value="不规律">不规律</radio>
+              <radio value="视情况而定">视情况而定</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="02.">您平均每周有几天会吃早餐？</view>
+            <radio-group name="breakfast_frequency">
+              <radio value="每天">每天</radio>
+              <radio value="4-6天">4-6天</radio>
+              <radio value="1-3天">1-3天</radio>
+              <radio value="几乎不吃">几乎不吃</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="03.">您通常外出就餐或点外卖的频率是？</view>
+            <radio-group name="eating_out_frequency">
+              <radio value="每天1次以上">每天1次以上</radio>
+              <radio value="每周3-5次">每周3-5次</radio>
+              <radio value="每周1-2次">每周1-2次</radio>
+              <radio value="几乎不">几乎不</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="04.">您是否有以下饮食习惯？（可多选）</view>
+            <checkbox-group name="eating_habits">
+              <checkbox value="素食">素食</checkbox>
+              <checkbox value="低碳水饮食">低碳水饮食</checkbox>
+              <checkbox value="高蛋白饮食">高蛋白饮食</checkbox>
+              <checkbox value="无特殊习惯">无特殊习惯</checkbox>
+              <checkbox value="控糖/低糖饮食">控糖/低糖饮食</checkbox>
+              <checkbox value="其他">其他</checkbox>
+            </checkbox-group>
+          </view>
+        </view>
+      </view>
+
+      <!-- 三、食物摄入情况 -->
+      <view class="form-group" style="margin-top: 60rpx;">
+        <view class="form-group-title">三、食物摄入情况</view>
+        <view class="form-main">
+          <view class="form-item">
+            <view class="label" data-index="01.">您每天摄入新鲜蔬菜和水果的量约为：</view>
+            <radio-group name="vegetable_fruit_ratio">
+              <radio value="少于200g">少于200g</radio>
+              <radio value="200-400g">200-400g</radio>
+              <radio value="400g以上">400g以上</radio>
+              <radio value="很少吃">很少吃</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="02.">您每周摄入肉类（猪/牛/羊）的频率：</view>
+            <radio-group name="meat_frequency">
+              <radio value="每天">每天</radio>
+              <radio value="3-5次">3-5次</radio>
+              <radio value="1-2次">1-2次</radio>
+              <radio value="不吃">不吃</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="03.">您每周摄入水产（鱼/虾等）的频率：</view>
+            <radio-group name="seafood_frequency">
+              <radio value="每周3次+">每周3次+</radio>
+              <radio value="1-2次">1-2次</radio>
+              <radio value="很少吃">很少吃</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="04.">您每周摄入乳制品（牛奶/酸奶等）的频率：</view>
+            <radio-group name="dairy_frequency">
+              <radio value="每天">每天</radio>
+              <radio value="每周几次">每周几次</radio>
+              <radio value="很少吃">很少吃</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="05.">您是否经常摄入精加工食品（如零食、速冻食品、罐头等）？</view>
+            <radio-group name="processed_food_frequency">
+              <radio value="每天">每天</radio>
+              <radio value="每周几次">每周几次</radio>
+              <radio value="偶尔">偶尔</radio>
+              <radio value="几乎不">几乎不</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="06.">您每天的饮水量约为：</view>
+            <radio-group name="water_intake">
+              <radio value="少于500ml">少于500ml</radio>
+              <radio value="少于1000ml">少于1000ml</radio>
+              <radio value="1000-2000ml">1000-2000ml</radio>
+              <radio value="大于2000ml">大于2000ml</radio>
+            </radio-group>
+          </view>
+        </view>
+      </view>
+
+      <!-- 四、健康与偏好 -->
+      <view class="form-group" style="margin-top: 60rpx;">
+        <view class="form-group-title">四、健康与偏好</view>
+        <view class="form-main">
+          <view class="form-item">
+            <view class="label" data-index="01.">您的睡眠情况？</view>
+            <view class="sub-label">睡眠质量：</view>
+            <radio-group name="sleep_quality">
+              <radio value="良好">良好</radio>
+              <radio value="一般">一般</radio>
+              <radio value="失眠">失眠</radio>
+            </radio-group>
+            <view class="sub-label">入睡时间：</view>
+            <input name="sleep_time" type="text" placeholder="请输入入睡时间" />
+            <view class="sub-label">起床时间：</view>
+            <input name="wake_time" type="text" placeholder="请输入起床时间" />
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="02.">您的排便情况？</view>
+            <view class="sub-label">排便次数：</view>
+            <radio-group name="bowel_frequency" bindchange="radioChange" data-field="bowel_frequency">
+              <radio value="一天1次">一天1次</radio>
+              <radio value="两天1次">两天1次</radio>
+              <radio value="一两天1次">一两天1次</radio>
+              <radio value="便秘">便秘</radio>
+            </radio-group>
+            <view class="sub-label" wx:if="{{formData.bowel_frequency === '便秘'}}">解决方法：</view>
+            <radio-group name="constipation_solution" wx:if="{{formData.bowel_frequency === '便秘'}}">
+              <radio value="吃红薯等促排便食物">吃红薯等促排便食物</radio>
+              <radio value="开塞露">开塞露</radio>
+              <radio value="不管">不管</radio>
+            </radio-group>
+            <view class="sub-label">排便时间：</view>
+            <radio-group name="bowel_time">
+              <radio value="固定">固定</radio>
+              <radio value="不固定">不固定</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="03.">您的运动情况？</view>
+            <radio-group name="exercise_frequency">
+              <radio value="规律运动">规律运动</radio>
+              <radio value="很少运动">很少运动</radio>
+              <radio value="久坐不动">久坐不动</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="04.">您是否有控制体重的需求？</view>
+            <radio-group name="weight_control">
+              <radio value="是（正在减重/增重）">是（正在减重/增重）</radio>
+              <radio value="否">否</radio>
+              <radio value="维持现状">维持现状</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="05.">您选择食物时最关注的因素是？（可多选）</view>
+            <checkbox-group name="food_choice_factors">
+              <checkbox value="口感味道">口感味道</checkbox>
+              <checkbox value="营养价值">营养价值</checkbox>
+              <checkbox value="价格">价格</checkbox>
+              <checkbox value="方便快捷">方便快捷</checkbox>
+              <checkbox value="食品安全">食品安全</checkbox>
+              <checkbox value="热量/糖分">热量/糖分</checkbox>
+              <checkbox value="其他">其他</checkbox>
+            </checkbox-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="06.">您是否有因健康问题调整饮食的经历？（如糖尿病、高血压等）</view>
+            <radio-group name="diet_adjustment_health" bindchange="radioChange" data-field="diet_adjustment_health">
+              <radio value="是">是</radio>
+              <radio value="否">否</radio>
+            </radio-group>
+            <input wx:if="{{formData.diet_adjustment_health === '是'}}" name="health_issue" type="text" placeholder="请注明健康问题" />
+          </view>
+        </view>
+      </view>
+
+      <!-- 五、改进意愿 -->
+      <view class="form-group" style="margin-top: 60rpx;">
+        <view class="form-group-title">五、改进意愿</view>
+        <view class="form-main">
+          <view class="form-item">
+            <view class="label" data-index="01.">您认为自己的饮食习惯是否需要改进？</view>
+            <radio-group name="diet_improvement">
+              <radio value="需要">需要</radio>
+              <radio value="不需要">不需要</radio>
+              <radio value="不确定">不确定</radio>
+            </radio-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="02.">您希望获得哪些方面的饮食建议？（可多选）</view>
+            <checkbox-group name="diet_advice">
+              <checkbox value="营养搭配">营养搭配</checkbox>
+              <checkbox value="减肥/增重">减肥/增重</checkbox>
+              <checkbox value="疾病预防">疾病预防</checkbox>
+              <checkbox value="食谱推荐">食谱推荐</checkbox>
+              <checkbox value="食品安全">食品安全</checkbox>
+              <checkbox value="其他">其他</checkbox>
+            </checkbox-group>
+          </view>
+
+          <view class="form-item">
+            <view class="label" data-index="03.">您希望通过哪些途径改善饮食健康？（可多选）</view>
+            <checkbox-group name="diet_improvement_channels">
+              <checkbox value="营养师咨询">营养师咨询</checkbox>
+              <checkbox value="健康食谱">健康食谱</checkbox>
+              <checkbox value="饮食科普">饮食科普</checkbox>
+              <checkbox value="食谱推荐">食谱推荐</checkbox>
+              <checkbox value="文章">文章</checkbox>
+              <checkbox value="其他">其他</checkbox>
+            </checkbox-group>
+          </view>
+        </view>
+      </view>
+
+      <button form-type="submit" type="primary">提交</button>
+    </form>
+  </view>
+</view>

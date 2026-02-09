@@ -1,0 +1,38 @@
+/* subpackages/zxcontent/zxcontent.wxss */
+.zxani{
+  width: 90%;
+  margin:40rpx auto 0 auto;
+  display: block
+}
+.zxcontent{
+  width: 90%;
+  margin:50rpx auto;
+  font-size: 34rpx;
+}
+.zxcontent image{
+  width: 100% !important;
+}
+.zxbt{
+  width: 90%;
+  display: block;
+  font-weight: bold;
+  margin:40rpx auto 0 auto;
+  font-size: 40rpx;
+  text-align: center;
+}
+.fbt{
+  width: 90%;
+  margin: 40rpx auto 0 auto;
+  text-align: center;
+  font-size: 30rpx;
+}
+.zz{
+  color: rgb(120, 126, 153);
+  margin-right: 20rpx;
+}
+.time{
+  color: #999;
+}
+.wxParse-p{
+  width: 100%;
+}

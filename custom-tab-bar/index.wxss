@@ -1,0 +1,78 @@
+page {
+  padding-bottom: 80rpx;
+}
+
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: #FFF;
+  display: flex;
+  line-height: 1.2;
+  border-top: 1px solid #e6e6e6;
+  z-index: 99999
+}
+
+.tab-bar-item {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tab-bar-item image {
+  width: 27px;
+  position: absolute;
+  bottom: 18px;
+}
+
+.bulge {
+  background-color: #FFF;
+}
+
+.bulge .tab-bar-bulge {
+  position: absolute;
+  z-index: -1;
+  top: -10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border-top: 1px solid #e6e6e6;
+  background-color: #FFF;
+}
+
+.bugle {
+  position: absolute;
+  bottom: 12rpx;
+}
+
+.bulge image {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  top: -25px;
+  padding-top: 10px;
+}
+
+.tab-bar-item view {
+  font-size: 10px;
+}
+
+.resetBtn {
+  background-color: #fff !important;
+  width: 100% !important;
+  font-weight: normal !important;
+  padding: 0 !important;
+  line-height: inherit !important;
+  height: 100%;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

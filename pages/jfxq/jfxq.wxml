@@ -1,0 +1,24 @@
+<!--pages/tcxq/tcxq.wxml-->
+<import src="../../wxParse/wxParse/wxParse.wxml" />
+<view>
+  <swiper indicator-dots="true" style="text-align: center;height: 400px;" class="swiper">
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" style="width: 750rpx;"></image>
+    </swiper-item>
+  </swiper>
+  <view class="headline">
+    <text class="title">{{item.pictitle}}</text>
+    <image src="https://wx.pmc-wz.com/materials/jifeni.svg" mode="widthFix" class="jifenicon"></image>
+    <text class="price">{{item.paypoint}}</text>
+  </view>
+  <view class="details">
+    <view class="details-title">商品详情</view>
+    <view class="details-content">
+      <template is="wxParse" data="{{wxParseData:courseDetail.nodes}}"/>
+    </view>
+  </view>
+  <view class="footer">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xqlxkf.svg" class="kficon" bindtap="rlxkf"></image>
+    <view class="buyBtn" bindtap="rbuy" data-item="{{item}}">立即兑换</view>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+<!--subpackages/tjdhhome/tjdhhome.wxml-->
+<text class="tjdhcap">领取电子版体检报告</text>
+<text class="tjdhcap">「温馨提示」</text>
+<image src="https://wx.pmc-wz.com/materials/tjdhxia.png" mode="widthFix" class="xia" />
+<view class="main" wx:if="{{!isyz}}">
+  <text class="maincap">请先扫描指引单条码</text>
+  <view class="inline">
+    <label for="address">体检号:</label>
+    <input type="text" model:value="{{merchantOrderNo}}" id="address" disabled="false" />
+    <image src="https://wx.pmc-wz.com/materials/sys.png" mode="widthFix" class="sys" bind:tap="saoyisao" />
+  </view>
+  <view class="inline">
+    <label for="address">姓名:</label>
+    <input type="text" model:value="{{realname}}" id="address" disabled="false" />
+  </view>
+  <view class="inline">
+    <label for="address">手机号:</label>
+    <input type="text" model:value="{{tel}}" id="address" disabled="false" />
+    <view class="getcode" bindtap="getcode" wx:if="{{num<=0}}">获取校验码</view>
+    <view class="getcode" wx:if="{{num>0}}" style="padding: 10rpx 60rpx;">{{num}}</view>
+  </view>
+  <view class="inline">
+    <label for="address">验证码:</label>
+    <input type="text" model:value="{{yzm}}" id="address" />
+  </view>
+  <view class="nextBtn" bindtap="next">查询</view>
+</view>
+<view class="main" wx:if="{{isyz}}">
+  <text class="tscap">同意不打印纸质体检报告</text>
+  <text class="tscap">点击“同意”，将为您自动换成慧医宝积分，该积分可随时兑换整形美容或口腔项目。</text>
+  <text class="tscap">注:如果后续想要打印纸质体检报告，需自付快递费或选择快递到付。</text>
+  <image src="https://wx.pmc-wz.com/materials/pdficon.png" mode="widthFix" class="pdficon" />
+  <view class="btnlist">
+    <view class="btx" bind:tap="noty">不同意</view>
+    <view class="tx" bind:tap="ty">同意</view>
+  </view>
+</view>

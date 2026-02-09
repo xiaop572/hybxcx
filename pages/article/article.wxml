@@ -1,0 +1,4 @@
+<!--pages/article/article.wxml-->
+<view>
+  <web-view src="{{url}}"></web-view>
+</view>

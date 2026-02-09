@@ -1,0 +1,20 @@
+<!--subpackages/addjzka/addjzka.wxml-->
+<view>
+  <view>
+    <view class="row">
+      <text>体检姓名</text>
+      <input type="text" model:value="{{name}}"/>
+    </view>
+    <view class="row">
+      <text>手机号码</text>
+      <input type="text" model:value="{{phone}}"/>
+    </view>
+    <view class="row">
+      <text>验证码</text>
+      <input type="text" model:value="{{checkcode}}"/>
+      <view class="getcode" bindtap="getcode" wx:if="{{num<=0}}">获取校验码</view>
+      <view class="getcode"  wx:if="{{num>0}}" style="padding: 10rpx 60rpx;">{{num}}</view>
+    </view>
+  </view>
+  <view class="nextBtn" bindtap="next">下一步</view>
+</view>

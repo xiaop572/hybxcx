@@ -1,0 +1,74 @@
+<!--月子宠粉卡-->
+<image src="https://wx.pmc-wz.com/materials/cfktop.png" mode='widthFix' class="top"></image>
+<view class="main">
+  <text class="caption">活动倒计时</text>
+  <view class="daotime">
+    <text class="num">{{
+          day === 0 || day < 0 ? "00" : day < 10 ? "0" + day : day
+        }}</text><text>天</text><text class="num">{{
+          hour === 0 || hour < 0 ? "00" : hour < 10 ? "0" + hour : hour
+        }}</text><text>:</text><text class="num">{{
+          minute === 0 || minute < 0
+            ? "00"
+            : minute < 10
+            ? "0" + minute
+            : minute
+        }}</text><text>:</text><text class="num">{{
+          seconds === 0 || seconds < 0
+            ? "00"
+            : seconds < 10
+            ? "0" + seconds
+            : seconds
+        }}</text>
+  </view>
+  <view class="rbs">
+    <view class="rbsleft">
+      <text class="bmnum">{{cfinfo.salenum}}</text>
+      <text>人参加报名</text>
+    </view>
+    <text class="liulan">浏览量{{cfinfo.viewnum}}</text>
+  </view>
+  <view class="gdbox">
+    <view class="perbox">
+      <view class="personlist" style="top:{{-145*curindex}}rpx;transition: {{!transtate?'none':'all 1s'}};">
+        <view class="person" wx:for="{{list}}" wx:for-item="item">
+          <image src="https://wx.pmc-wz.com/{{item.picurl}}" mode="widthFix" class="perimg" />
+          <text class="pername">{{item.xinmin}}</text>
+        </view>
+        <view class="person" wx:for="{{list}}" wx:for-item="item">
+          <image src="https://wx.pmc-wz.com/{{item.picurl}}" mode="widthFix" class="perimg" />
+          <text class="pername">{{item.xinmin}}</text>
+        </view>
+        <view class="person" wx:for="{{list}}" wx:for-item="item">
+          <image src="https://wx.pmc-wz.com/{{item.picurl}}" mode="widthFix" class="perimg" />
+          <text class="pername">{{item.xinmin}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<image src="https://wx.pmc-wz.com/materials/cfkbottom.png" mode='widthFix' class="bottom"></image>
+<view class="footer">
+    <button open-type="contact" class="icon" send-message-title="{{item.pictitle}}" send-message-path="/pages/tcxq/tcxq?id={{item.id}}" send-message-img="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" show-message-card="true">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xqlxkf.svg" class="kficon"></image>
+      <text>客服</text>
+    </button>
+    <!-- <button open-type="contact" send-message-title="测试" send-message-img="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" send-message-path="/pages/tcxq/tcxq?id={{item.id}}" show-message-card="true" class="icon">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/xqlxkf.svg" class="kficon"></image>
+      <text>客服</text>
+    </button> -->
+    <button class="icon" open-type="share" data-imgsrc="{{item.picurl}}" data-id="{{item.id}}">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fenxiang1.svg" class="kficon"></image>
+      <text>分享</text>
+    </button>
+    <view class="buyBtn" bindtap="showcg" data-item="{{item}}">立即报名</view>
+  </view>
+  <view class="cgBox" wx:if="{{cgshow}}" catchtap="guanbi">
+  <view class="cgmeng" catchtap>
+      <text class="cgcap">请填写以下信息</text>
+      <input type="text" placeholder="孕妇姓名：" class="cgint" model:value="{{xinmin}}"/>
+      <input type="number" placeholder="联系方式：" class="cgint" model:value="{{mobile}}"/>
+      <input type="text" placeholder="预产期：" class="cgint" model:value="{{summary}}"/>
+      <view class="tj" bind:tap="tj">提交</view>
+  </view>
+</view>

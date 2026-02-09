@@ -1,0 +1,260 @@
+<view class="indexmain">
+  <!--index.wxml-->
+  <view class="topBlock">
+    <view class="search" bindtap="rSearch">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/fangdajing.png" class="searchIcon"></image>
+      <text>Search</text>
+      <view class="serbtn">搜索</view>
+    </view>
+    <view class="funOptions">
+      <text bindtap="rReport">体检报告</text>
+      <text bindtap="rtjyy">体检预约</text>
+      <text bindtap="rMz">门诊预约</text>
+      <text bindtap="rExperProgam">医技预约</text>
+    </view>
+  </view>
+
+  <swiper indicator-active-color="#fff" indicator-dots="true" autoplay="true" interval="8000" style="height:425rpx" class="carousel" previous-margin="55rpx" next-margin="20rpx" circular="true">
+    <swiper-item wx:for="{{bannerList}}" wx:for-item="item" wx:key="{{item.id}}">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" bindtap="bannergo" data-gourl="{{item.gourl}}" data-summary="{{item.summary}}" mode="widthFix" class="newBanner" lazy-load="true"></image>
+    </swiper-item>
+  </swiper>
+  <image src="https://wx.pmc-wz.com/materials/jrxhmz.png" mode="widthFix" class="jrxhmz" bind:tap="rdiagnosis"/>
+  <view class="fwlist">
+    <view class="fwitem" bind:tap="rylfw">
+      <image src="https://wx.pmc-wz.com/materials/fylfwicon.png" mode="widthFix" />
+      <text class="fwcap">医疗服务</text>
+      <text class="fwmemo">检查/体检报告速查</text>
+    </view>
+    <button class="lijiyuyue2" bind:tap="jkhq" style="background:transparent;">
+      <view class="fwitem">
+        <image src="https://wx.pmc-wz.com/materials/jkhq.png" mode="widthFix" style="width:62%;margin-top: 15rpx;" />
+        <text class="fwcap">侨健通</text>
+        <text class="fwmemo">华侨医疗卡绿通</text>
+      </view>
+    </button>
+    <!-- <view class="fwitem" bindtap="rqy"> -->
+    <view class="fwitem" bindtap="ryysc">
+      <image src="https://wx.pmc-wz.com/materials/yysc.png" mode="widthFix" style="width:66%;margin-top: 15rpx;" />
+      <text class="fwcap">医院手册</text>
+      <text class="fwmemo">了解更多详情</text>
+    </view>
+  </view>
+  <view class="ksBox">
+    <image src="https://wx.pmc-wz.com/materials/kspf1.png" mode="widthFix" class="ksitem" bindtap="rBasicPro" data-id="67" data-mername="皮肤" />
+    <image src="https://wx.pmc-wz.com/materials/kstj2.png" mode="widthFix" class="ksitem" bindtap="rBasicPro" data-id="60" data-mername="体检" />
+    <image src="https://wx.pmc-wz.com/materials/kskq3.png" mode="widthFix" class="ksitem" bindtap="rBasicPro" data-id="62" data-mername="口腔" />
+    <image src="https://wx.pmc-wz.com/materials/allks.png" mode="widthFix" class="ksitem2" bindtap="rskip" />
+  </view>
+  <view class="proclassBox">
+    <view class="proclassitem" bindtap="rBasicPro" data-id="67" data-mername="皮肤">
+      <image src="https://wx.pmc-wz.com/materials/pclspfmr.png" mode="widthFix" />
+      <text>皮肤美容</text>
+    </view>
+    <view class="proclassitem" bindtap="rBasicPro" data-id="99" data-mername="微整形">
+      <image src="https://wx.pmc-wz.com/materials/pclsqzwz.png" mode="widthFix" />
+      <text>气质微整</text>
+    </view>
+    <view class="proclassitem" bindtap="rBasicPro" data-id="60" data-mername="体检">
+      <image src="https://wx.pmc-wz.com/materials/pclsjktj.png" mode="widthFix" />
+      <text>健康体检</text>
+    </view>
+    <view class="proclassitem" bindtap="rBasicPro" data-id="63" data-mername="产康">
+      <image src="https://wx.pmc-wz.com/materials/pclschxf.png" mode="widthFix" />
+      <text>产后修复</text>
+    </view>
+    <view class="proclassitem" bindtap="rBasicPro" data-id="62" data-mername="口腔">
+      <image src="https://wx.pmc-wz.com/materials/pclskqjk.png" mode="widthFix" />
+      <text>口腔健康</text>
+    </view>
+    <view class="proclassitem" bindtap="rBasicPro" data-id="68" data-mername="整形">
+      <image src="https://wx.pmc-wz.com/materials/pclszxwk.png" mode="widthFix" />
+      <text>整形外科</text>
+    </view>
+    <view class="proclassitem" bindtap="rmspro">
+      <image src="https://wx.pmc-wz.com/materials/pclsjchd.png" mode="widthFix" />
+      <text>精彩活动</text>
+    </view>
+    <view class="proclassitem" bind:tap="ryimiao">
+      <image src="https://wx.pmc-wz.com/materials/pclsymyy.png" mode="widthFix" />
+      <text>疫苗预约</text>
+    </view>
+    <view class="proclassitem" bindtap="rMz">
+      <image src="https://wx.pmc-wz.com/materials/pclszjtd.png" mode="widthFix" />
+      <text>专家团队</text>
+    </view>
+    <view class="proclassitem" bind:tap="rjzzx">
+      <image src="https://wx.pmc-wz.com/materials/jzzxicon.png" mode="widthFix" />
+      <text>减重中心</text>
+    </view>
+  </view>
+  <view class="xmrmMain">
+    <view class="xmrbCont">
+      <view class="xmrbBox">
+        <view class="ymrb">
+          <text class="ymrbCap">医美项目热榜》</text>
+          <text class="ymrbfucap">把我知道的美都给你</text>
+          <view class="proitem" wx:for="{{ymrblist}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" bindtap="rtcxq2" data-id="{{item.id}}">
+            <view class="profengimg">
+              <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix"></image>
+            </view>
+            <image mode="widthFix" src="https://wx.pmc-wz.com/materials/guanjun.png" wx:if="{{idx===0}}" class="jiangpai"></image>
+            <image mode="widthFix" src="https://wx.pmc-wz.com/materials/yajun.png" wx:if="{{idx===1}}" class="jiangpai"></image>
+            <image mode="widthFix" src="https://wx.pmc-wz.com/materials/jijun.png" wx:if="{{idx===2}}" class="jiangpai"></image>
+            <view class="proitemRight">
+              <text class="procaption">{{item.pictitle}}</text>
+              <view class="priceFlex">
+                <view class="price"><text class="symbol">￥</text><text>{{item.price}}</text></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="tjrb">
+          <text class="ymrbCap">体检项目热榜》</text>
+          <text class="ymrbfucap">健康管理 护航生命</text>
+          <view class="proitem" wx:for="{{tjrblist}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" bindtap="rtcxq2" data-id="{{item.id}}">
+            <view class="profengimg">
+              <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix"></image>
+            </view>
+            <image mode="widthFix" src="https://wx.pmc-wz.com/materials/guanjun.png" wx:if="{{idx===0}}" class="jiangpai"></image>
+            <image mode="widthFix" src="https://wx.pmc-wz.com/materials/yajun.png" wx:if="{{idx===1}}" class="jiangpai"></image>
+            <image mode="widthFix" src="https://wx.pmc-wz.com/materials/jijun.png" wx:if="{{idx===2}}" class="jiangpai"></image>
+            <view class="proitemRight">
+              <text class="procaption">{{item.pictitle}}</text>
+              <view class="priceFlex">
+                <view class="price"><text class="symbol">￥</text><text>{{item.price}}</text></view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="ckrb">
+          <text class="ymrbCap">产康项目热榜》</text>
+          <text class="ymrbfucap">懂女性 更懂由内而外的美</text>
+          <view class="proitem" wx:for="{{ckrblist}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" bindtap="rtcxq2" data-id="{{item.id}}">
+            <view class="profengimg">
+              <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix"></image>
+            </view>
+            <image mode="widthFix" src="https://wx.pmc-wz.com/materials/guanjun.png" wx:if="{{idx===0}}" class="jiangpai"></image>
+            <image mode="widthFix" src="https://wx.pmc-wz.com/materials/yajun.png" wx:if="{{idx===1}}" class="jiangpai"></image>
+            <image mode="widthFix" src="https://wx.pmc-wz.com/materials/jijun.png" wx:if="{{idx===2}}" class="jiangpai"></image>
+            <view class="proitemRight">
+              <text class="procaption">{{item.pictitle}}</text>
+              <view class="priceFlex">
+                <view class="price"><text class="symbol">￥</text><text>{{item.price}}</text></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="youxuanBox">
+    <view class="youxuanCaption">
+      <view class="youLeft">
+        <image src="https://wx.pmc-wz.com/materials/whiteXin.png" mode="widthFix"></image>
+      </view>
+      <view class="youRight">和平资讯</view>
+      <view class="youxuanitemList">
+        <view class="zxList">
+          <view class="zxLeft" bindtap="rjkkp" data-index="0">
+            <image src="https://wx.pmc-wz.com/materials/kepu.png" mode="widthFix"></image>
+            <text>健康科普</text>
+          </view>
+          <view class="zxRight" bindtap="rjkkp" data-index="1">
+            <image src="https://wx.pmc-wz.com/materials/dangqun.png" mode="widthFix"></image>
+            <text>党群园地</text>
+          </view>
+        </view>
+        <view class="hpzxbox">
+          <view class="hpzxList" wx:for="{{zxlist}}" wx:for-item="item" wx:key="idx" bind:tap="rzxxq" data-id="{{item.id}}">
+            <view class="hpzxLeft">
+              <text class="zxcaption">{{item.title}}</text>
+              <view class="zuozhe">
+                <image mode="widthFix" src="https://wx.pmc-wz.com/materials/logo.png" class="zxlogo"></image>
+                <text>温州和平国际医院PMC</text>
+              </view>
+              <view class="liulanliang">
+                <image mode="widthFix" src="https://wx.pmc-wz.com/materials/zxyan.png" class="zxyan"></image>
+                <text>322</text>
+              </view>
+            </view>
+            <image src="https://wx.pmc-wz.com/hyb/images/{{item.coverimg}}" mode="widthFix" class="zxpack" lazy-load="true"></image>
+          </view>
+
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <!-- <view class="youxuanBox">
+    <view class="youxuanCaption">
+      <view class="youLeft">
+        <image src="https://wx.pmc-wz.com/materials/whiteXin.png" mode="widthFix"></image>
+      </view>
+      <view class="youRight">健康科普</view>
+    </view>
+    <view class="jkkpbox">
+      <text class="jkmore" bind:tap="rsphlist">查看更多></text>
+      <view class="jknrbox">
+        <view style="width:2100rpx">
+          <view class="jkkpitem" wx:for="{{splist}}" wx:for-item="item" wx:key="idx" bind:tap="rspxq" data-id="{{item.id}}">
+            <image src="https://wx.pmc-wz.com/hyb/images/{{item.coverimg}}" mode="widthFix" lazy-load="true"></image>
+            <text>{{item.title}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <view class="youxuanBox">
+    <view class="youxuanCaption">
+      <view class="youLeft">
+        <image src="https://wx.pmc-wz.com/materials/whiteXin.png" mode="widthFix"></image>
+      </view>
+      <view class="youRight">和平故事</view>
+    </view>
+    <video src="https://wx.pmc-wz.com/materials/xcp.mp4" class="xcp"></video>
+  </view>
+  <swiper indicator-active-color="#fff" indicator-dots="true" autoplay="true" interval="8000" style="height:400rpx" class="carousel2">
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/materials/zxsw.png" mode="widthFix" class="newBanner2"></image>
+    </swiper-item>
+
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/materials/yzsw.png" mode="widthFix" class="newBanner2"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/materials/tjsw.png" mode="widthFix" class="newBanner2"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/materials/cksw.png" mode="widthFix" class="newBanner2"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/materials/kqzx.png" mode="widthFix" class="newBanner2"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/materials/gkzx.png" mode="widthFix" class="newBanner2"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/materials/ebzx.png" mode="widthFix" class="newBanner2"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="https://wx.pmc-wz.com/materials/myg.png" mode="widthFix" class="newBanner2"></image>
+    </swiper-item>
+  </swiper>
+  <image src="https://wx.pmc-wz.com/materials/footer.png" mode="widthFix" class="footer"></image>
+  <view class="setnickBox" wx:if="{{setnickvis}}">
+    <view class="setnickMain">
+      <view class="setnickCaption">设置昵称</view>
+      <input type="text" placeholder="1-6个汉字" class="setnickInput" model:value="{{nickname}}" />
+      <button class="setnickBtn" bindtap="setnick">确定</button>
+    </view>
+  </view>
+</view>
+<!-- 护侨弹窗  -->
+<view class="popup {{showCard ? 'show' : ''}}" wx:if="{{showCard}}">
+  <canvas type="2d" id="animCanvas"></canvas>
+  <view class="card">
+    <image src="https://wx.pmc-wz.com/materials/hqcard.png" mode="widthFix" class="hqcard" />
+    <view class="blue-button" bind:tap="jkhq2">立即进入</view>
+  </view>
+</view>

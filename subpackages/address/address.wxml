@@ -1,0 +1,29 @@
+<!--subpackages/address/address.wxml-->
+<text class="capp">填写收件地址</text>
+<view class="inline">
+  <label for="address"><text>*</text>体检号:</label>
+  <input type="text" model:value="{{merchantOrderNo}}" id="address" disabled="false"/>
+  <image src="https://wx.pmc-wz.com/materials/sys.png" mode="widthFix" class="sys" bind:tap="saoyisao"/>
+</view>
+<view class="inline">
+  <label class="" for="name"><text>*</text>收件人:</label>
+  <input type="text" model:value="{{Name}}" id="name" />
+</view>
+<view class="inline">
+  <label for="mobile"><text>*</text>手机号:</label>
+  <input type="text" model:value="{{Mobile}}" id="mobile"/>
+</view>
+<view class="inline">
+  <label><text>*</text>省市区:</label>
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" class="pick">
+    <view wx:if="{{!Province}}">请选择</view>
+    <view class="picker" wx:if="{{Province}}">
+      {{Province}}{{City}}{{County}}
+    </view>
+  </picker>
+</view>
+<view class="inline">
+  <label for="address"><text>*</text>详细地址:</label>
+  <input type="text" model:value="{{Address}}" id="address" />
+</view>
+<button bindtap="submit" type="primary" class="btn">提交</button>

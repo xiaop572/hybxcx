@@ -1,0 +1,9 @@
+page{
+  background-color: rgb(241, 245, 248);
+}
+image{
+  display: block;
+  width: 92%;
+  margin: auto;
+  margin-top: 30rpx;
+}

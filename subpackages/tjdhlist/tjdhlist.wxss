@@ -1,0 +1,123 @@
+/* subpackages/tjdhlist/tjdhlist.wxss */
+.banner {
+  position: relative;
+}
+
+.jifen {
+  position: absolute;
+  bottom: 90rpx;
+  left: 70rpx;
+  color: #fff;
+}
+
+.jifen text {
+  display: block;
+}
+
+.jfnum {
+  font-size: 46rpx;
+  line-height: 46rpx;
+}
+
+.jfcap {
+  font-size: 26rpx;
+}
+.jplist {
+  background: #fff;
+  width: 310rpx;
+  float: left;
+  border-radius: 30rpx;
+  overflow: hidden;
+  margin-top: 50rpx;
+  margin-left: 45rpx;
+  margin-right: -10rpx;
+  font-size: 28rpx;
+  position: relative;
+  padding-bottom: 10rpx;
+}
+
+.jpImg {
+  width: 100%;
+}
+.lqbgCap {
+  font-weight: bold;
+  vertical-align: middle;
+  padding: 0 40rpx;
+  margin-top: 40rpx;
+}
+
+.lqbgCap:before {
+  content: "";
+  display: inline-block;
+  width: 16rpx;
+  height: 34rpx;
+  background-color: rgb(13, 147, 236);
+  vertical-align: middle;
+  border-radius: 60rpx;
+}
+.lqdzbg{
+  width: 88%;
+  margin: auto;
+  display: block;
+  margin-top: 30rpx;
+}
+.jpcaption {
+  font-weight: bold;
+  font-size: 26rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  /*弹性伸缩盒子*/
+  -webkit-box-orient: vertical;
+  /*子元素垂直排列*/
+  -webkit-line-clamp: 2;
+  /*可以显示的行数，超出部分用...表示*/
+  text-overflow: ellipsis;
+  padding: 0 10rpx;
+  /*（多行文本的情况下，用省略号“…”隐藏溢出范围的文本)*/
+}
+
+.jiazhi {
+  color: #666;
+  font-size: 22rpx;
+  margin-left: 20rpx;
+  display: block;
+  margin-top: -3rpx;
+}
+
+.dhjifen {
+  color: #666;
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  display: block;
+  margin-top: 10rpx;
+}
+
+.dhjifen text {
+  color: rgb(247, 162, 45);
+  font-size: 40rpx;
+  margin-right: 10rpx;
+}
+
+.dhBtn {
+  background-color: rgb(24, 137, 253);
+  color: #fff;
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  padding: 5rpx 20rpx;
+  border-radius: 100rpx;
+  font-size: 28rpx;
+}
+.jpmain{
+  background: linear-gradient(to bottom,#fff,rgb(217,235,254));
+}
+.guize{
+  font-size: 28rpx !important;
+  vertical-align: middle;
+  position: absolute;
+  right: 0;
+  top: 20rpx;
+}
+.dhjifen image{
+  width: 30rpx;
+}

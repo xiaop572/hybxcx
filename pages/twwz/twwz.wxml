@@ -1,0 +1,2 @@
+<!--pages/twwz/twwz.wxml-->
+<image src="https://wx.pmc-wz.com/materials/wzBanner.jpg" class="wzbanner"  mode='widthFix'></image>

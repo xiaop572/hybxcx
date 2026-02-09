@@ -1,0 +1,39 @@
+<view class="header">
+  <view class="header-title">推荐体检方案</view>
+  <view class="header-subtitle">* 根据您的年龄和性别为您推荐了以下体检方案</view>
+</view>
+<!-- 原有的方案卡片 -->
+<view class="plan-list">
+  <view class="plan-card">
+    <view class="plan-title">结合您目前的状况和上次体检，为您量身定制了体检方案</view>
+    <view class="plan-desc">(可对方案中的项目进行选择)</view>
+  </view>
+</view>
+
+<!-- 体检项目列表 -->
+<view class="item-list">
+  <block wx:for="{{itemList}}" wx:key="id">
+    <view class="item-row">
+      <view class="item-info">
+        <view class="item-name">{{item.name}}</view>
+        <view class="item-desc">{{item.desc}}</view>
+      </view>
+      <view class="item-price">¥{{item.price}}</view>
+      <view class="item-controls">
+        <view class="checkbox {{item.selected ? 'checked' : ''}}" bindtap="toggleItemSelection" data-index="{{index}}"></view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 底部操作栏 -->
+<view class="footer">
+  <view class="cart-section">
+    <view class="cart-icon">
+      <image src="/images/cart.png" mode="aspectFill" style="width: 100%; height: 100%;"></image>
+      <view class="cart-badge" wx:if="{{totalCount > 0}}">{{totalCount}}</view>
+    </view>
+    <view class="total-price" wx:if="{{totalPrice > 0}}">¥{{totalPrice}}</view>
+  </view>
+  <view class="checkout-btn" bindtap="goToCheckout">去结算</view>
+</view>

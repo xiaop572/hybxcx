@@ -1,0 +1,57 @@
+<!--院内报备-->
+<text class="cap">来院客户信息报备</text>
+<label class="inputLine">
+  <view class="inputcap"><text class="war">*</text>客户姓名</view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="请输入" model:value="{{xingmin}}" />
+  </view>
+</label>
+<label class="inputLine">
+  <view class="inputcap"><text class="war">*</text>就诊部门</view>
+  <view class="weui-cell weui-cell_input">
+    <picker mode="selector" value="{{params.jzbumen}}" range="{{bmlist}}" bindchange="bindbmchange">
+      <view class="picker" wx:if="{{!params.jzbumen}}">请选择</view>
+      <view class="picker2" wx:if="{{params.jzbumen}}">
+        {{params.jzbumen}}
+      </view>
+    </picker>
+  </view>
+</label>
+
+<label class="inputLine">
+  <view class="inputcap"><text class="war"> </text>客户年龄</view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="请输入" model:value="{{year}}" />
+  </view>
+</label>
+<label class="inputLine">
+  <view class="inputcap"><text class="war"> *</text>客户联系电话</view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="请输入" model:value="{{tel}}" />
+  </view>
+</label>
+<label class="inputLine">
+  <view class="inputcap"><text class="war"> *</text>客户来院日期</view>
+  <view class="weui-cell weui-cell_input">
+    <picker mode="date" value="{{params.laiyuanriqi}}" range="{{qudaoList}}" bindchange="bindlyrqchange">
+      <view class="picker" wx:if="{{!params.laiyuanriqi}}">请选择</view>
+      <view class="picker2" wx:if="{{params.laiyuanriqi}}">
+        {{params.laiyuanriqi}}
+      </view>
+    </picker>
+  </view>
+</label>
+
+<label class="inputLine">
+  <view class="inputcap"><text class="war"> *</text>渠道</view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="请输入" model:value="{{laiyuan}}" disabled="disabled"/>
+  </view>
+</label>
+<label class="inputLine">
+  <view class="inputcap"><text class="war"> </text>备注</view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder="请输入" model:value="{{beizhu}}" />
+  </view>
+</label>
+<view class="submitBtn" bindtap="rtijiao">提交</view>

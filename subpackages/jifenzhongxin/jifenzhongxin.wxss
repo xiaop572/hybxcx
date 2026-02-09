@@ -1,0 +1,136 @@
+/* subpackages/jifenzhongxin/jifenzhongxin.wxss */
+.header{
+  height: 160rpx;
+  background:linear-gradient(to right,#03a7fd,#015cf5);
+}
+.shou{
+  position: absolute;
+  right: 0;
+  top: 20rpx;
+  width: 300rpx;
+}
+.jifenka{
+  width:340rpx;
+  margin: 60rpx 0 0 40rpx;
+}
+.ljfCaption{
+  margin: 60rpx 0 0 40rpx;
+  font-weight: bold;
+  color: #000;
+  font-size: 34rpx;
+}
+.qdlist{
+  margin: 0 40rpx;
+}
+.qdicon{
+  width: 105rpx;
+  float: left;
+}
+.qditem{
+  margin-top: 40rpx;
+  overflow: hidden;
+  position: relative;
+}
+.qdxq{
+  float: left;
+  margin-left: 40rpx;
+}
+.qdbtn{
+  font-size: 30rpx;
+  border: 2px solid #147ff7;
+  border-radius:100rpx;
+  padding: 0 20rpx;
+  color: #147ff7;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 50rpx;
+  line-height:50rpx;
+  margin: auto;
+}
+.xqCaption{
+  display: block;
+  font-weight: bold;
+  font-size: 34rpx;
+}
+.xqh{
+  font-size: 32rpx;
+  color: #333;
+}
+.jifen{
+  font-size: 32rpx;
+  color: #fff;
+  line-height: 160rpx;
+  margin-left: 80rpx;
+}
+.jifen .jnum{
+  font-size: 70rpx;
+  margin-right: 30rpx;
+}
+.jplist {
+  background: #fff;
+  width: 310rpx;
+  float: left;
+  border-radius: 30rpx;
+  overflow: hidden;
+  margin-top: 50rpx;
+  margin-left: 45rpx;
+  margin-right: -10rpx;
+  font-size: 28rpx;
+  position: relative;
+  padding-bottom: 10rpx;
+}
+
+.jpImg {
+  width: 100%;
+}
+
+.jpcaption {
+  font-weight: bold;
+  font-size: 26rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  /*弹性伸缩盒子*/
+  -webkit-box-orient: vertical;
+  /*子元素垂直排列*/
+  -webkit-line-clamp: 2;
+  /*可以显示的行数，超出部分用...表示*/
+  text-overflow: ellipsis;
+  padding: 0 10rpx;
+  /*（多行文本的情况下，用省略号“…”隐藏溢出范围的文本)*/
+}
+
+.jiazhi {
+  color: #666;
+  font-size: 22rpx;
+  margin-left: 20rpx;
+  display: block;
+  margin-top: -3rpx;
+}
+
+.dhjifen {
+  color: #666;
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  display: block;
+  margin-top: -10rpx;
+}
+
+.dhjifen text {
+  color: #015cf5;
+  font-size: 40rpx;
+  margin-right: 10rpx;
+}
+
+.dhBtn {
+  background-color: #015cf5;
+  color: #fff;
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  padding: 5rpx 20rpx;
+  border-radius: 100rpx;
+  font-size: 28rpx;
+}

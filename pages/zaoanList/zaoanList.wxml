@@ -1,0 +1,18 @@
+<!--pages/haibaoList/haibaoList.wxml-->
+<view class="kqBox">
+  <view class="kapianList">
+    <image src="https://wx.pmc-wz.com/materials/zaoanHeng.jpg" mode="widthFix" bindtap="rzaoan"></image>
+  </view>
+  <view class="kapianList">
+    <image src="https://wx.pmc-wz.com/materials/kqzaBanner.jpg" mode="widthFix" bindtap="rkqzaoan"></image>
+  </view>
+  <view class="kapianList">
+    <image src="https://wx.pmc-wz.com/materials/tjzaBanner.jpg" mode="widthFix" bindtap="rtjzaoan"></image>
+  </view>
+  <view class="kapianList">
+    <image src="https://wx.pmc-wz.com/materials/ckzabanner.png" mode="widthFix" bindtap="rckzaoan"></image>
+  </view>
+  <view wx:for="{{haibaoList}}" wx:for-item="it" wx:key="idx" class="kapianList">
+    <image src="https://wx.pmc-wz.com/hyb/images/{{it.kapic}}" mode="widthFix" bindtap="rcreatehaibao" data-xpos="{{it.xpos}}" data-ypos="{{it.ypos}}" data-id="{{it.id}}" data-haibao="{{it.haibao}}" data-pictitle="{{it.pictitle}}" data-kc="{{it.kc}}" data-jumpurl="{{it.jumpurl}}" data-qrwidth="{{it.qrwidth}}" data-qrheight="{{it.qrlength}}"></image>
+  </view>
+</view>

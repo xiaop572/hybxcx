@@ -1,0 +1,4 @@
+/* huodongpage/kaixuehuanxin/kaixuehuanxin.wxss */
+page{
+  padding-bottom: 0 !important;
+}

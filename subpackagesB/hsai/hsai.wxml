@@ -1,0 +1,44 @@
+<view class="hsai-container">
+  <scroll-view class="message-list" scroll-y enhanced scroll-into-view="{{scrollIntoView}}" scroll-with-animation scroll-animation-duration="1500">
+    <view class="message-wrapper" wx:for="{{messages}}" wx:key="id" >
+      <view class="message {{item.type === 'user' ? 'message-user' : 'message-ai'}}" id="msg-{{item.id}}">
+        <view class="message-content">
+          <block wx:if="{{item.messageType === 'text'}}">
+            <text>{{item.content}}</text>
+          </block>
+          <block wx:if="{{item.messageType === 'thinking'}}">
+            <text class="thinking-dots">{{item.content}}</text>
+          </block>
+          <block wx:if="{{item.messageType === 'loading'}}">
+            <text class="thinking-dots">思考中</text>
+          </block>
+          <block wx:if="{{item.messageType === 'cell'}}">
+            <view class="cell-wrapper">
+              <cell wx:if="{{item.type === 'ai'}}" plugid='709f9b2b8afaffb96c36b1cb7e7b80ea' />
+              <text class="contact-tip">有需要请联系我</text>
+            </view>
+          </block>
+          <image wx:if="{{item.messageType === 'image'}}" src="{{item.content}}" mode="widthFix" class="message-image" bindtap="previewImage" data-src="{{item.content}}"></image>
+        </view>
+      </view>
+    </view>
+    <block wx:if="{{item.messageType === 'cell'}}">
+      <cell wx:if="{{item.type === 'ai'}}" plugid='6c751ea9f2f6abe387cb6e9ed55ae554' />
+    </block>
+    <view class="disclaimer-text">
+      <text>本系统提供的所有医疗健康信息仅供一般参考和科普用途，不能替代专业医疗机构的诊断与治疗建议。系统呈现的内容基于现有医学知识库，但医学实践具有个体差异性，具体诊疗方案请以执业医师的面对面评估为准。对于因参考本系统信息而采取的任何医疗行为，开发方不承担相应责任。如您有健康疑虑或出现急症，请及时前往正规医疗机构就诊。</text>
+    </view>
+  </scroll-view>
+
+  <view class="input-area">
+    <view class="input-wrapper">
+      <input class="message-input" type="text" value="{{inputValue}}" bindinput="onInput" placeholder="输入消息..." confirm-type="send" bindconfirm="sendMessage" />
+      <view class="action-buttons">
+        <view class="upload-button" bindtap="chooseImage">
+          <image class="upload-icon" src="https://wx.pmc-wz.com/materials/uploadImg.svg" mode="aspectFit"></image>
+        </view>
+        <view class="send-button" bindtap="sendMessage">发送</view>
+      </view>
+    </view>
+  </view>
+</view>

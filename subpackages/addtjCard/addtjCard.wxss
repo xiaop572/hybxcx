@@ -1,0 +1,68 @@
+/* subpackages/addjzka/addjzka.wxss */
+page {
+  background-color: #f2f2f2;
+}
+
+.row {
+  border:1px solid #ddd;
+  background-color: #fff;
+  width: 90%;
+  margin:40rpx auto 0 auto;
+  padding: 10rpx 20rpx;
+}
+
+.row text {
+  display: inline-block;
+  vertical-align: middle;
+}
+.row input{
+  width: 380rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20rpx;
+  padding:10rpx 0;
+}
+.getcode{
+  display: inline-block;
+  padding: 10rpx 20rpx;
+  font-size: 26rpx;
+  border:1px solid #3e8cf1;
+  color: #3e8cf1;
+  margin: 20rpx 0;
+}
+.nextBtn{
+  background-color: #5e9be0;
+  color: #fff;
+  width: 92%;
+  margin:40rpx auto;
+  text-align: center;
+  padding:10rpx 0;
+  border-radius: 10rpx;
+}
+.table{
+  display: table;
+  width: 90%;
+  margin: auto;
+  background-color: #fff;
+  border-collapse: collapse;
+}
+.tableRow{
+  display: table-row;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.tableTd{
+  display: table-cell;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.tableContent{
+  width: 90%;
+  margin:auto;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 20rpx;
+  border-top: 0;
+  text-align: center;
+}

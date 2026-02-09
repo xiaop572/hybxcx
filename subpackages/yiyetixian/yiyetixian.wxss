@@ -1,0 +1,83 @@
+/* subpackages/yiyetixian/yiyetixian.wxss */
+page{
+  background-color: #f5f5f5;
+}
+.txMethodBox{
+  width: 92%;
+  margin:40rpx auto 0 auto;
+  padding:40rpx 60rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 30rpx;
+}
+.tiLeft{
+  font-size: 36rpx;
+}
+.tiRight{
+  font-size: 36rpx;
+  color: #acaaab;
+}
+.tiRight::after{
+  content: "";
+  width: 50rpx;
+  height: 40rpx;
+  background:url("https://wx.pmc-wz.com/materials/wxIcon.png") no-repeat;
+  background-size: 100% 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20rpx;
+}
+.txMain{
+  width: 92%;
+  margin:40rpx auto 0 auto;
+  padding:40rpx 60rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 30rpx;
+}
+.txCaption{
+  display: block;
+  font-size: 32rpx;
+}
+.moneyInput{
+  border-bottom: 1px solid #d7d7d7;
+   margin-top: 20rpx;
+   height: 80rpx;
+   padding-left: 40rpx;
+   position: relative;
+}
+.moneyInput::before{
+  content: "¥";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 10rpx;
+}
+.keti{
+  font-size: 30rpx;
+  color: #a6a6a6;
+  float: left;
+}
+.txMainBottom{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.alltiBtn{
+  color: #0067ff;
+  font-size: 30rpx;
+}
+.subBtn{
+  width: 80%;
+  height: 100rpx;
+  margin: auto;
+  text-align: center;
+  color: #fff;
+  background:linear-gradient(to right,#03b8fd,#0092e5);
+  line-height: 100rpx;
+  border-radius: 100rpx;
+  margin-top: 100rpx;
+  font-weight: bold;
+}

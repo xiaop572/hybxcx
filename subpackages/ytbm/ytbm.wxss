@@ -1,0 +1,140 @@
+/* subpackages/ytbm/ytbm.wxss */
+/* subpackages/ytbmsel/ytbmsel.wxss */
+page {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-bottom: 0 !important;
+}
+
+.ytbt {
+  width: 100%;
+  display: block;
+}
+
+.main {
+  overflow: hidden;
+}
+
+.bmmain {
+  width: 100%;
+  height: 900rpx;
+  background-color: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+  border: 1px solid rgb(112, 175, 229);
+  box-sizing: border-box;
+  margin-top: -15rpx;
+  padding-top: 80rpx;
+}
+
+.bmline {
+  border-bottom: 1px solid #ccc;
+  width: 76%;
+  margin: auto;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: 30rpx;
+}
+
+.bmline text {
+  width: 150rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.bmline input {
+  width: calc(100% - 150rpx);
+  display: inline-block;
+  height: 60rpx;
+  vertical-align: middle;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+}
+
+.bmbtn {
+  width: 80%;
+  height: 50px;
+  background: #1985e0;
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  border-radius: 40px;
+  margin: 40px auto;
+}
+
+.radio {
+  display: block;
+  margin-top: 20rpx;
+  font-size: 26rpx;
+}
+
+.page-section {
+  width: 80%;
+  margin: auto;
+
+}
+
+.ssxz {
+  margin:40rpx 10rpx 20rpx 10rpx;
+}
+
+/* 观看方式选择样式 */
+.watch-mode-section {
+  width: 76%;
+  margin: 40rpx auto 20rpx auto;
+}
+
+.section-title {
+  display: block;
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+  font-weight: 500;
+}
+
+.watch-mode-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.watch-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.watch-option.active {
+  border-color: #1985e0;
+  background-color: #f0f8ff;
+}
+
+.option-icon {
+  font-size: 32rpx;
+  color: #ccc;
+  margin-right: 12rpx;
+  transition: color 0.3s ease;
+}
+
+.watch-option.active .option-icon {
+  color: #1985e0;
+}
+
+.watch-option text {
+  font-size: 28rpx;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.watch-option.active text {
+  color: #1985e0;
+  font-weight: 500;
+}

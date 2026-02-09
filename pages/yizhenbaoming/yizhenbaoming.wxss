@@ -1,0 +1,188 @@
+/* pages/yizhenbaoming/yizhenbaoming.wxss */
+page {
+  height: 100%;
+}
+
+.main {
+  height: 100%;
+  background-image: url("https://wx.pmc-wz.com/materials/hybg.png");
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  width: 100%;
+  padding: 1rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.caption {
+  width: 80%;
+  display: block;
+  margin: 60rpx auto;
+
+}
+
+.containers {
+  background-color: #fff;
+  width: 90%;
+  margin: 0 auto 0 auto;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  height: 80%;
+}
+.hylogo{
+  width: 56%;
+  margin: 40rpx;
+}
+.containers label {
+  display: inline-block;
+}
+
+.containers text {
+  vertical-align: middle;
+}
+
+.name {
+  width: 40%;
+  font-size: 16px;
+}
+
+.age {
+  width: 30%;
+  font-size: 16px;
+}
+
+.sex {
+  width: 30%;
+  font-size: 16px;
+}
+
+.name input,
+.age input,
+.sex input {
+  border-bottom: 1px solid #ccc;
+  width: 43%;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+.address {
+  width: 100%;
+  margin: 20rpx 0 0 0;
+}
+
+.address checkbox {
+  font-size: 32rpx;
+  display: inline-block;
+  margin-left: 20rpx;
+}
+
+.address .group {
+  display: inline-block;
+}
+
+.phone {
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+.phone input {
+  border-bottom: 1px solid #ccc;
+  width: 80%;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+.checkList {
+  font-size: 36rpx;
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+.checkList .group {
+  font-size: 30rpx;
+  margin: 20rpx 0;
+}
+
+.subbtn {
+  background-color: rgb(230, 200, 138);
+  width: 40% !important;
+  display: block;
+  letter-spacing: 10rpx;
+  margin: 40rpx;
+}
+
+.select {
+  margin: 20rpx 0;
+}
+
+.select text {
+  display: inline-block;
+  margin: 0 40rpx 0 20rpx;
+  position: relative;
+  z-index: 999
+}
+.select .active::before{
+  content: "";
+  background: url("https://wx.pmc-wz.com/materials/duigou.svg") no-repeat;
+  background-size: 100% 100%;
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 20rpx;
+}
+.addselect {
+  display: inline-block;
+  margin: 20rpx 0;
+}
+.addselect text {
+  display: inline-block;
+  margin: 0 20rpx 0 20rpx;
+  position: relative;
+  z-index: 999
+}
+.addselect .active::before{
+  content: "";
+  background: url("https://wx.pmc-wz.com/materials/duigou.svg") no-repeat;
+  background-size: 100% 100%;
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  position: absolute;
+  left: 0;
+  margin: 0 auto;
+  right: 0;
+  top: 20rpx;
+}
+@media screen and (max-width: 320px) {
+
+  .age,
+  .name,
+  .sex {
+    font-size: 34rpx;
+  }
+
+  .name input,
+  .age input,
+  .sex input {
+    font-size: 36rpx;
+    width: 44%;
+  }
+
+  .address {
+    font-size: 36rpx;
+  }
+
+  .address checkbox {
+    font-size: 36rpx;
+  }
+
+  .checkList {
+    font-size: 32rpx;
+    width: 100%;
+    margin-top: 20rpx;
+  }
+}

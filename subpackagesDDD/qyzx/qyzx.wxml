@@ -1,0 +1,43 @@
+<view class="container">
+    
+  <!-- 顶部banner区域 -->
+  <view class="banner">
+    <image class="banner-img" src="https://wx.pmc-wz.com/materials/qyzx-title.png" mode="widthFix"></image>
+  </view>
+
+  <!-- 权益卡片列表 -->
+  <view class="card-list" >
+    <view class="card" wx:for="{{qyxx}}" wx:key="*this">
+      <view class="card-left">
+        <image class="card-img" src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="aspectFill"></image>
+      </view>
+      <view class="card-right">
+        <view class="card-title">{{item.goodsname}}</view>
+        <view class="card-price">价值¥{{item.PayPrice}}</view>
+      </view>
+      <view class="card-btn">
+        <view class="card-text" id="2" bind:tap="handleHexiao" data-deli="{{item.DeliveryStatus}}" data-ids="{{item.Id}}" data-price="{{item.PayPrice}}" data-goodsname="{{item.goodsname}}" data-orderno="{{item.OrderNo}}" data-imgsrc="{{item.kapic}}" data-xinmin="{{item.xinmin}}" data-picurl="{{item.picurl}}" data-paytime="{{item.PayTime}}">{{item.zxstatus}}</view>
+      </view>
+    </view>
+
+    
+  </view>
+
+  <!-- 其他权益区域 -->
+  <view class="other-rights">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>其他权益</text>
+    </view>
+    
+    <view class="other-card">
+      <view class="other-card-content">
+        <text class="other-card-title">【{{qtqy.mbinfo}}】</text>
+        <text class="other-card-desc">{{qtqy.prom}}</text>
+      </view>
+    </view>
+  </view>
+
+
+  
+</view>

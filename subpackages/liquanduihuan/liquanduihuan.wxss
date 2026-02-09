@@ -1,0 +1,75 @@
+/* subpackages/liquanduihuan/liquanduihuan.wxss */
+.main{
+  overflow: hidden;
+}
+.bg{
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.inMain{
+  width: 90%;
+  height: 1010rpx;
+  background: url("https://wx.pmc-wz.com/materials/inMainBg.png") no-repeat;
+  background-size: 100% 100%;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 580rpx;
+  padding: 30rpx 0;
+  box-sizing: border-box;
+}
+.inputLine{
+  overflow: hidden;
+  background-color: rgb(246, 221, 217);
+  height: 60rpx;
+  line-height: 60rpx;
+  display: block;
+  width: 80%;
+  margin: 20rpx auto 0 auto;
+  border-radius: 60rpx;
+}
+.inputLine input{
+  height:60rpx;
+  vertical-align: middle;
+  padding: 0 20rpx;
+  display: inline-block;
+  width: 70%;
+  outline: none;
+  line-height: 60rpx;
+}
+.inicon{
+  width: 36rpx;
+  vertical-align: middle;
+  margin-left: 40rpx;
+  display: inline-block;
+}
+
+.submit{
+  color: #fff;
+  background: linear-gradient(to bottom,rgb(218,156,160),rgb(175,40,46));
+  border-radius: 60rpx;
+  font-size: 32rpx;
+  letter-spacing: 10rpx;
+  font-weight: 500;
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 360rpx !important;
+  margin: 30rpx auto 0 auto;
+  text-align: center;
+}
+.fanhuaka{
+  margin: auto;
+  display: block;
+  width: 65%;
+  margin-top: 40rpx;
+}
+.fanhuaxq{
+  margin: auto;
+  display: block;
+  width: 82%;
+  margin-top: 30rpx;
+}

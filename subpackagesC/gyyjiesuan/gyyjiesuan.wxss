@@ -1,0 +1,252 @@
+/* pages/jiesuan/jiesuan.wxss */
+page{
+  background-color: #f2f2f2;
+  padding-bottom: 100rpx;
+}
+.tlxr{
+  width:92%;
+  margin: auto;
+  border-radius: 15rpx;
+  margin-top: 30rpx;
+  overflow: hidden;
+}
+.informmation{
+  background-color: #ffffff;
+}
+.padleft40{
+  margin-left: 40rpx;
+  font-size: 28rpx !important;
+}
+.footer {
+  background: #fff;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left-content {
+  display: flex;
+  align-items: center;
+}
+.buyBtn {
+  height: 100rpx;
+  line-height: 100rpx;
+  display: inline-block;
+  padding: 0 40rpx;
+  color: #Fff;
+  background-color: red;
+  cursor: pointer;
+}
+.shuliang{
+  display: inline-block;
+  width: 200rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  vertical-align: middle;
+}
+.shuliang .numbtn, .shuliang .num {
+  display: inline-block;
+  vertical-align: middle;
+}
+.numbtn{
+  background-color: Red;
+  width: 40rpx;
+  text-align: center;
+  height: 40rpx;
+  border-radius: 40rpx;
+  color: #fff;
+  font-size: 36rpx;
+  line-height: 40rpx;
+}
+.num{
+  margin: 0 20rpx;
+  font-size: 30rpx;
+  width: 60rpx;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5rpx;
+}
+.money{
+  font-size:28rpx;
+  line-height: 100rpx;
+  padding: 0 40rpx;
+  vertical-align: middle;
+  height: 100rpx;
+  display: inline-block;
+  min-width: 200rpx;
+}
+.money text{
+  font-size:40rpx;
+  color: red;
+}
+.tishi{
+  font-size: 28rpx;
+  width: 100%;
+  margin: auto;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding:20rpx 40rpx;
+  border-bottom: 1px solid #eee;
+}
+.tishi text{
+  display: block;
+  color: #333;
+  color: red;
+}
+.proinfo{
+  width:92%;
+  margin: auto;
+  border-radius: 15rpx;
+  overflow: hidden;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 40rpx 40rpx 0 40rpx;
+  margin-top: 20rpx;
+}
+.hyb .logo{
+  width: 40rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.hyb text{
+  vertical-align: middle;
+}
+.pro{
+  margin-top: 40rpx;
+  overflow: hidden;
+}
+.proimg{
+  width: 200rpx;
+  float: left;
+  margin-right: 40rpx;
+  margin-bottom: 20rpx;
+}
+.procaption{
+  float: left;
+  width: calc(100% - 240rpx);
+  font-size: 28rpx;
+}
+.spec-info{
+  clear: both;
+  margin-top: 20rpx;
+  padding: 15rpx 20rpx;
+  background-color: #f8f8f8;
+  border-radius: 8rpx;
+  border-left: 3rpx solid #ff5c01;
+}
+.spec-label{
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+.spec-value{
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 500;
+}
+.price-info{
+  margin-top: 40rpx;
+  clear: both;
+  border-top: 1px solid #eee;
+  padding-top: 20rpx;
+}
+.price-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+}
+.price-label{
+  color: #666;
+}
+.price-value{
+  color: #333;
+  font-weight: 500;
+}
+.coupon-discount{
+  color: #ff4444;
+}
+.wxzf{
+  width:92%;
+  margin: auto;
+  border-radius: 15rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 20rpx 40rpx;
+  margin-top: 30rpx;
+  overflow: hidden;
+}
+.wxzf image{
+  width: 45rpx;
+  vertical-align: middle;
+}
+.wxzf text{
+  vertical-align: middle;
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+.wxzfleft{
+  float: left;
+}
+.wxzfright{
+  float: right;
+}
+.liuyanBox{
+  width:92%;
+  margin: auto;
+  border-radius: 15rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 20rpx 0 20rpx 40rpx;
+  margin-top: 30rpx;
+  overflow: hidden;
+}
+.liuyanBox text{
+  float: left;
+  vertical-align: middle;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.liuyanBox input{
+  width: 470rpx;
+  display: inline-block;
+  text-align: right;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-left: 30rpx;
+}
+.dingjin{
+  width:92%;
+  margin: auto;
+  border-radius: 15rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 20rpx 0 20rpx 40rpx;
+  margin-top: 20rpx;
+  position: relative;
+}
+.dspje{
+  font-size: 36rpx;
+  color: #333;
+}
+.totalmoney{
+  color: red;
+  position: absolute;
+  right: 40rpx;
+  margin-top: 10rpx;
+}
+.bcje{
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 0rpx;
+}
+.bcje text{
+  color: red;
+  margin: 0 10rpx;
+}

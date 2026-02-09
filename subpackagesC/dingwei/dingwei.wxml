@@ -1,0 +1,153 @@
+<!--subpackagesC/dingwei/dingwei.wxml-->
+<view class="container1">
+  <!-- 顶部蓝色背景区域 -->
+  <view class="header-section">
+    <!-- 背景装饰圆形 -->
+    <view class="bg-circle bg-circle-1"></view>
+    <view class="bg-circle bg-circle-2"></view>
+    
+    <!-- 活动信息 -->
+    <view class="activity-info">
+      <view class="activity-details">
+        <text class="activity-title" wx:if="{{configInfo && configInfo.title}}">{{configInfo.title}}</text>
+        <text class="activity-time" wx:if="{{configInfo && configInfo.summary}}">{{configInfo.summary}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 签到信息卡片 -->
+  <view class="checkin-card">
+    <view class="card-title" wx:if="{{configInfo && configInfo.typename}}">{{configInfo.typename}}</view>
+    
+    <!-- 签到详情 -->
+    <view class="checkin-details">
+      <view class="detail-item" wx:if="{{configInfo && configInfo.classname}}">
+        <text class="label">{{configInfo.classname}}</text>
+      </view>
+      <view class="detail-item" wx:if="{{configInfo && configInfo.content}}">
+        <text class="label">{{configInfo.content}}</text>
+      </view>
+      <view class="detail-item" wx:if="{{configInfo && configInfo.dtime}}">
+        <text class="label">{{configInfo.dtime}}</text>
+      </view>
+    </view>
+    
+    <!-- 活动描述 -->
+    <view class="activity-description" wx:if="{{configInfo && configInfo.datestr}}">
+      <text>{{configInfo.datestr}}</text>
+    </view>
+  </view>
+
+  <!-- 定位签到功能区域 -->
+  <view class="checkin-form">
+    <!-- 1. 手机号 -->
+    <view class="form-section">
+      <view class="section-header">
+        <text class="required-mark">*</text>
+        <text class="section-title">1. 手机号</text>
+        <text wx:if="{{selectedName && phoneNumber.length === 11}}" class="auto-fill-tip">已自动获取信息</text>
+      </view>
+      <view class="input-container">
+        <input class="form-input" placeholder="请输入手机号" value="{{phoneNumber}}" bindinput="onPhoneInput" type="number" maxlength="11" />
+      </view>
+    </view>
+
+    <!-- 2. 姓名 -->
+    <view class="form-section">
+      <view class="section-header">
+        <text class="required-mark">*</text>
+        <text class="section-title">2. 姓名</text>
+        <text class="section-subtitle">（不公开）</text>
+      </view>
+      <view class="input-container">
+        <input class="form-input" placeholder="请输入姓名" value="{{selectedName}}" bindinput="onNameInput" />
+      </view>
+    </view>
+
+    <!-- 3. 单位 -->
+    <view class="form-section">
+      <view class="section-header">
+        <text class="required-mark">*</text>
+        <text class="section-title">3. 单位</text>
+      </view>
+      <view class="input-container">
+        <input class="form-input" placeholder="请输入单位名称" value="{{company}}" bindinput="onCompanyInput" />
+      </view>
+    </view>
+
+    <!-- 4. 定位打卡 -->
+    <view class="form-section">
+      <view class="section-header">
+        <text class="required-mark">*</text>
+        <text class="section-title">4. 定位打卡</text>
+      </view>
+      <view class="location-section">
+        <button class="location-btn" bindtap="getLocation">点此获取定位</button>
+        <view class="location-requirement">
+          需在【{{configInfo.address}}】{{configInfo.memo}}米内定位
+        </view>
+        <view class="current-location" wx:if="{{currentAddress}}">
+          当前位置: {{currentAddress}}
+        </view>
+        <view class="distance-status {{canCheckIn ? 'in-range' : 'out-of-range'}}" wx:if="{{currentAddress}}">
+          距离目标: {{distance}}米 {{canCheckIn ? '✓ 在范围内' : '✗ 不在范围内'}}
+        </view>
+      </view>
+    </view>
+
+
+
+
+    <!-- 提交按钮 -->
+    <view class="submit-section">
+      <button class="submit-btn" bindtap="submitCheckin" disabled="{{!canSubmit || !canCheckIn}}">提交</button>
+    </view>
+  </view>
+
+  <!-- 右侧浮动按钮 -->
+  <view class="floating-btn" bindtap="showSignInfoModal">
+    <view class="floating-btn-icon">📋</view>
+    <text class="floating-btn-text">报到信息</text>
+  </view>
+
+  <!-- 报到信息弹窗 -->
+  <view class="sign-info-modal" wx:if="{{showSignInfo}}" bindtap="hideSignInfoModal">
+    <view class="sign-info-container" catchtap="stopPropagation">
+      <view class="sign-info-header">
+        <text class="sign-info-title">报到信息</text>
+        <text class="close-btn" bindtap="hideSignInfoModal">×</text>
+      </view>
+      
+      <view class="sign-info-content">
+        <view wx:if="{{isLoadingSignInfo}}" class="loading-container">
+          <text>加载中...</text>
+        </view>
+        
+        <view wx:elif="{{signInfoList.length === 0}}" class="empty-container">
+          <text>暂无报到信息</text>
+        </view>
+        
+        <view wx:else class="sign-info-list">
+          <view class="sign-info-item" wx:for="{{signInfoList}}" wx:key="id" bindtap="viewSignDetail" data-item="{{item}}">
+            <view class="sign-info-row">
+              <text class="sign-info-label">姓名：</text>
+              <text class="sign-info-value">{{item.xinmin || '未知'}}</text>
+            </view>
+            <view class="sign-info-row">
+              <text class="sign-info-label">手机号：</text>
+              <text class="sign-info-value">{{item.mobile || '未知'}}</text>
+            </view>
+            <view class="sign-info-row">
+              <text class="sign-info-label">单位：</text>
+              <text class="sign-info-value">{{item.corp || '未知'}}</text>
+            </view>
+            <view class="sign-info-row">
+              <text class="sign-info-label">报到时间：</text>
+              <text class="sign-info-value">{{item.addtime || '未知'}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

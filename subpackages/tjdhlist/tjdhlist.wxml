@@ -1,0 +1,27 @@
+<!--subpackages/tjdhlist/tjdhlist.wxml-->
+<view class="banner">
+  <image src="https://wx.pmc-wz.com/materials/tjdhBanner.png" mode="widthFix" style="width: 100%;" />
+  <view class="jifen">
+    <text class="jfnum">{{jfnum}}</text>
+    <text class="jfcap">我的积分 ></text>
+  </view>
+</view>
+<view class="lqbgCap">
+  领取报告
+</view>
+<image src="https://wx.pmc-wz.com/materials/lqdzbg.png" mode="widthFix" class="lqdzbg" bind:tap="rtjbg"/>
+
+<view class="lqbgCap">
+  积分兑换
+</view>
+<view class="jplist" wx:for="{{jfspList}}" wx:for-item="item" wx:key="idx">
+  <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="jpImg"></image>
+  <view class="jpmain">
+    <text class="jpcaption">{{item.pictitle}}</text>
+    <text class="jiazhi">价值¥{{item.pointsDeduction}}</text>
+    <view class="dhjifen">
+      <image src="https://wx.pmc-wz.com/materials/jb.png" mode="widthFix" /><text>{{item.paypoint}}</text>
+    </view>
+    <view class="dhBtn" data-id="{{item.id}}" data-id="{{item.id}}" data-item="{{item}}" data-title="{{item.pictitle}}" bind:tap="duihuan">立即兑</view>
+  </view>
+</view>

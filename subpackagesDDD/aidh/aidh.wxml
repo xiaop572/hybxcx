@@ -1,0 +1,54 @@
+<view class="container">
+    <scroll-view scroll-y class="chat-container" scroll-into-view="{{scrollToView}}" scroll-with-animation>
+        <view class="chat-list">
+            <view class="chat-item chat-left">
+                <view class="chat-avatar">
+                    <image src="https://wx.pmc-wz.com/materials/robot.png"></image>
+                </view>
+                <view class="chat-content">
+                    <view class="chat-bubble">您好我是AI预问诊助手，请问您有哪里不舒服？</view>
+                </view>
+            </view>
+            
+            <view>
+                <block wx:for="{{messages}}" wx:key="index" wx:for-item="messages">
+                    <view wx:if="{{messages.isme}}">
+                        <view class="chat-item chat-right">
+                            <view class="chat-content">
+                                <view class="chat-bubble">{{messages.Response}}</view>
+                            </view>
+                            <view class="chat-avatar">
+                                <image src="https://wx.pmc-wz.com/materials/me.png"></image>
+                            </view>
+                        </view>
+                    </view>
+                    <view wx:else>
+                        <view class="chat-item chat-left">
+                            <view class="chat-avatar">
+                                <image src="https://wx.pmc-wz.com/materials/robot.png"></image>
+                            </view>
+                            <view class="chat-content">
+                                <view class="chat-bubble">{{messages.Response}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+
+            <!-- 消息列表末尾，用于自动滚动 -->
+            <view id="message-bottom"></view>
+        </view>
+    </scroll-view>
+
+    <!-- 底部输入区域 -->
+    <view class="input-area">
+        <view class="input-box">
+            <textarea class="message-input" placeholder="请输入消息" model:value="{{inputMessage}}" auto-height maxlength="-1" cursor-spacing="20" show-confirm-bar="{{false}}" adjust-position="{{false}}" bindinput="onInputChange" bindkeyboardheightchange="onKeyboardHeightChange">
+      </textarea>
+        </view>
+        <!-- <view>
+            <image src="https://wx.pmc-wz.com/materials/send-icon.png" mode="" class="picicon" />
+        </view> -->
+        <view class="send-btn" bindtap="sendMessage">发送</view>
+    </view>
+</view>

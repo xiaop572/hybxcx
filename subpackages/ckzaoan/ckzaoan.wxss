@@ -1,0 +1,175 @@
+/* pages/zaoan/zaoan.wxss */
+page {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 100rpx;
+}
+
+.hai {
+  width: 100%;
+  display: block;
+}
+
+.home {
+  width: 100%;
+  position: fixed;
+  left: 40rpx;
+  top: 40rpx;
+  z-index: 10;
+  background-color: #fff;
+  width: 100rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.home image {
+  width: 60%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+}
+
+.fenxiang {
+  width: 100%;
+  position: fixed;
+  right: 40rpx;
+  top: 40rpx;
+  z-index: 10;
+  background-color: #fff;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  text-align: center;
+}
+
+.fenxiang image {
+  width: 70%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.haibao {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 88;
+}
+
+.haibao .haiImg {
+  position: absolute;
+  top: 40rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 80% !important;
+}
+
+.save {
+  position: absolute;
+  top: 88%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  background-color: #fff;
+  width: 300rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 50rpx;
+}
+
+.footer {
+  background: #fff;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #eee;
+  font-size: 36rpx;
+}
+
+.kficon {
+  width: 56rpx;
+}
+
+.headline .title {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.headline .price {
+  display: inline-block;
+  color: #dca461;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.jifenicon {
+  width: 50rpx;
+  vertical-align: middle;
+}
+
+
+
+.footer {
+  background: #fff;
+  height: 120rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  border-top: 1px solid #ddd;
+}
+
+.buyBtn {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10rpx;
+  margin: auto;
+  height: 120rpx;
+  line-height: 120rpx;
+  display: inline-block;
+  color: #Fff;
+  background-color: #dca461;
+  padding: 0 40rpx;
+  cursor: pointer;
+  border-radius: 0;
+  right: 0;
+}
+
+
+.icon{
+  float: left;
+  font-size: 30rpx !important;
+  color: #666 !important;
+  margin-top: 10rpx !important;
+  margin-left: 40rpx !important;
+  text-align: center !important;
+  width: auto !important;
+  padding: 0 !important;
+  font-weight: normal !important;
+}
+.ke{
+  position: relative;
+  top: 2rpx;
+}
+.icon image{
+  display: block;
+  margin: auto;
+}

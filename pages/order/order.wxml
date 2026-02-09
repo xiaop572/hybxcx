@@ -1,0 +1,22 @@
+<!--pages/order/order.wxml-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<view wx:for="{{prolist}}" wx:key="id" wx:for-item="item" class="articleBlock">
+  <view class="line"><text class="left">项目名称：{{item.goodsname}}</text><text class="right">价格：{{item.PayPrice}}元</text>
+  </view>
+  <view class="time">
+    订单时间：{{m1.rq(item.PayTime)}} {{m1.time(item.PayTime)}}
+  </view>
+</view>

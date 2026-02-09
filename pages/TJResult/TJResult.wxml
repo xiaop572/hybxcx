@@ -1,0 +1,42 @@
+<!--pages/exmineResult/exmineResult.wxml-->
+<view class="exmineResult">
+  <view class="nameRow">
+    <text class="left">客人姓名</text>
+    <text class="right">{{brxm}}</text>
+  </view>
+  <view class="timeRow">
+      <text class="left">登记日期</text>
+      <text class="right">{{m1.rq(registdate)}}</text>
+    </view>
+    <view class="timeRow">
+      <text class="left">检查日期</text>
+      <text class="right">{{m1.rq(checkdate)}}</text>
+    </view>
+    <view class="timeRow">
+      <text class="left">总检日期</text>
+      <text class="right">{{m1.rq(summarydate)}}</text>
+    </view>
+  <view class="stateRow">
+    <text class="left">状态汇总</text>
+    <text class="right"> 总体检条数：{{total}},已完成：{{complete}},未完成：{{undone}}</text>
+  </view>
+  <wxs module="m1">
+    var rq = function (r) {
+      var da = getDate(r)
+      var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+      return dataStr;
+    }
+    module.exports.rq = rq;
+    var time = function (r) {
+      var da = getDate(r)
+      var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '00' : da.getMinutes());
+      return dataStr;
+    }
+    module.exports.time = time;
+  </wxs>
+  <view class="result" wx:for="{{resultList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
+    <text class="title">{{item.GroupName}}</text>
+    <text class="state,{{item.zt==='暂无结果'?'noResult':''}}">{{item.zt}}</text>
+    <text class="resultTime2">{{item.DoctorName?item.DoctorName:''}} {{item.CheckDate?item.CheckDate:''}}</text>
+  </view>
+</view>

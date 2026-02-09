@@ -1,0 +1,51 @@
+/* subpackages/mybangka/mybangka.wxss */
+page{
+  padding-bottom: 0 !important;
+  background-color: #f2f2f2;
+}
+.addcard{
+  border: 2px #4286ec dashed;
+  color: #4286ec;
+  width: 92%;
+  margin:40rpx auto;
+  text-align: center;
+  padding:20rpx 0;
+  border-radius: 10rpx;
+}
+.addcard1{
+  border: 2px #4286ec dashed;
+  color: #4286ec;
+  width: 92%;
+  margin:40rpx auto;
+  text-align: center;
+  padding:20rpx 0;
+  border-radius: 10rpx;
+}
+.addcardicon{
+  width: 40rpx;
+  box-shadow: 0 0 10rpx 15rpx #e2eaf4;
+  border-radius:60rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+}
+.cardtype{
+  color: rgb(185, 161, 53);
+}
+.cardlist:nth-child(0){
+  border-top: 1px solid #eee;
+}
+.cardlist{
+  background-color: #fff;
+  padding: 20rpx 20rpx;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+.right{
+  width: 40rpx;
+  vertical-align: middle;
+}
+.jiebang{
+  position: absolute;
+  right:40rpx;
+  font-size: 28rpx;
+}

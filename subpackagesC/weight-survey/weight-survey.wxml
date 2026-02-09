@@ -1,0 +1,328 @@
+<view class="survey-container">
+  <image src="https://wx.pmc-wz.com/materials/hmb-yxjz-title.png" mode="widthFix" class="surveyCap" />
+  <image src="https://wx.pmc-wz.com/materials/hyb-yxjz-sq.png" mode="widthFix" class="yxjzsq" />
+  <form bindsubmit="submitSurvey">
+    <view class="form-group">
+      <view class="form-group-title">个人基本信息</view>
+      <view class="form-main">
+        <view class="form-item">
+          <view class="label" data-index="01.">性别：</view>
+          <radio-group name="sex">
+            <radio value="男">男</radio>
+            <radio value="女">女</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="02.">身高（cm）：</view>
+          <input name="height" type="number" placeholder="请输入身高" />
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="03.">体重（kg）：</view>
+          <input name="weight" type="number" placeholder="请输入体重" />
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="04.">腰围（cm）：</view>
+          <input name="waistline" type="number" placeholder="请输入腰围" />
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="05.">联系电话：<text class="required">*</text></view>
+          <input name="phone" type="number" placeholder="请输入联系电话（必填）" />
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="06.">您的饮食规律如何？</view>
+          <radio-group name="diet_pattern">
+            <radio value="三餐规律">三餐规律</radio>
+            <radio value="三餐不规律">三餐不规律</radio>
+            <radio value="几乎不吃早餐">几乎不吃早餐</radio>
+            <radio value="几乎不吃午餐">几乎不吃午餐</radio>
+            <radio value="几乎不吃晚餐">几乎不吃晚餐</radio>
+            <radio value="几乎不吃主食">几乎不吃主食</radio>
+            <radio value="是否经常加餐(零食/夜宵)">是否经常加餐(零食/夜宵)</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="07.">您喜欢吃 的食物有哪些？（多选）</view>
+          <checkbox-group name="common_foods">
+            <checkbox value="含糖饮料/碳酸饮料">含糖饮料/碳酸饮料</checkbox>
+            <checkbox value="油炸食品">油炸食品</checkbox>
+            <checkbox value="水果">水果</checkbox>
+            <checkbox value="蔬菜">蔬菜</checkbox>
+            <checkbox value="肉及海鲜">肉及海鲜</checkbox>
+            <checkbox value="各种零食">各种零食</checkbox>
+            <checkbox value="素菜少荤菜多">素菜少荤菜多</checkbox>
+            <checkbox value="荤菜少素菜多">荤菜少素菜多</checkbox>
+          </checkbox-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="08.">您的每日饮水量是多少？</view>
+          <radio-group name="water_intake">
+            <radio value="250ml-750ml">250ml-750ml</radio>
+            <radio value="1000ml-1500ml">1000ml-1500ml</radio>
+            <radio value="1750ml-2000ml">1750ml-2000ml</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="9.">您平时每周运动的频率为</view>
+          <radio-group name="exercise_frequency">
+            <radio value="从水">从不</radio>
+            <radio value="每周末">每周末</radio>
+            <radio value="每周几次，但不固定">每周几次，但不固定</radio>
+            <radio value="每天">每天</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="10.">您每次运动的时间是？</view>
+          <radio-group name="exercise_duration">
+            <radio value="30分钟以下">30分钟以下</radio>
+            <radio value="30分钟以上">30分钟以上</radio>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+    <view class="form-group" style="margin-top: 60rpx;">
+      <view class="form-group-title">超重/肥胖及减重相关病史</view>
+      <view class="form-main">
+        <view class="form-item">
+          <view class="label" data-index="01.">您体重增加/肥胖状态的持续时间：</view>
+          <radio-group name="weight_duration">
+            <radio value="＜1年">＜1年</radio>
+            <radio value="1~5年">1~5年</radio>
+            <radio value="5~10年">5~10年</radio>
+            <radio value="≥ 10年">≥ 10年</radio>
+            <radio value="间断性">间断性</radio>
+            <radio value="其他">其他</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="02.">您体重开始增加的时间：</view>
+          <picker mode="date" name="weight_start_time" bindchange="bindWeightStartTimeChange">
+            <view class="picker">
+              {{weight_start_time}}
+            </view>
+          </picker>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="03.">您是否有过以下时期的体重增加？（多选）</view>
+          <checkbox-group name="weight_gain_periods">
+            <checkbox value="出生时巨大婴儿">出生时巨大婴儿（新生儿出生后1小时内体重大于4000克）</checkbox>
+            <checkbox value="婴儿期">婴儿期（0--3岁）</checkbox>
+            <checkbox value="幼儿期">幼儿期（3-6岁）</checkbox>
+            <checkbox value="儿童期">儿童期（6-12岁）</checkbox>
+            <checkbox value="青少年期">青少年期（12-17岁）肥胖</checkbox>
+            <checkbox value="孕期后肥胖">孕期后肥胖</checkbox>
+            <checkbox value="工作阶段肥胖">工作阶段肥胖</checkbox>
+            <checkbox value="其他">其他</checkbox>
+          </checkbox-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="04.">您是否有减重经历？</view>
+          <radio-group name="weight_loss_experience">
+            <radio value="是">是</radio>
+            <radio value="否">否</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="05.">您采用的减重方式？（多选）</view>
+          <checkbox-group name="weight_loss_methods">
+            <checkbox value="饮食+运动生活方式改变">饮食+ 运动 生活方式改变</checkbox>
+            <checkbox value="药物治疗">药物治疗</checkbox>
+            <checkbox value="中医方法治疗">中医方法治疗</checkbox>
+            <checkbox value="节食或断食">节食或断食</checkbox>
+            <checkbox value="增加运动">增加运动</checkbox>
+            <checkbox value="营养素">营养素</checkbox>
+            <checkbox value="减肥营">减肥营</checkbox>
+            <checkbox value="其他">其他</checkbox>
+          </checkbox-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="06.">您参加的减重次数：</view>
+          <input name="weight_loss_times" type="number" placeholder="请输入次数" />
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="07.">您参加的减重累计：</view>
+          <input name="weight_loss_months" type="number" placeholder="请输入月数" />
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="08.">减重效果？</view>
+          <radio-group name="weight_loss_effect">
+            <radio value="有效无反弹">有效无反弹</radio>
+            <radio value="有效有反弹">有效有反弹</radio>
+            <radio value="无效，体重增加">无效，体重增加</radio>
+            <radio value="无效，体重未变化">无效，体重未变化</radio>
+            <radio value="其他">其他</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="09.">您的一级亲属中是否有肥胖的人员？</view>
+          <radio-group name="family_obesity">
+            <radio value="是">是</radio>
+            <radio value="否">否</radio>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+    <view class="form-group" style="margin-top: 60rpx;">
+      <view class="form-group-title">超重/肥胖合并危险因素评估</view>
+      <view class="form-main">
+        <view class="form-item">
+          <view class="label" data-index="01.">您是否合并下列危险因素或疾病？（多选）</view>
+          <checkbox-group name="risk_factors">
+            <checkbox value="糖尿病/糖尿病前期（空腹血糖受损或糖耐量异常）">糖尿病/糖尿病前期（空腹血糖受损或糖耐量异常）</checkbox>
+            <checkbox value="血脂异常">血脂异常</checkbox>
+            <checkbox value="高血压">高血压</checkbox>
+            <checkbox value="心血管疾病">心血管疾病</checkbox>
+            <checkbox value="代谢相关脂肪性肝病/肝炎">代谢相关脂肪性肝病/肝炎</checkbox>
+            <checkbox value="多囊卵巢综合征">多囊卵巢综合征</checkbox>
+            <checkbox value="女性不孕症">女性不孕症</checkbox>
+            <checkbox value="男性性功能障碍">男性性功能障碍</checkbox>
+            <checkbox value="阻塞性睡眠呼吸暂停征">阻塞性睡眠呼吸暂停征</checkbox>
+            <checkbox value="骨关节炎">骨关节炎</checkbox>
+            <checkbox value="哮喘/气道反应性疾病">哮喘/气道反应性疾病</checkbox>
+            <checkbox value="压力性尿失禁">压力性尿失禁</checkbox>
+            <checkbox value="胃食管反流性疾病">胃食管反流性疾病</checkbox>
+            <checkbox value="抑郁症">抑郁症</checkbox>
+            <checkbox value="食物不耐受">食物不耐受</checkbox>
+            <checkbox value="其他">其他</checkbox>
+          </checkbox-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="02.">您是否吸烟？</view>
+          <radio-group name="smoking">
+            <radio value="yes">是</radio>
+            <radio value="no">否</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item smoking-details" wx:if="{{formData.smoking === 'yes'}}">
+          <view class="sub-item">
+            <view class="label">吸烟年数：</view>
+            <input name="smoking_years" type="number" placeholder="请输入年数" />
+          </view>
+          <view class="sub-item">
+            <view class="label">平均每日支数：</view>
+            <input name="smoking_per_day" type="number" placeholder="请输入支数" />
+          </view>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="03.">您是否喝酒？</view>
+          <radio-group name="drinking">
+            <radio value="yes">是</radio>
+            <radio value="no">否</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item drinking-details" wx:if="{{formData.drinking === 'yes'}}">
+          <view class="sub-item">
+            <view class="label">喝酒年数：</view>
+            <input name="drinking_years" type="number" placeholder="请输入年数" />
+          </view>
+          <view class="sub-item">
+            <view class="label">平均每日两数：</view>
+            <input name="drinking_per_day" type="number" placeholder="请输入两数" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="form-group" style="margin-top: 60rpx;">
+      <view class="form-group-title">减重意愿</view>
+      <view class="form-main">
+        <view class="form-item">
+          <view class="label" data-index="01.">您想要减重目的？</view>
+          <radio-group name="weight_purpose">
+            <radio value="更美">我想变得更美</radio>
+            <radio value="更健康">我有肥胖相关疾病，影响到生活，想要更健康</radio>
+            <radio value="更自信">肥胖让我受到歧视，我想更自信</radio>
+            <radio value="随意">没有太多要求，多少减点就行</radio>
+            <radio value="其他">其他</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="02.">您给自己的减重意愿打分？（0分为最不强烈，10分为最强烈）</view>
+          <slider name="weight_intention_score" min="0" max="10" show-value />
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="03.">您期待的理想体重是（Kg）：</view>
+          <input name="ideal_weight" type="number" placeholder="请输入理想体重" />
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="04.">您想要减重的目标？</view>
+          <radio-group name="weight_goal">
+            <radio value="≤5%">≤ 5%</radio>
+            <radio value="5-10%">5-10%</radio>
+            <radio value="10-15%">10-15%</radio>
+            <radio value="15-20%">15-20%</radio>
+            <radio value="≥20%">≥ 20%</radio>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+    <view class="form-group" style="margin-top: 60rpx;">
+      <view class="form-group-title">GLP-1 RA类减重药物禁忌症排除</view>
+      <view class="form-main">
+        <view class="form-item">
+          <view class="label" data-index="01.">您及您的家族成员是否曾经被诊断过甲状腺髓样癌（MTC）或 2 型多发性内分泌肿瘤综合征患者（MEN 2）？</view>
+          <radio-group name="mtc_men2">
+            <radio value="是">是</radio>
+            <radio value="否">否</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="02.">您既往是否有急性胰腺炎或重度肝肾功能损伤疾病史？</view>
+          <radio-group name="disease_history">
+            <radio value="是">是</radio>
+            <radio value="否">否</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="03.">您是否在使用胰岛素促泌剂或胰岛素？（若是，需调整降糖药物剂量）</view>
+          <radio-group name="insulin_usage">
+            <radio value="是">是</radio>
+            <radio value="否">否</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="04.">您是否在服用需快速胃肠道吸收的口服药？（若是，建议停用口服药后再使用）</view>
+          <radio-group name="oral_medication">
+            <radio value="是">是</radio>
+            <radio value="否">否</radio>
+          </radio-group>
+        </view>
+
+        <view class="form-item">
+          <view class="label" data-index="05.">您是否正处于妊娠期或哺乳期？（若是，计划怀孕前2个月停用，哺乳期结束后再使用）</view>
+          <radio-group name="pregnancy_lactation">
+            <radio value="是">是</radio>
+            <radio value="否">否</radio>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+   
+    <button form-type="submit" type="primary">提交</button>
+  </form>
+</view>

@@ -1,0 +1,9 @@
+<!--pages/nzkh/nzkh.wxml-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/nzkhbanner.png" mode="widthFix" class="banner"></image>
+  <image src="https://wx.pmc-wz.com/materials/nzkprcap.png" mode="widthFix" class="nzkprcap" />
+  <view class="xia"></view>
+  <view class="nzkhCont">
+    <image src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" mode="widthFix" wx:for="{{prolist}}" wx:for-item="item" wx:key="idx" class="proimg" bind:tap="rpro" data-id="{{item.id}}"/>
+  </view>
+</view>

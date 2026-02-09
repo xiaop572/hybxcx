@@ -1,0 +1,7 @@
+<!--subpackages/medical-survey/index.wxml-->
+<image src="https://wx.pmc-wz.com/materials/hmb/jzlb1.png" mode="widthFix" bindtap="navigateToPage" data-page="weight-survey"></image>
+<image src="https://wx.pmc-wz.com/materials/hmb/jzlb3.png" mode="widthFix" bindtap="navigateToPage" data-page="diet-habit"></image>
+<image src="https://wx.pmc-wz.com/materials/hmb/jzlb2.png" mode="widthFix" bindtap="navigateToPage" data-page="jzzn"></image>
+
+<image src="https://wx.pmc-wz.com/materials/jkgjsc.png" mode="widthFix" bindtap="navigateToPage" data-page="fpsc"></image>
+<image src="https://wx.pmc-wz.com/materials/tsal.png" mode="widthFix" bindtap="navigateToPage" data-page="tsal"></image>

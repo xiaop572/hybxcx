@@ -1,0 +1,22 @@
+<!--subpackagesB/nhzw/nhzw.wxml-->
+<!-- <image src="https://wx.pmc-wz.com/materials/nhbg.jpg" mode="widthFix" class="nhbg" /> -->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/qkh/zxxhhome.jpg" mode="widthFix" class="nhcap" />
+  <view class="inbox">
+    <input type="text" placeholder="请输入您的姓名" class="inpt" placeholder-class="input-placeholder" model:value="{{xinmin}}" />
+    <view class="inptBtn" bind:tap="cx">查询</view>
+  </view>
+  <view wx:if="{{showmeng}}" class="meng" catchtap="guanbi">
+    <view class="zwbox" catchtap>
+      <view class="zwinfo">
+        <view class="zwh">您的桌号:{{info.zhuowei}}</view>
+       
+      </view>
+    </view>
+  </view>
+  <image src="https://wx.pmc-wz.com/materials/nhzwtcap.png" mode="widthFix" class="nhzwtcap" />
+  <view class="nht">
+    <image src="https://wx.pmc-wz.com/materials/zwt.png" mode="widthFix" class="zwt" bind:tap="fd" />
+    <view class="tpfd">点击图片查看大图</view>
+  </view>
+</view>

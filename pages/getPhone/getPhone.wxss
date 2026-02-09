@@ -1,0 +1,43 @@
+/* pages/getPhone/getPhone.wxss */
+/* pages/login/login.wxss */
+.logo {
+  width: 180rpx;
+  height: 180rpx;
+  display: block;
+  margin: auto;
+}
+
+page {
+  height: 100%;
+}
+
+.getPhone {
+  height: 100%;
+  width: 100%;
+  padding-top: 200rpx;
+}
+
+.loginBtn {
+  background: #3177DF;
+  text-align: center;
+  border-radius: 40px;
+  color: #fff;
+  font-weight: normal;
+  margin: 100rpx auto 0 auto;
+}
+
+.a {
+  display: block;
+  color: #333;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 60rpx;
+}
+
+.b {
+  display: block;
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20rpx;
+}

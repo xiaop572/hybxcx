@@ -1,0 +1,7 @@
+/* pages/yinsi/yinsi.wxss */
+page{
+  height: 100%;
+  padding: 40rpx;
+  width: 100%;
+  box-sizing: border-box;
+}

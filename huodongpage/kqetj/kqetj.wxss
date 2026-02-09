@@ -1,0 +1,77 @@
+/* huodongpage/kqetj/kqetj.wxss */
+page{
+  height: 100%;
+  width:100%;
+}
+.banner{
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+.main{
+  overflow: hidden;
+  background-color: rgb(37,122,244);
+  min-height: 100%;
+}
+.itemBox{
+  width: 92%;
+  margin:50rpx auto 0 auto;
+  background-color: #fff;
+  border-radius: 40rpx;
+  border: 2px solid #88d7ba;
+  position: relative;
+  padding: 0 40rpx 40rpx 40rpx;
+  box-sizing: border-box;
+}
+.prolist{
+  overflow: hidden;
+  position: relative;
+}
+.proitem{
+  display: inline-block;
+  width: 47%;
+  margin-top: 40rpx;
+}
+.xq{
+  position: absolute;
+  left: -40rpx;
+  width: 80rpx;
+  top:450rpx;
+}
+.proitem2{
+  display: inline-block;
+  width: 47%;
+  margin-top: 40rpx;
+  position: absolute;
+  right: 0px;
+  bottom: 50rpx;
+}
+.proitem:nth-child(2n-1){
+  margin-right: 6%;
+}
+.zhifeiji{
+  position: absolute;
+  width: 150rpx;
+  right: -5%;
+  top: -42px;
+}
+.huahua{
+  position: absolute;
+  width: 140rpx;
+  left:-5%;
+  top: -40px;
+}
+.bt{
+  width: 220rpx;
+  margin:20rpx auto 0 auto;
+  display: block;
+}
+.bt2{
+  width: 420rpx;
+  margin:20rpx auto 0 auto;
+  display: block;
+}
+.footer{
+  display: block;
+  width: 100%;
+  margin-top: 40rpx;
+}

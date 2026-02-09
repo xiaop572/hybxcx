@@ -1,0 +1,37 @@
+/* subpackages/rzpage/rzpage.wxss */
+page{
+  padding-bottom: 0 !important;
+}
+.rztop {
+  width: 100%;
+
+}
+.main {
+  background: linear-gradient(to bottom, rgb(109, 182, 255), rgb(27, 120, 254));
+  overflow: hidden;
+  padding-bottom: 80rpx;
+}
+.resetBtn {
+  background: transparent !important;
+  width: 100% !important;
+  font-weight: normal !important;
+  padding: 0 !important;
+  line-height: inherit !important;
+  height: 100%;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.rzzxkf{
+  width: 60%;
+  display: block;
+  margin: auto;
+}
+.rzewm{
+  width:70%;
+  display: block;
+  margin:40rpx auto 0 auto;
+}

@@ -1,0 +1,325 @@
+/* pages/pthd/pthd.wxss */
+page {
+  background: linear-gradient(to right,#F9AB58,#FBAB56);
+  padding-bottom: 0 !important;
+  height: 100%;
+}
+.main{
+  padding-bottom: 140rpx;
+}
+.jikabox{
+  background-color: #FFF9D9;
+  width: 90%;
+  margin: auto;
+  border-radius: 30rpx;
+  position: relative;
+  min-height: 200rpx;
+  padding-bottom: 40rpx;
+  margin-top: -100rpx;
+  padding-bottom: 80rpx;
+}
+
+.jika-content {
+  text-align: center;
+  padding: 60rpx 30rpx 0 30rpx;
+}
+
+.jika-text {
+  display: block;
+  color: #333333;
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+.zp-text{
+  display: block;
+  color: #333333;
+  font-size: 28rpx;
+  text-align: center;
+}
+.red-text {
+  color: #FF0000;
+}
+
+.jika-subtext {
+  display: block;
+  color: #666666;
+  font-size: 22rpx;
+}
+.jikaimg{
+  width: 80%;
+  display: block;
+  margin: auto;
+  margin-top: 40rpx;
+}
+.jiyueyouli{
+  width: 74%;
+  position: absolute;
+  top: -30rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.djjr{
+  position: absolute;
+  bottom: -35rpx;
+  width: 240rpx;
+  left: 0;
+  right: 0;
+  margin:auto;
+}
+.banner {
+  width: 100%;
+  display: block;
+}
+
+.nzkprcap {
+  width: 90%;
+  display: block;
+  margin: auto;
+}
+
+.xydcj {
+  width: 100%;
+  display: block;
+}
+
+.jkjtj {
+  color: rgb(175, 10, 43);
+  display: block;
+  text-align: center;
+  font-size: 26rpx;
+}
+
+.dzp {
+  position: relative;
+  margin-top: 40rpx;
+}
+
+.jkjdzp {
+  display: block;
+  position: relative;
+  z-index: 99;
+  margin: auto;
+  width: 460rpx !important;
+  height: 460rpx !important;
+}
+
+.dzpzz {
+  position: absolute;
+  width: 130rpx;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 100;
+}
+
+.dzpdz {
+  position: absolute;
+  z-index: 8;
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin: -40rpx auto 0 auto;
+}
+
+.dzpan {
+  margin: 70rpx auto 0 auto;
+  display: block;
+  width: 300rpx;
+  position: relative;
+  z-index: 30;
+}
+.tuzi{
+  position: absolute;
+  right: -30rpx;
+  bottom: 120rpx;
+  z-index: 100;
+  width: 220rpx;
+}
+.dzpbox {
+  position: relative;
+  margin-top: 40rpx;
+  background-color: #FFF9D9;
+  width: 90%;
+  margin: 120rpx auto 0 auto;
+  border-radius: 60rpx 60rpx 40rpx 40rpx;
+  padding-bottom: 60rpx;
+  display: block;
+  padding-top: 60rpx;
+}
+
+.wheel {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.prize {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform-origin: center center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.prize text {
+  transform: rotate(-90deg);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* 指针样式 */
+.pointer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 100px;
+  background-color: red;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 1;
+}
+
+.proList {
+  background-color: #fff;
+  width: 90%;
+  border-radius: 60rpx;
+  margin: auto;
+  margin-top: 60rpx;
+  padding: 4rpx;
+}
+
+.proList text {
+  display: inline-block;
+  font-size: 26rpx;
+  width: 25%;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+  
+}
+
+.proList text.active {
+  background-color:#F04A1A;
+  color: #fff;
+  border-radius: 60rpx;
+}
+.proimg{
+  width: 46%;
+  margin-top: 30rpx;
+  display: inline-block;
+}
+.proimg:nth-child(2n+1){
+  margin-right: 8%;
+}
+.nzpro{
+  width: 740rpx;
+  position: relative;
+  right: 50rpx;
+  top: -30rpx;
+  margin-bottom: -20rpx;
+}
+.nzkhCont{
+  background-color: #FFF9D9;
+  padding:20rpx 40rpx 40rpx 40rpx;
+  box-sizing: border-box;
+  width: 90%;
+  margin: auto;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+  border-radius: 0 0 20rpx 20rpx;
+}
+.jkjprobanner{
+  width: 96%;
+  display: block;
+  margin: auto;
+  margin-top: 40rpx;
+  position: relative;
+  top: 15rpx;
+}
+.proprice{
+  width: 100%;
+  background: url("https://wx.pmc-wz.com/materials/ptprotitlebg.png") no-repeat;
+  background-size: 100% 100%;
+}
+.meng{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+}
+.jpbox{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 90%;
+  height: 700rpx;
+  margin: auto;
+  text-align: center;
+}
+.jlkjpjh{
+  width: 100%;
+}
+.gxncm{
+  position: absolute;
+  top: 320rpx;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: rgb(102, 29, 40);
+}
+.jp{
+  position: absolute;
+  top: 420rpx;
+  width: 30%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 30rpx;
+}
+.djck{
+  position: absolute;
+  bottom: -40rpx;
+  width: 40%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgb(2, 132, 250);
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  font-size: 30rpx;
+  letter-spacing: 4rpx;
+  border-radius: 40rpx;
+  box-shadow: inset 0 0 5px 2px rgba(255, 255, 255, 0.8);
+}
+.zjlu{
+  width: 70rpx;
+  position: fixed;
+  right: 0;
+  top: 40%;
+  z-index: 444;
+}

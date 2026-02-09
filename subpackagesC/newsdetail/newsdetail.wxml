@@ -1,0 +1,26 @@
+<!--资讯内页-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<import src="../../wxParse/wxParse/wxParse.wxml" />
+<text class="zxbt">{{item.title}}</text>
+<view class="fbt">
+  <text class="zz">温州和平国际医院PMC</text>
+  <text class="time">{{m1.rq(item.addtime)}} {{m1.time(item.addtime)}}</text>
+</view>
+<image src="https://wx.pmc-wz.com/materials/zxani.gif" mode="widthFix" class="zxani"></image>
+<view class="zxcontent">
+  <template is="wxParse" data="{{wxParseData:courseDetail.nodes}}" />
+</view>

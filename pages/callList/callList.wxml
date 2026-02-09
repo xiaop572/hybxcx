@@ -1,0 +1,11 @@
+<!--pages/callList/callList.wxml-->
+<view style="padding-bottom: 100rpx;">
+  <view wx:for="{{list}}" wx:key="id" wx:for-item="item" data-fromid="{{item.fromid}}" bindtap="rlxkr" class="list" data-name="{{item.fromname}}">
+    {{item.fromname}}
+  </view>
+  <view class="pageList">
+      <button class="upBtn" bindtap="uppage">上一页</button>
+      <text>第{{curpage}}页</text>
+      <button class="downBtn" bindtap="downpage">下一页</button>
+  </view>
+</view>

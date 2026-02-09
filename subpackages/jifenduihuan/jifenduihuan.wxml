@@ -1,0 +1,13 @@
+<!--subpackages/jifenduihuan/jifenduihuan.wxml-->
+<view class="header">
+  <view class="jifen"><text>{{alljf}}</text>可用积分>
+    <text class="guize" bindtap="rguize">积分规则</text>
+  </view>
+</view>
+<view class="jplist" wx:for="{{jfspList}}" wx:for-item="item" wx:key="idx">
+  <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="jpImg"></image>
+  <text class="jpcaption">{{item.pictitle}}</text>
+  <text class="jiazhi">价值¥{{item.pointsDeduction}}</text>
+  <view class="dhjifen"><text>{{item.paypoint}}</text>积分</view>
+  <view class="dhBtn" data-id="{{item.id}}" bindtap="rjfxq">立即兑</view>
+</view>

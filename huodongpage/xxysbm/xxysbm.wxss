@@ -1,0 +1,562 @@
+/* huodongpage/xxysbm/xxysbm.wxss */
+page {
+  background:url("https://wx.pmc-wz.com/materials/xxysbmbg.png") no-repeat fixed;
+  background-size: 100% 100%;
+  padding-bottom: 0 !important;
+  /* 使用min-height而不是固定height，允许页面在键盘弹出时自适应 */
+  min-height: 100vh;
+  height: auto;
+  /* 允许页面滚动，但保持背景固定 */
+  overflow-y: auto;
+  /* 防止页面在输入框获取焦点时发生抖动 */
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+.xxysbmtitle{
+  width: 500rpx;
+  margin-left: 40rpx;
+  margin-top: 80rpx;
+}
+.xxysbmyisheng{
+  position: absolute;
+  width: 200rpx;
+  right: 40rpx;
+  top: 80rpx;
+}
+/* 页面容器 */
+.container {
+  min-height: 100vh;
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 主容器 */
+.container1 {
+  /* 使用min-height而不是固定height，允许容器在键盘弹出时自适应 */
+  min-height: 100vh;
+  height: auto;
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* 防止在输入框获取焦点时发生位移 */
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 50rpx; /* 确保底部有足够空间 */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 600rpx;
+  background: linear-gradient(135deg, #4a90e2, #3f7fd1);
+  z-index: 0;
+}
+
+/* 顶部区域 */
+.header {
+  position: relative;
+  height: 400rpx;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-fit: cover;
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  padding: 40rpx 30rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 20rpx;
+  border-radius: 50%;
+  box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.2);
+  background-color: white;
+  padding: 10rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2);
+  letter-spacing: 2rpx;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 10rpx;
+  text-align: center;
+  letter-spacing: 1rpx;
+}
+
+/* 表单区域 */
+.form-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  margin: 60rpx 30rpx 30rpx;
+  box-shadow: 0 15rpx 35rpx rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 10;
+  animation: formAppear 0.6s ease-out;
+  box-sizing: border-box;
+  backdrop-filter: blur(10rpx);
+  /* 防止在输入框获取焦点时发生位移 */
+  transform: translateZ(0); /* 启用硬件加速，减少重绘 */
+  will-change: transform; /* 提前告知浏览器元素将变化 */
+}
+
+@keyframes formAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30rpx);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 确保表单内容可滚动 */
+form {
+  padding: 40rpx 0;
+  overflow: hidden;
+  width: 100%;
+  display: block
+}
+
+
+.form-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+  /* 移除动画，防止可能导致的位移 */
+  /* animation: slideUp 0.5s ease-in-out; */
+  /* animation-fill-mode: both; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  /* 移除过渡效果，防止在获取焦点时有动画导致位移 */
+  /* transition: all 0.3s ease; */
+  /* 确保表单项尺寸固定，不会因为焦点状态变化 */
+  box-sizing: border-box;
+  /* 使用伪元素代替边框，防止边框变化导致位移 */
+  position: relative;
+  border-left: none;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-item:hover {
+  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.12);
+  /* 移除位移效果，防止悬停时导致位置变化 */
+  /* transform: translateY(-2rpx); */
+}
+
+.form-item:focus-within {
+  /* 使用box-shadow代替边框，防止位移 */
+  box-shadow: 0 6rpx 20rpx rgba(74, 144, 226, 0.2);
+}
+
+/* 添加伪元素作为焦点指示器，不影响布局 */
+.form-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4rpx;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+.form-item:focus-within::before {
+  background-color: #4a90e2;
+}
+
+/* 为每个表单项设置不同的延迟，创造级联效果 */
+.form-item:nth-child(1) { animation-delay: 0.1s; }
+.form-item:nth-child(2) { animation-delay: 0.2s; }
+.form-item:nth-child(3) { animation-delay: 0.3s; }
+.form-item:nth-child(4) { animation-delay: 0.4s; }
+.form-item:nth-child(5) { animation-delay: 0.5s; }
+.form-item:nth-child(6) { animation-delay: 0.6s; }
+
+.label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 42%;
+  box-sizing: border-box;
+}
+
+.label {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.label-en {
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 4rpx;
+  display: block;
+}
+
+.input-container {
+  background-color: transparent;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  border: none;
+  /* 移除过渡效果，防止在获取焦点时有动画导致位移 */
+  /* transition: all 0.3s ease; */
+  position: relative;
+  width: 57%;
+  /* 确保容器尺寸固定，不会因为焦点状态变化 */
+  box-sizing: border-box;
+  min-height: 80rpx;
+  display: flex;
+  align-items: center;
+  /* 防止在移动端获取焦点时位移 */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+
+.input-container input {
+  width: 100%;
+  height: 40rpx;
+  font-size: 28rpx;
+  color: #333;
+  background-color: transparent;
+  border: none;
+  /* 移除过渡效果，防止在获取焦点时有动画导致位移 */
+  /* transition: all 0.3s ease; */
+  /* 确保输入框尺寸固定，不会因为焦点状态变化 */
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  /* 防止输入框内容溢出 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 防止在移动端获取焦点时位移 */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+
+
+.input-container input::placeholder {
+  color: #999;
+  font-size: 26rpx;
+}
+
+/* 预约选项 - 下拉样式 */
+.picker-view {
+  width: 100%;
+  min-height: 80rpx;
+  line-height: 1.5;
+  padding: 12rpx 15rpx 12rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 10rpx;
+  position: relative;
+  transition: all 0.3s ease;
+  word-break: break-all;
+}
+
+.picker-view.selected {
+  background-color: #ffffff;
+  border: 1px solid #4a90e2;
+  box-shadow: 0 0 0 3rpx rgba(74, 144, 226, 0.25);
+}
+
+.picker-view .placeholder {
+  color: #999;
+  font-size: 26rpx;
+}
+
+.picker-view text {
+  max-width: 85%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 24rpx;
+}
+
+.picker-view .selected-date {
+  color: #333;
+  font-size: 26rpx;
+  font-weight: 500;
+}
+
+.picker-arrow {
+  color: #999;
+  font-size: 20rpx;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 8rpx;
+  width: 20rpx;
+  text-align: center;
+}
+
+.booking-item {
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 10rpx;
+  padding: 30rpx 20rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.05);
+}
+
+.booking-item.selected {
+  background-color: #ffffff;
+  border: 1px solid #4a90e2;
+  box-shadow: 0 0 0 3rpx rgba(74, 144, 226, 0.25);
+}
+
+.booking-item::after {
+  content: '';
+  position: absolute;
+  right: 20rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36rpx;
+  height: 36rpx;
+  border: 2rpx solid #ddd;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.booking-item.selected::after {
+  background-color: #4a90e2;
+  border-color: #4a90e2;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>');
+  background-size: 24rpx 24rpx;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: scaleIn 0.3s ease-in-out;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: translateY(-50%) scale(0);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.2);
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+.booking-label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.booking-label {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+  display: block;
+  padding-right: 60rpx;
+  transition: all 0.3s ease;
+}
+
+.booking-label-en {
+  font-size: 24rpx;
+  color: #666;
+  display: block;
+  margin-top: 4rpx;
+  padding-right: 60rpx;
+  transition: all 0.3s ease;
+}
+
+.booking-item.selected .booking-label,
+.booking-item.selected .booking-label-en {
+  color: #4a90e2;
+}
+
+.booking-note {
+  font-size: 24rpx;
+  color: #999;
+  position: absolute;
+  right: 70rpx;
+  top: 30rpx;
+}
+
+/* 提交按钮 */
+.submit-btn {
+  width: 60%;
+  text-align: center;
+  height: 90rpx;
+  background: linear-gradient(to bottom, #00D8FD, #0087F4);
+  color: white;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 25rpx rgba(30, 144, 255, 0.35);
+  padding: 10rpx 0;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  margin:60rpx auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  animation: pulseButton 2s infinite;
+}
+
+.submit-en {
+  font-size: 22rpx;
+  font-weight: normal;
+  margin-top: 4rpx;
+  letter-spacing: 4rpx;
+  display: block;
+}
+
+/* 按钮点击效果 */
+.submit-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 4rpx 15rpx rgba(30, 144, 255, 0.25);
+  opacity: 0.9;
+}
+.dd{
+  display: block;
+  width: 60%;
+  margin: auto;
+  padding: 40rpx 0;
+}
+
+@keyframes pulseButton {
+  0% {
+    box-shadow: 0 8rpx 25rpx rgba(74, 144, 226, 0.35);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 10rpx 35rpx rgba(74, 144, 226, 0.55);
+    transform: scale(1.03);
+  }
+  100% {
+    box-shadow: 0 8rpx 25rpx rgba(74, 144, 226, 0.35);
+    transform: scale(1);
+  }
+}
+
+
+@keyframes shineEffect {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.submit-btn:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 2rpx 10rpx rgba(74, 144, 226, 0.2);
+  animation-play-state: paused;
+}
+
+.submit-btn-en {
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+  display: block;
+  margin-top: 10rpx;
+}
+
+/* 底部文字 */
+.footer {
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+
+.footer-text {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  line-height: 1.5;
+  position: relative;
+  padding: 0 30rpx;
+}
+
+.footer-text::before,
+.footer-text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40rpx;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.footer-text::before {
+  left: -20rpx;
+}
+
+.footer-text::after {
+  right: -20rpx;
+}

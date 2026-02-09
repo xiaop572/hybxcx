@@ -1,0 +1,45 @@
+<!--subpackages/qiandao/qiandao.wxml-->
+<view class="caption">
+  <text class="cap1">每日签到+1积分</text>
+  <text class="cap2">当前周期已连续签到{{qdnum}}天</text>
+</view>
+<text class="rule" bindtap="showRule">签到规则</text>
+<image mode="widthFix" src="https://wx.pmc-wz.com/materials/adorn.png" class="shuBg"></image>
+<view class="qianList">
+  <image src="https://wx.pmc-wz.com/materials/shuTop.png" mode="widthFix" class="shuTop"></image>
+  <view class="list">
+    <calendar id="calendar" isOpen="{{true}}" selected="{{selectedDays}}" bind:getdate="getdate" bind:jianchange="jianchange" bind:checkall="checkall"></calendar>
+  </view>
+  <view class="qianBtn" bindtap="qiandao" wx:if="{{!isqd}}">立即签到</view>
+  <view class="qianBtn" wx:if="{{isqd}}">今日已签到</view>
+</view>
+<image src="https://wx.pmc-wz.com/materials/qdjl.png" mode="widthFix" class="qdjl"></image>
+<view class="rules" wx:if="{{show}}">
+  <view class="signRule">
+    <image src="https://wx.pmc-wz.com/materials/chacha.svg" mode="widthFix" class="cha" bindtap="showRule"></image>
+    <text class="ruleCaption">签到规则</text>
+    <view class="ruleContent">
+      <text>1、每日签到可以获得日签奖励，在单个周期内连续签到，可以获得连签奖励，兑换礼品时须分享签到活动页链接至朋友圈不分组，到院核销时出示分享记录，每位用户至多可兑换2次奖励;</text>
+      <text>2、每日最多可签到1次，断签后则会重新计算连签天数。</text>
+    </view>
+    <view class="got" bindtap="showRule">知道了</view>
+  </view>
+</view>
+<view class="lipinBox">
+  <view class="lpcaption"><text class="h2">积分兑好礼</text><text class="moreRight" bindtap="rjfdh">更多></text></view>
+  <view class="jplist" wx:for="{{jfspList}}" wx:for-item="item" wx:key="idx">
+    <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="jpImg"></image>
+    <text class="jpcaption">{{item.pictitle}}</text>
+    <text class="jiazhi">价值¥{{item.pointsDeduction}}</text>
+    <view class="dhjifen"><text>{{item.paypoint}}</text>积分</view>
+    <view class="dhBtn" data-id="{{item.id}}" bindtap="rjfxq">立即兑</view>
+  </view>
+</view>
+
+<view class="cgBox" wx:if="{{cgshow}}" catchtap="guanbi">
+  <view class="cgmeng" catchtap>
+    <image src="https://wx.pmc-wz.com/materials/guanbi.svg" mode="widthFix" class="guanbi" bindtap="guanbi"></image>
+    <image src="https://wx.pmc-wz.com/materials/qdcg.png" mode="widthFix" class="qdcg"></image>
+    <view class="chakan">查看奖励</view>
+  </view>
+</view>

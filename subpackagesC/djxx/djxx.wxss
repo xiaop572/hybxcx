@@ -1,0 +1,130 @@
+.main {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30rpx;
+  color: #333;
+}
+
+.form-container {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.form-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  width: 180rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.input {
+  flex: 1;
+  font-size: 28rpx;
+  padding: 0 20rpx;
+}
+
+.type-selector, .gender-selector, .marital-selector {
+  flex: 1;
+  display: flex;
+  gap: 20rpx;
+}
+
+.type-item, .gender-item, .marital-item {
+  flex: 1;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border: 1rpx solid #ddd;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.type-item.active, .gender-item.active, .marital-item.active {
+  background-color: #63a8f1;
+  color: #fff;
+  border-color: #007AFF;
+}
+
+.gender-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rpx;
+}
+
+.gender-icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.picker {
+  flex: 1;
+  font-size: 28rpx;
+  padding: 0 20rpx;
+}
+
+.pregnant-selector, .auto-save {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.checkbox {
+  width: 32rpx;
+  height: 32rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 6rpx;
+  position: relative;
+}
+
+.checkbox.checked {
+  background-color: #007AFF;
+  border-color: #007AFF;
+}
+
+.checkbox.checked::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rpx;
+  height: 12rpx;
+  border: 4rpx solid #fff;
+  border-top: none;
+  border-right: none;
+  transform: translate(-50%, -60%) rotate(-45deg);
+}
+
+.unit {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 10rpx;
+}
+
+.next-btn {
+  margin: 40rpx 20rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  background-color: #007AFF;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+}

@@ -1,0 +1,181 @@
+page {
+  background-color: #f5f5f5;
+}
+
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 顶部banner样式 */
+.banner {
+  width: 100%;
+  /* position: relative; */
+  /* height: 200px; */
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+}
+
+.banner-text {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  color: #fff;
+  z-index: 2;
+}
+
+.banner-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #053361;
+}
+
+.banner-subtitle {
+  font-size: 10px;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.banner-main-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0066cc;
+}
+
+/* 卡片列表样式 */
+.card-list {
+  width: 100%;
+  margin-top: -50rpx;
+  background-color: #f5f5f5;
+  padding-top: 50rpx;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+  box-shadow: 20rpx -40rpx 50rpx -30rpx #a0d9ff;
+}
+
+.card {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin: 0 30rpx 30rpx;
+  box-shadow: 0 0 10rpx 0 #a0d9ff;
+}
+
+.card-left {
+  width: 80px;
+  height: 80px;
+  margin-right: 15px;
+}
+
+.card-img {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 5px;
+}
+
+.card-right {
+  flex: 1;
+  margin-left: 50rpx;
+  margin-top: 20rpx;
+}
+
+.card-title {
+  font-size: 37rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+  height: 55rpx;
+  line-height: 40rpx;
+}
+
+.card-price {
+  font-size: 25rpx;
+  color: #999;
+  margin-top: 25rpx;
+}
+
+.card-btn {
+  width: 80px;
+}
+
+.card-text {
+  margin-top: 150rpx;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  background-color: #1571cc;
+  color: white;
+  text-align: center;
+  padding: 1rpx;
+  border-radius: 30rpx;
+}
+
+.card-text:active {
+  margin-top: 150rpx;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  background-color: #1460ac;
+  color: #f3f3f3;
+  text-align: center;
+  padding: 1rpx;
+  border-radius: 30rpx;
+}
+
+/* 其他权益区域 */
+.other-rights {
+  width: 92%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.title-bar {
+  width: 4px;
+  height: 18px;
+  background-color: #1989fa;
+  margin-right: 8px;
+  border-radius: 20rpx;
+}
+
+.other-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 10rpx 0 #a0d9ff;
+}
+
+.other-card-title {
+  font-weight: bold;
+}
+
+.other-card-desc {
+  font-size: 25rpx;
+  color: #666;
+  margin-left: 5px;
+}
+.other-card-content{
+  display: flex;
+  flex-direction: column;
+}
+.other-card-title{
+  font-size: 37rpx;
+}
+.other-card-desc{
+  margin-left: 20rpx;
+}

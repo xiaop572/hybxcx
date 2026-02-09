@@ -1,0 +1,66 @@
+<!--subpackages/miaoshaList/miaoshaList.wxml-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+  var floor = function (r) {
+    return Math.floor(r)
+  }
+  module.exports.floor = floor;
+</wxs>
+<!-- <image mode="widthFix" src="https://wx.pmc-wz.com/materials/msListTop.png" class="msListTop"></image> -->
+<view class="page">
+
+  <image mode="widthFix" src="https://wx.pmc-wz.com/materials/ms520.png" class="msListTop"></image>
+  <text class="shuoming">活动说明：每人每项目限购1次，卡券不得转赠</text>
+  <text class="shuoming">项目核销截止时间：2023年8月31日</text>
+  <view class="TimeSection">
+    <text class="{{time=='10'?'active':''}}" data-time="10" bindtap="changTime">10点场</text>
+    <text class="{{time=='11'?'active':''}}" data-time="11" bindtap="changTime">11点场</text>
+    <text class="{{time=='14'?'active':''}}" data-time="14" bindtap="changTime">14点场</text>
+    <text class="{{time=='20'?'active':''}}" data-time="20" bindtap="changTime">20点场</text>
+    <text class="{{time=='22'?'active':''}}" data-time="22" bindtap="changTime">22点场</text>
+  </view>
+  <view class="proItem" wx:if="{{time==newHours}}" wx:for="{{proList}}" wx:for-item="item" wx:key="idx" bindtap="rmsPro" data-id="{{item.id}}">
+    <!-- <view class="proItem" wx:if="{{time==newHours || (time==11 && newHours>=11 && newHours<14)}}" wx:for="{{proList}}" wx:for-item="item" wx:key="idx"> -->
+    <image class="proImg" src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix"></image>
+    <view class="proRight">
+      <text class="procaption">{{item.pictitle}}</text>
+      <view class="buyNumBox">
+        <view class="planLine">
+          <view class="complete" style="width:{{m1.floor((item.sanum/item.kc)*100)}}%">
+            <text class="planNum">{{m1.floor((item.sanum/item.kc)*100)}}%</text>
+          </view>
+        </view>
+        <text class="buyNum">已抢{{item.sanum}}件</text>
+      </view>
+      <view class="seckillPrice">秒杀价<text class="sPrice">¥{{item.price}}</text></view>
+      <view class="originPrice">原价<text>¥{{item.pointsDeduction}}</text></view>
+      <view class="playBtn">马上抢</view>
+    </view>
+  </view>
+  <!-- <view class="proItem" wx:if="{{!(time==newHours || (time==11 && newHours>=11 && newHours<14))}}" wx:for="{{proList}}" wx:for-item="item" wx:key="idx"> -->
+  <view class="proItem" wx:if="{{!(time==newHours)}}" wx:for="{{proList}}" wx:for-item="item" wx:key="idx" bindtap="rmsPro" data-id="{{item.id}}">
+    <image class="proImg" src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix"></image>
+    <view class="proRight">
+      <text class="procaption">{{item.pictitle}}</text>
+      <text class="StartTime">限量{{item.kc}}件|{{time}}:00开始</text>
+      <view class="seckillPrice">秒杀价<text class="sPrice">¥{{item.price}}</text></view>
+      <view class="originPrice">原价<text>¥{{item.pointsDeduction}}</text></view>
+      <view class="remidBtn" wx:if="{{item.ifsub==0}}" catchtap="subms" data-id="{{item.id}}">
+        <image src="https://wx.pmc-wz.com/materials/bainaozhong.png" mode="widthFix" class="bnz"></image><text>提醒我</text>
+      </view>
+      <view class="cancelRemid" wx:if="{{item.ifsub==1}}" catchtap="cansubms" data-id="{{item.id}}"> 取消提醒</view>
+    </view>
+  </view>
+</view>

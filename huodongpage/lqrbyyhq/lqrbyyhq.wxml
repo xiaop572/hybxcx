@@ -1,0 +1,2 @@
+<!--领取润百颜优惠券-->
+<image src="https://wx.pmc-wz.com/materials/lqrbyyhq.png" mode="widthFix" bindtap="receiveCoupon"/>

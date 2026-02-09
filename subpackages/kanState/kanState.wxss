@@ -1,0 +1,250 @@
+/* subpackages/kanState/kanState.wxss */
+page {
+  background-color: #2e4dc2;
+}
+
+.kanTop {
+  width: 100%;
+}
+
+.kanMain {
+  width: 705rpx;
+  height: 750rpx;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  top: -180rpx;
+  border-radius: 30rpx;
+}
+
+.kanpf {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.photo {
+  width: 130rpx;
+  border-radius: 100rpx;
+  border: 2px solid #fff;
+  display: block;
+  margin: 0 auto 10rpx auto;
+}
+
+.userinfo {
+  text-align: center;
+  position: relative;
+  top: -65rpx;
+}
+
+.nickname {
+  color: #7c7c7c;
+  font-size: 28rpx;
+}
+
+.kanpro {
+  width: 660rpx;
+  height: 280rpx;
+  background-color: #fbe6e1;
+  margin: -50rpx auto 0 auto;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.plan {
+  width: 660rpx;
+  margin: 40rpx auto 0 auto;
+  letter-spacing: 2rpx;
+  font-size: 32rpx;
+}
+
+.plan text {
+  color: #f94a39;
+}
+
+.proBar {
+  width: 660rpx;
+  height: 20rpx;
+  background-color: #fbe6e1;
+  border-radius: 20rpx;
+  margin-top: 10rpx;
+  overflow: hidden;
+}
+
+.barLine {
+  background-color: #f94a39;
+  height: 20rpx;
+}
+
+.BtnList {
+  text-align: center;
+  margin-top: 50rpx;
+}
+
+.buyBtn {
+  display: inline-block;
+  width: 300rpx;
+  height: 85rpx;
+  background-color: #fca49c;
+  color: #fff;
+  border-radius: 85rpx;
+  font-size: 27rpx;
+  vertical-align: middle;
+  margin-right: 25rpx;
+}
+
+.buyTop {
+  display: block;
+  margin-top: 8rpx;
+}
+
+.buyJiage {
+  display: block;
+  margin-top: -8rpx;
+}
+
+.helpBtn {
+  display: inline-block;
+  width: 300rpx !important;
+  height: 85rpx;
+  line-height: 2;
+  background-color: #f94a39;
+  color: #fff;
+  border-radius: 85rpx;
+  font-size: 27rpx;
+  vertical-align: middle;
+}
+.asHelpBtn{
+  display: inline-block;
+  width: 660rpx !important;
+  height: 85rpx;
+  line-height: 2;
+  background-color: #f94a39;
+  color: #fff;
+  border-radius: 85rpx;
+  font-size: 27rpx;
+  vertical-align: middle;
+}
+.helpList {
+  width: 705rpx;
+  background-color: #fff;
+  padding: 50rpx 20rpx;
+  box-sizing: border-box;
+  position: relative;
+  top: -160rpx;
+  margin: auto;
+  border-radius: 30rpx;
+}
+.shuniu{
+  position: absolute;
+  top: -40rpx;
+  width: 100%;
+  left: 0;
+}
+.avatorImg {
+  width: 120rpx;
+  border-radius: 120rpx;
+  float: left;
+}
+
+.helpBlock {
+  overflow: hidden;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #494949;
+}
+
+.fault {
+  float: left;
+  margin: 10rpx 0 0 20rpx;
+}
+
+.fault .name {
+  display: block;
+}
+
+.fault .time {
+  display: block;
+}
+
+.money {
+  float: right;
+  margin-top: 40rpx;
+}
+
+.money text {
+  margin-left: 10rpx;
+  color: #f94a39;
+  font-weight: bold;
+}
+
+.proimg {
+  width: 245rpx;
+  height: 245rpx;
+  border-radius: 20rpx;
+  margin: 20rpx;
+  float: left;
+}
+
+.proDetails {
+  overflow: hidden;
+  position: relative;
+  margin-top: 25rpx;
+  height: 245rpx;
+}
+
+.title {
+  font-weight: bold;
+  width: 260rpx;
+  display: block;
+}
+
+.price {
+  position: absolute;
+  top: 100rpx;
+}
+
+.kanMoney {
+  color: red;
+  font-weight: bold;
+  font-size: 40rpx;
+}
+.yuanjia{
+  text-decoration: line-through;
+  color: #969696;
+  font-size: 28rpx;
+  margin-left: 30rpx;
+}
+.daojishi{
+  position: absolute;
+  bottom: 20rpx;
+  font-size: 28rpx;
+}
+.black{
+  background-color: black;
+  color: #fff;
+  padding: 5rpx;
+  margin: 0 5rpx;
+  height: 40rpx;
+  width: 40rpx;
+  display: inline-block;
+  line-height: 40rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  font-size: 26rpx;
+}
+.red{
+  background-color: #ff4444;
+  color: #fff;
+  padding: 5rpx;
+  margin: 0 5rpx;
+  height: 40rpx;
+  width: 40rpx;
+  display: inline-block;
+  line-height: 40rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  font-size: 26rpx;
+}

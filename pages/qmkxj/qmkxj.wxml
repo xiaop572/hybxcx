@@ -1,0 +1,47 @@
+<!--pages/nzkh/nzkh.wxml-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/qmkxjBanner.png" mode="widthFix" class="banner"></image>
+  <image src="https://wx.pmc-wz.com/materials/qmkxjpro.gif" bindtap="rpro" mode="widthFix" class="nzpro"></image>
+  <view class="tmbox">
+    <view class="tm" wx:for="{{tmlist}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" style="top:{{item.y}}rpx;left:{{item.x}}%;animation-delay:{{idx*3}}s">
+      <image src="{{item.avatarUrl}}" mode="widthFix" />
+      <text>{{item.xinmin}}</text>
+      <text> 刚刚抢购成功</text>
+    </view>
+  </view>
+  <!-- <view class="proBox">
+    <image src="https://wx.pmc-wz.com/materials/nzkhpro.gif" bindtap="rpro" mode="widthFix" class="nzpro"></image>
+    <image src="https://wx.pmc-wz.com/materials/khpro1.png" mode="widthFix" class="khpro"></image>
+    <image src="https://wx.pmc-wz.com/materials/khpro2.png" mode="widthFix" class="khpro"></image>
+    <image src="https://wx.pmc-wz.com/materials/khpro3.png" mode="widthFix" class="khpro"></image>
+    <image src="https://wx.pmc-wz.com/materials/khpro4.png" mode="widthFix" class="khpro"></image>
+    <image src="https://wx.pmc-wz.com/materials/khjia.png" mode="widthFix" class="khjia"></image>
+    <image src="https://wx.pmc-wz.com/materials/kh5tuan.png" mode="widthFix" class="kh5tuan"></image>
+    <image src="https://wx.pmc-wz.com/materials/khpro5.png" mode="widthFix" class="khpro"></image>
+    <image src="https://wx.pmc-wz.com/materials/khpro6.png" mode="widthFix" class="khpro"></image>
+    <image src="https://wx.pmc-wz.com/materials/khpro7.png" mode="widthFix" class="khpro"></image>
+    <image src="https://wx.pmc-wz.com/materials/khpro8.png" mode="widthFix" class="khpro"></image>
+  </view> -->
+  <image src="https://wx.pmc-wz.com/materials/qmkxjhdnr.png" mode="widthFix" class="qmkxjhd" style="margin-top: 80rpx;"></image>
+  <image src="https://wx.pmc-wz.com/materials/qmkxjhdxz.png" mode="widthFix" class="qmkxjhd" style="margin-top: 60rpx;"></image>
+  <view class="block"></view>
+</view>
+<view wx:if="{{!isyearinfo}}" class="tz">
+  <view class="tzbox">
+    <text class="tzcap">请填写以下信息</text>
+    <view class="tzinp">
+      <text>宝宝姓名：</text>
+      <input type="text" model:value="{{xingming}}" />
+    </view>
+    <view class="tzinp">
+      <text>宝宝年龄：</text>
+      <input type="text" model:value="{{age}}" />
+    </view>
+    <view class="tzinp">
+      <text>家长电话：</text>
+      <input type="text" model:value="{{mobile}}" />
+    </view>
+    <view class="submit" bind:tap="submit">提交</view>
+  </view>
+
+</view>

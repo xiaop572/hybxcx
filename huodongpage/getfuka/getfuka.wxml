@@ -1,0 +1,26 @@
+<image src="https://wx.pmc-wz.com/materials/getfukabg.jpg" mode="widthFix" style="width: 100%;display: block;"/>
+
+<!-- 获得福卡弹窗 -->
+<view class="welcome-overlay" wx:if="{{received && cardInfo}}">
+  <view class="welcome-popup">
+    <view class="welcome-title">恭喜您！获得一张{{cardInfo.name}}</view>
+    <view class="card-wrapper">
+      <image src="{{cardInfo.image}}" mode="widthFix" class="card-img"/>
+    </view>
+    <view class="welcome-button" bindtap="claimCard">开心收下</view>
+  </view>
+</view>
+
+<!-- 未中奖祝福弹窗 -->
+<view class="welcome-overlay" wx:if="{{showErrorPopup}}">
+  <view class="blessing-popup">
+    <view class="blessing-text {{alreadyDrawn ? 'already-drawn' : ''}}">{{blessingText}}</view>
+    <view class="blessing-image-wrapper">
+      <image src="https://wx.pmc-wz.com/materials/mczbg.png" mode="widthFix" class="blessing-image"/>
+    </view>
+    <view class="blessing-button" bindtap="closeErrorPopup">
+      <text class="button-line1">{{alreadyDrawn ? '明天再来' : '收下祝福'}}</text>
+      <text class="button-line2">去集福</text>
+    </view>
+  </view>
+</view>

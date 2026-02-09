@@ -1,0 +1,21 @@
+/* subpackages/lipin/lipin.wxss */
+page{
+  padding-bottom: 0 !important;
+}
+.lihe{
+  width:100%;
+  opacity: 1;
+  transition: opacity 1.6s;
+  display: block;
+}
+.openlihe{
+  opacity: 0;
+}
+.lihenext{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+}

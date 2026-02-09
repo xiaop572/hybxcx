@@ -1,0 +1,25 @@
+<!--pages/doctorAppoint/doctorAppoint.wxml-->
+<view>
+  <view class="header">
+    <view>当前就诊人：<text>{{currentBr.brxm}}</text></view>
+    <text bind:tap="rqqlist">切换</text>
+  </view>
+  <view class="nav {{showNav?'showNav':''}}">
+    <view class="navItem {{ksbm=='0022'?'action':''}}" bindtap="changKsbm" data-ksbm="0022">全部</view>
+    <view class="navItem {{ksbm==item.KSBM?'action':''}}" wx:for="{{keshiList}}" wx:for-item="item" wx:key="idx" bindtap="changKsbm" data-ksbm="{{item.KSBM}}">{{item.MC}}</view>
+  </view>
+  <view class="doctorList {{showNav?'showList':''}}">
+    <view class="doctorItem" bindtap="rArrangeTime" data-ygdm="{{item.YSBM}}" wx:for="{{doctorList}}" wx:for-item="item" wx:key="item.YSBM">
+      <image src='https://his.pmc-wz.com/pmcmobileweb/images/photos/{{item.YSBM}}.jpg' mode="widthFix" lazy-load="true"></image>
+      <view class="right">
+        <text class="name" wx:if="{{item.YSXM}}">{{item.YSXM}}</text>
+        <text class="jibie" wx:if="{{item.DMMC}}">{{item.DMMC}}</text>
+        <text class="p" wx:if="{{item.YGJS}}">{{item.YGJS}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="fubiao" bindtap="changeShowNav">
+    <image src="https://wx.pmc-wz.com/materials/san.png" mode="widthFix"></image>
+  </view>
+  <image src="https://wx.pmc-wz.com/materials/myyy.png" mode="widthFix" class="myyy" bind:tap="rmyyy"></image>
+</view>

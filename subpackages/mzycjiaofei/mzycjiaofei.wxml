@@ -1,0 +1,25 @@
+<!--subpackages/mzycjiaofei/mzycjiaofei.wxml-->
+<view class="yccap">预存信息</view>
+<view class="brinfo">
+  <view class="infoitem">
+    <text>科室:</text>
+    <text>{{brinfo.BQMC}}</text>
+  </view>
+  <view class="infoitem">
+    <text>姓名:</text>
+    <text>{{brinfo.BRXM}}</text>
+  </view>
+  <view class="infoitem">
+    <text>住院号:</text>
+    <text>{{brinfo.ZYHM}}</text>
+  </view>
+  <view class="infoitem">
+    <text>床号:</text>
+    <text>{{brinfo.BRCH}}</text>
+  </view>
+  <view class="infoitem" style="font-weight: bold;color: red;">
+    <text>充值金额:</text>
+    <text>{{je}}元</text>
+  </view>
+</view>
+<view class="nextBtn" bindtap="zhifu">充值</view>

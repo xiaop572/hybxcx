@@ -1,0 +1,50 @@
+/* pages/zxkrList/zxkrList.wxss */
+.zxbrBlock{
+  clear: both;
+  margin-top: 20rpx;
+  padding-left: 40rpx;
+}
+.zxbrBlock text{
+  display: block;
+}
+.pageBlock{
+  clear: both;
+  overflow: hidden;
+  line-height: 60rpx;
+  position: relative;
+  height: 70rpx;
+}
+.name{
+  font-size: 16px;
+}
+.bm{
+  font-size: 14px;
+  color: #999;
+  margin: 10rpx 0;
+}
+.time{
+  font-size: 14px;
+}
+.front{
+  display: inline-block;
+  width: 40%;
+  text-align: center;
+  border: 1px solid #07c160;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+}
+.page{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.next{
+  display: inline-block;
+  width:40%;
+  text-align: center;
+  border: 1px solid #07c160;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+}

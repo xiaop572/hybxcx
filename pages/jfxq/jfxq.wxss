@@ -1,0 +1,70 @@
+/* pages/tcxq/tcxq.wxss */
+page {
+  background-color: #f2f2f2;
+}
+
+.headline {
+  width: 100%;
+  background-color: #fff;
+  padding: 40rpx;
+
+}
+.kficon {
+  position: absolute;
+  width: 60rpx;
+  left: 6%;
+  z-index: 888;
+  top: 20rpx;
+}
+.headline .title {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.headline .price {
+  display: inline-block;
+  color: #dca461;
+  font-weight: bold;
+  vertical-align: middle;
+}
+.jifenicon{
+  width: 50rpx;
+  vertical-align: middle;
+}
+.details {
+  overflow: hidden;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.details-title {
+  padding: 40rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.footer {
+  background: #fff;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  border-top: 1px solid #ddd;
+}
+
+.buyBtn {
+  height: 100rpx;
+  line-height: 100rpx;
+  display: inline-block;
+  padding: 0 40rpx;
+  color: #Fff;
+  background-color: #dca461;
+  cursor: pointer;
+}
+.details-content{
+  padding-bottom: 100rpx;
+}
+.details-content image{
+  width: 100%;
+}

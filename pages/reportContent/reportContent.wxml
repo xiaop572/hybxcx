@@ -1,0 +1,60 @@
+<!--pages/reportContent/reportContent.wxml-->
+<view class="tijianBanner">
+  <text class="biaoti">第{{idx}}次体检</text>
+  <text class="name">{{tijianInfo.name}}</text>
+  <text class="liushui">体检流水号:{{tijianInfo.serialno}}</text>
+  <text class="riqi">体检日期:{{tijianInfo.myDate}}</text>
+</view>
+<view><button class="aibtn" bind:tap="aifx" wx:if="{{false}}">AI分析</button></view>
+<view class="zhujian">
+  <view class="zhujianBt" bindtap="zjShow">
+    <image src="https://wx.pmc-wz.com/materials/baogaoIcon.png" mode="widthFix" class="zhujianIcon"></image>
+    <text class="zjbgText">主检报告</text>
+    <text class="zjbgFu">综合报告检查项目给出的建议与指导</text>
+    <image src="https://wx.pmc-wz.com/materials/right.png" mode="widthFix" class="right {{zhujianShow==true?'rote':''}}"></image>
+  </view>
+  <view class="zhujianContent" wx:if="{{zhujianShow}}">
+    <text wx:for="{{zhujianList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" class="zjContentText">
+      {{item}}
+    </text>
+    <text class="zjDoctor">主检医生:{{tijianInfo.summname}}</text>
+  </view>
+  <view class="danxiangBtBlock">
+    <text class="danxiangBt">项目检查结果</text>
+  </view>
+  <view class="danxiang" wx:for="{{reportgroupnamecustom}}" wx:for-item="item" wx:key="idx" wx:for-index="idx">
+    <view class="danxiangLine" bindtap="itemShow" data-index="{{idx}}">
+      <image src="https://wx.pmc-wz.com/materials/xin.png" class="xin" mode="widthFix"></image><text class="">{{item.groupname}}</text>
+      <image src="https://wx.pmc-wz.com/materials/right.png" mode="widthFix" class="right2 {{item.show==true?'rote':''}}"></image>
+    </view>
+    <view wx:if="{{item.show}}" class="danxiangContent">
+      <view class="xiaojie"><text class="jie">小结:</text>{{item.diagnosis?item.diagnosis:"无"}}</view>
+      <view wx:for="{{item.reportitemnamecustom}}" wx:for-item="its" wx:key="ids" wx:for-index="ids" class="danxiangItem">
+        <text class="one">{{its.itemname}}</text><text class="four">{{its.unit?its.unit:""}}</text>
+        <text class="two">{{its.referencerange!=="" &&
+          its.referencerange?"参考值":""}}{{its.referencerange?its.referencerange:""}}</text>
+        <text class="tree">{{its.firstresult!=="" &&
+          its.firstresult?"结果:":""}}</text><text class="five,{{its.color==='blue' || its.color==='red'?its.color:''}}">{{its.firstresult}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="aibox" wx:if="{{aifxstatus}}">
+  <view class="aifxhead">
+    <view class="titleaifx">AI分析内容如下</view>
+    <image src="https://wx.pmc-wz.com/materials/close.png" class="aifxClose" bind:tap="closeaifx" mode="" />
+  </view>
+  <view class="aifxmain" wx:if="{{aifxtextStatus}}">{{aifxtext}}</view>
+</view>
+<view class="dialog" hidden="{{!dialogShow}}">
+  <view class="dialog-content">
+    <view class="close" bindtap="hideDialog">×</view>
+    <view class="dialog-title">AI诊断</view>
+    <view class="dialog-text" wx:if="{{aizdmsg.length>0}}">
+      <view wx:for="{{aizdmsg}}" wx:key="id" wx:for-item="item">
+        {{item}}
+      </view>
+    </view>
+    <view class="dialog-text" wx:else>正在分析中...</view>
+  </view>
+</view>

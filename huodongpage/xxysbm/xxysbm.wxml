@@ -1,0 +1,88 @@
+<!--huodongpage/xxysbm/xxysbm.wxml-->
+<view class="container1">
+  <image src="https://wx.pmc-wz.com/materials/xxysbmtitle.png" mode="widthFix" class="xxysbmtitle"/>
+  <image src="https://wx.pmc-wz.com/materials/xxysbmyisheng.png" mode="widthFix" class="xxysbmyisheng"/>
+  <!-- 报名表单 -->
+  <view class="form-container">
+    <form bindsubmit="submitForm">
+      <!-- 表单项 -->
+      <view class="form-item">
+        <view class="label-container">
+          <text class="label">联系人</text>
+          <text class="label-en">Contact person</text>
+        </view>
+        <view class="input-container">
+          <input type="text" placeholder="请输入联系人姓名" value="{{formData.contactPerson}}" bindinput="onContactPersonInput" adjust-position="false" />
+        </view>
+      </view>
+      
+      <view class="form-item">
+        <view class="label-container">
+          <text class="label">联系方式</text>
+          <text class="label-en">Contact information</text>
+        </view>
+        <view class="input-container">
+          <input type="number" placeholder="请输入手机号码" value="{{formData.contactPhone}}" bindinput="onContactPhoneInput" adjust-position="false" />
+        </view>
+      </view>
+      
+      <view class="form-item">
+        <view class="label-container">
+          <text class="label">人数</text>
+          <text class="label-en">Number of people</text>
+        </view>
+        <view class="input-container">
+          <input type="number" placeholder="至少20人成团报名" value="{{formData.peopleCount}}" bindinput="onPeopleCountInput" adjust-position="false" />
+        </view>
+      </view>
+      
+      <view class="form-item">
+        <view class="label-container">
+          <text class="label">年龄</text>
+          <text class="label-en">Age</text>
+        </view>
+        <view class="input-container">
+          <input type="number" placeholder="请输入年龄范围" value="{{formData.ageRange}}" bindinput="onAgeRangeInput" adjust-position="false" />
+        </view>
+      </view>
+      
+      <view class="form-item">
+        <view class="label-container">
+          <text class="label">学校/小区/社会组织</text>
+          <text class="label-en">School/Community</text>
+          <text class="label-en">/Social organization</text>
+        </view>
+        <view class="input-container">
+          <input type="text" placeholder="请输入所属组织" value="{{formData.organization}}" bindinput="onOrganizationInput" adjust-position="false" />
+        </view>
+      </view>
+
+      <!-- 预约时间 -->
+      <view class="form-item">
+        <view class="label-container">
+          <text class="label">预约时间</text>
+          <text class="label-en">Reservation Time</text>
+        </view>
+        <view class="input-container">
+          <picker mode="selector" range="{{bookingDays}}" range-key="label" value="{{bookingDayIndex}}" bindchange="onBookingDayChange">
+            <view class="picker-view {{selectedBooking ? 'selected' : ''}}">
+              <text wx:if="{{selectedBooking}}" class="selected-date">{{bookingDayText}}</text>
+              <text wx:else class="placeholder">请选择预约日期</text>
+              <text class="picker-arrow">▼</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <!-- 提交按钮 -->
+      <view >
+        <view class="submit-btn" bindtap="submitForm">
+          <text>确认提交</text>
+          <text class="submit-en">Confirm submission</text>
+        </view>
+      </view>
+    </form>
+  </view>
+  <image src="https://wx.pmc-wz.com/materials/smzdzhddd.png" mode="widthFix" class="dd"/>
+  
+</view>

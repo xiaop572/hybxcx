@@ -1,0 +1,42 @@
+<!--pages/myInfo/myInfo.wxml-->
+<view class="infoBlock">
+  <text class="leftText">头像</text>
+  <view class="rightEle">
+    <image src="{{userInfo.avatarUrl}}" class="touxiang"></image>
+  </view>
+</view>
+<view class="infoBlock">
+  <text class="leftText">昵称</text>
+  <view class="rightEle">{{userInfo.nickName}}</view>
+</view>
+<view class="infoBlock" bindtap="rTian">
+  <text class="leftText">手机号</text>
+  <view class="rightEle">{{realInfo.mobile?realInfo.mobile:""}}
+    <image src="https://wx.pmc-wz.com/materials/right.png" mode="widthFix" class="right2"></image>
+  </view>
+
+</view>
+<!-- <view class="infoBlock">
+  <text class="leftText">性别</text>
+  <view class="rightEle">{{userInfo.gender==0?'男':'女'}}</view>
+</view> -->
+<view class="infoBlock" bindtap="rTian">
+  <text class="leftText">真实姓名</text>
+  <view class="rightEle">{{realInfo.realname?realInfo.realname:'无'}}
+    <image src="https://wx.pmc-wz.com/materials/right.png" mode="widthFix" class="right2"></image>
+  </view>
+</view>
+<view class="infoBlock" bindtap="rTian">
+  <text class="leftText">身份证号码</text>
+  <wxs module="m1">
+    var getCard = function (num) {
+      var temp = num.substring(4, 15) //提取身份证的第5位(下标为4)到第14位（结束位为15）
+      var newIdCard = num.replace(temp, '***********')
+      return newIdCard;
+    }
+    module.exports.getCard = getCard;
+  </wxs>
+  <view class="rightEle">{{realInfo.cardno?m1.getCard(realInfo.cardno):'无'}}
+    <image src="https://wx.pmc-wz.com/materials/right.png" mode="widthFix" class="right2"></image>
+  </view>
+</view>

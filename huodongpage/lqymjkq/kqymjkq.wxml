@@ -1,0 +1,14 @@
+<!--huodongpage/ckhb/ckhb.wxml-->
+
+<view class="containers">
+  <image src="https://wx.pmc-wz.com/materials/ymjbg.png" mode="widthFix" class="bg"></image>
+  <view class="main">
+    <image src="https://wx.pmc-wz.com/materials/aitclogo.png" mode="widthFix" class="logo"></image>
+    <image src="https://wx.pmc-wz.com/materials/ymjcap.png" mode="widthFix" class="cap"></image>
+    <image src="https://wx.pmc-wz.com/materials/ymjlp.png" mode="widthFix" class="lh" bindtap="getcard"></image>
+    <image src="https://wx.pmc-wz.com/materials/ymjpro.png" mode="widthFix" class="ymjpro"></image>
+  </view>
+</view>
+<view class="shade" wx:if="{{shadevis}}" catchtap="closeShade">
+  <image src="https://wx.pmc-wz.com/materials/ymjmdlp.png" class="card" mode="widthFix" catchtap="rcard"></image>
+</view>

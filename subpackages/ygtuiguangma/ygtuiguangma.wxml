@@ -1,0 +1,6 @@
+<!--subpackages/ygtuiguangma/ygtuiguangma.wxml-->
+<view class="dm">
+  <input type="text" class="ygdm" placeholder="员工工号"  model:value="{{ygcode}}"/>
+  <view class="submit" bindtap="ygcreate">确定</view>
+</view>
+<canvas style="width: 140px; height: 140px;margin:40rpx auto;" canvas-id="myQrcode"></canvas>

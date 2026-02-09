@@ -1,0 +1,9 @@
+<!--pages/luyin/luyin.wxml-->
+<!--pages/record/record.wxml-->
+
+<button bindtap="playVoice" type="primary" disabled="{{tempFilePath === ''}}">播放录音</button>
+
+<button type="warn" bindtouchstart="beginRecord" bindtouchend="endRecord">长按开始录音，松手停止录音</button>
+
+<view class="">
+</view>

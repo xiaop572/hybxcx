@@ -1,0 +1,116 @@
+/* pages/nzkh/nzkh.wxss */
+page{
+  padding-bottom: 0;
+  height: 100%;
+}
+.main{
+  min-height: 100%;
+  background: url("https://wx.pmc-wz.com/materials/nzkhbg.png") no-repeat;
+  background-size: 100%;
+  padding-bottom: 0rpx !important;
+  overflow: hidden;
+}
+.banner{
+  width: 100%;
+  display: block;
+  margin-top: 30rpx;
+}
+.proBox{
+  border-radius: 40rpx;
+  width: 640rpx;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: auto;
+  position: relative;
+  padding-bottom: 50rpx;
+}
+.proimg{
+  width: 46%;
+  margin-top: 30rpx;
+  display: inline-block;
+}
+.proimg:nth-child(2n+1){
+  margin-right: 8%;
+}
+.nzpro{
+  width: 740rpx;
+  position: relative;
+  right: 50rpx;
+  top: -30rpx;
+  margin-bottom: -20rpx;
+}
+.nzkprcap{
+  margin: auto;
+  display: block;
+  position: relative;
+  top: -30rpx;
+  width: 70%;
+  z-index: 2;
+}
+.nzkhCont{
+  background-color: #fff;
+  padding:20rpx 40rpx 40rpx 40rpx;
+  box-sizing: border-box;
+  width: 90%;
+  margin: auto;
+  border-radius: 40rpx;
+  position: relative;
+  z-index: 10;
+  top: -125rpx;
+}
+.xia{
+  padding: 40rpx 0;
+  background-color:rgba(109, 196, 250, 1);
+  position: relative;
+  display: block;
+  width: 80%;
+  height: 20rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 100rpx;
+  z-index: 1;
+  top: -60rpx;
+}
+.shou{
+  width: 120rpx;
+  position: absolute;
+  right: -55rpx;
+  top: 220rpx;
+}
+.khpro{
+  width: 92%;
+  margin:0 auto -10rpx auto;
+  display: block;
+}
+.khjia{
+  width: 40rpx;
+  display: block;
+  margin:30rpx auto;
+}
+.kh5tuan{
+  width: 86%;
+  display: block;
+  margin:0 auto 30rpx auto;
+}
+.khhaoli{
+  width: 92%;
+  margin:100rpx 0 0 10rpx;
+  display: block;
+}
+.khguize{
+  width: 92%;
+  float: right;
+  margin:60rpx 0 0 0;
+  display: block;
+}
+.address{
+  display: block;
+  margin:0 auto 0 auto;
+  width: 82%;
+}
+.block{
+  height: 50rpx;
+  width: 100%;
+  display: block;
+  clear: both;
+}

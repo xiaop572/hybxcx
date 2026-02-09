@@ -1,0 +1,293 @@
+/* pages/qiandaoMain/qiandaoMain.wxss */
+page{
+  background-image: linear-gradient(to right,#275fd6,#5391cc);
+  padding-bottom: 80rpx;
+}
+.shuBg{
+  position: absolute;
+  z-index: -222;
+  right: 0;
+  top: 0;
+  width: 67%;
+}
+.caption{
+  margin-top: 60rpx;
+}
+.caption text{
+  display: block;
+  color: #fff;
+  padding:0 4%;
+}
+.cap1{
+  font-size: 50rpx;
+  letter-spacing: 6rpx;
+}
+.cap2{
+  font-size: 34rpx;
+}
+.qianList{
+  width: 92%;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  margin-top: 80rpx;
+  height: 550rpx;
+  border-radius: 30rpx;
+}
+.qianList .shuTop{
+  width: 100%;
+  position: absolute;
+  top: -40rpx;
+}
+.list{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  padding-top: 80rpx;
+}
+.item{
+  width:140rpx;
+  background: linear-gradient(to bottom,#60affe,#58d1fe);
+  height: 170rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  box-shadow: 4rpx 4rpx 4rpx 4rpx #ccc;
+  position: relative;
+}
+.itemState{
+  width: 80rpx;
+  height: 80rpx;
+  background: url("https://wx.pmc-wz.com/materials/qianStateBg.png") no-repeat;
+  background-size: 100% 100%;
+  border-radius: 80rpx;
+  margin:20rpx auto 0 auto;
+  color: #fff;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+.item text{
+  margin: 10rpx auto 0 auto;
+  display: block;
+  color: #fff;
+  font-size: 32rpx;
+}
+.list2{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  margin-top: 30rpx;
+}
+.item2{
+  width:230rpx;
+  background: linear-gradient(to bottom,#60affe,#58d1fe);
+  height: 170rpx;
+  border-radius: 20rpx;
+  text-align: left;
+  box-shadow: 4rpx 4rpx 4rpx 4rpx #ccc;
+  box-sizing: border-box;
+  padding:10rpx 20rpx;
+  position: relative;
+}
+.item3{
+  width:230rpx;
+  background: linear-gradient(to bottom,#60affe,#58d1fe);
+  height: 170rpx;
+  border-radius: 20rpx;
+  text-align: left;
+  box-shadow: 4rpx 4rpx 4rpx 4rpx #ccc;
+  box-sizing: border-box;
+  padding:0 20rpx;
+  position: relative;
+}
+.itemCap{
+  font-size: 32rpx;
+  color: #fff;
+  display: block;
+}
+.itemCap2{
+  font-size: 25rpx;
+  color: #fff;
+  display: block;
+  margin-top: 10rpx;
+}
+.itemState2{
+  width: 60rpx;
+  height: 60rpx;
+  background: url("https://wx.pmc-wz.com/materials/qianStateBg.png") no-repeat;
+  background-size: 100% 100%;
+  border-radius: 80rpx;
+  color: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 20rpx;
+  margin-top: 5rpx;
+}
+.day2{
+  color: #fff;
+  font-size:32rpx;
+}
+.item2Tu{
+  width: 100rpx;
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+}
+.item2Tu2{
+  width: 80rpx;
+  position: absolute;
+  right: 10rpx;
+  bottom: 0rpx;
+}
+.qianBtn{
+  width: 375rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: linear-gradient(to left,#ff6713,#ff8742);
+  text-align: center;
+  color: #fff;
+  border-radius: 80rpx;
+  position: absolute;
+  bottom: -40rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  letter-spacing: 5rpx;
+  font-size: 42rpx;
+  box-shadow: 2rpx 2rpx 2rpx 2rpx rgba(0, 0, 0, 0.2);
+}
+.explain{
+  width: 92%;
+  height: 300rpx;
+  background: #fff;
+  margin:120rpx auto;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  padding: 16rpx 40rpx;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.explainItem1{
+  background-color: #f7f8fa;
+  width: 295rpx;
+  height: 170rpx;
+  float: left;
+  margin-right: 22rpx;
+  margin-top: 30rpx;
+  box-sizing: border-box;
+  padding: 20rpx 20rpx;
+  border-radius: 20rpx;
+}
+.explainItem2{
+  background-color: #f7f8fa;
+  width: 295rpx;
+  height: 170rpx;
+  float: left;
+  margin-top: 30rpx;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  padding: 20rpx 20rpx;
+}
+.expTitle{
+  color: #929292;
+  display: block;
+  font-size: 28rpx;
+}
+.shuoming{
+  font-size: 22rpx;
+  width: 140rpx;
+  display: block;
+  float: left;
+}
+.explain image{
+  float: left;
+  width: 115rpx;
+  display: block;
+}
+.qianMeng{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.qiangou{
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 20rpx;
+}
+.rule{
+  position: absolute;
+  right: 0;
+  top: 40rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 0 0 0 10rpx;
+  border-radius: 20rpx 0 0 20rpx;
+}
+.prize{
+  position: absolute;
+  right: 0;
+  top: 100rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 0 0 0 10rpx;
+  border-radius: 20rpx 0 0 20rpx;
+}
+.rules{
+  position: fixed;
+  background: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow: visible;
+} 
+.signRule{
+  background-color: #fff;
+  border-radius: 30rpx 30rpx 0 0;
+  height: 600rpx;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+}
+.ruleCaption{
+  text-align: center;
+  font-size: 32rpx;
+  margin-top: 40rpx;
+  width: 100%;
+  display: block;
+  color: #333;
+  font-weight: bold;
+}
+.ruleContent{
+  margin-top: 50rpx;
+}
+.ruleContent text{
+  color:#666;
+  font-size: 28rpx;
+  display: block;
+  width: 90%;
+  margin:10rpx auto;
+}
+.got{
+  color: #fff;
+  background:linear-gradient(to bottom,#ff904e,#e6641c);
+  border-radius: 40rpx;
+  width: 90%;
+  margin:50rpx auto 0 auto;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+.cha{
+  position: absolute;
+  right: 20rpx;
+  width: 50rpx;
+  top: 20rpx;
+}

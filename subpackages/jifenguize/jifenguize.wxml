@@ -1,0 +1,5 @@
+<!--subpackages/jifenguize/jifenguize.wxml-->
+<view class="header">
+    <text class="guize">积分规则</text>
+</view>
+<image src="https://wx.pmc-wz.com/materials/jfgz.png" mode="widthFix" style="width: 100%;"></image>

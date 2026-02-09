@@ -1,0 +1,41 @@
+/* pages/jiesuan/jiesuan.wxss */
+page{
+  background-color: #f2f2f2;
+}
+.informmation{
+  background-color: #ffffff;
+}
+.padleft40{
+  margin-left: 40rpx;
+  font-size: 28rpx !important;
+}
+.footer {
+  background: #fff;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ddd;
+}
+.buyBtn {
+  height: 100rpx;
+  line-height: 100rpx;
+  display: inline-block;
+  padding: 0 40rpx;
+  color: #Fff;
+  background-color: #dca461;
+  cursor: pointer;
+  float: right;
+}
+.money{
+  color: #dca461;
+  font-size: 40rpx;
+  line-height: 100rpx;
+  float: left;
+}
+.jifenicon{
+  width: 50rpx;
+  float: left;
+  margin-top: 25rpx;
+  margin-left: 40rpx;
+}

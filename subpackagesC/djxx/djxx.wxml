@@ -1,0 +1,80 @@
+<view class="main">
+  <view class="title">登记个人信息</view>
+  <view class="form-container">
+    <view class="form-item">
+      <view class="label">体检者类型</view>
+      <view class="type-selector">
+        <view class="type-item {{selectedType === 'personal' ? 'active' : ''}}" bindtap="selectType" data-type="personal">自己</view>
+        <view class="type-item {{selectedType === 'company' ? 'active' : ''}}" bindtap="selectType" data-type="company">代他人</view>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="label">姓名</view>
+      <input class="input" type="text" placeholder="请输入姓名" bindinput="inputName" value="{{name}}"/>
+    </view>
+    <view class="form-item">
+      <view class="label">证件类型</view>
+      <picker bindchange="bindIdTypeChange" value="{{idTypeIndex}}" range="{{idTypes}}">
+        <view class="picker">
+          {{idTypes[idTypeIndex]}}
+        </view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <view class="label">证件号码</view>
+      <input class="input" type="idcard" placeholder="请输入证件号码" bindinput="inputIdNumber" value="{{idNumber}}"/>
+    </view>
+    <view class="form-item">
+      <view class="label">年龄</view>
+      <input class="input" type="number" placeholder="请输入年龄" bindinput="inputAge" value="{{age}}"/>
+    </view>
+    <view class="form-item">
+      <view class="label">性别</view>
+      <view class="gender-selector">
+        <view class="gender-item {{gender === 'male' ? 'active' : ''}}" bindtap="selectGender" data-gender="male">
+          <image class="gender-icon" src="https://wx.pmc-wz.com/materials/nan.png"></image>
+          <text>男</text>
+        </view>
+        <view class="gender-item {{gender === 'female' ? 'active' : ''}}" bindtap="selectGender" data-gender="female">
+          <image class="gender-icon" src="https://wx.pmc-wz.com/materials/nv.png"></image>
+          <text>女</text>
+        </view>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="label">婚姻状况</view>
+      <view class="marital-selector">
+        <view class="marital-item {{maritalStatus === 'married' ? 'active' : ''}}" bindtap="selectMaritalStatus" data-status="married">已婚（含同居）</view>
+        <view class="marital-item {{maritalStatus === 'single' ? 'active' : ''}}" bindtap="selectMaritalStatus" data-status="single">未婚</view>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="label">民族</view>
+      <input class="input" type="text" placeholder="请输入民族" bindinput="inputEthnicity" value="{{ethnicity}}"/>
+    </view>
+    <view class="form-item" wx:if="{{gender === 'female'}}">
+      <view class="label">特殊情况</view>
+      <view class="pregnant-selector" bindtap="togglePregnant">
+        <view class="checkbox {{isPregnant ? 'checked' : ''}}"></view>
+        <text>备孕(6个月内)</text>
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="label">身高</view>
+      <input class="input" type="digit" placeholder="请输入身高" bindinput="inputHeight" value="{{height}}"/>
+      <text class="unit">厘米(CM)</text>
+    </view>
+    <view class="form-item">
+      <view class="label">体重</view>
+      <input class="input" type="digit" placeholder="请输入体重" bindinput="inputWeight" value="{{weight}}"/>
+      <text class="unit">公斤(KG)</text>
+    </view>
+    <view class="form-item">
+      <view class="label">自动保存个人信息</view>
+      <view class="auto-save" bindtap="toggleAutoSave">
+        <view class="checkbox {{autoSave ? 'checked' : ''}}"></view>
+      </view>
+    </view>
+  </view>
+  <view class="next-btn" bindtap="nextStep">下一步</view>
+</view>

@@ -1,0 +1,125 @@
+{
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+<<<<<<< HEAD
+          "name": "subpackagesDDD/aidh/aidh",
+          "pathName": "subpackagesDDD/aidh/aidh",
+=======
+          "name": "huodongpage/zxhb/zxhb",
+          "pathName": "huodongpage/zxhb/zxhb",
+>>>>>>> 1e33a5c87a4d03a8dc373658446207f148493645
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+<<<<<<< HEAD
+          "name": "subpackages/jianyanList/jianyanList",
+          "pathName": "subpackages/jianyanList/jianyanList",
+=======
+          "name": "subpackagesC/tjfa/tjfa",
+          "pathName": "subpackagesC/tjfa/tjfa",
+>>>>>>> 1e33a5c87a4d03a8dc373658446207f148493645
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+<<<<<<< HEAD
+          "name": "subpackages/jianyanjieguo/jianyanjieguo",
+          "pathName": "subpackages/jianyanjieguo/jianyanjieguo",
+          "query": "sampleda=2023-09-01T00%3A00%3A00&instrid=XS9I&sampleno=66",
+=======
+          "name": "subpackagesC/zxwz/zxwz",
+          "pathName": "subpackagesC/zxwz/zxwz",
+          "query": "",
+>>>>>>> 1e33a5c87a4d03a8dc373658446207f148493645
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+<<<<<<< HEAD
+          "name": "pages/reportContent/reportContent",
+          "pathName": "pages/reportContent/reportContent",
+          "query": "idx=0",
+=======
+          "name": "subpackagesC/tjfa/tjfa",
+          "pathName": "subpackagesC/tjfa/tjfa",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/jkfx/jkfx",
+          "pathName": "subpackagesC/jkfx/jkfx",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/djxx/djxx",
+          "pathName": "subpackagesC/djxx/djxx",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesDDD/jhym/jhym",
+          "pathName": "subpackagesDDD/jhym/jhym",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesDDD/qyzx/qyzx",
+          "pathName": "subpackagesDDD/qyzx/qyzx",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/tcjs/tcjs",
+          "pathName": "subpackagesC/tcjs/tcjs",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/tjxm/tjxm",
+          "pathName": "subpackagesC/tjxm/tjxm",
+          "query": "",
+>>>>>>> 1e33a5c87a4d03a8dc373658446207f148493645
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesDDD/xxtx/xxtx",
+          "pathName": "subpackagesDDD/xxtx/xxtx",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesDDD/jhym/jhym",
+          "pathName": "subpackagesDDD/jhym/jhym",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesDDD/qyzx/qyzx",
+          "pathName": "subpackagesDDD/qyzx/qyzx",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "setting": {
+    "compileHotReLoad": true
+  }
+}

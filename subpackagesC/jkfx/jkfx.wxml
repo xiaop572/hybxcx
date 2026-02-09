@@ -1,0 +1,10 @@
+<view class="main">
+  <view class="title">检前问诊</view>
+  <view class="subtitle">筛查潜在健康风险</view>
+  <view class="time-text">仅需3分钟</view>
+  <view class="coverage-text">全面覆盖7个纬度 20多项疾病风险</view>
+  <view class="btn-container">
+    <view class="btn primary" bindtap="goToCustomPlan">定制我的个性化方案</view>
+    <!-- <view class="btn secondary" bindtap="goToSelfSelect">谢谢，我想自选项目</view> -->
+  </view>
+</view>

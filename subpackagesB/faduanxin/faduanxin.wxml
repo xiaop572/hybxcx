@@ -1,0 +1,30 @@
+<!--subpackagesB/hylist/hylist.wxml-->
+<view class="search-container">
+  <input type="text" placeholder="请输入演讲嘉宾姓名查看演讲内容" bindinput="handleInput" value="{{searchText}}" />
+  
+</view>
+<view class="item" wx:for="{{jblist}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" data-id="{{item.id}}" wx:if="{{searchResults.length == 0}}">
+  <view class="zjinfo">
+    <text class="zjcap">{{item.name}}</text>
+  </view>
+  <view class="btnlist">
+    <view bind:tap="setmobile" data-id="{{item.id}}" data-name="{{item.name}}">发送短信</view>
+    <view bind:tap="rjbinfo" data-id="{{item.id}}">查看行程</view>
+  </view>
+</view>
+<view class="item" wx:for="{{searchResults}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" data-id="{{item.id}}" wx:if="{{searchResults.length > 0}}">
+  <view class="zjinfo">
+    <text class="zjcap">{{item.name}}</text>
+  </view>
+  <view class="btnlist">
+    <view bind:tap="setmobile" data-id="{{item.id}}" data-name="{{item.name}}">发送短信</view>
+    <view bind:tap="rjbinfo" data-id="{{item.id}}">查看行程</view>
+  </view>
+</view>
+<view class="cgBox" wx:if="{{show}}"  catchtap="guanbi" >
+  <view class="cgmeng" catchtap>
+    <input type="text" placeholder="请填写手机号"  model:value="{{mobile}}"/>
+    <view class="send" bind:tap="fdx">发送</view>
+  </view>
+</view>
+<zx-fc></zx-fc>

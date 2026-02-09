@@ -1,0 +1,33 @@
+/* pages/tjhdList/tjhdlist.wxss */
+
+page{
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0 !important;
+}
+.tjhdbg{
+  width:100%;
+  display: block;
+}
+.list{
+  position: relative;
+}
+.listBtn{
+  position: absolute;
+  bottom: 2%;
+  width: 90%;
+  height: 750rpx;
+  left: 7.5%;
+  overflow: hidden;
+  background: url("https://wx.pmc-wz.com/materials/tjitemBg.png") no-repeat;
+  background-size: 100% 100%;
+  padding-top: 90rpx;
+  box-sizing: border-box;
+}
+.listBtn image{
+  width: 86%;
+  margin: auto;
+  display: block;
+  margin-left: 25rpx;
+  margin-top: 10rpx;
+}

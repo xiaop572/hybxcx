@@ -1,0 +1,7 @@
+<!--subpackages/rtmp/rtmp.wxml-->
+<text>subpackages/rtmp/rtmp.wxml</text>
+<video
+  src="http://121.41.167.181:12306/live.m3u8"
+  style="width: 100%;"
+  autoplay="true"
+></video>

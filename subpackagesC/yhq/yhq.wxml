@@ -1,0 +1,94 @@
+<!--subpackagesC/yhq/yhq.wxml-->
+<view class="container1">
+  <!-- 顶部标签栏 -->
+  <view class="tab-bar">
+    <view class="tab-item {{currentTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">
+      <text>未使用</text>
+    </view>
+    <view class="tab-item {{currentTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">
+      <text>已使用</text>
+    </view>
+    <view class="tab-item {{currentTab === 2 ? 'active' : ''}}" bindtap="switchTab" data-index="2">
+      <text>已过期</text>
+    </view>
+  </view>
+
+  <!-- 优惠券列表 -->
+  <scroll-view class="coupon-list" scroll-y="true">
+    <!-- 未使用优惠券 -->
+    <view wx:if="{{currentTab === 0}}">
+      <view wx:for="{{availableCoupons}}" wx:key="id" class="coupon-item">
+        <view class="coupon-card">
+          <view class="coupon-top">
+            <view class="coupon-left">
+              <view class="amount-section">
+                <text class="amount-number">{{item.DiscountValue}}</text>
+              </view>
+              <text class="coupon-type">优惠券(元)</text>
+            </view>
+            <view class="coupon-right">
+              <view class="coupon-info">
+                <view class="coupon-title">{{item.Name}}</view>
+                <view class="coupon-condition">限【{{item.Description}}】产品使用</view>
+              </view>
+            </view>
+          </view>
+          <view class="coupon-action">
+            <view class="use-button" bindtap="useCoupon" data-id="{{item.ProductId}}">去使用</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+    <!-- 已使用优惠券 -->
+    <view wx:if="{{currentTab === 1}}">
+      <view wx:for="{{usedCoupons}}" wx:key="id" class="coupon-item used">
+        <view class="coupon-card">
+          <view class="coupon-top">
+            <view class="coupon-left">
+              <view class="amount-section">
+                <text class="amount-number">{{item.DiscountValue}}</text>
+              </view>
+              <text class="coupon-type">优惠券(元)</text>
+            </view>
+            <view class="coupon-right">
+              <view class="coupon-info">
+                <view class="coupon-title">{{item.Name}}</view>
+                <view class="coupon-condition">限【{{item.Description}}】产品使用</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 已过期优惠券 -->
+    <view wx:if="{{currentTab === 2}}">
+      <view wx:for="{{expiredCoupons}}" wx:key="id" class="coupon-item expired">
+        <view class="coupon-card">
+          <view class="coupon-top">
+            <view class="coupon-left">
+              <view class="amount-section">
+                <text class="amount-number">{{item.DiscountValue}}</text>
+              </view>
+              <text class="coupon-type">优惠券(元)</text>
+            </view>
+            <view class="coupon-right">
+              <view class="coupon-info">
+                <view class="coupon-title">{{item.Name}}</view>
+                <view class="coupon-condition">限【{{item.Description}}】产品使用</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:if="{{isEmpty}}" class="empty-state">
+      <image src="https://wx.pmc-wz.com/materials/empty-coupon.png" class="empty-image"></image>
+      <text class="empty-text">暂无优惠券</text>
+    </view>
+  </scroll-view>
+</view>

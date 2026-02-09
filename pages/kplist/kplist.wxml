@@ -1,0 +1,11 @@
+<view class="article">
+  <text class="h2">健康科普</text>
+  <view wx:for="{{articleList}}" wx:key="id" wx:for-item="item" class="articleBlock" data-id="{{item.id}}" data-url="{{item.Url}}" bindtap="rArticleTap">
+    <view class="articleImg">
+      <image src="{{item.ThumbnailUrl}}" alt="" mode="widthFix"/>
+    </view>
+    <view class="articleWord">
+      <text class="articleTitle">{{item.Title}}</text>
+    </view>
+  </view>
+</view>

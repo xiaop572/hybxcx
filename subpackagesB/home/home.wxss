@@ -1,0 +1,43 @@
+/* subpackagesB/home/home.wxss */
+page{
+  background: #dadada;
+  padding-bottom: 40rpx;
+}
+.top{
+  width: 100%;
+}
+.daojishi{
+  background: linear-gradient(to bottom, #2d4478, #f45035);
+  width: 96%;
+  margin: auto;
+  border-radius: 10rpx;
+  text-align: center;
+  padding: 16rpx 0;
+  color: #fff;
+  margin-top: 8rpx;
+}
+.dcap {
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+}
+.daotime {
+  font-size: 30rpx;
+}
+.daotime text {
+  font-weight: bold;
+  font-size: 40rpx;
+  margin: 0 5rpx;
+}
+.navlist {
+  width: 94%;
+  margin: 12rpx auto 0 auto;
+  overflow: hidden;
+}
+.w50left {
+  width: 50%;
+  float: left;
+}
+.img{
+  width: 100%;
+  display: block;
+}

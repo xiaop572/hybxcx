@@ -1,0 +1,13 @@
+/* subpackages/myPrize/myPrize.wxss */
+page{
+  background-color: #f5f5f5;
+}
+.pbanner{
+  width: 100%;
+}
+.jp{
+  width: 96%;
+  display: block;
+  margin: auto;
+  margin-top: 40rpx;
+}

@@ -1,0 +1,84 @@
+/* pages/jianyankaidan/jianyankaidan.wxss */
+body{
+  height: 100%;
+}
+page{
+  height: 100%;
+}
+.main{
+  height: 100%;
+  background: url("https://wx.pmc-wz.com/materials/kaidanBg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.logo{
+  width: 300rpx;
+  margin: 40rpx;
+}
+.youzhi{
+  width: 60%;
+  display: block;
+  position: absolute;
+  top: 37%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.shengming{
+  width: 60%;
+  display: block;
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.xmItem{
+  width: 90%;
+  margin:40rpx auto 0 auto;
+  position: relative;
+}
+.xmItem image{
+  width: 100%;
+}
+.list{
+  position: absolute;
+  top: 44%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin:0 auto 40rpx auto;
+  text-align: center;
+}
+.life{
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 120rpx;
+  top: 44%;
+}
+.title{
+  position:absolute;
+  bottom: 40rpx;
+  height: 40rpx;
+  width: 56%;
+  right: 20px;
+  border-radius: 20rpx;
+  line-height: 40rpx;
+  font-size: 40rpx;
+  color: #fff;
+  text-align: right;
+  top: 40rpx;
+}
+.remark{
+  position:absolute;
+  bottom: 40rpx;
+  height: 40rpx;
+  width: 56%;
+  right: 20px;
+  text-align: right;
+  font-size: 40rpx;
+  color: #fff;
+}

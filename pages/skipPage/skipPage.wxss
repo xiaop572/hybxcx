@@ -1,0 +1,187 @@
+/* subpackages/skipPage/skipPage.wxss */
+page{
+  background-color: #f5f9ff;
+}
+.search {
+  background: #fff;
+  height: 80rpx;
+  width: 90%;
+  margin: 20rpx auto 0 auto;
+  border-radius: 10rpx;
+  overflow: hidden;
+  line-height: 80rpx;
+}
+
+.search .searchIcon {
+  width: 40rpx;
+  margin-left: 40rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+}
+
+.search text {
+  color: #b2b2b3;
+}
+.itemList {
+  text-align: center;
+}
+
+.itemList .item {
+  width: 105rpx;
+  display: inline-block;
+  margin-right: 40rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #595757;
+  margin-top: 30rpx;
+}
+
+.itemList .item:nth-child(5n) {
+  margin-right: 0;
+}
+
+.itemList .item image {
+  width: 100%;
+}
+.pro{
+  width: 96%;
+  background-color: #fff;
+  margin:50rpx auto 0 auto;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.navBox {
+  /* 顶部tab盒子样式 */
+  width: 100%;
+  margin:30rpx auto;
+  height: 108rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #fff;
+  
+}
+
+.navBox view {
+  /* 最后一个tab标题的样式 */
+  padding-left: 10%;
+}
+
+.navBox view:first-child {
+  /* 最后一个tab标题的样式 */
+  padding-left: 0;
+}
+
+.titleBox {
+  /* 未选中文字的样式 */
+  color: #6f6f6f;
+  font-size: 36rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: 3rpx;
+}
+
+.lineBox,
+.notLineBox {
+  /* 选中及未选中底线共同样式 */
+  width: 70%;
+  height: 8rpx;
+  color: #2c68fa;
+  margin-top: 8rpx;
+}
+
+.fontColorBox,
+.fontColorBox1 {
+  /* 文字默认颜色 */
+  color: #2c68fa;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.lineBox {
+  /* 选中底线样式 */
+  background: #2c68fa;
+  border-radius: 4rpx;
+}
+
+.proitemList{
+  margin-top: 24rpx;
+  flex-wrap: wrap;
+  padding-bottom: 50rpx;
+}
+.proitem{
+  overflow: hidden;
+  background-color: #fff;
+  height: 300rpx;  
+  width: 90%;
+  margin:20rpx auto 0 auto;
+  position: relative;
+}
+.proitem image{
+  width: 300rpx;
+  display: block;
+  float: left;
+}
+.proitemRight{
+  float: left;
+  width: 340rpx;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.procaption{
+  margin-top: 25rpx;
+  margin-left: 20rpx;
+  color: #000000;
+  display: block;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.profengimg{
+  float: left;
+}
+.proviceCaption{
+  color: #908f8f;
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.priceFlex{
+  display: flex;
+  padding: 0 10rpx 0 20rpx;
+  width: 100%;
+  margin-top: 170rpx;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.price{
+  color:#e30012;
+  font-size: 38rpx;
+  vertical-align: middle;
+  position: absolute;
+  bottom: 10rpx;
+}
+.symbol{
+  font-size: 28rpx;
+  vertical-align: middle;
+}
+.swiperTtemBox {
+  /* 底部内容样式 */
+  height: 1000rpx;
+  overflow: hidden;
+  font-size: 28rpx;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+.jiangpai{
+  position: absolute;
+  left: -15rpx;
+  width: 110rpx !important;
+  top: -10rpx;
+}

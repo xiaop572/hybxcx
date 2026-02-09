@@ -1,0 +1,80 @@
+/* subpackages/tcshiyong/tcshiyong.wxss */
+page{
+  height: 100%;
+  background-color: #f2f2f2;
+}
+.cpBox{
+  background-color: #fff;
+  width: 92%;
+  margin:50rpx auto 0 auto;
+  padding: 20rpx 0 40rpx 0;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+}
+.cpcap{
+  display: block;
+  text-align: center;
+  letter-spacing: 5rpx;
+  color: #333;
+}
+.cpList{
+  text-align: center;
+  width: 100%;
+  margin-top: 20rpx;
+}
+.cph{
+  border: 1px solid #a9cdff;
+  width: 70rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8rpx;
+  font-weight: bold;
+  font-size: 40rpx;
+  background-color: #f3f8fe;
+}
+.cph2{
+  border: 1px solid #d9f2bb ;
+  width: 70rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5rpx;
+  font-size: 40rpx;
+  background-color: #f5fee9;
+  position: relative;
+}
+.subBtn{
+  background-color: #3073ff;
+  width: 90%;
+  margin:60rpx auto 0 auto;
+  text-align: center;
+  color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 80rpx;
+}
+.phone{
+  background-color: #f3f8fe;
+  width: 90%;
+  margin:20rpx auto 0 auto;
+  text-align: center;
+  color: #000;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 80rpx;
+  font-weight: bold;
+  font-size: 38rpx;
+  border: 1px solid #abccff;
+}
+.xny{
+  width: 90%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

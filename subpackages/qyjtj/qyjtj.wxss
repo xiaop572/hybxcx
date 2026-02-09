@@ -1,0 +1,7 @@
+/* subpackages/qyjtj/qyjtj.wxss */
+page{
+  padding-bottom: 0 !important;
+}
+image{
+  display: block;
+}

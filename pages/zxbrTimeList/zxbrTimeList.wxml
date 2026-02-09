@@ -1,0 +1,10 @@
+<!--pages/zxbrTimeList/zxbrTimeList.wxml-->
+<view class="main">
+  <view class="line" bindtap="rExamineResult" wx:for="{{brTime}}" wx:for-item="item" wx:key="id"
+    data-jzsj="{{item.jzsj}}" data-brbm="{{item.brbm}}" data-brxm="{{item.brxm}}"> 
+    <view class="left">{{item.brxm}}</view>
+    <view class="right"><text class="time">{{item.jzsj}}</text>
+      <image src="https://wx.pmc-wz.com/materials/right.png" mode="widthFix" class="right2"></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="form-container">
+    <view class="form-item">
+      <view class="form-group">
+        <input class="input" type="text" placeholder="请输入附属人1姓名（选填）" model:value="{{name1}}" />
+      </view>
+      <view class="form-group">
+        <input class="input" type="text" placeholder="请输入附属人1权益码（选填）" model:value="{{code1}}" />
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="form-group">
+        <input class="input" type="text" placeholder="请输入附属人2姓名（选填）" model:value="{{name2}}" />
+      </view>
+      <view class="form-group">
+        <input class="input" type="text" placeholder="请输入附属人2权益码（选填）" model:value="{{code2}}" />
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="submit-btn" bindtap="handleSubmit">立即领取</view>
+    </view>
+  </view>
+</view>

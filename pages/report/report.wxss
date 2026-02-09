@@ -1,0 +1,38 @@
+/* pages/report/report.wxss */
+page{
+  background: #f2f2f2;
+}
+.tijianBlock{
+  width: 92%;
+  height: 140rpx;
+  background: #fff;
+  margin:20rpx auto;
+  overflow: hidden;
+  position: relative;
+}
+.serial{
+  font-size: 30px;
+  color: #4c82fb;
+  position: relative;
+  top: 30rpx;
+  left: 40rpx;
+  font-weight: bold;
+}
+.one{
+  position: absolute;
+  left: 110rpx;
+  top: 30rpx;
+}
+.two{
+  position: absolute;
+  top: 80rpx;
+  left: 110rpx;
+  font-size: 14px;
+  color: #999;
+}
+.tijianbaogao{
+  width:100%;
+}
+.login{
+  color: blue;
+}

@@ -1,0 +1,30 @@
+<!--subpackages/liquanhexiaoma/liquanhexiaoma.wxml-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "年" + (da.getMonth() + 1) + "月" + da.getDate() + "日";
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<text class="state">未使用</text>
+<text class="jztime">有效期：即日起至{{m1.rq(expiretime)}}</text>
+<view class="kqmain">
+  <image src="https://wx.pmc-wz.com/materials/lqpro.jpg" mode="widthFix" class="lopro" />
+  <text class="lqcap">{{proname}}</text>
+  <image src="{{imgSrc}}" mode="widthFix" class="codeImg"></image>
+  <text class="qrcodesm">截图保存 延续美力更轻松</text>
+</view>
+<text class="shuoming">
+  使用说明
+</text>
+<text class="shuomingnr">① 请将此页面截图保存,凭借该图到医院核销二维码,即可使用;</text>
+<text class="shuomingnr">② 此卡项仅限1人使用;</text>
+<text class="shuomingnr">③ 此卡有效期为：即日起至2024年12月31日,逾期作废。</text>

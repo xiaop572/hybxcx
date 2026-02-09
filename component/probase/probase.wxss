@@ -1,0 +1,19 @@
+/* component/probase/probase.wxss */
+.proimg{
+  width: 200rpx;
+  margin-right: 30rpx;
+  display: inline-block;
+}
+.proitem{
+  width: 100%;
+  background: #fff;
+  border-radius: 40rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+.proright{
+  display: inline-block;
+  width: calc(100% - 230rpx);
+  vertical-align:top;
+}

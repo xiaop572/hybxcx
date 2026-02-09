@@ -1,0 +1,81 @@
+/* pages/addVip/addVip.wxss */
+page {
+  background: linear-gradient(to bottom, #90cee5 200rpx, #fff 200rpx);
+}
+
+.quanyiList {
+  background-color: #Fff;
+  width: 92%;
+  margin: 100rpx auto;
+  padding: 60rpx 0;
+  border-radius: 20rpx;
+  box-shadow: 0px 2px 4px 0px #e2e3e7;
+}
+
+.kaitong {
+  width: 92%;
+  margin: auto;
+}
+
+.huiyuan {
+  font-size: 38rpx;
+  font-family: Arial, Helvetica, sans-serif;
+  vertical-align: middle;
+}
+
+.card {
+  color: #fff;
+  display: inline-block;
+  font-size: 28rpx;
+  padding: 0 20rpx;
+  border-radius: 10rpx;
+  background: linear-gradient(to right, #d0a06e, #b08358);
+  margin-left: 10rpx;
+  vertical-align: middle;
+}
+
+.ktBtn {
+  width: 100% !important;
+  background: linear-gradient(to right, #fbcc9c, #9f6c38);
+  height: 100rpx;
+  border-radius: 100rpx;
+  color: #fff;
+  line-height: 100rpx;
+  padding: 0 !important;
+  font-weight: normal;
+  margin-top: 50rpx;
+  letter-spacing: 5rpx;
+}
+
+.item {
+  width: 20%;
+  display: inline-block;
+  margin-left: 10%;
+  text-align: center;
+  margin-top: 40rpx;
+}
+
+.itemIcon {
+  border: 2px solid #c08e5d;
+  border-radius: 100%;
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  position: relative;
+  margin:0 auto 10rpx auto;
+  overflow: hidden;
+}
+
+.itemIcon image {
+  width: 60%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.item text{
+  font-size: 32rpx;
+}

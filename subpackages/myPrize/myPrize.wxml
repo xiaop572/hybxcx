@@ -1,0 +1,4 @@
+<!--subpackages/myPrize/myPrize.wxml-->
+<image mode="widthFix" src="https://wx.pmc-wz.com/materials/myPrizeBanner.png" class="pbanner"></image>
+<image mode="widthFix" src="https://wx.pmc-wz.com/materials/jieyaJP.png" class="jp" wx:if="{{list.length>0}}"></image>
+<image mode="widthFix" src="https://wx.pmc-wz.com/materials/guangziJP.png" class="jp" wx:if="{{list.length>1}}"></image>

@@ -1,0 +1,150 @@
+/* subpackagesB/richeng/richeng.wxss */
+page {
+  background-color: #dadada;
+}
+
+.huichanglist {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 94%;
+  margin: auto;
+  font-size: 28rpx;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  padding: 0 40rpx;
+  box-shadow: 4rpx 4rpx 10rpx 0 #b6b4b4;
+}
+
+.h2 {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  font-weight: bold;
+}
+
+.jt {
+  width: 60rpx;
+  height: 60rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 20rpx;
+}
+
+.richenglist {
+  width: 90%;
+  border-left: 1px solid #6b6b6b;
+  position: relative;
+  margin-left: 6%;
+  margin-top: 50rpx;
+}
+
+.rcitemlist {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rcitem1 {
+  background: #0052ae;
+  width: 88%;
+  position: relative;
+  right: 0;
+  border-radius: 20rpx;
+  box-shadow: 0 0 10rpx 4rpx #a09f9f;
+  box-sizing: border-box;
+  padding:20rpx 30rpx;
+}
+.rcitem1 text{
+  margin-top: 10rpx;
+}
+.Bullets {
+  position: absolute;
+  left: -13%;
+  margin-left: -24rpx;
+  margin-top: -20rpx;
+  top: 50%;
+  height: 30rpx;
+  width: 30rpx;
+  background: linear-gradient(45deg, #003f86 30%, #c74641, #ff8c35);
+  border-radius: 40rpx;
+  border: 4rpx solid #fff;
+}
+.rcitem1 text{
+  display: block;
+  color: #fff;
+  font-size: 22rpx;
+  margin-top: 2rpx;
+}
+.rcitem1::before {
+  content: "";
+  display: block;
+  width: 40rpx;
+  height: 40rpx;
+  background: #0052ae;
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  margin-top: -20rpx;
+  transform: rotate(45deg);
+}
+
+.rcitem {
+  background: #ffffff;
+  width: 88%;
+  position: relative;
+  right: 0;
+  border-radius: 10rpx;
+  box-shadow: -4rpx 4rpx 10rpx 4rpx #a09f9f;
+  margin-top: 120rpx;
+  padding: 15rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.rctime {
+  position: absolute;
+  top: -50rpx;
+  margin: 0;
+  color: #FF7536;
+  font-size: 24rpx;
+  font-weight: bold;
+  left: 2rpx;
+}
+.rczcr{
+  position: absolute;
+  top: -90rpx;
+  margin: 0;
+  color: #FF7536;
+  font-size: 24rpx;
+  font-weight: bold;
+  left: 2rpx;
+}
+.Bullets2 {
+  position: absolute;
+  left: -13%;
+  margin-left: -24rpx;
+  margin-top: -20rpx;
+  top: 50%;
+  height: 30rpx;
+  width: 30rpx;
+  background: linear-gradient(45deg, #003f86 30%, #c74641, #ff8c35);
+  border-radius: 40rpx;
+  border: 4rpx solid #fff;
+}
+.xz{
+  transform: rotate(180deg);
+}
+.title{
+  font-size: 26rpx;
+  font-weight: bold;
+}
+.zjname{
+  font-size: 22rpx;
+  color: #666;
+}
+.zj{
+  height: 30rpx;
+  line-height: 30rpx;
+}

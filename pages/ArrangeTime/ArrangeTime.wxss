@@ -1,0 +1,186 @@
+/* pages/ArrangeTime/ArrangeTime.wxss */
+page {
+  background-color: #f2f2f2;
+  padding-bottom: 120rpx;
+}
+
+.card {
+  background: #d2e8f7;
+  width: 94%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin: 30rpx auto 0 auto;
+  overflow: hidden;
+}
+
+.card image {
+  width: 200rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+
+.info {
+  padding-left: 0.1rem;
+  width: 60%;
+  float: left;
+  text-align: left;
+}
+
+.ysxm {
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 30rpx;
+}
+
+.ysxm text {
+  font-size: 14px;
+  vertical-align: text-bottom;
+  margin: 0 0 0 30rpx;
+  color: #999;
+}
+
+
+.yymc {
+  font-size: 14px;
+  color: #999;
+  margin-top: 20rpx;
+}
+
+.bumen {
+  font-size: 14px;
+  color: #2faafe;
+  margin-top: 10rpx;
+}
+
+.jianjie {
+  font-size: 14px;
+  color: #999;
+  padding-top: 20rpx;
+  line-height: 50rpx;
+  clear: both;
+}
+
+.haoyuanBox {
+  width: 94%;
+  margin: 20rpx auto 0 auto;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  color: #666;
+  border: 1px solid #fff;
+}
+
+.haoyuanTime {
+  color: #666;
+  display: none;
+  overflow: hidden;
+}
+
+.showHao {
+  border: 1px solid #b3d6f6
+}
+
+.showTime {
+  display: block;
+  margin-top: 20rpx;
+}
+
+.riqi {
+  padding: 0 20rpx;
+}
+
+.timeBox {
+  font-size: 20px;
+  padding: 10rpx 20rpx;
+  display: block;
+  float: left;
+}
+
+.selectTime {
+  color: #2faafe;
+}
+
+.yuyueBtn {
+  width: 96%;
+  margin: auto;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  background-color: #d1e6f5;
+  color: #fff;
+  position: fixed;
+  bottom: 10rpx;
+  left: 0;
+  right: 0;
+}
+
+.selectBtn {
+  background-color: #3ba1ef;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  background-color: #70afe5;
+}
+
+.utctime {
+  color: #ddd;
+}
+
+.addqinqing {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 560rpx;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 40rpx 40rpx 0 0;
+  border-top: 1px solid #70afe5;
+}
+.addcap{
+  text-align: center;
+  display: block;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.row {
+  border:1px solid #70afe5;
+  background-color: #fff;
+  width: 90%;
+  margin:30rpx auto 0 auto;
+  padding: 10rpx 20rpx;
+}
+
+.row text {
+  display: inline-block;
+  vertical-align: middle;
+}
+.row input{
+  width: 380rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20rpx;
+  padding:10rpx 0;
+}
+.addqqmeng{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.guanbi{
+  position: absolute;
+  right: 20rpx;
+  width: 60rpx;
+  top: 20rpx;
+}

@@ -1,0 +1,62 @@
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<view class="main">
+  <view class="captionBox">
+    <text class="linkman">{{fromname}}</text>
+  </view>
+  <scroll-view class="chatBox" scroll-y="true" scroll-into-view="{{scrollLast}}" style="height:calc(100% - {{moveHeight}}px)">
+    <view wx:for="{{chatList}}" wx:key="id" wx:for-item="item" class="chatBlock {{item.leftright==1?'myChat':'hisChat'}}" id="item{{index + 1}}">
+      <view class="time">{{m1.rq(item.addtime)}} {{m1.time(item.addtime)}}</view>
+      <view class="content" wx:if="{{item.typename==='文字'}}">
+        {{item.content}}
+      </view>
+      <view class="content" wx:if="{{item.typename==='音频'}}" bindtap="playAudio" data-audiopath="{{item.content}}">
+        <image src="https://wx.pmc-wz.com/materials/yinpin.svg" class="yinpinIcon" mode="widthFix"></image>
+        {{item.seconds}}"
+      </view>
+      <view class="content" wx:if="{{item.typename==='图片'}}">
+        <image src="https://wx.pmc-wz.com/hyb/ximages/{{item.content}}" class="uploadImage" mode="widthFix" bindtap="magnify" data-imgSrc="{{item.content}}"></image>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="inBox" style="height:{{enterHeight}}px">
+    <view wx:if="{{show}}" class="wordInputBox">
+      <view class="iconLeft">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/yuyin.svg" bindtap="changeInType"></image>
+      </view>
+      <input type="text" class="wordInput" model:value="{{sendInput}}" style="width:{{sendInput?'450rpx':'530rpx'}}" />
+    </view>
+    <view wx:if="{{!show}}" class="wordInputBox">
+      <view class="iconLeft">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/jianpan.svg" bindtap="changeInType"></image>
+      </view>
+      <button class="sendyuyin" bindtouchstart="beginRecord" bindtouchend="endRecord">按住 说话</button>
+    </view>
+    <view class="iconRight" wx:if="{{!sendInput}}">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/add.svg" bindtap="openTable" wx:if="{{state}}"></image>
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/remove.svg" bindtap="closeTable" wx:if="{{!state}}"></image>
+    </view>
+    <button class="sendBtn" wx:if="{{sendInput}}" bindtap="sendText">发送</button>
+    <view class="subjoinBox">
+        <view class="subjoinItem" bindtap="selectImg">
+          <image src="https://wx.pmc-wz.com/materials/uploadImg.svg" mode="widthFix"></image>
+          <text>相册</text>
+        </view>
+    </view>
+  </view>
+  <view class="magnifyBox" wx:if="{{magnifyImg}}" bindtap="closeMagn">
+      <image src="https://wx.pmc-wz.com/hyb/ximages/{{magnifyImg}}" mode="widthFix"></image>
+  </view>
+</view>

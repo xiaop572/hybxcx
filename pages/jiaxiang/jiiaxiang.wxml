@@ -1,0 +1,24 @@
+<!--pages/jiaxiang/jiiaxiang.wxml-->
+<view wx:for="{{xmList}}" wx:key="id" wx:for-index="idx" wx:for-item="item" class="item">
+  <text bindtap="showExplain" data-exp="{{item.pjmemo}}">{{item.mxid}}.{{item.pjname2}}</text>
+  <view class="select {{item.select?'active':''}}" bindtap="selectItem" data-index="{{idx}}">
+    <image src="https://wx.pmc-wz.com/materials/gou.svg" mode="widthFix" wx:if="{{item.select}}"></image>
+  </view>
+</view>
+<view class="footer">
+  <view class="line">
+    <text class="geren">原价：</text>
+    <text class="money">¥{{yuanjia}}</text>
+    <text class="geren">折扣价：</text>
+    <text class="money">¥{{sum}}</text>
+  </view>
+  <view class="buyBtn" bindtap="payment" data-item="总计:{{sum}}">提交</view>
+</view>
+<view class="explainMask" wx:if="{{explainShow}}" catchtap="close">
+  <image class="close" src="https://wx.pmc-wz.com/materials/cha.svg" mode="widthFix" catchtap="close"></image>
+  <view class="explainShow" catchtap="noclose">
+      <text>
+        {{explainContent}}
+      </text>
+  </view>
+</view>

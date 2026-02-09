@@ -1,0 +1,69 @@
+<!--pages/kaqrcode/kaqrcode.wxml-->
+<wxs module="m1">
+  var rq = function (r) {
+    var da = getDate(r)
+    var dataStr = da.getFullYear() + "-" + (da.getMonth() + 1) + "-" + da.getDate();
+    return dataStr;
+  }
+  module.exports.rq = rq;
+  var time = function (r) {
+    var da = getDate(r)
+
+    var dataStr = da.getHours() + ":" + (da.getMinutes() < 10 ? '0' + da.getMinutes() : da.getMinutes());
+    return dataStr;
+  }
+  module.exports.time = time;
+</wxs>
+<view class="tcmx">
+  <view>
+    <text class="orderno">订单号:{{options.orderno}}</text>
+  </view>
+  <text class="orderno">订单时间:{{m1.rq(options.paytime)}} {{m1.time(options.paytime)}}</text>
+  <view>
+    <text class="xinmin">购买人：{{options.xinmin}}</text>
+  </view>
+  <view>
+    <text class="goodsname">{{options.goodsname}}</text>
+  </view>
+  <view wx:if="{{options.spes && options.spes!=='null'}}" class="spec-info">
+    <text class="spec-label">规格：</text>
+    <text class="spec-value">{{options.spes}}</text>
+  </view>
+  <view><text wx:if="{{options.nopay>0}}">预约金：</text><text class="money">¥{{options.price}}</text></view>
+  <view wx:if="{{options.nopay>0}}">到院支付金额：<text class="money">¥{{options.nopay}}</text></view>
+  <view class="refund" bindtap="refund" wx:if="{{(deli===0 || deli===30) && options.iftui==0}}">退款</view>
+  <view class="inrefund" wx:if="{{deli===10}}">退款中</view>
+</view>
+<view class='navBox'>
+  <view class='titleBox' bindtap='titleClick' data-idx='0'>
+    <text class="{{0 == currentIndex ? 'fontColorBox' : ''}}">未使用</text>
+    <hr class="{{0 == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+  </view>
+  <view class='titleBox' bindtap='titleClick' data-idx='1'>
+    <text class="{{1 == currentIndex ? 'fontColorBox' : ''}}">已使用</text>
+    <hr class="{{1 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+  </view>
+</view>
+<swiper class='swiperTtemBox' bindchange='pagechange' current='{{currentIndex}}'>
+  <swiper-item class='swiperTtemBox'>
+    <view wx:for="{{kalist}}" wx:for-item="it" wx:key="idx" class="kaItem" wx:if="{{!it.vtime}}">
+      <view class="xiangitem">
+        <image src="https://wx.pmc-wz.com/materials/dot.svg" mode="widthFix"></image>{{it.goodsname}}
+      </view>
+      <image src="{{it.qrImgSrc}}" mode="widthFix" class="codeImg"></image>
+      <view class="xqview" wx:if="{{it.info}}">
+        <text class="xqcap">详情</text>
+        <text class="xq">
+          {{it.info}}
+        </text>
+      </view>
+    </view>
+  </swiper-item>
+  <swiper-item class='swiperTtemBox'>
+    <view wx:for="{{wanList}}" wx:for-item="it" wx:key="idx" class="kaItem1">
+      <view class="xiangitem1">
+        <image src="https://wx.pmc-wz.com/materials/dot.svg" mode="widthFix"></image>{{it.goodsname}}
+      </view>
+    </view>
+  </swiper-item>
+</swiper>

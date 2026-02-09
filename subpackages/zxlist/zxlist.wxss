@@ -1,0 +1,81 @@
+page{
+  background-color: #f2f2f2;
+}
+.kqBox{
+  background-color: #fff;
+}
+/* subpackages/zxlist/zxlist.wxss */.navBox {
+  /* 顶部tab盒子样式 */
+  width: 90%;
+  margin: auto;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 5%;
+  position: relative;
+}
+
+.navBox view {
+  /* 最后一个tab标题的样式 */
+  vertical-align: middle;
+}
+
+.navBox view:first-child {
+  /* 最后一个tab标题的样式 */
+  padding-left: 0;
+}
+
+.titleBox {
+  /* 未选中文字的样式 */
+  color: #333;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: 3rpx;
+  padding-left: 40rpx;
+}
+
+.lineBox,
+.notLineBox {
+  /* 选中及未选中底线共同样式 */
+  width: 32rpx;
+  height: 8rpx;
+  color: #2c68fa;
+}
+
+.fontColorBox,
+.fontColorBox1 {
+  /* 文字默认颜色 */
+  color: #2c68fa;
+  font-weight: 600;
+}
+
+.lineBox {
+  /* 选中底线样式 */
+  background: #2c68fa;
+  margin-top: 5rpx;
+  border-radius: 4rpx;
+}
+.gang{
+  vertical-align: middle;
+  margin: 0 40rpx 0 40rpx;
+  position: relative;
+  top: -6rpx;
+  color: #999;
+}
+.zxlist{
+  width: 90%;
+  margin:40rpx auto 0 auto;
+  background-color: #fff;
+}
+.zxlist image{
+  width: 100%;
+}
+.zxlist text{
+  display: block;
+  width: 100%;
+  margin: auto;
+  padding:30rpx 30rpx;
+}

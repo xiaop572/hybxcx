@@ -1,0 +1,7 @@
+<!--huodongpage/lhb/lhb.wxml-->
+<view wx:if="{{ischaoshi}}">
+  二维码已过期，请刷新。
+</view>
+<view wx:if="{{!ischaoshi}}">
+  <view bind:tap="qhb" style="margin: 40px auto;text-align: center;">抢红包</view>
+</view>

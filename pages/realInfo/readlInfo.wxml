@@ -1,0 +1,36 @@
+<!--pages/realInfo/readlInfo.wxml-->
+<view>
+  <text class="streamer">请填写真实身份信息</text>
+  <label class="inputLine">
+    <text>姓名</text>
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input" placeholder="真实姓名" model:value="{{realname}}"/>
+    </view>
+  </label>
+  <label class="inputLine">
+    <text>手机号码</text>
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input" placeholder="手机号码" model:value="{{mobile}}" confirm-hold="true"/>
+    </view>
+  </label>
+  <label class="inputLine">
+    <text>身份证号码或护照号(选填)</text>
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input" placeholder="身份证号码" model:value="{{cardno}}" confirm-hold="true"/>
+    </view>
+  </label>
+  
+
+  
+  <button bindtap="submit" type="primary">提交</button>
+    <!-- 隐私协议勾选 -->
+    <view class="privacy-agreement">
+    <checkbox-group bindchange="onPrivacyChange">
+      <label class="privacy-checkbox">
+        <checkbox value="agree" checked="{{privacyAgreed}}" />
+        <text class="privacy-text">我已阅读并同意</text>
+        <text class="yinsi" bindtap="ryinsi">《用户隐私协议》</text>
+      </label>
+    </checkbox-group>
+  </view>
+</view>

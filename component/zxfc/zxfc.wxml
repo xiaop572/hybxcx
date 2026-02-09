@@ -1,0 +1,18 @@
+<!--component/zxfc/zxfc.wxml-->
+<view class="fc {{ssstatus?'active':''}}">
+  <view class="shousuo" bind:tap="changess">
+    <image src="https://wx.pmc-wz.com/materials/baijiantou.png" mode="widthFix" class=" {{ssstatus?'imgro':''}}"/>
+  </view>
+  <view class="fcline ydjd" bind:tap="rjd">
+    <image src="https://wx.pmc-wz.com/materials/zxdh/jdicon.png" mode="widthFix" />
+    <text>预定酒店</text>
+  </view>
+  <view class="fcline gmcq" bind:tap="zanwu">
+    <image src="https://wx.pmc-wz.com/materials/zxdh/gmicon.png" mode="widthFix" />
+    <text>购买餐券</text>
+  </view>
+  <view class="fcline fhsy" bind:tap="fhsy">
+    <image src="https://wx.pmc-wz.com/materials/zxdh/homeicon.png" mode="widthFix" />
+    <text>返回首页</text>
+  </view>
+</view>

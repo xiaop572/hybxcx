@@ -1,0 +1,314 @@
+/* pages/zzinfo/zzinfo.wxss */
+body {
+  height: 100%;
+}
+
+page {
+  height: 100%;
+}
+
+.main {
+  height: 100%;
+  background: url("https://wx.pmc-wz.com/materials/infoBg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.logo {
+  width: 300rpx;
+  margin: 40rpx;
+}
+
+.youzhi {
+  width: 60%;
+  display: block;
+  position: absolute;
+  top: 37%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.shengming {
+  width: 60%;
+  display: block;
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.title {
+  font-size: 26rpx;
+  letter-spacing: 5rpx;
+  width: 60%;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 47%;
+  margin: auto;
+  background: url("https://wx.pmc-wz.com/materials/tixingBg.png") no-repeat;
+  background-size: 100% auto;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #0b71d0;
+  background-position: center;
+}
+
+.containers {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 61%;
+  margin: auto;
+  padding-bottom: 40rpx;
+}
+
+.inTxt {
+  background-color: #fff;
+  width: 80%;
+  border-radius: 10rpx;
+  margin: 40rpx auto;
+  overflow: hidden;
+  border: 1px solid #0b71d0;
+}
+
+.inTxt1 {
+  background-color: #fff;
+  width: 80%;
+  border-radius: 10rpx;
+  margin: 40rpx auto;
+  overflow: hidden;
+  padding-left: 170rpx;
+  box-sizing: border-box;
+  border: 1px solid #0b71d0;
+}
+
+.caption {
+  position: absolute;
+  height: 40rpx;
+  line-height: 40rpx;
+  background-color: rgb(14, 113, 206);
+  border-radius: 10rpx;
+  padding: 5rpx 20rpx 5rpx 20rpx;
+  font-size: 26rpx;
+  color: #fff;
+  width: 120rpx;
+  text-align: justify;
+}
+
+.caption1 {
+  position: absolute;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: rgb(14, 113, 206);
+  border-radius: 10rpx;
+  padding: 0 20rpx 0 20rpx;
+  font-size: 24rpx;
+  color: #fff;
+  width: 120rpx;
+  text-align: justify;
+  left: 10%;
+  box-sizing: border-box;
+}
+
+.caption i {
+  display: inline-block;
+  width: 100%;
+}
+
+.caption1 i {
+  display: inline-block;
+  width: 100%;
+}
+
+.caption2 {
+  position: absolute;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: rgb(14, 113, 206);
+  border-radius: 10rpx;
+  padding: 0 20rpx 0 20rpx;
+  font-size: 24rpx;
+  color: #fff;
+  width: 150rpx;
+  text-align: justify;
+  left: 10%;
+  box-sizing: border-box;
+}
+
+.caption2 i {
+  display: inline-block;
+  width: 100%;
+}
+
+.int {
+  margin-top: 40rpx;
+  padding: 30rpx;
+  display: block;
+  font-size: 24rpx;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.int1 {
+  display: block;
+  height: 60rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.textarea {
+  height: 80rpx;
+  height: 150rpx;
+}
+
+.submitBtn {
+  color: #fff;
+  background-color: rgb(15, 111, 209);
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  letter-spacing: 10rpx;
+  border-radius: 10rpx;
+  margin: auto;
+  font-size: 26rpx;
+}
+
+.hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 57%;
+  margin: auto;
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #0b71d0;
+  letter-spacing: 3rpx;
+}
+
+.timebox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 1px solid #333;
+  background-color: #fff;
+  z-index: 8888;
+}
+
+.kytimebox {
+  width: 80%;
+  height: 80%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  z-index: 9999;
+}
+
+
+.riqi {
+  width: 14.25%;
+  height: 100rpx;
+  display: inline-block;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  box-sizing: border-box;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.ri {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 26rpx;
+}
+
+.zhou {
+  display: block;
+  margin-top: 0rpx;
+  font-size: 26rpx;
+}
+
+.active {
+  background-color: #0b71d0;
+  color: #fff;
+}
+
+.kydate {
+  display: inline-block;
+  padding: 10rpx 40rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: #999;
+  border: 1px solid #999;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  background: linear-gradient(to bottom, #fff, #eee);
+}
+
+.kydate:nth-child(3n+2) {
+  margin: 0 20rpx;
+}
+
+.kybox {
+  text-align: center;
+}
+
+.kyte1 {
+  display: block;
+}
+
+.kyte2 {
+  display: block;
+  color: #f1843a;
+  margin-top: 10rpx;
+}
+.kytop{
+  height: 60rpx;
+  background:#64a7e6;
+  text-align: right;
+}
+.kytop{
+  height: 60rpx;
+  background:#64a7e6;
+  text-align: right;
+}
+.kytop text{
+  line-height: 60rpx;
+  margin-right: 20rpx;
+}
+.kytimelist{
+  border-bottom: 1px solid #ccc;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.kytimelist text{
+  width: 33.3%;
+  display: inline-block;
+  text-align: center;
+}
+.kytimelist:nth-child(2n+1){
+  background-color: #ddd;
+}
+.yu{
+  color: red;
+}
+.kytimelistbox{
+  overflow-y: scroll;
+  height: calc(100% - 110rpx);
+}

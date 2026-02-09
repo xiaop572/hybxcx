@@ -1,0 +1,21 @@
+<!--亲情列表 -->
+<view class="main">
+  <view class="header">
+    <view>当前就诊人：<text>{{currentBr.brxm}}</text></view>
+  </view>
+  <view class="personList {{item.iftop==1?'active':''}}" wx:for="{{personlist}}" wx:for-item="item" wx:key="idx">
+    <view class="canper"data-brxm="{{item.brxm}}" data-yddh="{{item.yddh}}" bind:tap="cancel">X</view>
+    <image src="https://wx.pmc-wz.com/materials/jztx.png" mode="widthFix" class="jztx" />
+    <view class="info">
+      <text style="display: block;">{{item.brxm}}</text>
+      <text>{{item.sfzh}}</text>
+    </view>
+    <view>
+      <image src="https://wx.pmc-wz.com/materials/jzactive.png" mode="widthFix" class="acrio" wx:if="{{item.iftop===1}}" />
+      <image src="https://wx.pmc-wz.com/materials/jzel.png" mode="widthFix" class="acrio" wx:if="{{item.iftop===0}}" data-brxm="{{item.brxm}}" data-yddh="{{item.yddh}}" bind:tap="settopyy" />
+    </view>
+  </view>
+  <view class="addjzr" bind:tap="addjzr">
+    添加新就诊人
+  </view>
+</view>

@@ -1,0 +1,77 @@
+<!--huodongpage/zbacbf/zbacbf.wxml-->
+<view class="container1">
+  <!-- 顶部背景和标题 -->
+  <image src="https://wx.pmc-wz.com/materials/zbabanner.jpg" mode="widthFix" class="bg"/>
+  
+  <!-- 比赛信息卡片 -->
+  <view class="match-card">
+    <view class="match-header">
+      <view class="team-item">
+        <image class="team-logo"  bindtap="selectTeam" data-team="温州" src="https://wx.pmc-wz.com/materials/wzduibiao.png" mode="aspectFit"></image>
+        <image class="team-name-btn" src="{{selectedTeam === '温州' ? 'https://wx.pmc-wz.com/materials/zbaytp.png' : 'https://wx.pmc-wz.com/materials/wzbtn.png'}}" mode="widthFix" bindtap="selectTeam" data-team="温州"></image>
+      </view>
+      
+      <view class="match-center">
+        <image class="tag-image" src="https://wx.pmc-wz.com/materials/csfzj.png" mode="widthFix"></image>
+      </view>
+      
+      <view class="team-item">
+        <image class="team-logo"  bindtap="selectTeam" data-team="丽水" src="https://wx.pmc-wz.com/materials/lsduibiao.png" mode="aspectFit"></image>
+        <image class="team-name-btn" src="{{selectedTeam === '丽水' ? 'https://wx.pmc-wz.com/materials/zbaytp.png' : 'https://wx.pmc-wz.com/materials/lsbtn.png'}}" mode="widthFix" bindtap="selectTeam" data-team="丽水"></image>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 猜比分卡片 -->
+  <view class="score-card">
+    <view class="score-row">
+      <!-- 左边：温州 -->
+      <view class="score-left">
+        <image class="team-logo-small" src="https://wx.pmc-wz.com/materials/wzduibiao.png" mode="aspectFit"></image>
+        <input class="score-team-input" type="number" placeholder="输入比分" value="{{winScore}}" bindinput="onWinScoreInput" />
+      </view>
+      
+      <!-- 中间：猜比分图片 -->
+      <image class="score-title-img" src="https://wx.pmc-wz.com/materials/cbf.png" mode="widthFix"></image>
+      
+      <!-- 右边：丽水 -->
+      <view class="score-right">
+        <input class="score-team-input" type="number" placeholder="输入比分" value="{{loseScore}}" bindinput="onLoseScoreInput" />
+        <image class="team-logo-small" src="https://wx.pmc-wz.com/materials/lsduibiao.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 截止时间 -->
+  <view class="deadline">
+    竞猜截止时间：2026年1月24日 19:29 (开赛前)
+  </view>
+  
+  <!-- 提交按钮 -->
+  <button class="submit-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">确认提交</button>
+  
+  <!-- 规则说明 -->
+  <view class="rules-card">
+    <view class="rules-title">竞猜规则及奖品</view>
+    
+    <view class="rule-item">
+      <view class="rule-label">猜中胜负</view>
+      <view class="rule-content">猜对输赢，即可获得价值298元的医用面膜一盒。</view>
+    </view>
+    
+    <view class="rule-item">
+      <view class="rule-label">猜中比分</view>
+      <view class="rule-content">猜对输赢且完全猜中比分，即可获得健康美礼包。</view>
+      <view class="rule-detail">（价值2880元运动防护体检套餐/价值21987元整形热血迎新卡/价值5190元口腔护理年卡，三选一）。</view>
+    </view>
+    
+    <view class="tips-section">
+      <view class="rules-title">温馨提示</view>
+      <view class="tip-item">• 竞猜截止时间：2026年1月24日 19:29（开赛前）</view>
+      <view class="tip-item">• 每人仅限参与一次，以首次提交竞猜结果为准,医用面膜与健康美礼包不可同享</view>
+      <view class="tip-item">• 奖品将于赛后3个工作日内以电子券的形式发放到竞猜者慧医宝账户</view>
+      <view class="tip-item">• 和平国际员工不参与兑奖</view>
+    </view>
+  </view>
+  <image src="https://wx.pmc-wz.com/materials/zbabottom.png" mode="widthFix" class="bg"/>
+</view>

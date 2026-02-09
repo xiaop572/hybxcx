@@ -1,0 +1,33 @@
+/* subpackagesB/jdyd/jdyd.wxss */
+page{
+  background-color: #dadada
+}
+.jdyd{
+  width: 100%;
+  display: block
+}
+.jdzx{
+  width: 92%;
+  display: block;
+  margin: auto;
+  margin-top: 30rpx;
+}
+.jdlist{
+  width: 92%;
+  margin: auto;
+  margin-top: 30rpx;
+}
+.jdcap{
+  font-weight: bold;
+  display: block;
+  font-size: 28rpx;
+}
+.jieshao{
+  font-size: 26rpx;
+  display: block;
+  color: #999;
+}
+.tel{
+  font-size:26rpx;
+  color: rgb(18, 57, 114)
+}

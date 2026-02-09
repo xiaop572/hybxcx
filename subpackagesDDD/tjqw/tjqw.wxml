@@ -1,0 +1,10 @@
+<!--subpackagesDDD/tjqw/tjqw.wxml-->
+<image class="banner-img" src="https://wx.pmc-wz.com/materials/hq-tjqwbg.png" mode="widthFix"></image>
+<view class="tjqwmain">
+    <view class="qwcode">
+      <text>长按识别添加专属顾问</text>
+      <image src="https://wx.pmc-wz.com/materials/cpqw.png" mode="widthFix" class="cpqw" show-menu-by-longpress="true"/>
+      <image src="https://wx.pmc-wz.com/materials/hqshouzhi.png" mode="widthFix" class="hqshouzhi"/>
+      <image src="https://wx.pmc-wz.com/materials/hq-qyzxbtn.png" mode="widthFix" class="qyzxbtn" bind:tap="rqyzx"/>
+    </view>
+</view>

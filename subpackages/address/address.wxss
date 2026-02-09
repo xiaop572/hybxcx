@@ -1,0 +1,45 @@
+/* subpackages/address/address.wxss */
+.inline {
+  margin-top: 20rpx;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20rpx;
+  position: relative;
+}
+
+.inline label {
+  width: 170rpx;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left:20rpx;
+}
+
+.inline input,
+.pick {
+  width: calc(100% - 300rpx);
+  display: inline-block;
+  vertical-align: middle;
+}
+.inline text{
+  color: red;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.btn{
+  margin-top: 60rpx;
+}
+.capp{
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+.sys{
+  width: 50rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 0rpx;
+  z-index: 999;
+  background-color: #fff;
+}

@@ -1,0 +1,23 @@
+<!--subpackages/kqzt/kqzt.wxml-->
+<image mode="widthFix" src="https://wx.pmc-wz.com/materials/zhongzhiBanner.png" class="topBan"></image>
+<view class="main">
+  <image mode="widthFix" src="https://wx.pmc-wz.com/materials/zhongzhiMain.png" class="mainBg"></image>
+  <view class="proList">
+    <view class="pro">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/zz3800.png" bindtap="rpro" data-id="637"></image>
+    </view>
+    <view class="pro" style="position: relative; right: 30rpx;top: 0rpx;">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/zz5500.png" bindtap="rpro" data-id="532"></image>
+    </view>
+    <view class="pro" style="position: relative; right: -20rpx;top: -30rpx;">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/zz6800.png" bindtap="rpro" data-id="533"></image>
+    </view>
+    <!-- <view class="pro">
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/zzybg.png"></image>
+      <view class="itemList">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/nuobeier.png" bindtap="rpro" data-id="333"></image>
+      </view>
+      <image mode="widthFix" src="https://wx.pmc-wz.com/materials/kqli.png" class="kqli2"></image>
+    </view> -->
+  </view>
+</view>

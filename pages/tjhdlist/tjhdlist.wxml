@@ -1,0 +1,13 @@
+<!--pages/tjhdList/tjhdlist.wxml-->
+<view>
+  <view class="list">
+    <image src="https://wx.pmc-wz.com/materials/tjhdBg.png" mode="widthFix" class="tjhdbg"></image>
+    <view class="listBtn">
+      <image src="https://wx.pmc-wz.com/materials/999.png" mode="widthFix" bindtap="rhd490"></image>
+      <image src="https://wx.pmc-wz.com/materials/1668.png" mode="widthFix" bindtap="rhd492"></image>
+      <image src="https://wx.pmc-wz.com/materials/2668.png" mode="widthFix" bindtap="rhd493"></image>
+      <image src="https://wx.pmc-wz.com/materials/3999.png" mode="widthFix" bindtap="rhd494"></image>
+      <image src="https://wx.pmc-wz.com/materials/6999.png" mode="widthFix" bindtap="rhd495"></image>
+    </view>
+  </view>
+</view>

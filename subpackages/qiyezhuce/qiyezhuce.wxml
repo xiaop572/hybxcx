@@ -1,0 +1,18 @@
+<!--异业注册-->
+<view class="main">
+  <image src="https://wx.pmc-wz.com/materials/yiyeZcBg.png" mode="widthFix" class="bg"></image>
+  <view class="subBox">
+      <input type="text" placeholder="请输入姓名" class="input" model:value="{{xinmin}}" disabled="{{state}}"/>
+      <input type="number" placeholder="请输入手机号" class="input" model:value="{{phone}}" disabled="{{state}}"/>
+      <input type="number" placeholder="请输入身份证" class="input" model:value="{{cardno}}" disabled="{{state}}"/>
+      <view class="input">
+      <input type="text" model:value="{{checkcode}}" placeholder="请输入验证码" class="yzm" />
+      <view class="getcode" bindtap="getcode" wx:if="{{num<=0}}">获取校验码</view>
+      <view class="getcode"  wx:if="{{num>0}}">{{num}}</view>
+    </view>
+      <input type="text" placeholder="请输入邀请码" class="input" model:value="{{parentcode}}" disabled="false"/>
+      <view class="subBtn" bindtap="joinyiye" wx:if="{{!state}}">加入达人</view>
+      <view class="subBtn" wx:if="{{state}}">帐号审核中...</view>
+  </view>
+</view>
+ 

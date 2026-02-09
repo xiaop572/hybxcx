@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "agent-ui":"/subpackagesB/components/agent-ui/index"
+  },
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,26 @@
+<image src="https://wx.pmc-wz.com/materials/qkh/home2top.png" mode="widthFix" class="page" />
+<view class="row">
+  <text>姓名：</text>
+  <input type="text" model:value="{{xinmin}}" />
+</view>
+<view class="row">
+  <text>单位：</text>
+  <input type="text" model:value="{{corp}}" />
+</view>
+<view class="row">
+  <text>电话：</text>
+  <input type="number" model:value="{{mobile}}" />
+</view>
+<view class="row">
+  <text>专业：</text>
+  <input type="text" model:value="{{ptitle}}" placeholder="例如外科或皮肤科" />
+</view>
+<view class="row">
+  <text>营别：</text>
+  <input type="text" model:value="{{position}}" placeholder="例如力字营" />
+</view>
+<view class="row">
+  <text>工作地点：</text>
+  <input type="text" model:value="{{memo}}" />
+</view>
+<view class="nextBtn" bindtap="next">提交</view>

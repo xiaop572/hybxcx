@@ -1,0 +1,24 @@
+<!--subpackages/jifenzhongxin/jifenzhongxin.wxml-->
+<view class="header">
+  <view class="jifen"><text class="jnum">{{alljf}}</text><text bindtap="rjfmx">可用积分></text></view>
+</view>
+<image mode="widthFix" src="https://wx.pmc-wz.com/materials/shou.png" class="shou"></image>
+<image mode="widthFix" src="https://wx.pmc-wz.com/materials/jifenka.png" class="jifenka" bindtap="rjfdh"></image>
+<view class="ljfCaption">领积分</view>
+<view class="qdlist">
+  <view class="qditem">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/qdicon.png" class="qdicon"></image>
+    <view class="qdxq">
+      <text class="xqCaption">签到</text>
+      <text class="xqh">签到1次可获取1积分</text>
+    </view>
+    <view class="qdbtn" bindtap="rqiaodao">去签到</view>
+  </view>
+</view>
+<view class="jplist" wx:for="{{jfspList}}" wx:for-item="item" wx:key="idx">
+  <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="jpImg"></image>
+  <text class="jpcaption">{{item.pictitle}}</text>
+  <text class="jiazhi">价值¥{{item.pointsDeduction}}</text>
+  <view class="dhjifen"><text>{{item.paypoint}}</text>积分</view>
+  <view class="dhBtn" data-id="{{item.id}}"  bindtap="rjfxq">立即兑</view>
+</view>

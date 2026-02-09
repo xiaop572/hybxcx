@@ -1,0 +1,81 @@
+<!--pages/jiesuan/jiesuan.wxml-->
+
+<view class="tlxr">
+  <view class="tishi">
+    <text>购买默认为实名姓名，也可修改</text>
+  </view>
+  <view class="informmation">
+    <label for="js_input1" class="weui-cell weui-cell_active">
+      <view class="weui-cell__hd"><text class="weui-label">姓名</text></view>
+      <view class="weui-cell__bd">
+        <input id="js_input1" class="weui-input" placeholder="填写本人姓名" model:value="{{name}}" />
+      </view>
+    </label>
+    <label for="js_input1" class="weui-cell weui-cell_active">
+      <view class="weui-cell__hd"><text class="weui-label">手机号</text></view>
+      <view class="weui-cell__bd">
+        <input id="js_input1" class="weui-input" placeholder="手机号" rules="[bytelength:11]" type="number" model:value="{{phone}}" />
+      </view>
+    </label>
+  </view>
+</view>
+<view class="proinfo">
+  <view class="hyb">
+    <image src="https://wx.pmc-wz.com/materials/logo.png" mode="widthFix" class="logo" />
+    <text>慧医宝</text>
+  </view>
+  <view class="pro">
+    <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="proimg"></image>
+    <text class="procaption">{{item.pictitle}}</text>
+    <view class="spec-info" wx:if="{{item.selSpec}}">
+      <text class="spec-label">已选规格：</text>
+      <text class="spec-value">{{item.selSpec}}</text>
+    </view>
+    <view class="price-info" wx:if="{{hasAvailableCoupons}}">
+      <view class="price-row">
+        <text class="price-label">商品总价</text>
+        <text class="price-value">¥{{item.price}}</text>
+      </view>
+      <view class="price-row">
+        <text class="price-label">优惠券</text>
+        <text class="price-value coupon-discount">-¥{{availableCoupons[0].DiscountValue}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="dingjin" wx:if="{{item.depositflag==1}}">
+  <text class="dspje">商品金额</text>
+  <text class="totalmoney">¥{{item.totalmoney}}</text>
+  <view class="bcje">本次需支付预约金<text>¥{{hasAvailableCoupons ? finalPrice : item.price}}</text> 到院付¥{{item.remainmoney}}</view>
+</view>
+<!-- <view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">项目内容</view>
+  <view class="weui-panel__bd">
+    <view role="option" class="weui-media-box weui-media-box_text">
+      <strong class="weui-media-box__title">{{item.pictitle}}</strong>
+    </view>
+    <view role="option" class="weui-media-box weui-media-box_text" wx:for="{{item.list}}" wx:for-item="it" wx:key="idx">
+      <strong class="weui-media-box__title padleft40">{{it.goodsname}}</strong>
+    </view>
+  </view>
+</view> -->
+<view class="wxzf">
+  <view class="wxzfleft">
+    <image src="https://wx.pmc-wz.com/materials/wxzfIcon.png" mode="widthFix" />
+    <text>微信支付</text>
+  </view>
+  <radio value="" checked="true" class="wxzfright" color="#FF5C01" />
+</view>
+<view class="liuyanBox">
+  <text>买家留言</text>
+  <input type="text" placeholder="留言建议提前协商(250字以内)" model:value="{{summary}}" />
+</view>
+<view class="footer">
+  <text class="money">应付：<text>¥{{hasAvailableCoupons ? finalPrice : item.price*num}}</text></text>
+  <view class="shuliang" wx:if="{{item.depositflag!==1}}">
+    <view class="numbtn" bind:tap="numjian">-</view>
+    <text class="num">{{num}}</text>
+    <view class="numbtn" bind:tap="numjia">+</view>
+  </view>
+  <view class="buyBtn" bindtap="payment" data-item="总计:{{item}}">去支付</view>
+</view>

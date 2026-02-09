@@ -1,0 +1,102 @@
+/* pages/yuyue/yuyue.wxss */
+page{
+  height: 100%;
+  background-color: #f2f2f2;
+  position: fixed;
+}
+.yuyueItem {
+  border-radius: 10rpx;
+  box-shadow: 0 10rpx 10rpx 5rpx #eee;
+  margin-bottom: 40rpx;
+  background-color: #fff;
+}
+
+.yuyueTop {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding:0 20rpx;
+  border-bottom: 1px solid #eee;
+}
+.yuyueTop .caption{
+  color:#999;
+}
+.yuyueTop .cont{
+  color:#333;
+  margin-right: 20rpx;
+  margin-left: 10rpx;
+}
+.yuyueFooter{
+  padding: 30rpx 20rpx;
+}
+.yuyueFooter .time{
+  color: #666;
+}
+.yuyueFooter text{
+  display: block;
+  margin-bottom: 10rpx;
+}
+.cancel{
+  border:1px solid #7ebef9;
+  color: #7ebef9;
+  font-weight: normal;
+  border-radius: 40rpx;
+  width: 80%;
+  margin:40rpx 0 10rpx 0;
+}
+.navBox {
+  /* 顶部tab盒子样式 */
+  width: 90%;
+  margin: auto;
+  height: 108rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 5% 30rpx 5%;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+.navBox view{
+  /* 最后一个tab标题的样式 */
+  padding-left: 10%;
+}
+
+.navBox view:first-child{
+  /* 最后一个tab标题的样式 */
+  padding-left: 0;
+}
+.titleBox {
+  /* 未选中文字的样式 */
+  color: #666666;
+  font-size: 36rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: 3rpx;
+}
+.lineBox,
+.notLineBox {
+  /* 选中及未选中底线共同样式 */
+  width: 32rpx;
+  height: 8rpx;
+}
+.fontColorBox,
+.fontColorBox1 {
+  /* 文字默认颜色 */
+  color: black;
+  font-size: 40rpx;
+  font-weight: 500;
+}
+.lineBox {
+  /* 选中底线样式 */
+  background: rgb(43, 44, 45);
+  margin-top: 16rpx;
+  border-radius: 4rpx;
+}
+.swiperTtemBox {
+  /* 底部内容样式 */
+  height: calc(100% - 100rpx);
+  overflow: scroll;
+  background: white;
+  -webkit-overflow-scrolling: touch;
+}

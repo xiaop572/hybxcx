@@ -1,0 +1,58 @@
+<!--subpackages/wenjuan/wenjuan.wxml-->
+<text class="wenjuancap">“改善患者就医体验”问题反馈表</text>
+<view class="ibox">
+  <view class="iboxcap"><text>*</text>1.反馈科室：</view>
+  <input type="text" model:value="{{keshi}}" />
+</view>
+<view class="ibox">
+  <view class="iboxcap"><text>*</text>2.填写人：</view>
+  <input type="text" model:value="{{xinmin}}" />
+</view>
+<view class="ibox">
+  <view><text>*</text>3.围绕“改善患者就医体验主题年”活动，您觉得本科室或其他科室存在哪些问题及不足之处？要如何改进？</view>
+  <!-- <textarea value="" model:value="{{totalwenti}}" /> -->
+</view>
+<view class="ibox">
+  <view><text>*</text>A.本科室医院服务流程、就医体验存在的问题及不足之处?</view>
+  <view class="sel">
+    <view class="caption"><text>*</text>问题类型:</view>
+    <view class="section">
+      <picker value="{{index}}" range="{{wentitype}}" bindchange="bindtypechange">
+        <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!benkstype}}">请选择</view>
+        <view class="picker">
+          {{benkstype}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <textarea  model:value="{{benkswenti}}" maxlength="-1"/>
+</view>
+<view class="ibox">
+  <view><text>*</text>B.其他科室医院服务流程、就医体验存在的问题及不足之处?</view>
+  <view class="sel">
+    <view class="caption"><text>*</text>问题类型:</view>
+    <view class="section">
+      <picker value="{{index}}" range="{{wentitype}}" bindchange="bindtype2change">
+        <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!qitakstype}}">请选择</view>
+        <view class="picker">
+          {{qitakstype}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <textarea  model:value="{{qitakswenti}}" maxlength="-1" />
+</view>
+<view class="ibox">
+  <view  class="iboxcap"><text>*</text>6.期望解决时间</view>
+  <picker value="{{index}}" mode="date" bindchange="binddatechange" class="jjsj">
+    <view style="height: 70rpx;line-height: 70rpx;" wx:if="{{!date}}">请选择</view>
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+</view>
+<view class="ibox">
+  <view><text> </text>7.其他</view>
+  <textarea  model:value="{{other }}" maxlength="-1" />
+</view>
+<button bindtap="submit" type="primary" class="tj">提交</button>

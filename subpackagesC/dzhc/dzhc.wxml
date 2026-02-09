@@ -1,0 +1,66 @@
+<!-- 电子书翻页组件 -->
+<view class="ebook-container">
+  <!-- 加载状态 -->
+  <view class="loading-overlay" wx:if="{{isLoading}}">
+    <view class="loading-content">
+      <view class="loading-spinner"></view>
+      <text class="loading-text">正在加载手册... {{loadedCount}}/{{totalPages}}</text>
+    </view>
+  </view>
+
+  <!-- 单页电子书容器 -->
+  <view class="single-page-wrapper" wx:if="{{!isLoading}}">
+    <!-- 页面容器 -->
+    <view class="page-container">
+      <!-- 当前页 -->
+      <view class="current-page {{currentPageClass}}">
+        <view class="page-content">
+          <image class="page-image" 
+                 src="{{imageUrls[currentPage]}}" 
+                 mode="widthFix"
+                 bindload="onImageLoad"
+                 binderror="onImageError"
+                 lazy-load="{{false}}"/>
+        </view>
+        
+        <!-- 翻页效果层（阴影和高光已删除） -->
+        <view class="flip-effect">
+        </view>
+      </view>
+      
+      <!-- 下一页预览 -->
+      <view class="next-page {{nextPageClass}}" wx:if="{{nextPreviewPage < totalPages && nextPreviewPage >= 0 && isFlipping}}">
+        <view class="page-content">
+          <image class="page-image" 
+                 src="{{imageUrls[nextPreviewPage]}}" 
+                 mode="widthFix"
+                 lazy-load="{{true}}"/>
+        </view>
+      </view>
+      
+      <!-- 上一页预览 -->
+      <view class="prev-page {{prevPageClass}}" wx:if="{{prevPreviewPage >= 0 && prevPreviewPage < totalPages && isFlipping}}">
+        <view class="page-content">
+          <image class="page-image" 
+                 src="{{imageUrls[prevPreviewPage]}}" 
+                 mode="widthFix"
+                 lazy-load="{{true}}"/>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 触摸交互区域 -->
+    <view class="touch-area"
+          bindtouchstart="onTouchStart"
+          bindtouchmove="onTouchMove"
+          bindtouchend="onTouchEnd">
+    </view>
+    
+    <!-- 页码显示 -->
+    <view class="page-number" wx:if="{{!isFlipping}}">
+      {{currentPage + 1}} / {{totalPages}}
+    </view>
+  </view>
+
+  <!-- 页面指示器和控制按钮已隐藏，实现全屏图片显示 -->
+</view>

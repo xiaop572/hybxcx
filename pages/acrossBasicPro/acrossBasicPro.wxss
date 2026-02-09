@@ -1,0 +1,132 @@
+/* pages/basicPro/basicPro.wxss */
+page{
+  background-color: #f8f8f8;
+}
+.search {
+  background: #fff;
+  height: 80rpx;
+  width: 90%;
+  margin: 20rpx auto 0 auto;
+  border-radius: 10rpx;
+  overflow: hidden;
+  line-height: 80rpx;
+}
+
+.search .searchIcon {
+  width: 40rpx;
+  margin-left: 40rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+}
+
+.search text {
+  color: #b2b2b3;
+}
+.sort{
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  padding: 30rpx 0;
+  color: #717071;
+  margin-top: 24rpx;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.itemList{
+  margin-top: 24rpx;
+  flex-wrap: wrap;
+  padding-bottom: 50rpx;
+}
+.item{
+  overflow: hidden;
+  background-color: #fff;
+  margin-top: 20rpx;
+  height: 300rpx;  
+}
+.item image{
+  width: 300rpx;
+  display: block;
+  float: left;
+}
+.itemRight{
+  float: left;
+  width: 450rpx;
+}
+.caption{
+  margin-top: 25rpx;
+  margin-left: 20rpx;
+  color: #3e3a39;
+  display: block;
+}
+.viceCaption{
+  color: #908f8f;
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.priceFlex{
+  display: flex;
+  padding: 0 10rpx 0 20rpx;
+  width: 100%;
+  margin-top: 60rpx;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.price{
+  color:#e30012;
+  font-size: 38rpx;
+  vertical-align: middle;
+}
+.symbol{
+  font-size: 28rpx;
+  vertical-align: middle;
+}
+.ms{
+  background: url("https://wx.pmc-wz.com/materials/msBg.png") no-repeat;
+  background-size: 100% 100%;
+  font-size: 22rpx;
+  color: #fff;
+  width: 110rpx;
+  height:50rpx;
+  line-height: 50rpx;
+  padding-left: 20rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 5rpx;
+}
+.arr {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.arrUp {
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-bottom-color: #ccc;
+  cursor: pointer;
+  margin-top: -2rpx;
+}
+.arrDown {
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top-color: #ccc;
+  margin-top: 2px;
+  cursor: pointer;
+}
+.bgRed1{
+  border-bottom-color:#e30012;
+}
+.bgRed2{
+  border-top-color:#e30012;
+}
+.nopro{
+  text-align: center;
+}
+.nopro image{
+  width: 80%;
+}

@@ -1,0 +1,33 @@
+<!--huodongpage/ckhb/ckhb.wxml-->
+
+<view class="containers">
+  <image src="https://wx.pmc-wz.com/materials/tjsrfl.jpg" mode="widthFix" class="bg"></image>
+  <view class="main">
+    <button bindtap="showForm" class="lh">
+      <image src="https://wx.pmc-wz.com/materials/tjsrpro.png" mode="widthFix" />
+    </button>
+  </view>
+</view>
+<!-- 表单弹框 -->
+<view class="form-modal" wx:if="{{showFormModal}}" catchtap="hideForm">
+  <view class="form-content" catchtap="close">
+    <view class="form-title">填写信息</view>
+    <view class="form-item">
+      <text class="form-label">姓名：</text>
+      <input class="form-input" placeholder="请输入姓名" value="{{formData.name}}" bindinput="onNameInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">手机号：</text>
+      <input class="form-input" placeholder="请输入手机号" value="{{formData.mobile}}" bindinput="onMobileInput" type="number" maxlength="11" />
+    </view>
+    <view class="form-buttons">
+      <button class="form-btn confirm-btn" bindtap="submitForm">确认领取</button>
+      <button class="form-btn cancel-btn" bindtap="hideForm">取消</button>
+    </view>
+  </view>
+</view>
+
+<view class="shade" wx:if="{{shadevis}}" catchtap="closeShade">
+  <image src="https://wx.pmc-wz.com/materials/tjsrlp.png" class="card" mode="widthFix" catchtap="rcard"></image>
+  <image src="https://wx.pmc-wz.com/materials/close-white.svg" class="close" catchtap="closeShade" mode="widthFix"></image>
+</view>

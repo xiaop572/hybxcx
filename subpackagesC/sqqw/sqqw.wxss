@@ -1,0 +1,128 @@
+/* subpackagesDDD/tjqw/tjqw.wxss */
+page{
+  padding-bottom: 0 !important;
+}
+.banner-img{
+  width: 100%;
+  display: block;
+  position: relative;
+}
+.tjqwmain{
+  width: 100%;
+  overflow: hidden;
+  min-height: 80vh;
+  background: linear-gradient(to bottom,#afe5e5,#8ccdff);
+  padding-bottom: 100rpx;
+}
+.btn{
+  background-color: #0555AB;
+  font-size: 32rpx;
+  color: #fff;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  border-radius: 40rpx;
+  padding: 10rpx 20rpx;
+  margin-top: 30rpx;
+}
+.qwcode{
+  width: 92%;
+  background-color: #fff;
+  border-radius: 30rpx;
+  position: relative;
+  margin: auto;
+  margin-top: 20rpx;
+  padding: 40rpx 20rpx;
+  box-sizing: border-box;
+}
+.qwcode text{
+  display: block;
+  text-align: center;
+  color: #0555AB;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-top: 40rpx;
+}
+.cpqw{
+  width: 60%;
+  display: block;
+  margin: auto;
+  margin-top: 20rpx;
+}
+.hqshouzhi{
+  width: 50rpx;
+  display: block;
+  margin:auto;
+  margin-top: 20rpx;
+}
+.qyzxbtn{
+  width: 66%;
+  display: block;
+  margin: auto;
+  margin-top: 30rpx;
+}
+
+/* 社群福利版块样式 */
+.welfare-section {
+  width: 92%;
+  background-color: #fff;
+  border-radius: 30rpx;
+  margin: 30rpx auto 0;
+  padding: 40rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.welfare-title {
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #0555AB;
+  margin-bottom: 40rpx;
+}
+
+.welfare-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.welfare-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 10rpx;
+}
+
+.welfare-icon {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  background-size: 80rpx 80rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.welfare-icon-1 {
+  background-color: #FFE4B5;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDM1QzI4LjI4NDMgMzUgMzUgMjguMjg0MyAzNSAyMEMzNSAxMS43MTU3IDI4LjI4NDMgNSAyMCA1QzExLjcxNTcgNSA1IDExLjcxNTcgNSAyMEM1IDI4LjI4NDMgMTEuNzE1NyAzNSAyMCAzNVoiIGZpbGw9IiNGRkE1MDAiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+');
+}
+
+.welfare-icon-2 {
+  background-color: #E6F3FF;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDM1QzI4LjI4NDMgMzUgMzUgMjguMjg0MyAzNSAyMEMzNSAxMS43MTU3IDI4LjI4NDMgNSAyMCA1QzExLjcxNTcgNSA1IDExLjcxNTcgNSAyMEM1IDI4LjI4NDMgMTEuNzE1NyAzNSAyMCAzNVoiIGZpbGw9IiMwMDdBRkYiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+');
+}
+
+.welfare-icon-3 {
+  background-color: #FFE6E6;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDM1QzI4LjI4NDMgMzUgMzUgMjguMjg0MyAzNSAyMEMzNSAxMS43MTU3IDI4LjI4NDMgNSAyMCA1QzExLjcxNTcgNSA1IDExLjcxNTcgNSAyMEM1IDI4LjI4NDMgMTEuNzE1NyAzNSAyMCAzNVoiIGZpbGw9IiNGRjQ0NDQiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4KPC9zdmc+');
+}
+
+.welfare-text {
+  font-size: 24rpx;
+  color: #333;
+  line-height: 1.4;
+  text-align: center;
+}

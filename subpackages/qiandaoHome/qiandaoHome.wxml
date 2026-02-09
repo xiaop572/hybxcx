@@ -1,0 +1,81 @@
+<!--pages/qiandaoHome/qiandaoHome.wxml-->
+<wxs module="m1">
+  function daojishi(endTime) {
+    var timestamp = getDate().getTime(); //计算当前时间戳
+    // var timestamp = (Date.parse(new Date())) / 1000; //计算当前时间戳 (毫秒级)
+    var date1 = ""; //开始时间
+    date1 = timestamp; //开始时间
+    var date2 = getDate(endTime).getTime(); //结束时间
+    // var date3 = date2.getTime() - date1.getTime(); //时间差的毫秒数
+    var date3 = (date2 - date1); //时间差的毫秒数
+    if (date3 < 0) {
+      return false;
+    }
+    //计算出相差天数
+    var days = Math.floor(date3 / (24 * 3600 * 1000));
+    //计算出小时数
+
+    var leave1 = date3; //计算天数后剩余的毫秒数
+    var hours = Math.floor(leave1 / (3600 * 1000));
+    //计算相差分钟数
+    var leave2 = leave1 % (3600 * 1000); //计算小时数后剩余的毫秒数
+    var minutes = Math.floor(leave2 / (60 * 1000));
+
+    //计算相差秒数
+
+    var leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数
+    var seconds = Math.round(leave3 / 1000);
+    return (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds)
+  }
+  module.exports.daojishi = daojishi
+</wxs>
+<!-- <image src="https://wx.pmc-wz.com/materials/qiandaoTop.png" mode="widthFix" class="qiandaoTop"></image> -->
+<image src="https://wx.pmc-wz.com/materials/qdTop1.png" mode="widthFix" class="qiandaoTop"></image>
+<view class="qiandaoContent">
+  <text class="hdTime">活动时间：11月1日-30日</text>
+  <image src="https://wx.pmc-wz.com/materials/qiandaoLidai.png" mode="widthFix" class="lidai"></image>
+  <view class="jiangliList">
+    <image src="https://wx.pmc-wz.com/materials/qdjiangli.png" mode="widthFix"></image>
+    <view class="shuoming">活动说明：到院需展示签到记录和朋友圈记录，限<text>12月31号</text>前到院验证领取</view>
+  </view>
+  <image src="https://wx.pmc-wz.com/materials/qiandaoBtn.png" mode="widthFix" class="qiandaoBtn" bindtap="rQiandaoMain"></image>
+  <image src="https://wx.pmc-wz.com/materials/qdbaokuan.png" mode="widthFix" class="baokuan"></image>
+  <view class="fuliBox">
+    <image src="https://wx.pmc-wz.com/materials/ymykt.png" bindtap="rpro" data-id="340" mode="widthFix" class="fuliyim"></image>
+    <image src="https://wx.pmc-wz.com/materials/fuli1.png" bindtap="rpro" data-id="290" mode="widthFix" class="fuli1"></image>
+    <image src="https://wx.pmc-wz.com/materials/fuli2.png" bindtap="rpro" data-id="292" mode="widthFix" class="fuli2"></image>
+    <image src="https://wx.pmc-wz.com/materials/fuli3.png" bindtap="rpro" data-id="291" mode="widthFix" class="fuli3"></image>
+  </view>
+  <view class="proBox">
+    <image mode="widthFix" src="https://wx.pmc-wz.com/materials/qdProTop.png" class="qdProTop"></image>
+    <view class="proList">
+      <view class="proItem" wx:for="{{proList}}" bindtap="rkan" data-item="{{item}}" wx:key="index">
+        <view class="profengimg">
+          <image src="https://wx.pmc-wz.com/hyb/images/{{item.kapic}}" mode="widthFix"></image>
+        </view>
+        <view class="daojishi" wx:if="{{m1.daojishi(item.enddate)}}">
+          <text class="daojishiLeft">活动剩余</text>
+          <text class="daojishiRight">{{m1.daojishi(item.enddate)}}</text>
+        </view>
+        <view class="daojishi" wx:if="{{!m1.daojishi(item.enddate)}}">
+          <text class="daojishiLeft">已结束</text>
+          <text class="daojishiRight">00:00:00</text>
+        </view>
+        <text class="proCaption">{{item.pictitle}}邀好友砍价</text>
+        <text class="proCaption1">低至{{item.price}}元</text>
+        <view class="propriceFlex">
+          <text class="symbol">￥</text>
+          <text>{{item.price}}</text>
+          <text class="yuanjia">￥{{item.pointsDeduction}}</text>
+        </view>
+        <view class="kjBtn">发起砍价</view>
+      </view>
+      <view class="more" bindtap="rfenlei">
+        <image src="https://wx.pmc-wz.com/materials/shouzhi.png" bindtap="rpro" data-id="290" mode="widthFix"></image>
+        <text>点击了解</text>
+        <text>更多医疗项目</text>
+      </view>
+    </view>
+    <text class="address">地址：温州市瓯海区温瑞大道888号 (万象城往南200米）</text>
+  </view>
+</view>

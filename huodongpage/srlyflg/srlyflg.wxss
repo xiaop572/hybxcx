@@ -1,0 +1,8 @@
+/* huodongpage/srlyflg/srlyflg.wxss */
+page{
+  padding-bottom: 0 !important;
+}
+image{
+  width: 100%;
+  display: block;
+}
