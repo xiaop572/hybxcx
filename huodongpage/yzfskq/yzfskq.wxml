@@ -1,0 +1,62 @@
+<!--huodongpage/fskq/fskq.wxml-->
+<view wx:if="{{isAuthorized}}">
+  <image src="https://wx.pmc-wz.com/materials/yzfsbg.jpg" mode="widthFix" style="width: 100%;display: block;" />
+  <image src="https://wx.pmc-wz.com/materials/yzfswdzs.png" mode="widthFix" class="wdzs" bindtap="showMyList" />
+  <view class="neirong">
+    <image src="https://wx.pmc-wz.com/materials/yzfskq.png" mode="widthFix" class="fskqkq" />
+    <image src="https://wx.pmc-wz.com/materials/yzfsbtn.png" mode="widthFix" class="fskqbtn" bindtap="showShareModal" />
+  </view>
+</view>
+
+<!-- 分享弹窗 -->
+<view class="modal-mask" wx:if="{{showModal}}" bindtap="hideShareModal">
+  <view class="modal-content" catchtap="preventBubble">
+    <view class="input-group">
+      <view class="label">用途：</view>
+      <input class="input" placeholder="请输入用途" bindinput="onUsageInput" value="{{usage}}" />
+    </view>
+    <view class="input-group">
+      <view class="label">接收人手机号：</view>
+      <input class="input" type="number" placeholder="请输入接收人手机号" bindinput="onPhoneInput" value="{{phoneNumber}}" maxlength="11" />
+    </view>
+    <block wx:if="{{!isGenerated}}">
+      <button class="share-btn" bindtap="generateCard">生成卡券</button>
+    </block>
+    <block wx:else>
+      <button class="share-btn" open-type="share">分享</button>
+    </block>
+  </view>
+</view>
+
+<!-- 列表弹窗 -->
+<view class="modal-mask" wx:if="{{showListModal}}" bindtap="hideListModal">
+  <view class="modal-content list-content" catchtap="preventBubble">
+    <view class="list-title">我赠送的卡券</view>
+    <scroll-view scroll-y class="list-scroll" bindscrolltolower="onListScrollBottom">
+      <block wx:if="{{myList.length > 0}}">
+        <view class="list-item" wx:for="{{myList}}" wx:key="id">
+          <view class="item-row">
+            <text class="item-label">用途：</text>
+            <text class="item-value">{{item.apply_name || '-'}}</text>
+          </view>
+          <view class="item-row">
+            <text class="item-label">接收手机：</text>
+            <text class="item-value">{{item.apply_purpose || '-'}}</text>
+          </view>
+          <view class="item-row">
+            <text class="item-label">时间：</text>
+            <text class="item-value">{{item.addtime || '-'}}</text>
+          </view>
+           <view class="item-row">
+            <text class="item-label">状态：</text>
+            <view class="item-value-row">
+              <text class="item-value">{{item.status == 2 ? '已领取' : '未领取'}}</text>
+              <button class="reshare-btn" wx:if="{{item.status != 2}}" data-sharecode="{{item.share_code}}" open-type="share">重新分享</button>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view wx:else class="no-data">暂无数据</view>
+    </scroll-view>
+  </view>
+</view>

@@ -33,6 +33,13 @@ Page({
     if (options.fromid) {
       wx.setStorageSync('sponsor', options.fromid)
     }
+    if (options.scene) {
+      let arr = options.scene.split('&');
+      if(arr.length<2){
+        arr = options.scene.split('%26');
+      }
+      wx.setStorageSync('sponsor', arr[0]);
+    }
     let userInfo = wx.getStorageSync('userInfo');
     if (!userInfo) { //登录拦截
       wx.showToast({
@@ -300,6 +307,28 @@ Page({
       })
       return;
     }
+    if(this.data.corp=='温州外国语学校'){
+      // 保存数据到本地存储，和温州大学一样
+      let tjData = {
+        ptype: 19,
+        openid: wx.getStorageSync('openid'),
+        mobile: this.data.mobile,
+        xinmin: this.data.xinmin,
+        sex: this.data.sex,
+        yydate: this.data.time,
+        cardno: this.data.cardno,
+        marry: this.data.hunyin,
+        corp: this.data.corp,
+        fromsource: wx.getStorageSync('sponsor')
+      }
+      wx.setStorageSync('tjData', tjData);
+      
+      let sex = this.data.sex === '男' ? '男' : '女';
+      wx.navigateTo({
+        url: '/huodongpage/wzwgytjxm/wzwgytjxm?sex='+sex+'&year='+this.data.age
+      })
+      return;
+    }
     let params = {
       ptype: 19,
       openid: wx.getStorageSync('openid'),
@@ -408,6 +437,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {
-
+    return {
+      title: '个人体检',
+      path: '/pages/danweitijian/danweitijian?fromid=' + wx.getStorageSync('openid')
+    }
   }
 })

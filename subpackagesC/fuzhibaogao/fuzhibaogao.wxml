@@ -1,0 +1,200 @@
+<!--subpackagesC/fuzhibaogao/fuzhibaogao.wxml-->
+<scroll-view class="page" scroll-y>
+
+  <!-- 顶部标题卡片 -->
+  <view class="header-card">
+    <view class="header-top">
+      <view class="header-left">
+        <view class="title">{{report.title}}</view>
+        <view class="sub-info">
+          <text class="sub-item">肤龄 <text class="sub-val">{{report.skinAge}}岁</text></text>
+          <text class="sub-divider">|</text>
+          <text class="sub-item">肤质 <text class="sub-val">{{report.skinType}}</text></text>
+        </view>
+      </view>
+      <view class="header-icon">
+        <text class="icon-text">肌</text>
+      </view>
+    </view>
+    <view class="section-title">总体论述</view>
+    <view class="summary-text">{{report.summary}}</view>
+    <view class="total-score-row">
+      <text class="total-label">评测总分</text>
+      <text class="total-num">{{report.totalScore}}</text>
+    </view>
+  </view>
+
+  <!-- 评分列表 -->
+  <view class="score-card">
+    <view class="score-item" wx:for="{{report.items}}" wx:key="name" bindtap="goDetail" data-item="{{item}}">
+      <view class="score-icon-wrap">
+        <text class="score-icon">{{item.icon}}</text>
+      </view>
+      <view class="score-info">
+        <view class="score-name">{{item.name}}</view>
+        <view class="score-desc">{{item.desc}}</view>
+      </view>
+      <view class="score-right">
+        <text class="score-num">{{item.score}}</text>
+        <text class="score-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 查看报告按钮 -->
+  <view class="btn-report" bindtap="goFullReport">查看报告解读</view>
+
+  <!-- AI 推荐 -->
+  <!-- <view class="ai-wrap">
+    <view class="ai-text">{{report.aiRecommend}}</view>
+    <view class="ai-tip">*以上由AI生成仅供参考，结论不涉及及就医建议</view>
+  </view> -->
+
+</scroll-view>
+
+<!-- ========== 报告解读弹框 ========== -->
+<view class="modal-mask" wx:if="{{showModal}}">
+
+  <view class="modal-wrap">
+
+    <!-- 弹框头部（固定） -->
+    <view class="modal-head">
+      <view class="modal-head-inner">
+        <view>
+          <view class="modal-title">{{report.modalTitle || '皮肤质量解读结果'}}</view>
+          <view class="modal-subtitle">{{report.modalSubtitle || 'AI智能异常指标分析'}}</view>
+        </view>
+        <view class="modal-close" bindtap="closeModal">×</view>
+      </view>
+      <text class="modal-watermark">REPORT</text>
+    </view>
+
+    <!-- 可滚动内容 -->
+    <scroll-view class="modal-scroll" scroll-y>
+
+      <!-- 颜值卡片 -->
+      <view class="m-card">
+        <view class="m-card-top">
+          <view>
+            <view class="m-card-title">{{report.title}}</view>
+            <view class="m-card-sub">
+              <text>肤龄 {{report.skinAge}}岁</text>
+              <text class="m-card-divider">  </text>
+              <text>肤质 {{report.skinType}}</text>
+            </view>
+          </view>
+          <view class="m-card-icon">
+            <text class="m-card-icon-text">肌</text>
+          </view>
+        </view>
+        <view class="m-section-title">总体结论</view>
+        <view class="m-summary">{{report.summary}}</view>
+      </view>
+
+      <!-- 评测总分 + 雷达图 -->
+      <view class="m-radar-wrap">
+        <view class="m-total-row">
+          <text class="m-total-icon">🔮</text>
+          <text class="m-total-label">评测总分</text>
+          <text class="m-total-num">{{report.totalScore}}</text>
+        </view>
+
+        <!-- 雷达图容器：绘制完成后用 image 替换 canvas，彻底解决 scroll-view 内抖动 -->
+        <view class="radar-container" style="width:{{radarRpx}}rpx;height:{{radarRpx}}rpx;">
+          <!-- canvas 仅在转图片之前显示 -->
+          <canvas wx:if="{{!radarImagePath}}" canvas-id="radarCanvas"
+            style="width:{{radarPx}}px;height:{{radarPx}}px;"
+            class="radar-canvas"></canvas>
+          <!-- 转换完成后显示静态图片，不再抖动 -->
+          <image wx:if="{{radarImagePath}}" src="{{radarImagePath}}"
+            style="width:{{radarRpx}}rpx;height:{{radarRpx}}rpx;"
+            class="radar-canvas" mode="widthFix"></image>
+          <!-- 标签层始终显示 -->
+          <view class="radar-label" wx:for="{{radarLabels}}" wx:key="name"
+            style="left:{{item.lx}}rpx;top:{{item.ly}}rpx;text-align:{{item.align}};">
+            <text class="rl-name">{{item.name}}</text>
+            <text class="rl-score"> {{item.score}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- Tab 栏（点击滚动到对应指标） -->
+      <scroll-view class="m-tabs" scroll-x scroll-into-view="{{scrollToId}}" enhanced show-scrollbar="{{false}}">
+        <view class="m-tab {{activeTab===index?'m-tab-active':''}}"
+          wx:for="{{report.items}}" wx:key="name"
+          bindtap="switchTab" data-idx="{{index}}">
+          <view class="m-tab-name">{{item.name}}</view>
+          <view class="m-tab-score">{{item.score}}分</view>
+        </view>
+      </scroll-view>
+
+      <!-- 所有指标连续展示 -->
+      <view class="m-detail-wrap">
+        <block wx:for="{{report.items}}" wx:for-item="metric" wx:key="name">
+
+          <!-- 指标标题行 -->
+          <view class="m-detail-header" id="metric-{{index}}">
+            <text class="m-detail-icon">{{metric.icon}}</text>
+            <text class="m-detail-title">{{metric.name}}</text>
+            <text class="m-detail-score">{{metric.score}}</text>
+          </view>
+
+          <!-- 该指标的子项卡片 -->
+          <view class="m-di-card" wx:for="{{metric.details}}" wx:for-item="detail" wx:key="title">
+
+            <!-- 标题行 + 右侧图片 -->
+            <view class="m-di-row">
+              <view class="m-di-left">
+                <view class="m-di-title">{{index+1}}.{{detail.title}}</view>
+                <view class="m-di-subtitle">{{detail.subtitle}}</view>
+              </view>
+              <view class="m-di-img-wrap" wx:if="{{detail.image}}">
+                <image class="m-di-img" src="{{detail.image}}" mode="aspectFill"></image>
+                <view class="m-di-search">🔍</view>
+              </view>
+            </view>
+
+            <!-- 多标签行 -->
+            <view class="m-di-tags" wx:if="{{detail.tags.length}}">
+              <view class="m-di-tag-item" wx:for="{{detail.tags}}" wx:for-item="tag" wx:key="label">
+                <view wx:if="{{tag.dash}}" class="m-di-dash" style="background:{{tag.color}};"></view>
+                <view wx:else class="m-di-dot" style="background:{{tag.color}};"></view>
+                <text class="m-di-tag-text">{{tag.label}}</text>
+                <text class="m-di-tag-val" wx:if="{{tag.value !== undefined}}"> {{tag.value}}</text>
+              </view>
+            </view>
+
+            <!-- 进度条（range类型） -->
+            <view class="m-di-range" wx:if="{{detail.type === 'range'}}">
+              <text class="m-di-range-lbl">{{detail.rangeMin}}</text>
+              <view class="m-di-range-track">
+                <view class="m-di-range-fill" style="width:{{detail.rangeVal}}%;"></view>
+              </view>
+              <text class="m-di-range-lbl">{{detail.rangeMax}}</text>
+            </view>
+
+            <!-- 描述文字 -->
+            <view class="m-di-text">{{detail.text}}</view>
+
+            <!-- 柱状图（chart类型） -->
+            <view class="m-di-chart" wx:if="{{detail.type === 'chart' && detail.chart}}">
+              <view class="m-chart-levels">
+                <text wx:for="{{detail.chart.levels}}" wx:key="*this" class="m-chart-level">{{item}}</text>
+              </view>
+              <view class="m-chart-bars">
+                <view class="m-chart-bar-col" wx:for="{{detail.chart.bars}}" wx:for-item="bar" wx:key="label">
+                  <view class="m-chart-bar-wrap">
+                    <view class="m-chart-bar-fill" style="height:{{bar.value * 25}}%;"></view>
+                  </view>
+                  <text class="m-chart-bar-label">{{bar.label}}</text>
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </block>
+      </view>
+
+    </scroll-view>
+  </view>
+</view>

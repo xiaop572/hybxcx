@@ -21,6 +21,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    wx.showModal({
+      title: '提示',
+      content: '此功能已下线，如有问题联系对应科室',
+      showCancel:false,
+      complete: (res) => {
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      }
+    })
     this.setData({
       parkcode: options.parkcode
     })

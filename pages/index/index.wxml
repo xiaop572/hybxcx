@@ -30,7 +30,7 @@
       <view class="fwitem">
         <image src="https://wx.pmc-wz.com/materials/jkhq.png" mode="widthFix" style="width:62%;margin-top: 15rpx;" />
         <text class="fwcap">侨健通</text>
-        <text class="fwmemo">华侨医疗卡绿通</text>
+        <text class="fwmemo">华侨健康卡绿通</text>
       </view>
     </button>
     <!-- <view class="fwitem" bindtap="rqy"> -->

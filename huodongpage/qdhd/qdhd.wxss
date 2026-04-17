@@ -1,0 +1,163 @@
+/* huodongpage/qdhd/qdhd.wxss */
+page{
+  background: #355DB5;
+}
+.qdhdbanner{
+  width: 100%;
+  display: block;
+}
+.qdhdcaption{
+  display: block;
+  width: 80%;
+  margin:50rpx auto 0 auto;
+}
+.qdmain{
+  width: 92%;
+  margin: 50rpx auto 80rpx;
+  position: relative;
+}
+.qdhdmain{
+  display: block;
+  width: 100%;
+}
+.qdmain-content{
+  position: absolute;
+  inset: 0;
+  padding: 80rpx 44rpx 70rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+.qdmain-title{
+  color: #7a431b;
+  font-size: 36rpx;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.qdmain-desc{
+  margin-top: 26rpx;
+  color: #3f3128;
+  line-height: 1.6;
+}
+.qdmain-subtitle{
+  margin-top: 70rpx;
+  color: #7a431b;
+  font-size: 36rpx;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.option-list{
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  gap: 24rpx;
+}
+.option-item{
+  flex: 1;
+  height: 90rpx;
+  border-radius: 20rpx;
+  background: #f3f3f3;
+  border: 1px solid #d9d9d9;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+.option-item-active{
+  background: #f2dfc7;
+  border-color: #ea932f;
+  color: #b36a17;
+}
+.option-check{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 34rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  border-radius: 10rpx 0 20rpx 0;
+  background: #ea932f;
+  color: #fff;
+  font-size: 22rpx;
+}
+.submit-btn{
+  width: 72%;
+  margin: 60rpx auto 0 auto;
+  border-radius: 55rpx;
+  background: #2f5ad4;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 600;
+  padding: 20rpx 0;
+}
+.success-mask{
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.success-popup{
+  width: 76%;
+}
+.success-popup-img{
+  width: 90%;
+  display: block;
+  margin: auto;
+}
+.gift-content{
+  width: 92%;
+  margin: 44rpx auto 70rpx;
+  text-align: center;
+}
+.gift-title{
+  color: #fff;
+  line-height: 1.45;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 32rpx;
+}
+.title-prefix{
+  margin-right: 8rpx;
+}
+.highlight-wrap{
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  padding: 0 4rpx;
+}
+.highlight-text{
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+.highlight-line{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3rpx;
+  height: 10rpx;
+  background: #E89350;
+  z-index: 1;
+}
+.gift-item{
+  margin-top: 30rpx;
+  color: #fff;
+}
+.item-main{
+  display: block;
+  line-height: 1.4;
+  font-size: 30rpx;
+}
+.item-sub{
+  display: block;
+  margin-top: 8rpx;
+  line-height: 1.55;
+  font-size: 26rpx;
+  color: rgb(226, 226, 226);
+}

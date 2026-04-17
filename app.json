@@ -87,7 +87,8 @@
     "pages/blbg/blbg",
     "pages/jianyanjieguo/jianyanjieguo",
     "pages/zppt/zppt",
-    "pages/jifu/jifu"
+    "pages/jifu/jifu",
+    "pages/jiankangjie/jiankangjie"
   ],
   "subPackages": [
     {
@@ -235,7 +236,22 @@
         "jifu/jifu",
         "getfuka/getfuka",
         "zbacbf/zbacbf",
-        "lfk/lfk"
+        "lfk/lfk",
+        "sqqx/sqqx",
+        "sqqxlist/sqqxlist",
+        "fskq/fskq",
+        "jskq/jskq",
+        "fxgs/fxgs",
+        "yzfskq/yzfskq",
+        "yzlqkq/yzlqkq",
+        "zxzt/zxzt",
+        "tjxmzq/tjxmzq",
+        "getyzkq/getyzkq",
+        "tjxmzq2/tjxmzq2",
+        "tjxmzq3/tjxmzq3",
+        "wzwgytjxm/wzwgytjxm",
+        "jkmzxlb/jkmzxlb",
+        "qdhd/qdhd"
       ]
     },
     {
@@ -302,7 +318,15 @@
         "qkhhcqd/qkhhcqd",
         "gyyprolsit/gyyprolist",
         "gyyjiesuan/gyyjiesuan",
-        "diagnosis/diagnosis"
+        "diagnosis/diagnosis",
+        "bqprolist/bqprolist",
+        "mianzhenxiangji/mianzhenxiangji",
+        "aicefuzhi/aicefuzhi",
+        "mzloading/mzloading",
+        "fuzhibaogao/fuzhibaogao",
+        "cefuzhifengmian/cefuzhifengmian",
+        "dttcp/dttcp",
+        "xmyuyue/xmyuyue"
       ]
     },
     {
@@ -360,7 +384,7 @@
         "text": "客服"
       },
       {
-        "pagePath": "pages/jifu/jifu",
+        "pagePath": "pages/yiliaofuwu/yiliaofuwu",
         "iconPath": "./pages/assign/pthd.png",
         "selectedIconPath": "./pages/assign/pthd.png",
         "text": "医疗服务"

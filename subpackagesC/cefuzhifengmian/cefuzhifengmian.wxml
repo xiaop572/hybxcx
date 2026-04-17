@@ -1,0 +1,25 @@
+<!--subpackagesC/cefuzhifengmian/cefuzhifengmian.wxml-->
+<view class="page">
+
+  <!-- 顶部标题区 -->
+  <image src="https://wx.pmc-wz.com/materials/xhfmtitle.png" mode="widthFix" class="xhfmtitle"/>
+
+  <!-- 中间图片区 -->
+  <view class="img-section">
+    <!-- 主图框 -->
+    <view class="img-frame">
+      <image class="main-img" src="https://wx.pmc-wz.com/materials/xhfengmian.png" mode="widthFix"></image>
+    </view>
+
+  </view>
+
+  <!-- 底部区域 -->
+  <view class="bottom-section">
+    <view class="hint-row">
+      <image class="hint-icon" src="https://wx.pmc-wz.com/materials/xhmz.png" mode="aspectFit"></image>
+      <text class="hint-text">请在光线充足的环境中正脸居中拍摄</text>
+    </view>
+    <view class="start-btn" bindtap="goCamera">开始检测</view>
+  </view>
+
+</view>

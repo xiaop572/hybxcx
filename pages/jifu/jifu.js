@@ -274,8 +274,7 @@ Page({
     if (!cardConfigs || cardConfigs.length === 0) {
       return false;
     }
-    // 排除万能福，只要集齐其他5张卡即视为集齐
-    return cardConfigs.filter(c => c.key !== 'wanneng').every(config => cards[config.key]);
+    return cardConfigs.every(config => cards[config.key]);
   },
   
   // 显示活动规则
@@ -459,15 +458,6 @@ Page({
 
   // 显示合成确认弹窗
   showCompose() {
-    if (!this.data.isComplete) {
-      wx.showToast({
-        title: '集齐5福卡，福袋待启～',
-        icon: 'none',
-        duration: 2000
-      });
-      return;
-    }
-
     const userCards = this.data.userCards;
     const hasWanneng = userCards.wanneng;
     

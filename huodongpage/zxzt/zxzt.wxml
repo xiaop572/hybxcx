@@ -1,0 +1,32 @@
+<!--整形专题-->
+<image src="https://wx.pmc-wz.com/materials/zxztBanner.jpg" mode="widthFix" class="top-banner"/>
+<view class="tab-bar">
+    <view class="tab-item {{currentTab === 0 ? 'active' : ''}}" bindtap="onTabChange" data-idx="0">爆品专区</view>
+    <view class="tab-item {{currentTab === 1 ? 'active' : ''}}" bindtap="onTabChange" data-idx="1">皮肤专区</view>
+    <view class="tab-item {{currentTab === 2 ? 'active' : ''}}" bindtap="onTabChange" data-idx="2">整外专区</view>
+    <view class="tab-item {{currentTab === 3 ? 'active' : ''}}" bindtap="onTabChange" data-idx="3">微整专区</view>
+  </view>
+
+  <!-- 产品列表 -->
+  <view class="product-grid">
+    <!-- 空态提示 -->
+    <view class="empty-tip" wx:if="{{products.length === 0}}">
+      <text>暂无相关产品</text>
+    </view>
+    <view class="product-card" wx:for="{{products}}" wx:key="id" bindtap="goProduct" data-id="{{item.id}}">
+      <!-- 产品图片：大图占满顶部 -->
+      <view class="product-img-wrap">
+        <image class="product-img" src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" lazy-load="true"></image>
+      </view>
+      <!-- 产品名称 -->
+      <view class="product-name">{{item.pictitle}}</view>
+      <!-- 价格 + 按钮 同行 -->
+      <view class="product-bottom-row">
+        <view class="product-price">
+          <text class="price-symbol">¥</text>
+          <text class="price-num">{{item.price}}</text>
+        </view>
+        <view class="buy-btn" catchtap="goProduct" data-id="{{item.id}}">立即抢购</view>
+      </view>
+    </view>
+  </view>

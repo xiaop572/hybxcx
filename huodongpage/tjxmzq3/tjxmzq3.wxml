@@ -1,0 +1,13 @@
+
+<!-- 获得福卡弹窗 -->
+<view class="welcome-overlay">
+  <view class="welcome-popup">
+    <view class="welcome-title">恭喜您！获得一张{{cardInfo.name}}</view>
+    <view class="card-wrapper">
+      <image src="https://wx.pmc-wz.com/materials/nhjq300.jpg" mode="widthFix" class="card-img"/>
+    </view>
+    <image src="https://wx.pmc-wz.com/materials/nanhuibtn.png" mode="widthFix" class="cardbtn" bindtap="claimCard"/>
+  </view>
+</view>
+
+  

@@ -95,6 +95,10 @@
           <image class="func-icon" src="https://wx.pmc-wz.com/materials/hmb/newmzbtn1.png" mode="widthFix"></image>
           <text class="func-text">关于小慧</text>
         </view>
+        <view class="func-btn" bindtap="rmzxj">
+          <image class="func-icon" src="https://wx.pmc-wz.com/materials/newmzbtn6.png" mode="widthFix"></image>
+          <text class="func-text">AI测肤质</text>
+        </view>
         <view class="func-btn" bindtap="handleButton2">
           <image class="func-icon" src="https://wx.pmc-wz.com/materials/hmb/newmzbtn2.png" mode="widthFix"></image>
           <text class="func-text">点亮「心灵之窗」</text>

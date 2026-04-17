@@ -1,39 +1,81 @@
 // pages/qrcode/qrcode.js
-import drawQrcode from '../../utils/qrcode'
+const util = require('../../utils/util')
+const {
+  req
+} = require('../../utils/request')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    openid:"",
-    nickname:""
+    openid: "",
+    nickname: "",
+    qrcodeSrc: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    const userInfo = wx.getStorageSync('userInfo') || {}
     this.setData({
-      openid:wx.getStorageSync('openid'),
-      nickname:wx.getStorageSync('userInfo').nickName
+      openid: wx.getStorageSync('openid'),
+      nickname: userInfo.nickName || ""
     })
-    this.createQr()
+    this.getMiniCode()
   },
-  createQr(sponsor) {
-    let that=this;
-    drawQrcode({
-      width: 140,
-      height: 140,
-      canvasId: 'myQrcode',
-      // ctx: wx.createCanvasContext('myQrcode'),
-      text: this.data.openid,
-      callback:(e)=>{
-        that.setData({
-          imgsrc:"!"
+  getMiniCode() {
+    wx.showLoading({
+      title: '加载中',
+    })
+    req({
+      url: util.baseUrl + "/newapi/api/hd/minilink",
+      method: "POST",
+      data: {
+        url: "pages/index/index",
+        query: this.data.openid || "",
+        typeid: 0,
+        openid: this.data.openid
+      },
+      success: res => {
+        util.base64src("data:image/jpg;base64," + res.data.data, (imgPath) => {
+          this.setData({
+            qrcodeSrc: imgPath
+          })
+          wx.hideLoading()
+        })
+      },
+      fail: () => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '小程序码生成失败',
+          icon: 'none'
         })
       }
-      // v1.0.0+版本支持在二维码上绘制图片
+    })
+  },
+  saveCode() {
+    if (!this.data.qrcodeSrc) {
+      wx.showToast({
+        title: '请先生成小程序码',
+        icon: 'none'
+      })
+      return
+    }
+    wx.saveImageToPhotosAlbum({
+      filePath: this.data.qrcodeSrc,
+      success: () => {
+        wx.showToast({
+          title: '保存成功'
+        })
+      },
+      fail: () => {
+        wx.showToast({
+          title: '保存失败，请检查相册权限',
+          icon: 'none'
+        })
+      }
     })
   },
   /**

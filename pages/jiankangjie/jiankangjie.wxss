@@ -1,0 +1,396 @@
+/* pages/jiankangjie/jiankangjie.wxss */
+
+/* 页面整体 */
+page {
+  background: #FFE1E1;
+  min-height: 100vh;
+}
+
+.page-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 顶部Banner大图 */
+.top-banner {
+  width: 100%;
+  display: block;
+}
+
+/* 芳华悦己区块 */
+.fh-section {
+  background: #FF8996;
+  padding-bottom: 40rpx;
+  position: relative;
+  width: 90%;
+  margin: auto;
+  border-radius: 30rpx;
+  padding: 40rpx 0 0 0;
+  overflow: hidden;
+  margin-top: -100rpx;
+}
+.fh-section2 {
+  background: #FF8996;
+  padding-bottom: 40rpx;
+  position: relative;
+  width: 90%;
+  margin: auto;
+  border-radius: 30rpx;
+  padding: 40rpx 0 0 0;
+  overflow: hidden;
+}
+
+/* 标题图片：紧贴banner底部，宽度100% */
+.fh-title-img {
+  width: 68%;
+  display: block;
+  margin: auto;
+}
+
+/* 白色圆角卡片：包裹两个按钮 */
+.fh-card {
+  background: #fff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 20rpx rgba(233, 30, 99, 0.1);
+  width: 100%;
+  margin-top: 40rpx;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+
+/* 按钮条图片 */
+.fh-btn-img {
+  width: 90%;
+  display: block;
+  margin:auto;
+}
+
+/* 两条之间加分隔线 */
+.fh-btn-img:not(.last) {
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+/* 故事征集区块 - 与芳华区块同款粉色背景圆角卡片 */
+.gs-section {
+  background: #FF8996;
+  position: relative;
+  width: 90%;
+  margin: 30rpx auto 0;
+  border-radius: 30rpx;
+  overflow: hidden;
+  padding: 40rpx 0 0 0;
+}
+
+/* 标题图片 */
+.gs-title-img {
+  width: 68%;
+    display: block;
+    margin: auto;
+}
+
+/* 白色内容区悬浮在粉色背景上 */
+.gs-body {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 40rpx 24rpx 44rpx;
+  box-shadow: 0 4rpx 20rpx rgba(233, 30, 99, 0.1);
+  margin: 40rpx 0 0;
+  box-sizing: border-box;
+}
+
+/* 说明文字组 */
+.gs-desc-box {
+  text-align: center;
+  margin-bottom: 36rpx;
+}
+
+.gs-desc-text {
+  display: block;
+  font-size: 28rpx;
+  color: #555;
+  line-height: 1.9;
+}
+
+.gs-highlight {
+  color: #e84c6c;
+  font-weight: bold;
+}
+
+/* 用户评论图片 */
+.gs-lyxx-img {
+  width: 100%;
+  display: block;
+  margin-bottom: 40rpx;
+  border-radius: 16rpx;
+}
+
+/* 蓝色渐变分享按钮 */
+.gs-share-btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #5ab4e8, #016ff5);
+  color: #fff;
+  font-size: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 50rpx;
+  border: none;
+  font-weight: 0;
+  margin-bottom: 30rpx;
+  letter-spacing: 4rpx;
+  padding: 0;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.gs-share-btn::after {
+  border: none;
+}
+
+/* 底部小字 */
+.gs-footer-note {
+  text-align: center;
+}
+
+.gs-footer-note text {
+  display: block;
+  font-size: 22rpx;
+  color: #aaa;
+  line-height: 1.8;
+}
+
+/* Tab栏 - 浅粉色背景，带底部三角 */
+.tab-bar {
+  display: flex;
+  background: #fdf0f3;
+  border-radius:40rpx;
+  align-items: center;
+  position: relative;
+  width: 90%;
+  margin:30rpx auto;
+}
+
+.tab-bar::after {
+  content: '';
+  position: absolute;
+  bottom: -16rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20rpx solid transparent;
+  border-right: 20rpx solid transparent;
+  border-top: 18rpx solid #fdf0f3;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+  padding: 16rpx 0;
+  border-radius: 36rpx;
+  transition: all 0.3s;
+}
+
+.tab-item.active {
+  background: #FF6370;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* 礼包弹框遮罩 */
+.gift-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 弹框主体 */
+.gift-modal {
+  width: 600rpx;
+  background: #fff;
+  border-radius: 32rpx;
+  padding: 48rpx 40rpx 50rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* 标题 */
+.gift-modal-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #e84c6c;
+  text-align: center;
+  margin-bottom: 36rpx;
+  line-height: 1.5;
+}
+
+.gift-title-star {
+  color: #e84c6c;
+}
+
+/* 礼盒图片 */
+.gift-img {
+  width: 100%;
+  display: block;
+  margin-bottom: 40rpx;
+}
+
+/* 领取按钮：蓝色渐变 */
+.gift-claim-btn {
+  width: 100%;
+  height: 96rpx;
+  line-height: 2;
+  background: linear-gradient(to bottom, #5ab4e8, #016ff5);
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: bold;
+  border-radius: 50rpx;
+  border: none;
+  letter-spacing: 4rpx;
+  margin-bottom: 0;
+}
+
+.gift-claim-btn::after {
+  border: none;
+}
+
+/* 关闭按钮 */
+.gift-close {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -100rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 空态提示 */
+.empty-tip {
+  width: 100%;
+  text-align: center;
+  padding: 60rpx 0;
+  font-size: 28rpx;
+  color: #bbb;
+}
+
+/* 产品网格 */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30rpx 20rpx 40rpx;
+  justify-content: space-between;
+  background: #FFE1E1;
+  width: 90%;
+  margin: auto;
+}
+
+/* 产品卡片 - 浅蓝渐变+蓝色边框+内发光 */
+.product-card {
+  width: 48%;
+  background: linear-gradient(to bottom,#83ceff,#ffffff);
+  border-radius: 24rpx;
+  padding: 0 0 20rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+  border: 3rpx solid #a8d8f0;
+  overflow: hidden;
+  box-shadow: inset 0 0 10rpx 5rpx rgba(10, 137, 248, 0.45);
+}
+
+/* 产品图片区域：占满顶部 */
+.product-img-wrap {
+  width: 100%;
+  height: 280rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-img {
+  width: 90%;
+}
+
+/* 产品名称 */
+.product-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 16rpx;
+  margin-bottom: 6rpx;
+  line-height: 1.5;
+  height: 84rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* 括号描述 */
+.product-desc {
+  font-size: 22rpx;
+  color: #888;
+  text-align: center;
+  padding: 0 12rpx;
+  margin-bottom: 16rpx;
+  line-height: 1.5;
+}
+
+/* 价格 + 按钮 同行 */
+.product-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16rpx;
+}
+
+.product-price {
+  display: flex;
+  align-items: baseline;
+}
+
+.price-symbol {
+  font-size: 24rpx;
+  color: #e84c6c;
+  font-weight: bold;
+}
+
+.price-num {
+  font-size: 44rpx;
+  color: #e84c6c;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* 立即抢购按钮：右侧小圆角红色 */
+.buy-btn {
+  background: linear-gradient(180deg, #f87e7e 0%, #e84c6c 100%);
+  color: #fff;
+  font-size: 22rpx;
+  text-align: center;
+  padding: 14rpx 20rpx;
+  border-radius: 32rpx;
+  font-weight: 500;
+  white-space: nowrap;
+}

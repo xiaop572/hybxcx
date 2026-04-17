@@ -1,0 +1,87 @@
+<!--huodongpage/fxgs/fxgs.wxml-->
+<view class="page">
+
+  <!-- 顶部粉色标题区：只有标题图 -->
+  <view class="top-section">
+    <image class="top-title-img" src="https://wx.pmc-wz.com/materials/jkjgs.png" mode="widthFix"></image>
+  </view>
+
+  <!-- 白色大卡片：说明文字 + 表单 -->
+  <view class="form-card">
+
+    <!-- 说明文字区 -->
+    <view class="desc-box">
+      <text class="desc-text">分享自己通过科学管理</text>
+      <text class="desc-text">（运动、医美、定期体检、牙齿护理等）</text>
+      <text class="desc-text">获得健康自信与美感的真实经历</text>
+      <text class="desc-reward">获得<text class="reward-red">价值158元医用面膜一盒</text></text>
+    </view>
+
+    <!-- 分隔线 -->
+    <view class="divider"></view>
+
+    <!-- 昵称 -->
+    <view class="form-group">
+      <view class="label">昵称</view>
+      <input
+        class="input"
+        placeholder="请输入您的昵称"
+        placeholder-class="placeholder"
+        bindinput="onInputNickname"
+        value="{{nickname}}"
+      />
+    </view>
+
+    <!-- 故事 -->
+    <view class="form-group">
+      <view class="label">我的健康美故事</view>
+      <textarea
+        class="textarea"
+        placeholder="请分享您的健康美故事（至少20字）..."
+        placeholder-class="placeholder"
+        bindinput="onInputStory"
+        value="{{story}}"
+        maxlength="500"
+      ></textarea>
+    </view>
+
+    <!-- 联系方式 -->
+    <view class="form-group">
+      <view class="label">联系方式</view>
+      <input
+        class="input"
+        placeholder="留下联系方式，以便发放奖品"
+        placeholder-class="placeholder"
+        bindinput="onInputContact"
+        value="{{contact}}"
+        type="number"
+        maxlength="11"
+      />
+    </view>
+
+    <button class="submit-btn" bindtap="submitForm">分享故事</button>
+
+  </view>
+
+  <!-- 提交成功弹框 -->
+  <view class="success-mask" wx:if="{{showSuccessModal}}">
+    <view class="success-modal">
+      <text class="success-title">提交成功</text>
+      <view class="qrcode-wrap">
+        <image
+          class="qrcode-img"
+          src="https://wx.pmc-wz.com/materials/jkjkfqrcode.png"
+          mode="widthFix"
+          show-menu-by-longpress="{{true}}"
+        ></image>
+      </view>
+      <view class="success-desc">
+        <text class="success-desc-line">扫码添加客服</text>
+        <text class="success-desc-line">关注更多</text>
+        <text class="success-desc-line">【2026为健康美代言】资讯</text>
+      </view>
+      <view class="success-close" bindtap="closeSuccessModal">×</view>
+    </view>
+  </view>
+
+</view>

@@ -47,14 +47,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    // 检查是否有cardid参数
-    if (options.cardid) {
-      this.setData({
-        inputCardId: options.cardid
-      });
-    }
-
-    // 解析参数
+    // 直接调用接口获取随机福卡
     if (options.fromid) {
       wx.setStorageSync('sponsor', options.fromid)
     }
@@ -63,60 +56,147 @@ Page({
       if (arr.length < 2) {
         arr = options.scene.split('%26');
       }
-      // 处理scene中的参数，可能是 fromid 或者 cardid
-      // 假设scene格式为 cardid=xxx 或 xxx (fromid)
-      // 这里简单处理，如果 scene 中包含 cardid
-      if (arr[0].includes('cardid=')) {
-         const sceneCardId = arr[0].split('=')[1];
-         if (sceneCardId) {
-             this.setData({ inputCardId: sceneCardId });
-         }
-      } else {
-         wx.setStorageSync('sponsor', arr[0]);
-      }
+      wx.setStorageSync('sponsor', arr[0]);
     }
   },
 
   /**
-   * 获取指定福卡
+   * 获取随机福卡
    */
-  getSpecificCard(inputId) {
-    const openid = wx.getStorageSync('openid');
-    
-    // 映射外部ID到内部ID
-    // 6: 健康福 -> 1
-    // 7: 美丽福 -> 2
-    // 8: 平安福 -> 3
-    // 9: 好运福 -> 4
-    // 10: 团圆福 -> 5
-    const cardMap = {
-      '6': '1',
-      '7': '2',
-      '8': '3',
-      '9': '4',
-      '10': '5'
-    };
-    
-    const internalId = cardMap[inputId];
-    
-    if (!internalId) {
-      // 如果不是指定的这些ID，提示错误
-      console.log('未知的cardid:', inputId);
-      wx.showToast({
-        title: '无效的福卡参数',
-        icon: 'none',
-        duration: 2000
-      });
-      return;
-    }
+  getRandomCard() {
+    const openid = wx.getStorageSync('openid')
 
-    // 直接显示领取成功弹窗，不请求接口
-    const cardInfo = this.data.cardTypes[internalId];
-    this.setData({
-      cardId: internalId,
-      cardInfo: cardInfo,
-      received: true
-    });
+    req({
+      url: baseUrl + '/newapi/api/weight/scangetfuka',
+      method: 'POST',
+      data: {
+        openid: openid
+      },
+      success: (res) => {
+        console.log('=== 获取随机福卡接口返回 ===')
+        console.log('完整返回数据:', JSON.stringify(res.data))
+        
+        wx.hideLoading()
+        
+        if (res.data && res.data.status) {
+          const data = res.data.data || {}
+          // 确保 cardId 是字符串类型
+          let cardId = String(data.cardid || data.cardId || '')
+          
+          console.log('=== 调试信息 ===')
+          console.log('原始cardId:', data.cardid || data.cardId, '类型:', typeof (data.cardid || data.cardId))
+          console.log('转换后cardId:', cardId, '类型:', typeof cardId)
+          console.log('proname:', data.proname)
+          console.log('完整data:', JSON.stringify(data))
+          
+          // 如果没有 cardId，尝试通过 proname 反向查找
+          if ((!cardId || cardId === 'undefined' || cardId === 'null') && data.proname) {
+            console.log('通过proname反向查找cardId:', data.proname)
+            // 遍历 cardTypes 找到匹配的福卡
+            for (let id in this.data.cardTypes) {
+              if (this.data.cardTypes[id].name === data.proname) {
+                cardId = id
+                console.log('找到匹配的cardId:', cardId)
+                break
+              }
+            }
+          }
+          
+          console.log('最终cardId:', cardId)
+          console.log('cardTypes键:', Object.keys(this.data.cardTypes))
+          console.log('是否匹配到福卡:', !!this.data.cardTypes[cardId])
+          
+          // 判断是否抽到福卡 - 根据cardid判断
+          if (cardId && cardId !== 'undefined' && cardId !== 'null' && this.data.cardTypes[cardId]) {
+            // 抽到福卡了
+            console.log('✅ 抽到福卡了，福卡ID:', cardId)
+            const cardInfo = this.data.cardTypes[cardId]
+            
+            console.log('福卡信息:', cardInfo)
+            
+            this.setData({
+              cardId: cardId,
+              cardInfo: cardInfo,
+              received: true
+            })
+          } else {
+            // 没有抽到福卡或者福卡信息不存在
+            console.log('❌ 没有抽到福卡或福卡信息不存在')
+            console.log('cardId值:', cardId)
+            console.log('是否为空:', !cardId)
+            console.log('是否在cardTypes中:', !!this.data.cardTypes[cardId])
+            
+            const message = data.proname || res.data.msg || '很遗憾，没有抽到福卡'
+            console.log('弹窗消息:', message)
+            
+            // 判断是否已经抽过（检测关键字）
+            const isAlreadyDrawn = message.includes('已') && (
+              message.includes('参与') || 
+              message.includes('抽过') || 
+              message.includes('领取') || 
+              message.includes('明天')
+            )
+            
+            let blessingText = ''
+            if (isAlreadyDrawn) {
+              // 今天已经抽过，显示固定文案
+              blessingText = '明天再来福运更佳哦~'
+            } else {
+              // 没有抽中，随机选择一条祝福语
+              const randomIndex = Math.floor(Math.random() * this.data.blessings.length)
+              blessingText = this.data.blessings[randomIndex]
+            }
+            console.log('祝福语:', blessingText)
+            
+            // 使用自定义弹窗
+            this.setData({
+              showErrorPopup: true,
+              errorMessage: message,
+              blessingText: blessingText,
+              alreadyDrawn: isAlreadyDrawn
+            })
+          }
+        } else {
+          console.log('接口返回失败')
+          const message = res.data?.msg || '获取福卡失败'
+          
+          // 判断是否已经抽过（检测关键字）
+          const isAlreadyDrawn = message.includes('已') && (
+            message.includes('参与') || 
+            message.includes('抽过') || 
+            message.includes('领取') || 
+            message.includes('明天')
+          )
+          
+          let blessingText = ''
+          if (isAlreadyDrawn) {
+            // 今天已经抽过，显示固定文案
+            blessingText = '明天再来福运更佳哦~'
+          } else {
+            // 没有抽中，随机选择一条祝福语
+            const randomIndex = Math.floor(Math.random() * this.data.blessings.length)
+            blessingText = this.data.blessings[randomIndex]
+          }
+          
+          this.setData({
+            showErrorPopup: true,
+            errorMessage: message,
+            blessingText: blessingText,
+            alreadyDrawn: isAlreadyDrawn
+          })
+        }
+      },
+      fail: (err) => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络错误，请重试',
+          icon: 'none'
+        })
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 1500)
+      }
+    })
   },
 
   /**
@@ -131,48 +211,16 @@ Page({
       return
     }
 
-    const openid = wx.getStorageSync('openid')
-    wx.showLoading({ title: '领取中...' })
-
-    req({
-      url: baseUrl + '/newapi/api/weight/scanaddyearfuka',
-      method: 'POST',
-      data: {
-        openid: openid,
-        cardid: this.data.inputCardId
-      },
-      success: (res) => {
-        wx.hideLoading()
-        console.log('=== 领取福卡接口返回 ===', res.data)
-
-        if (res.data && res.data.status) {
-          wx.showToast({
-            title: '恭喜获得' + this.data.cardInfo.name + '！',
-            icon: 'success'
-          })
-          
-          setTimeout(() => {
-            wx.switchTab({
-              url: '/pages/jifu/jifu',
-            })
-          }, 1500)
-        } else {
-          wx.showToast({
-            title: res.data?.msg || '领取失败',
-            icon: 'none'
-          })
-          // 即使失败也跳转吗？通常失败可能是重复领取，这里根据用户习惯，也许应该跳转或者留在这里。
-          // 暂时只提示错误，不跳转，让用户看清楚错误。
-        }
-      },
-      fail: (err) => {
-        wx.hideLoading()
-        wx.showToast({
-          title: '网络错误，请重试',
-          icon: 'none'
-        })
-      }
+    wx.showToast({
+      title: '恭喜获得' + this.data.cardInfo.name + '！',
+      icon: 'success'
     })
+    
+    setTimeout(() => {
+      wx.switchTab({
+        url: '/pages/jifu/jifu',
+      })
+    }, 1500)
   },
 
   /**
@@ -209,20 +257,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    if (this.data.inputCardId) {
-      this.getSpecificCard(this.data.inputCardId);
-    } else {
-      wx.showToast({
-        title: '缺少福卡参数',
-        icon: 'none',
-        duration: 2000
-      });
-      setTimeout(() => {
-        wx.switchTab({
-          url: '/pages/jifu/jifu',
-        })
-      }, 1500);
-    }
+    this.getRandomCard()
   },
 
   /**

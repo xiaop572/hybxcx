@@ -1,0 +1,374 @@
+/* subpackagesC/fuzhibaogao/fuzhibaogao.wxss */
+page {
+  background: linear-gradient(160deg, #EDE8F8 0%, #D8E6F5 100%);
+  min-height: 100%;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 24rpx 24rpx 60rpx;
+  box-sizing: border-box;
+}
+
+/* -------- 顶部卡片 -------- */
+.header-card {
+  background: #fff;
+  border-radius: 32rpx;
+  padding: 40rpx 36rpx 36rpx;
+  margin-bottom: 24rpx;
+}
+.header-top {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32rpx;
+}
+.title { font-size: 44rpx; font-weight: bold; color: #222; margin-bottom: 16rpx; }
+.sub-info { display: flex; align-items: center; }
+.sub-item { font-size: 26rpx; color: #888; }
+.sub-val { color: #555; font-weight: 500; }
+.sub-divider { color: #ccc; margin: 0 16rpx; font-size: 24rpx; }
+.header-icon {
+  width: 96rpx; height: 96rpx; border-radius: 50%;
+  background: linear-gradient(135deg, #a78bfa, #38bdf8);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.icon-text { font-size: 36rpx; font-weight: bold; color: #fff; }
+.section-title { font-size: 30rpx; font-weight: bold; color: #333; margin-bottom: 16rpx; }
+.summary-text { font-size: 26rpx; color: #666; line-height: 1.8; margin-bottom: 36rpx; }
+.total-score-row { display: flex; align-items: baseline; gap: 16rpx; }
+.total-label { font-size: 28rpx; color: #555; }
+.total-num { font-size: 72rpx; font-weight: bold; color: #7C5CF6; line-height: 1; }
+
+/* -------- 评分列表 -------- */
+.score-card { background: #fff; border-radius: 32rpx; padding: 0 36rpx; margin-bottom: 32rpx; overflow: hidden; }
+.score-item { display: flex; align-items: center; padding: 36rpx 0; border-bottom: 1rpx solid #f2f2f2; }
+.score-item:last-child { border-bottom: none; }
+.score-icon-wrap {
+  width: 72rpx; height: 72rpx; border-radius: 50%;
+  background: linear-gradient(135deg, #ede9ff, #e0f2ff);
+  display: flex; align-items: center; justify-content: center; margin-right: 24rpx; flex-shrink: 0;
+}
+.score-icon { font-size: 34rpx; }
+.score-info { flex: 1; }
+.score-name { font-size: 30rpx; font-weight: 600; color: #222; margin-bottom: 8rpx; }
+.score-desc { font-size: 24rpx; color: #999; }
+.score-right { display: flex; align-items: center; gap: 8rpx; flex-shrink: 0; }
+.score-num { font-size: 40rpx; font-weight: bold; color: #7C5CF6; }
+.score-arrow { font-size: 36rpx; color: #bbb; margin-left: 4rpx; }
+
+/* -------- 按钮 -------- */
+.btn-report {
+  background: linear-gradient(90deg, #6366f1, #38bdf8);
+  color: #fff; font-size: 32rpx; font-weight: 600;
+  text-align: center; border-radius: 56rpx;
+  padding: 28rpx 0; margin: 0 0 36rpx; letter-spacing: 2rpx;
+}
+
+/* -------- AI 推荐 -------- */
+.ai-wrap { background: #fff; border-radius: 24rpx; padding: 32rpx 36rpx; }
+.ai-text { font-size: 27rpx; color: #444; line-height: 1.9; margin-bottom: 20rpx; }
+.ai-tip { font-size: 22rpx; color: #bbb; }
+
+
+/* ========== 弹框 ========== */
+.modal-mask {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.45); z-index: 999;
+  display: flex; align-items: flex-end;
+}
+
+.modal-wrap {
+  width: 100%;
+  height: 90vh;
+  background: #fff;
+  border-radius: 40rpx 40rpx 0 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 固定头部 */
+.modal-head {
+  flex-shrink: 0;
+  padding: 44rpx 40rpx 0;
+  position: relative;
+  overflow: hidden;
+}
+.modal-head-inner {
+  display: flex; flex-direction: row;
+  justify-content: space-between; align-items: flex-start;
+  position: relative; z-index: 1;
+}
+.modal-title { font-size: 40rpx; font-weight: bold; color: #222; margin-bottom: 8rpx; }
+.modal-subtitle { font-size: 26rpx; color: #999; }
+.modal-close {
+  font-size: 48rpx; color: #bbb; line-height: 1;
+  padding: 0 10rpx;
+}
+.modal-watermark {
+  position: absolute; right: -10rpx; top: -10rpx;
+  font-size: 100rpx; font-weight: bold;
+  color: rgba(120, 100, 220, 0.06);
+  letter-spacing: -4rpx; line-height: 1;
+  pointer-events: none;
+}
+
+/* 滚动区：flex:1 + height:0 是微信 scroll-view 在 flex 容器内滚动的固定写法 */
+.modal-scroll {
+  flex: 1;
+  height: 0;
+  overflow: hidden;
+}
+
+/* 颜值卡片 */
+.m-card {
+  margin: 28rpx 32rpx 0;
+  background: #f9f7ff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+}
+.m-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28rpx; }
+.m-card-title { font-size: 40rpx; font-weight: bold; color: #222; margin-bottom: 12rpx; }
+.m-card-sub { font-size: 26rpx; color: #888; }
+.m-card-divider { margin: 0 12rpx; }
+.m-card-icon {
+  width: 88rpx; height: 88rpx; border-radius: 50%;
+  background: linear-gradient(135deg, #a78bfa, #38bdf8);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.m-card-icon-text { font-size: 34rpx; font-weight: bold; color: #fff; }
+.m-section-title { font-size: 30rpx; font-weight: bold; color: #333; margin-bottom: 14rpx; }
+.m-summary { font-size: 26rpx; color: #666; line-height: 1.8; }
+
+/* 评测总分 + 雷达图 */
+.m-radar-wrap { padding: 36rpx 32rpx 0; }
+.m-total-row { display: flex; align-items: center; margin-bottom: 28rpx; }
+.m-total-icon { font-size: 36rpx; margin-right: 12rpx; }
+.m-total-label { font-size: 30rpx; color: #444; margin-right: 16rpx; }
+.m-total-num { font-size: 64rpx; font-weight: bold; color: #7C5CF6; line-height: 1; }
+
+/* 雷达图 */
+.radar-container {
+  position: relative;
+  margin: 0 auto 80rpx; /* 底部留空给标签 */
+  overflow: visible;    /* 标签可超出容器 */
+}
+.radar-canvas { display: block; }
+.radar-label {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+}
+.rl-name { font-size: 24rpx; color: #555; }
+.rl-score { font-size: 24rpx; color: #7C5CF6; font-weight: 600; }
+
+/* Tab 栏 */
+.m-tabs {
+  display: flex; flex-direction: row;
+  padding: 20rpx 32rpx;
+  white-space: nowrap;
+}
+.m-tab {
+  display: inline-flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 14rpx 28rpx; margin-right: 16rpx;
+  border-radius: 16rpx; border: 2rpx solid #e0e0e0;
+  background: #fafafa;
+  flex-shrink: 0;
+}
+.m-tab-active {
+  border-color: #7C5CF6; background: #f3f0ff;
+}
+.m-tab-name { font-size: 26rpx; color: #444; margin-bottom: 4rpx; }
+.m-tab-score { font-size: 24rpx; color: #7C5CF6; }
+.m-tab-active .m-tab-name { color: #7C5CF6; font-weight: 600; }
+
+/* 详情区域 */
+.m-detail-wrap { padding: 0 32rpx 60rpx; }
+
+.m-detail-header {
+  display: flex; align-items: center;
+  padding: 24rpx 0 28rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+  margin-bottom: 24rpx;
+}
+.m-detail-icon { font-size: 38rpx; margin-right: 12rpx; }
+.m-detail-title { font-size: 34rpx; font-weight: bold; color: #222; flex: 1; }
+.m-detail-score { font-size: 52rpx; font-weight: bold; color: #7C5CF6; }
+
+/* 子项卡片 */
+.m-di-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 16rpx rgba(0,0,0,0.06);
+}
+
+/* 标题行（含右侧图片） */
+.m-di-row {
+  display: flex; flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+}
+.m-di-left { flex: 1; margin-right: 20rpx; }
+.m-di-title { font-size: 30rpx; font-weight: 600; color: #222; margin-bottom: 8rpx; }
+.m-di-subtitle { font-size: 24rpx; color: #999; }
+
+/* 右侧分析图 */
+.m-di-img-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 150rpx; height: 150rpx;
+}
+.m-di-img {
+  width: 150rpx; height: 150rpx;
+  border-radius: 16rpx;
+}
+.m-di-search {
+  position: absolute; top: 6rpx; right: 6rpx;
+  width: 40rpx; height: 40rpx; border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22rpx;
+}
+
+/* 多标签行 */
+.m-di-tags { display: flex; flex-wrap: wrap; gap: 16rpx; margin: 16rpx 0; }
+.m-di-tag-item { display: flex; align-items: center; }
+.m-di-dot { width: 16rpx; height: 16rpx; border-radius: 50%; margin-right: 8rpx; flex-shrink: 0; }
+.m-di-dash { width: 24rpx; height: 6rpx; border-radius: 3rpx; margin-right: 8rpx; flex-shrink: 0; }
+.m-di-tag-text { font-size: 26rpx; color: #555; }
+.m-di-tag-val { font-size: 26rpx; color: #333; font-weight: 600; margin-left: 4rpx; }
+
+/* 进度条 */
+.m-di-range {
+  display: flex; align-items: center;
+  margin: 16rpx 0 20rpx;
+}
+.m-di-range-lbl { font-size: 24rpx; color: #999; flex-shrink: 0; }
+.m-di-range-track {
+  flex: 1; height: 14rpx; border-radius: 8rpx;
+  background: #ede9fb; margin: 0 16rpx;
+  overflow: hidden;
+}
+.m-di-range-fill {
+  height: 100%; border-radius: 8rpx;
+  background: linear-gradient(90deg, #a78bfa, #38bdf8);
+}
+
+/* 描述文字 */
+.m-di-text { font-size: 26rpx; color: #555; line-height: 1.8; margin-top: 8rpx; }
+
+/* 柱状图 */
+.m-di-chart {
+  margin-top: 24rpx;
+  display: flex;
+  flex-direction: row;
+}
+.m-chart-levels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 12rpx 48rpx 0;
+}
+.m-chart-level { font-size: 22rpx; color: #bbb; }
+.m-chart-bars {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+  border-left: 1rpx solid #eee;
+  border-bottom: 1rpx solid #eee;
+  height: 200rpx;
+  padding-bottom: 0;
+}
+.m-chart-bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+.m-chart-bar-wrap {
+  width: 40rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.m-chart-bar-fill {
+  width: 40rpx;
+  background: linear-gradient(180deg, #a78bfa, #c4b5fd);
+  border-radius: 8rpx 8rpx 0 0;
+  min-height: 0;
+}
+.m-chart-bar-label { font-size: 20rpx; color: #888; margin-top: 8rpx; }
+
+/* ===== 优先关注 & 推荐成分 通用区块 ===== */
+.m-section-block {
+  margin: 16rpx 32rpx 24rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  overflow: hidden;
+}
+.m-section-bar {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 28rpx 16rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+.m-section-bar-dot {
+  width: 8rpx; height: 32rpx;
+  background: linear-gradient(180deg, #7C5CF6, #38bdf8);
+  border-radius: 4rpx;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+.m-section-bar-title { font-size: 30rpx; font-weight: bold; color: #222; }
+
+/* ===== 优先关注 ===== */
+.m-concern-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 24rpx 28rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+}
+.m-concern-item:last-child { border-bottom: none; }
+.m-concern-num {
+  width: 48rpx; height: 48rpx; border-radius: 50%;
+  background: linear-gradient(135deg, #7C5CF6, #38bdf8);
+  color: #fff; font-size: 26rpx; font-weight: bold;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-right: 20rpx; margin-top: 2rpx;
+}
+.m-concern-body { flex: 1; }
+.m-concern-title { font-size: 28rpx; font-weight: 600; color: #333; margin-bottom: 10rpx; }
+.m-concern-text { font-size: 24rpx; color: #777; line-height: 1.7; }
+
+/* ===== 推荐成分 ===== */
+.m-ingredient-item {
+  padding: 24rpx 28rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+}
+.m-ingredient-item:last-child { border-bottom: none; }
+.m-ingredient-head {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+.m-ingredient-name { font-size: 30rpx; font-weight: bold; color: #7C5CF6; }
+.m-ingredient-meta { display: flex; gap: 12rpx; }
+.m-ingredient-tag {
+  background: #f0ecff; color: #7C5CF6;
+  font-size: 20rpx; border-radius: 20rpx;
+  padding: 4rpx 16rpx;
+}
+.m-ingredient-purpose { font-size: 24rpx; color: #666; line-height: 1.7; }

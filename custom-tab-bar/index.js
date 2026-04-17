@@ -20,21 +20,21 @@ Component({
         "text": "全部商品",
         "type": "text"
       },
-      // {
-      //   "pagePath": "/pages/yiliaofuwu/yiliaofuwu",
-      //   "iconPath": "../pages/assign/yl.png",
-      //   "selectedIconPath": "../pages/assign/yl-active.png",
-      //   "text": "医疗服务",
-      //   "type": "text"
-      // },
       {
-        "pagePath": "/pages/jifu/jifu",
-        "iconPath": "../pages/assign/pthd.png",
-        "selectedIconPath": "../pages/assign/pthd.png",
-        "text": "健康美就是福",
-        "type": "text",
-        "bulge":true
+        "pagePath": "/pages/yiliaofuwu/yiliaofuwu",
+        "iconPath": "../pages/assign/yl.png",
+        "selectedIconPath": "../pages/assign/yl-active.png",
+        "text": "医疗服务",
+        "type": "text"
       },
+      // {
+      //   "pagePath": "/pages/jiankangjie/jiankangjie",
+      //   "iconPath": "../pages/assign/pthd.png",
+      //   "selectedIconPath": "../pages/assign/pthd.png",
+      //   "text": "女性健康节",
+      //   "type": "text",
+      //   "bulge":true
+      // },
       {
         "pagePath": "/pages/lxkf/lxkf",
         "iconPath": "../pages/assign/kefu.png",

@@ -63,11 +63,16 @@ Page({
     })
   },
   rylfw() {
-    // wx.switchTab({
+    wx.switchTab({
+      url: '../yiliaofuwu/yiliaofuwu',
+    })
+    // wx.navigateTo({
     //   url: '../yiliaofuwu/yiliaofuwu',
     // })
-    wx.navigateTo({
-      url: '../yiliaofuwu/yiliaofuwu',
+  },
+  rfskq(){
+    wx.myNavigateTo({
+      url: "/huodongpage/fskq/fskq"
     })
   },
   rcflist() {

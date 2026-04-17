@@ -1,5 +1,5 @@
 <!--subpackages/tcshiyong/tcshiyong.wxml-->
-<view class="tishi">
+<!-- <view class="tishi">
   为保证车辆正常出场，请提前5分钟领券。
 </view>
 <view class="cpBox">
@@ -40,4 +40,4 @@
       </view>
     </view>
   </view>
-</view>
+</view> -->

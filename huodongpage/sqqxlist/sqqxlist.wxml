@@ -1,0 +1,44 @@
+<!--huodongpage/sqqxlist/sqqxlist.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="title">发券权限审核列表</view>
+  </view>
+
+  <view class="list-container">
+    <block wx:if="{{list.length > 0}}">
+      <view class="list-item" wx:for="{{list}}" wx:key="id">
+        <view class="item-info">
+          <view class="user-name">申请人：{{item.name}}</view>
+          <view class="apply-time">申请时间：{{item.createTime}}</view>
+          <view class="status {{item.statusClass}}">{{item.statusText}}</view>
+        </view>
+        
+        <view class="action-buttons" wx:if="{{item.status === 0}}">
+          <button class="btn approve" bindtap="handleAudit" data-id="{{item.id}}" data-action="approve">通过</button>
+        </view>
+        <view class="audit-result" wx:else>
+          <text wx:if="{{item.status === 1}}" class="text-approve">已通过</text>
+          <text wx:if="{{item.status === 2}}" class="text-reject">已拒绝</text>
+        </view>
+      </view>
+    </block>
+    
+    <view class="empty-state" wx:else>
+      <text>暂无待审核申请</text>
+    </view>
+  </view>
+
+  <!-- 权限选择弹窗 -->
+  <view class="modal-mask" wx:if="{{showRoleModal}}" bindtap="closeModal"></view>
+  <view class="modal-content" wx:if="{{showRoleModal}}">
+    <view class="modal-title">请选择用户权限</view>
+    <view class="role-options">
+      <view class="role-item {{selectedRole === 'dean' ? 'active' : ''}}" bindtap="selectRole" data-role="dean">院长</view>
+      <view class="role-item {{selectedRole === 'manager' ? 'active' : ''}}" bindtap="selectRole" data-role="manager">中高层领导</view>
+    </view>
+    <view class="modal-footer">
+      <button class="modal-btn cancel" bindtap="closeModal">取消</button>
+      <button class="modal-btn confirm" bindtap="confirmAudit">确定</button>
+    </view>
+  </view>
+</view>

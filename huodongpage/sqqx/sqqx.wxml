@@ -1,0 +1,20 @@
+<!--huodongpage/sqqx/sqqx.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="title">新春发券权限申请</view>
+    <view class="subtitle">请填写真实姓名以开通权限</view>
+  </view>
+
+  <view class="form-box">
+    <view class="input-group">
+      <view class="label">姓名</view>
+      <input class="input" type="text" placeholder="请输入您的姓名" value="{{name}}" bindinput="onNameInput" />
+    </view>
+
+    <button class="submit-btn" bindtap="submitApplication">提交申请</button>
+  </view>
+
+  <view class="tips">
+    <text>提交后请等待管理员审核</text>
+  </view>
+</view>

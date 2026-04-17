@@ -1,7 +1,7 @@
 <!--pages/qrcode/qrcode.wxml-->
 <view>
   <image src="https://wx.pmc-wz.com/materials/logo.png" mode="widthFix" class="logo"></image>
-  <text class="tishi">使用时出示此二维码</text>
-  <canvas style="width: 140px; height: 140px;margin:40rpx auto;" canvas-id="myQrcode"></canvas>
-  <text class="code">会员码</text>
+  <text class="tishi">我的分享二维码</text>
+  <image src="{{qrcodeSrc}}" mode="aspectFit" class="qrcode" wx:if="{{qrcodeSrc}}"></image>
+  <view class="save-btn" bindtap="saveCode">保存小程序码</view>
 </view>

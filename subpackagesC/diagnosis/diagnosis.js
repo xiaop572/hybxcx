@@ -24,7 +24,11 @@ Page({
     // 检查是否实名
     this.checkRealName();
   },
-
+  rmzxj(){
+    wx.navigateTo({
+      url: '/subpackagesC/cefuzhifengmian/cefuzhifengmian',
+    })
+  },
   // 检查实名状态
   checkRealName() {
     const realInfo = wx.getStorageSync('realInfo');
@@ -129,7 +133,7 @@ Page({
           // 如果是第一次上传图片，添加见面礼文案
           if (that.data.isFirstImageUpload) {
             // const giftText = '\n#点击领取小慧的见面礼（单部位冰点脱毛1次或医用面膜1片）';
-            const giftText = '\n#点击领取【美丽福】兑【光子嫩肤】';
+            const giftText = '\n#点击领取【光子嫩肤】邂逅光感美肌';
             streamedText += giftText;
 
             messageParts = [{
@@ -583,10 +587,10 @@ Page({
     }
 
     // 已实名，直接领取礼品
-    // this.claimGift(realInfo.mobile);
-    wx.navigateTo({
-      url: '/huodongpage/lfk/lfk?cardid=7',
-    })
+    this.claimGift(realInfo.mobile);
+    // wx.navigateTo({
+    //   url: '/huodongpage/lfk/lfk?cardid=7',
+    // })
   },
 
   // 领取礼品

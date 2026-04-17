@@ -1,0 +1,53 @@
+<!--huodongpage/fskq/fskq.wxml-->
+<view>
+  <image src="https://wx.pmc-wz.com/materials/yzfsbg.jpg" mode="widthFix" style="width: 100%;display: block;" />
+  <view class="neirong">
+    <image src="https://wx.pmc-wz.com/materials/yzfskq.png" mode="widthFix" class="fskqkq" />
+    <view class="btnlist">
+      <image src="https://wx.pmc-wz.com/materials/yzfsdjlq.png" mode="widthFix" class="fskqbtn" style="margin-right: 60rpx;" bindtap="handleClaim"/>
+      <image src="https://wx.pmc-wz.com/materials/yzfsckkq.png" mode="widthFix" class="fskqbtn" bind:tap="rmykq"/>
+    </view>
+  </view>
+</view>
+
+<!-- 分享弹窗 -->
+<view class="modal-mask" wx:if="{{showModal}}" bindtap="hideShareModal">
+  <view class="modal-content" catchtap="preventBubble">
+    <view class="input-group">
+      <view class="label">用途：</view>
+      <input class="input" placeholder="请输入用途" bindinput="onUsageInput" value="{{usage}}" />
+    </view>
+    <view class="input-group">
+      <view class="label">接收人手机号：</view>
+      <input class="input" type="number" placeholder="请输入接收人手机号" bindinput="onPhoneInput" value="{{phoneNumber}}" maxlength="11" />
+    </view>
+    <block wx:if="{{usage}}">
+      <button class="share-btn" open-type="share" bindtap="handleShareSuccess">分享</button>
+    </block>
+    <block wx:else>
+      <button class="share-btn" bindtap="handleShareError">分享</button>
+    </block>
+  </view>
+</view>
+
+<!-- 领取弹窗 -->
+<view class="modal-mask" wx:if="{{showClaimModal}}" bindtap="hideClaimModal">
+  <view class="modal-content" catchtap="preventBubble">
+    <view class="modal-title">填写领取信息</view>
+    <view class="input-group">
+      <view class="label">姓名：</view>
+      <input class="input" placeholder="请输入您的姓名" bindinput="onNameInput" value="{{claimName}}" />
+    </view>
+    <view class="input-group">
+      <view class="label">手机号：</view>
+      <view class="phone-row">
+        <text class="phone-val {{claimPhone ? '' : 'placeholder'}}">{{claimPhone || '点击右侧一键获取'}}</text>
+        <button class="get-phone-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">一键获取</button>
+      </view>
+    </view>
+    <view class="modal-btns">
+      <button class="cancel-btn" bindtap="hideClaimModal">取消</button>
+      <button class="confirm-btn" bindtap="confirmClaim">确认领取</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+<!--pages/zzinfo/zzinfo.wxml-->
+<view class="main">
+  <view class="title">
+    项目预约
+  </view>
+  <view class="hint">
+    温馨提示：请填写真实身份信息!
+  </view>
+  <view class="containers">
+    <view class="name inTxt1">
+      <view class="caption1">姓名<i></i></view>
+      <input type="text" class="int1" model:value="{{name}}" />
+    </view>
+    <view class="name inTxt1">
+      <view class="caption1">手机号<i></i></view>
+      <input type="number" class="int1" model:value="{{phone}}" />
+    </view>
+    <view class="number inTxt1">
+      <view class="caption1">项目<i></i></view>
+      <picker class="picker" mode="selector" range="{{projectList}}" value="{{projectIndex}}" bindchange="onProjectChange">
+        <view class="int1 picker-text {{projectIndex === -1 ? 'placeholder' : ''}}">
+          {{projectIndex === -1 ? '请选择项目' : projectList[projectIndex]}}
+        </view>
+      </picker>
+    </view>
+    <view class="number inTxt1">
+      <view class="caption2">预约日期<i></i></view>
+      <picker class="picker" mode="date" value="{{appointDate}}" start="{{today}}" bindchange="onDateChange">
+        <view class="int1 picker-text {{appointDate ? '' : 'placeholder'}}">
+          {{appointDate || '请选择预约日期'}}
+        </view>
+      </picker>
+    </view>
+    <view class="remark inTxt">
+      <view class="caption">其它<i></i></view>
+      <textarea class="int textarea" model:value="{{remark}}" placeholder="请输入其它说明"></textarea>
+    </view>
+    <view class="submitBtn" bindtap="rfukuan">提交</view>
+  </view>
+</view>

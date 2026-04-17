@@ -10,6 +10,23 @@
   font-size: 30rpx;
   color: #666;
 }
+.qrcode{
+  width: 280rpx;
+  height: 280rpx;
+  display: block;
+  margin: 40rpx auto;
+}
+.save-btn{
+  width: 300rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  text-align: center;
+  margin: 40rpx auto 0;
+  border-radius: 40rpx;
+  background: #4b8ecd;
+  color: #fff;
+  font-size: 30rpx;
+}
 .code{
   display: block;
   text-align: center;

@@ -1,0 +1,53 @@
+<!--huodongpage/qdhd/qdhd.wxml-->
+<image src="https://wx.pmc-wz.com/materials/qdhdbanner.png" mode="widthFix" class="qdhdbanner"/>
+<image src="https://wx.pmc-wz.com/materials/qdhdcaption.png" mode="widthFix" class="qdhdcaption"/>
+<view class="gift-content">
+  <view class="gift-title">
+    <text class="title-prefix">参与即可领取</text>
+    <text class="highlight-wrap">
+      <text class="highlight-text">777元健康美礼包</text>
+      <text class="highlight-line"></text>
+    </text>
+  </view>
+  <view class="gift-item">
+    <text class="item-main">①三大AI检测</text>
+    <text class="item-sub">(AI智能健康22项体测、皮肤检测、AI头皮健康检测)</text>
+  </view>
+  <view class="gift-item">
+    <text class="item-main">②冰点脱毛(唇/腋2选1)/安肌baby水光/超声波洁牙</text>
+    <text class="item-sub">(3选1)</text>
+  </view>
+</view>
+<view class="qdmain">
+  <image src="https://wx.pmc-wz.com/materials/qdhdmain.png" mode="widthFix" class="qdhdmain"/>
+  <view class="qdmain-content">
+    <view class="qdmain-title">寻找你的“幸运7”</view>
+    <view class="qdmain-desc">你与“7”的缘分，藏在你的专属信息里。</view>
+    <view class="qdmain-desc">请找到TA，让它帮你收获健康美！</view>
+    <view class="qdmain-subtitle">你的缘分藏在：</view>
+    <view class="option-list">
+      <view
+        class="option-item {{selectedType === item.value ? 'option-item-active' : ''}}"
+        wx:for="{{optionList}}"
+        wx:key="value"
+        data-value="{{item.value}}"
+        bindtap="selectType"
+      >
+        <text>{{item.label}}</text>
+        <view class="option-check" wx:if="{{selectedType === item.value}}">✓</view>
+      </view>
+    </view>
+    <view class="submit-btn" bindtap="submitQuan">{{submitting ? '提交中...' : '确认'}}</view>
+  </view>
+</view>
+
+<view class="success-mask" wx:if="{{showSuccessPopup}}" bindtap="hideSuccessPopup">
+  <view class="success-popup" catchtap="stopBubble">
+    <image
+      src="https://wx.pmc-wz.com/materials/qdhdtc.png"
+      mode="widthFix"
+      class="success-popup-img"
+      bindtap="goMyCard"
+    />
+  </view>
+</view>

@@ -5,7 +5,7 @@
       <image src="{{userInfo.avatarUrl?userInfo.avatarUrl:'https://wx.pmc-wz.com/materials/moren.jpg'}}" mode="widthFix" bindtap="routeMyInfo" class="acator"></image>
       <text class="nameText" bindtap="routeMyInfo">{{userInfo.nickName?userInfo.nickName:'请登录'}}</text>
       <view class="hym" bindtap="rqrcode">
-        <image src="https://wx.pmc-wz.com/materials/hym.png" mode="widthFix"></image><text>会员码</text>
+        <image src="https://wx.pmc-wz.com/materials/hym.png" mode="widthFix"></image><text>分享码</text>
       </view>
     </view>
     <view class="myBottom">
@@ -147,6 +147,10 @@
     <view class="myIcon" bindtap="rsph" wx:if="{{iskefu}}">
       <image src="https://wx.pmc-wz.com/materials/lxkf.svg" mode='widthFix'  lazy-load="true"></image>
       <text>我是客服</text>
+    </view>
+    <view class="myIcon" bindtap="rfskq">
+      <image src="https://wx.pmc-wz.com/materials/xcyl.png" mode='widthFix'  lazy-load="true"></image>
+      <text>新春有礼</text>
     </view>
     <!-- <view class="myIcon" bindtap="rzt">
       <image src="https://wx.pmc-wz.com/materials/lxkf.svg" mode='widthFix' style="width: 80rpx;"></image>

@@ -1,0 +1,31 @@
+<!--huodongpage/fskq/fskq.wxml-->
+<view wx:if="{{isAuthorized}}">
+  <image src="https://wx.pmc-wz.com/materials/fskqbg.png" mode="widthFix" style="width: 100%;display: block;" />
+  <view class="neirong">
+    <image src="{{cardImage}}" mode="widthFix" class="fskqkq" />
+    <view class="btnlist">
+      <image src="https://wx.pmc-wz.com/materials/jsdjlq.png" mode="widthFix" class="fskqbtn" style="margin-right: 20rpx;" bindtap="handleClaim"/>
+      <image src="https://wx.pmc-wz.com/materials/jsckkq.png" mode="widthFix" class="fskqbtn" bind:tap="rmykq"/>
+    </view>
+  </view>
+</view>
+
+<!-- 弹窗 -->
+<view class="modal-mask" wx:if="{{showModal}}" bindtap="hideShareModal">
+  <view class="modal-content" catchtap="preventBubble">
+    <view class="input-group">
+      <view class="label">用途：</view>
+      <input class="input" placeholder="请输入用途" bindinput="onUsageInput" value="{{usage}}" />
+    </view>
+    <view class="input-group">
+      <view class="label">接收人手机号：</view>
+      <input class="input" type="number" placeholder="请输入接收人手机号" bindinput="onPhoneInput" value="{{phoneNumber}}" maxlength="11" />
+    </view>
+    <block wx:if="{{usage}}">
+      <button class="share-btn" open-type="share" bindtap="handleShareSuccess">分享</button>
+    </block>
+    <block wx:else>
+      <button class="share-btn" bindtap="handleShareError">分享</button>
+    </block>
+  </view>
+</view>

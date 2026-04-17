@@ -69,6 +69,13 @@ Page({
     if (options.fromid) {
       wx.setStorageSync('sponsor', options.fromid)
     }
+    if (options.scene) {
+      let arr = options.scene.split('&');
+      if(arr.length<2){
+        arr = options.scene.split('%26');
+      }
+      wx.setStorageSync('sponsor', arr[0]);
+    }
     let userInfo = wx.getStorageSync('userInfo');
     if (!userInfo) { //登录拦截
       wx.showToast({
@@ -669,6 +676,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {
-
+    return {
+      title: '个人体检',
+      path: '/pages/gerentijian/gerentijian?fromid=' + wx.getStorageSync('openid')
+    }
   }
 })

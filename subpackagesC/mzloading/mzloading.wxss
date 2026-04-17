@@ -1,0 +1,62 @@
+/* subpackagesC/mzloading/mzloading.wxss */
+page {
+  height: 100%;
+  background: linear-gradient(150deg, #EDE8F8 0%, #D8E6F5 100%);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* 画布容器，用于叠加文字 */
+.circle-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas {
+  display: block;
+}
+
+/* 绝对居中的百分比文字 */
+.center-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.num {
+  font-size: 96rpx;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 0 40rpx rgba(130, 100, 210, 0.6);
+}
+
+.sign {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+  margin-left: 4rpx;
+  text-shadow: 0 0 30rpx rgba(130, 100, 210, 0.5);
+}
+
+.hint {
+  margin-top: 48rpx;
+  font-size: 28rpx;
+  color: #aaa;
+  letter-spacing: 6rpx;
+}
