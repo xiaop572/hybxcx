@@ -133,6 +133,19 @@ page {
   height: 70rpx;
   padding-left: 200rpx;
 }
+.address-line {
+  min-height: 160rpx;
+}
+.address-int {
+  width: 100%;
+  min-height: 140rpx;
+  display: block;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 1.5;
+  padding: 16rpx 20rpx 16rpx 200rpx;
+}
 
 .int1 {
   display: block;

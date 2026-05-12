@@ -1,0 +1,13 @@
+<view class="page">
+  <view class="circle-wrap">
+    <canvas
+      canvas-id="progressCanvas"
+      style="width:{{canvasPx}}px;height:{{canvasPx}}px;"
+      class="canvas"
+    ></canvas>
+    <view class="center-text">
+      <text class="num">{{percent}}</text><text class="sign">%</text>
+    </view>
+  </view>
+  <text class="hint">结果生成中</text>
+</view>

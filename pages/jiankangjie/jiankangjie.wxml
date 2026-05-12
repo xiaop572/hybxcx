@@ -1,92 +1,95 @@
 <!--pages/jiankangjie/jiankangjie.wxml-->
 <view class="page-container">
   <!-- 顶部Banner大图 (整个顶部区域作为一张图) -->
-  <image class="top-banner" src="https://wx.pmc-wz.com/materials/jkjbanner.png" mode="widthFix"></image>
+  <image class="top-banner" src="https://wx.pmc-wz.com/materials/jkm7banner.png" mode="widthFix"></image>
+  <image src="https://wx.pmc-wz.com/materials/jkm7yun.png" mode="widthFix" class="jkm7yun"/>
 
-  <!-- 芳华悦己·礼遇健康美 -->
-  <view class="fh-section">
-    <!-- 标题图片 -->
-    <image class="fh-title-img" src="https://wx.pmc-wz.com/materials/jkjfh.png" mode="widthFix"></image>
-    <!-- 白色卡片容器 -->
-    <view class="fh-card">
-      <!-- 邂逅光感肌密 按钮图片 -->
-      <image class="fh-btn-img" src="https://wx.pmc-wz.com/materials/fhbtn1.png" mode="widthFix" bindtap="goAiFace"></image>
-      <!-- 女性健康全维度关怀礼包 按钮图片 -->
-      <image class="fh-btn-img last" src="https://wx.pmc-wz.com/materials/fhbtn2.png" mode="widthFix" bindtap="goGift"></image>
-    </view>
-  </view>
-
-
-  <!-- Tab 切换栏 -->
-  <view class="tab-bar">
-    <view class="tab-item {{currentTab === 0 ? 'active' : ''}}" bindtap="onTabChange" data-idx="0">整形专区</view>
-    <view class="tab-item {{currentTab === 1 ? 'active' : ''}}" bindtap="onTabChange" data-idx="1">口腔专区</view>
-    <view class="tab-item {{currentTab === 2 ? 'active' : ''}}" bindtap="onTabChange" data-idx="2">健康体检</view>
-    <view class="tab-item {{currentTab === 3 ? 'active' : ''}}" bindtap="onTabChange" data-idx="3">产后修复</view>
-  </view>
-
-  <!-- 产品列表 -->
-  <view class="product-grid">
-    <!-- 空态提示 -->
-    <view class="empty-tip" wx:if="{{products.length === 0}}">
-      <text>暂无相关产品</text>
-    </view>
-    <view class="product-card" wx:for="{{products}}" wx:key="id" bindtap="goProduct" data-id="{{item.id}}">
-      <!-- 产品图片：大图占满顶部 -->
-      <view class="product-img-wrap">
-        <image class="product-img" src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" lazy-load="true"></image>
-      </view>
-      <!-- 产品名称 -->
-      <view class="product-name">{{item.pictitle}}</view>
-      <!-- 价格 + 按钮 同行 -->
-      <view class="product-bottom-row">
-        <view class="product-price">
-          <text class="price-symbol">¥</text>
-          <text class="price-num">{{item.price}}</text>
+  <view class="lottery-section">
+    <view class="lottery-machine">
+      <image class="lottery-machine-bg" src="https://wx.pmc-wz.com/materials/jkm7zpbg.png" mode="widthFix"></image>
+      <view class="lottery-grid">
+        <view
+          class="lottery-item {{activeLotteryIndex === index ? 'lottery-item-active' : ''}}"
+          wx:for="{{lotteryPrizes}}"
+          wx:key="id"
+        >
+          <image class="lottery-item-img" src="{{item.image}}" mode="widthFix"></image>
+          <view wx:if="{{activeLotteryIndex === index}}" class="lottery-item-glow"></view>
         </view>
-        <view class="buy-btn" catchtap="goProduct" data-id="{{item.id}}">立即抢购</view>
+      </view>
+      <view class="lottery-chance">
+        <text>您有{{lotteryChance}}次抽奖机会</text>
+        <view class="lottery-chance-tail"></view>
+      </view>
+      <image
+        class="lottery-btn"
+        src="https://wx.pmc-wz.com/materials/jkm7cjbtn.png"
+        mode="widthFix"
+        bindtap="startLottery"
+      ></image>
+    </view>
+  </view>
+<image src="https://wx.pmc-wz.com/materials/jkm7gz.png" mode="widthFix" class="jkm7gz"/>
+  <view class="product-section">
+    <view class="product-section-inner">
+      <image src="https://wx.pmc-wz.com/materials/jkm7protitle.png" mode="widthFix" class="jkm7protitle"/>
+
+      <!-- Tab 切换栏 -->
+      <view class="tab-bar">
+        <view class="tab-item {{currentTab === 0 ? 'active' : ''}}" bindtap="onTabChange" data-idx="0">整形专区</view>
+        <view class="tab-item {{currentTab === 1 ? 'active' : ''}}" bindtap="onTabChange" data-idx="1">口腔专区</view>
+        <view class="tab-item {{currentTab === 2 ? 'active' : ''}}" bindtap="onTabChange" data-idx="2">健康体检</view>
+        <view class="tab-item {{currentTab === 3 ? 'active' : ''}}" bindtap="onTabChange" data-idx="3">产后修复</view>
+      </view>
+      <view class="product-content-panel">
+        <!-- <image src="https://wx.pmc-wz.com/materials/jkm7mlqk.png" mode="widthFix" class="jkm7mlqk"/> -->
+        <!-- 产品列表 -->
+        <view class="product-grid">
+          <view class="empty-tip" wx:if="{{products.length === 0}}">
+            <text>暂无相关产品</text>
+          </view>
+          <view class="product-card" wx:for="{{products}}" wx:key="id" bindtap="goProduct" data-id="{{item.id}}">
+            <view class="product-img-wrap">
+              <image class="product-img" src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="aspectFill" lazy-load="true"></image>
+            </view>
+            <view class="product-name">{{item.pictitle}}</view>
+            <view class="product-bottom-row">
+              <view class="product-price">
+                <text class="price-symbol">¥</text>
+                <text class="price-num">{{item.price}}</text>
+              </view>
+              <view class="buy-btn" catchtap="goProduct" data-id="{{item.id}}">立即抢购</view>
+            </view>
+          </view>
+        </view>
       </view>
     </view>
   </view>
+  <image src="https://wx.pmc-wz.com/materials/hkm7hxxhl.png" mode="widthFix" class="hkm7hxxhl" bindtap="openHxGiftModal"/>
 
-  <!-- 故事征集·为健康美代言 -->
-  <view class="gs-section">
-    <!-- 标题图片 -->
-    <image class="gs-title-img" src="https://wx.pmc-wz.com/materials/jkjgs.png" mode="widthFix"></image>
-
-    <!-- 内容区白色背景 -->
-    <view class="gs-body">
-      <!-- 说明文字 -->
-      <view class="gs-desc-box">
-        <text class="gs-desc-text">分享自己通过科学管理</text>
-        <text class="gs-desc-text">（运动、医美、定期体检、牙齿护理等）</text>
-        <text class="gs-desc-text">获得健康自信与美感的真实经历</text>
-        <text class="gs-desc-text">上传成功后，获得<text class="gs-highlight">【医用面膜一盒】</text></text>
-      </view>
-
-      <!-- 用户评论图片 -->
-      <image class="gs-lyxx-img" src="https://wx.pmc-wz.com/materials/lyxx.png" mode="widthFix"></image>
-
-      <!-- 分享按钮 -->
-      <button class="gs-share-btn" bindtap="goShare">分享故事领健康美礼</button>
-
-      <!-- 底部小字 -->
-      <view class="gs-footer-note">
-        <text>*成功提交后将有机会入选</text>
-        <text>"和平国际2026年度健康美代言人"（仅限3名）</text>
-      </view>
-    </view>
-  </view>
 
   <!-- 礼包弹框 -->
-  <view class="gift-mask" wx:if="{{showGiftModal}}" bindtap="closeGiftModal">
-    <view class="gift-modal" catchtap="preventBubble">
-      <view class="gift-modal-title">
-        <text>女性健康全维度关怀礼包</text>
+  <view class="gift-mask" wx:if="{{showGiftModal}}">
+    <view class="gift-modal gift-modal-image" catchtap="preventBubble">
+      <image class="gift-poster-img" src="https://wx.pmc-wz.com/materials/jkm7jqyl.png" mode="widthFix"  bindtap="claimGift"></image>
+    </view>
+  </view>
+
+  <view class="gift-mask" wx:if="{{showLotteryResult}}" bindtap="closeLotteryResult">
+    <view class="lottery-result-modal" catchtap="preventBubble">
+      <image class="lottery-result-bg" src="https://wx.pmc-wz.com/materials/jkm7jpbg.png" mode="widthFix"></image>
+      <view class="lottery-result-content">
+        <view class="lottery-result-title">恭喜您获得</view>
+        <image class="lottery-result-img" src="{{lotteryResult.popupImage || lotteryResult.image}}" mode="widthFix"></image>
+        <image class="lottery-result-btn" src="https://wx.pmc-wz.com/materials/jkm7jpbtn.png" mode="widthFix" bindtap="goMyCard"></image>
       </view>
-      <image class="gift-img" src="https://wx.pmc-wz.com/materials/jkjlh.png" mode="widthFix"></image>
-      <button class="gift-claim-btn" bindtap="claimGift">点击领取</button>
-      <view class="gift-close" bindtap="closeGiftModal">×</view>
+    </view>
+  </view>
+
+  <view class="gift-mask" wx:if="{{showHxGiftModal}}" bindtap="closeHxGiftModal">
+    <view class="hx-gift-modal" catchtap="preventBubble">
+      <image class="hx-gift-modal-img" src="https://wx.pmc-wz.com/materials/jkm7hxl.png" mode="widthFix"></image>
+      <view class="gift-close" bindtap="closeHxGiftModal">×</view>
     </view>
   </view>
 

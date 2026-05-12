@@ -18,6 +18,7 @@ Page({
     sex: "",
     xinmin: "",
     mobile: "",
+    address: "",
     cardno: "",
     fromsource: "",
     openid: "",
@@ -301,6 +302,11 @@ Page({
       hunyin: this.data.array[e.detail.value]
     })
   },
+  onAddressInput(e) {
+    this.setData({
+      address: e.detail.value
+    })
+  },
   rtijiao() {
     let reg = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
     if (!this.data.xinmin) {
@@ -348,7 +354,7 @@ Page({
         title: '请选择套餐!',
       })
       return;
-    } else if (!this.data.time) {
+    }else if (!this.data.time) {
       wx.showToast({
         title: '请选择时间!',
       })
@@ -356,6 +362,12 @@ Page({
     } else if (this.data.njvis && !this.data.njtime) {
       wx.showToast({
         title: '请选择内镜时间!',
+      })
+      return;
+    }
+    else if (!this.data.address) {
+      wx.showToast({
+        title: '请填写家庭地址!',
       })
       return;
     }
@@ -370,6 +382,7 @@ Page({
       marry: this.data.hunyin,
       fromsource: wx.getStorageSync('sponsor'),
       product: this.data.product,
+      address: this.data.address,
       ordid: this.data.ordid,
       weijindate: this.data.njtime,
       sfztype: this.data.sfztype
@@ -425,6 +438,7 @@ Page({
             xinmin: "",
             sex: "",
             time: "",
+            address: "",
             cardno: "",
             hunyin: "",
             corp: "",

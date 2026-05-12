@@ -4,11 +4,109 @@
     "miniprogram": {
       "list": [
         {
-          "name": "huodongpage/qdhd/qdhd",
-          "pathName": "huodongpage/qdhd/qdhd",
+          "name": "subpackagesDDD/aimxzd/aimxzd",
+          "pathName": "subpackagesDDD/aimxzd/aimxzd",
           "query": "",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "subpackagesC/mianzhenjieguo/mianzhenjieguo",
+          "pathName": "subpackagesC/mianzhenjieguo/mianzhenjieguo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/mianxiangfenxi/mianxiangfenxi",
+          "pathName": "subpackagesC/mianxiangfenxi/mianxiangfenxi",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/mianxiangfenxi/mianxiangfenxi",
+          "pathName": "subpackagesC/mianxiangfenxi/mianxiangfenxi",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/gerentijian/gerentijian",
+          "pathName": "pages/gerentijian/gerentijian",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/mianzhenxiangji/mianzhenxiangji",
+          "pathName": "subpackagesC/mianzhenxiangji/mianzhenxiangji",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/mianxiangfenxi/mianxiangfenxi",
+          "pathName": "subpackagesC/mianxiangfenxi/mianxiangfenxi",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/mianzhenxiangji/mianzhenxiangji",
+          "pathName": "subpackagesC/mianzhenxiangji/mianzhenxiangji",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "huodongpage/xy7y/xy7y",
+          "pathName": "huodongpage/xy7y/xy7y",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "huodongpage/tjgz980/tjgz980",
+          "pathName": "huodongpage/tjgz980/tjgz980",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "huodongpage/tjxmzq/tjxmzq",
+          "pathName": "huodongpage/tjxmzq/tjxmzq",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/jiankangjie/jiankangjie",
+          "pathName": "pages/jiankangjie/jiankangjie",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/gyyprolsit/gyyprolist",
+          "pathName": "subpackagesC/gyyprolsit/gyyprolist",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "huodongpage/qdtcm/qdtcm",
+          "pathName": "huodongpage/qdtcm/qdtcm",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "huodongpage/qdhd/qdhd",
+          "pathName": "huodongpage/qdhd/qdhd",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "huodongpage/jkmzxlb/jkmzxlb",

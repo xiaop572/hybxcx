@@ -7,7 +7,7 @@
       <view class="serbtn">搜索</view>
     </view>
     <view class="funOptions">
-      <text bindtap="rReport">体检报告</text>
+      <text bindtap="rtjpdf">体检报告</text>
       <text bindtap="rtjyy">体检预约</text>
       <text bindtap="rMz">门诊预约</text>
       <text bindtap="rExperProgam">医技预约</text>

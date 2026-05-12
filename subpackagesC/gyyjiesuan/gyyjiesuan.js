@@ -10,6 +10,8 @@ Page({
    */
   data: {
     item: {},
+    cartList: [],
+    isCartCheckout: false,
     name: "",
     phone: "",
     summary: "",
@@ -27,11 +29,22 @@ Page({
   onLoad(options) {
     let app = getApp();
     let realinfo = wx.getStorageSync('realInfo')
-    
-    console.log(app.globalData.tc,"app.globalData.tc")
-    console.log(app.globalData.tc.selSpec,"app.globalData.tc.selSpec")
+    const cartCheckoutData = app.globalData.cartCheckoutData
+    if (cartCheckoutData && Array.isArray(cartCheckoutData.cartList) && cartCheckoutData.cartList.length) {
+      this.setData({
+        isCartCheckout: true,
+        cartList: cartCheckoutData.cartList,
+        item: cartCheckoutData.cartList[0]
+      })
+      app.globalData.cartCheckoutData = null
+    } else {
+      this.setData({
+        item: app.globalData.tc
+      })
+    }
+    console.log(this.data.item, "item")
     this.setData({
-      item: app.globalData.tc
+      finalPrice: this.data.isCartCheckout ? this.getCartTotalPrice(this.data.cartList) : 0
     })
     if (realinfo.realname) {
       this.setData({
@@ -39,8 +52,17 @@ Page({
         phone: realinfo.mobile
       })
     }
+    if (this.data.isCartCheckout) {
+      return
+    }
     this.prepaygoods()
     this.getUserCouponsForProduct()
+  },
+  getCartTotalPrice(cartList = []) {
+    const total = cartList.reduce((sum, item) => {
+      return sum + (Number(item.price) || 0) * (Number(item.cartNum || item.nums || 0) || 0)
+    }, 0)
+    return parseFloat(total.toFixed(2))
   },
   prepaygoods() {
     let app = getApp();
@@ -188,6 +210,84 @@ Page({
     wx.showLoading({
       title: '加载中...'
     })
+    if (this.data.isCartCheckout) {
+      const openId = wx.getStorageSync('openid')
+      const source = wx.getStorageSync('sponsor') || ''
+      const realInfo = wx.getStorageSync('realInfo') || {}
+      const outTradeNo = String(+new Date())
+      const requestData = {
+        summary: that.data.summary,
+        OutTradeNo: outTradeNo,
+        openId,
+        Source: source,
+        xinmin: that.data.name,
+        mobile: that.data.phone,
+        address: realInfo.address || '',
+        city: realInfo.city || '',
+        quname: realInfo.quname || '',
+        town: realInfo.town || '',
+        list: (this.data.cartList || []).map(item => ({
+          orderTitle: item.pictitle || '',
+          summary: that.data.summary || '',
+          OutTradeNo: outTradeNo,
+          price: Number(item.price) || 0,
+          openId,
+          Source: source,
+          xinmin: that.data.name,
+          mobile: that.data.phone,
+          ptype: Number(item.ptype || 0),
+          proid: Number(item.proid || item.id) || 0,
+          spes: item.spes || item.selSpec || '',
+          spesid: Number(item.specid || item.spesid || 0),
+          num: Number(item.cartNum || item.nums || item.num || 1),
+          cartid: Number(item.id) || 0
+        }))
+      }
+      req({
+        url: util.baseUrl + "/newapi/api/cart/precart2order",
+        method: "POST",
+        data: requestData,
+        success: (res) => {
+          if (!res.data || !res.data.status) {
+            wx.hideLoading({})
+            wx.showModal({
+              content: (res.data && res.data.msg) || '下单失败',
+              showCancel: false
+            })
+            return
+          }
+          wx.hideLoading({})
+          wx.requestPayment({
+            ...res.data.data,
+            success: (ress) => {
+              if (ress.errMsg === "requestPayment:ok") {
+                wx.showToast({
+                  title: '支付成功'
+                })
+                if (res.data.otherData) {
+                  wx.redirectTo({
+                    url: res.data.otherData,
+                  })
+                } else {
+                  wx.redirectTo({
+                    url: '/pages/kaquan/kaquan',
+                  })
+                }
+              }
+            },
+            fail() {}
+          })
+        },
+        fail: () => {
+          wx.hideLoading({})
+          wx.showToast({
+            title: '下单失败',
+            icon: 'none'
+          })
+        }
+      })
+      return
+    }
     
     // 构建请求参数
     let requestData = {

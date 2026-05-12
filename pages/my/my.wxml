@@ -108,10 +108,10 @@
       <image src="https://wx.pmc-wz.com/materials/myyuyue.png" mode='widthFix' lazy-load="true"></image>
       <text>我的预约</text>
     </view>
-    <view class="myIcon" bindtap="rmytcq">
+    <!-- <view class="myIcon" bindtap="rmytcq">
       <image src="https://wx.pmc-wz.com/materials/mytcq.png" mode='widthFix' lazy-load="true"></image>
       <text> 我的停车券</text>
-    </view>
+    </view> -->
     <view class="myIcon" bindtap="saoyisao">
       <image src="https://wx.pmc-wz.com/materials/mysaosao.png" mode='widthFix' lazy-load="true"></image>
       <text>扫一扫</text>
@@ -124,10 +124,10 @@
       <image src="https://wx.pmc-wz.com/materials/mykaquan.png" mode='widthFix' lazy-load="true"></image>
       <text>我的卡券</text>
     </view>
-    <view class="myIcon" bindtap="raddvip" wx:if="{{memberstate!==3}}">
+    <!-- <view class="myIcon" bindtap="raddvip" wx:if="{{memberstate!==3}}">
       <image src="https://wx.pmc-wz.com/materials/myvip.png" mode='widthFix' lazy-load="true"></image>
       <text>成为VIP</text>
-    </view>
+    </view> -->
     <view class="myIcon" bindtap="rzaoanlist">
       <image src="https://wx.pmc-wz.com/materials/myzaoan.png" mode='widthFix' lazy-load="true"></image>
       <text>早安图列表</text>

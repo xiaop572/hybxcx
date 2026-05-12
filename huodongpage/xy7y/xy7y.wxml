@@ -1,0 +1,39 @@
+<image src="https://wx.pmc-wz.com/materials/jkm7yun.png" mode="widthFix" class="jkm7yun"/>
+<view class="lottery-section">
+    <view class="lottery-machine">
+      <image class="lottery-machine-bg" src="https://wx.pmc-wz.com/materials/jkm7zpbg.png" mode="widthFix"></image>
+      <view class="lottery-grid">
+        <view
+          class="lottery-item {{activeLotteryIndex === index ? 'lottery-item-active' : ''}}"
+          wx:for="{{lotteryPrizes}}"
+          wx:key="id"
+        >
+          <image class="lottery-item-img" src="{{item.image}}" mode="widthFix"></image>
+          <view wx:if="{{activeLotteryIndex === index}}" class="lottery-item-glow"></view>
+        </view>
+      </view>
+      <!-- <view class="lottery-chance">
+        <text>您有{{lotteryChance}}次抽奖机会</text>
+        <view class="lottery-chance-tail"></view>
+      </view> -->
+      <image
+        class="lottery-btn"
+        src="https://wx.pmc-wz.com/materials/jkm7cjbtn.png"
+        mode="widthFix"
+        bindtap="startLottery"
+      ></image>
+    </view>
+  </view>
+  <image src="https://wx.pmc-wz.com/materials/xy7gz.png" mode="widthFix" class="jkm7gz"/>
+
+  <view class="gift-mask" wx:if="{{showLotteryResult}}" catchtouchmove="preventBubble">
+    <view class="lottery-result-modal" catchtap="preventBubble">
+      <image class="lottery-result-bg" src="https://wx.pmc-wz.com/materials/jkm7jpbg.png" mode="widthFix"></image>
+      <view class="lottery-result-content">
+        <view class="lottery-result-title">恭喜抽中</view>
+        <image class="lottery-result-img" src="{{lotteryResult.popupImage || lotteryResult.image}}" mode="widthFix"></image>
+        <image class="lottery-result-btn" src="https://wx.pmc-wz.com/materials/jkm7jpbtn.png" mode="widthFix" bindtap="goMyCard"></image>
+      </view>
+      <view class="gift-close" bindtap="closeLotteryResult">×</view>
+    </view>
+  </view>

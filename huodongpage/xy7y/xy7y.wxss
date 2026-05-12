@@ -1,0 +1,658 @@
+/* pages/jiankangjie/jiankangjie.wxss */
+
+/* 页面整体 */
+page {
+  background: #71BAFF;
+  min-height: 100vh;
+  padding-bottom: 120rpx !important;
+}
+
+.page-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 顶部Banner大图 */
+.top-banner {
+  width: 100%;
+  display: block;
+}
+.jkm7yun{
+  position: absolute;
+  top: -260rpx;
+  left: 0;
+  z-index: 200;
+  width: 100%;
+}
+.lottery-section{
+  margin-top: 90rpx;
+  position: relative;
+  z-index: 3;
+}
+.lottery-machine{
+  width: 100%;
+  position: relative;
+}
+.lottery-machine-bg{
+  width: 100%;
+  display: block;
+}
+.lottery-grid{
+  position: absolute;
+  left: 90rpx;
+  right: 90rpx;
+  top: 220rpx;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.lottery-item{
+  height: 280rpx;
+  border-radius: 22rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: all .2s ease;
+  position: relative;
+}
+.lottery-item-active{
+  box-shadow:
+    inset 0 0 0 4rpx rgba(255, 255, 255, 0.94),
+    0 0 24rpx rgba(255, 103, 103, 0.46);
+  transform: scale(1);
+}
+.lottery-item-active .lottery-item-img{
+  opacity: 1;
+}
+.lottery-item-img{
+  width: 96%;
+  margin-top: -6%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+.lottery-item-glow{
+  position: absolute;
+  left: 4rpx;
+  right: 4rpx;
+  top: -1rpx;
+  bottom: 9rpx;
+  border-radius: 18rpx;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0) 78%, rgba(255, 255, 255, 0.06) 85%, rgba(255, 255, 255, 0.24) 91%, rgba(255, 255, 255, 0.62) 97%, rgba(255, 255, 255, 0.8) 100%),
+    radial-gradient(circle at center, rgba(255, 98, 98, 0) 80%, rgba(255, 112, 112, 0.14) 88%, rgba(255, 92, 92, 0.5) 95%, rgba(255, 66, 66, 0.82) 100%);
+  box-shadow:
+    inset 0 0 8rpx rgba(255, 255, 255, 0.94),
+    inset 0 0 14rpx rgba(255, 244, 244, 0.8),
+    inset 0 0 22rpx 1rpx rgba(255, 110, 110, 0.3),
+    inset 0 0 30rpx 3rpx rgba(255, 70, 70, 0.56);
+}
+.lottery-chance{
+  position: absolute;
+  right: 80rpx;
+  bottom: 240rpx;
+  min-width: 190rpx;
+  max-width: 240rpx;
+  padding: 10rpx 18rpx;
+  border-radius: 28rpx;
+  background: #fff96f;
+  color: #7c5b2b;
+  font-size: 24rpx;
+  line-height: 1.2;
+  text-align: center;
+  box-shadow: 0 8rpx 18rpx rgba(0, 0, 0, 0.08);
+  z-index: 4;
+  box-sizing: border-box;
+}
+.lottery-chance text{
+  position: relative;
+  z-index: 2;
+}
+.lottery-chance-tail{
+  position: absolute;
+  left: 30rpx;
+  bottom: -10rpx;
+  width: 22rpx;
+  height: 22rpx;
+  background: #fff96f;
+  transform: rotate(45deg);
+  border-radius: 4rpx;
+  z-index: 1;
+}
+.lottery-btn{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 70rpx;
+  width: 480rpx;
+  display: block;
+  z-index: 10;
+  margin:auto;
+}
+/* 芳华悦己区块 */
+.fh-section {
+  background: #FF8996;
+  padding-bottom: 40rpx;
+  position: relative;
+  width: 90%;
+  margin: auto;
+  border-radius: 30rpx;
+  padding: 40rpx 0 0 0;
+  overflow: hidden;
+  margin-top: -100rpx;
+}
+.fh-section2 {
+  background: #FF8996;
+  padding-bottom: 40rpx;
+  position: relative;
+  width: 90%;
+  margin: auto;
+  border-radius: 30rpx;
+  padding: 40rpx 0 0 0;
+  overflow: hidden;
+}
+
+/* 标题图片：紧贴banner底部，宽度100% */
+.fh-title-img {
+  width: 68%;
+  display: block;
+  margin: auto;
+}
+
+/* 白色圆角卡片：包裹两个按钮 */
+.fh-card {
+  background: #fff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 20rpx rgba(233, 30, 99, 0.1);
+  width: 100%;
+  margin-top: 40rpx;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+
+/* 按钮条图片 */
+.fh-btn-img {
+  width: 90%;
+  display: block;
+  margin:auto;
+}
+
+/* 两条之间加分隔线 */
+.fh-btn-img:not(.last) {
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+/* 故事征集区块 - 与芳华区块同款粉色背景圆角卡片 */
+.gs-section {
+  background: #FF8996;
+  position: relative;
+  width: 90%;
+  margin: 30rpx auto 0;
+  border-radius: 30rpx;
+  overflow: hidden;
+  padding: 40rpx 0 0 0;
+}
+
+/* 标题图片 */
+.gs-title-img {
+  width: 68%;
+    display: block;
+    margin: auto;
+}
+
+/* 白色内容区悬浮在粉色背景上 */
+.gs-body {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 40rpx 24rpx 44rpx;
+  box-shadow: 0 4rpx 20rpx rgba(233, 30, 99, 0.1);
+  margin: 40rpx 0 0;
+  box-sizing: border-box;
+}
+
+/* 说明文字组 */
+.gs-desc-box {
+  text-align: center;
+  margin-bottom: 36rpx;
+}
+
+.gs-desc-text {
+  display: block;
+  font-size: 28rpx;
+  color: #555;
+  line-height: 1.9;
+}
+
+.gs-highlight {
+  color: #e84c6c;
+  font-weight: bold;
+}
+
+/* 用户评论图片 */
+.gs-lyxx-img {
+  width: 100%;
+  display: block;
+  margin-bottom: 40rpx;
+  border-radius: 16rpx;
+}
+
+/* 蓝色渐变分享按钮 */
+.gs-share-btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #5ab4e8, #016ff5);
+  color: #fff;
+  font-size: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 50rpx;
+  border: none;
+  font-weight: 0;
+  margin-bottom: 30rpx;
+  letter-spacing: 4rpx;
+  padding: 0;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.gs-share-btn::after {
+  border: none;
+}
+
+/* 底部小字 */
+.gs-footer-note {
+  text-align: center;
+}
+
+.gs-footer-note text {
+  display: block;
+  font-size: 22rpx;
+  color: #aaa;
+  line-height: 1.8;
+}
+
+.product-section{
+  width: 92%;
+  margin: 40rpx auto 0;
+  background: linear-gradient(180deg, #f8eede 0%, #efdcca 45%, #e9d3be 100%);
+  border-radius: 38rpx;
+  padding: 8rpx;
+  box-sizing: border-box;
+  box-shadow: 0 10rpx 26rpx rgba(63, 122, 190, 0.1);
+}
+.product-section-inner{
+  width: 100%;
+  border-radius: 32rpx;
+  background: linear-gradient(180deg, #fffaf5 0%, #ffffff 18%, #fffdfb 100%);
+  padding: 18rpx 18rpx 16rpx;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 0 2rpx rgba(255, 247, 239, 0.95), inset 0 0 18rpx rgba(243, 228, 211, 0.35);
+}
+.product-content-panel{
+  margin-top: 3rpx;
+  padding: 18rpx 14rpx 14rpx;
+  border-radius: 28rpx;
+  background: #FEEEE1;
+}
+.product-panel-title{
+  width: 360rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  margin: 0 auto 26rpx;
+  border-radius: 30rpx;
+  background: #f6e9de;
+  color: #2c2c2c;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 700;
+  position: relative;
+}
+.product-panel-title::before,
+.product-panel-title::after{
+  content: '';
+  position: absolute;
+  top: 20rpx;
+  width: 38rpx;
+  height: 10rpx;
+  border-radius: 10rpx;
+  background: #ff9b42;
+}
+.product-panel-title::before{
+  left: -20rpx;
+}
+.product-panel-title::after{
+  right: -20rpx;
+}
+.product-panel-title-accent{
+  color: #111;
+}
+.product-panel-title-dot{
+  color: #ff7f2d;
+  margin: 0 4rpx;
+}
+/* Tab栏 - 浅粉色背景，带底部三角 */
+.tab-bar {
+  display: flex;
+  background: #FFEEE2;
+  border-radius: 28rpx;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin: 28rpx auto 0;
+  padding: 4rpx;
+  box-sizing: border-box;
+  box-shadow: inset 0 2rpx 8rpx rgba(255, 255, 255, 0.55);
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  color: #8b8279;
+  height: 58rpx;
+  line-height: 58rpx;
+  border-radius: 28rpx;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.tab-item.active {
+  background: linear-gradient(180deg, #ffab54 0%, #ff7b26 100%);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 礼包弹框遮罩 */
+.gift-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 弹框主体 */
+.gift-modal {
+  width: 600rpx;
+  background: #fff;
+  border-radius: 32rpx;
+  padding: 48rpx 40rpx 50rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.gift-modal-image{
+  width: 88%;
+  max-width: 660rpx;
+  background: transparent;
+  padding: 0;
+}
+.gift-poster-img{
+  width: 90%;
+  display: block;
+}
+.gift-image-claim-btn{
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: 11%;
+  height: 88rpx;
+  background: transparent;
+  border: none;
+  z-index: 2;
+}
+.gift-image-claim-btn::after{
+  border: none;
+}
+
+/* 标题 */
+.gift-modal-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #e84c6c;
+  text-align: center;
+  margin-bottom: 36rpx;
+  line-height: 1.5;
+}
+
+.gift-title-star {
+  color: #e84c6c;
+}
+
+/* 礼盒图片 */
+.gift-img {
+  width: 100%;
+  display: block;
+  margin-bottom: 40rpx;
+}
+
+/* 领取按钮：蓝色渐变 */
+.gift-claim-btn {
+  width: 100%;
+  height: 96rpx;
+  line-height: 2;
+  background: linear-gradient(to bottom, #5ab4e8, #016ff5);
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: bold;
+  border-radius: 50rpx;
+  border: none;
+  letter-spacing: 4rpx;
+  margin-bottom: 0;
+}
+
+.gift-claim-btn::after {
+  border: none;
+}
+
+/* 关闭按钮 */
+.gift-close {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -100rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.lottery-result-modal{
+  width: 620rpx;
+  position: relative;
+  text-align: center;
+}
+.lottery-result-bg{
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+.lottery-result-content{
+  position: absolute;
+  left: 50%;
+  top: 200rpx;
+  width: 500rpx;
+  transform: translateX(-50%);
+}
+.lottery-result-title{
+  color: #222;
+  font-size: 46rpx;
+  font-weight: bold;
+  line-height: 1.4;
+  text-shadow: 0 4rpx 10rpx rgba(255,255,255,0.4);
+}
+.lottery-result-img{
+  width: 280rpx;
+  display: block;
+  margin: 20rpx auto 24rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 10rpx 20rpx rgba(255, 162, 162, 0.12);
+}
+.lottery-result-btn{
+  width: 292rpx;
+  display: block;
+  margin: 30rpx auto 0 auto;
+}
+
+/* 空态提示 */
+.empty-tip {
+  width: 100%;
+  text-align: center;
+  padding: 120rpx 0 100rpx;
+  font-size: 28rpx;
+  color: #c8c1b8;
+}
+
+/* 产品网格 */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 18rpx 12rpx 12rpx;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 24rpx;
+  min-height: 420rpx;
+  align-content: flex-start;
+  box-shadow: inset 0 0 0 2rpx rgba(247, 236, 225, 0.9);
+}
+
+.product-card {
+  width: calc(50% - 10rpx);
+  background: #f4fbff;
+  border-radius: 22rpx;
+  padding: 10rpx 10rpx 16rpx;
+  margin-bottom: 18rpx;
+  box-sizing: border-box;
+  border: 6rpx solid #78c2fb;
+  overflow: hidden;
+  box-shadow: 0 8rpx 18rpx rgba(49, 143, 226, 0.22);
+}
+
+.product-img-wrap {
+  width: 100%;
+  height: 248rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16rpx;
+  overflow: hidden;
+  background: #eaf5fb;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.product-name {
+  font-size: 24rpx;
+  color: #2d2d2d;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 6rpx;
+  margin: 14rpx 0 12rpx;
+  line-height: 1.45;
+  min-height: 70rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* 括号描述 */
+.product-desc {
+  font-size: 22rpx;
+  color: #888;
+  text-align: center;
+  padding: 0 12rpx;
+  margin-bottom: 16rpx;
+  line-height: 1.5;
+}
+
+/* 价格 + 按钮 同行 */
+.product-bottom-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 2rpx;
+}
+
+.product-price {
+  display: flex;
+  align-items: baseline;
+}
+
+.price-symbol {
+  font-size: 24rpx;
+  color: #ff4a13;
+  font-weight: bold;
+}
+
+.price-num {
+  font-size: 36rpx;
+  color: #ff4a13;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.buy-btn {
+  background: linear-gradient(180deg, #ff9156 0%, #ff5926 100%);
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  min-width: 126rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 28rpx;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 6rpx 12rpx rgba(255, 110, 54, 0.25);
+}
+.jkm7gz{
+  width: 100%;
+  display: block;
+}
+
+.jkm7protitle{
+  width: 70%;
+  display: block;
+  margin: 30rpx auto 40rpx;
+}
+.jkm7mlqk{
+  width: 40%;
+  display: block;
+  margin: 8rpx auto 12rpx;
+}
+.hkm7hxxhl{
+  display: block;
+  width: 90%;
+  margin:auto;
+}
+.hx-gift-modal{
+  width: 92%;
+  max-width: 700rpx;
+  position: relative;
+}
+.hx-gift-modal-img{
+  width:80%;
+  display: block;
+  margin:auto;
+}

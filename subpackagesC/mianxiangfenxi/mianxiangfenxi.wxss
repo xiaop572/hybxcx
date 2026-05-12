@@ -1,0 +1,86 @@
+/* subpackagesC/mianzhenxiangji/mianzhenxiangji.wxss */
+page {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* 整体垂直 flex 布局，高度撑满可用视口 */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* 相机占满剩余空间，min-height:0 允许 flex 收缩 */
+.camera {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.face-area {
+  width: 560rpx;
+  height: 560rpx;
+}
+
+.face-border-img {
+  width: 100%;
+  height: 100%;
+}
+
+.tips {
+  color: #fff;
+  font-size: 28rpx;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.5);
+  margin-top: 44rpx;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+}
+
+/* 操作面板：flex 流式布局，不用 fixed，任何屏幕都显示 */
+.controls-panel {
+  flex-shrink: 0;
+  width: 100%;
+  height: 400rpx;
+  background-color: #fff;
+  border-radius: 40rpx 40rpx 0 0;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.actions {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 40rpx;
+}
+
+.ctrl-btn {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.ctrl-btn.shutter {
+  width: 150rpx;
+  height: 150rpx;
+}

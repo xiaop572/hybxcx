@@ -1,0 +1,182 @@
+/* subpackages/tcshiyong/tcshiyong.wxss */
+page{
+  background-color: #f2f2f2;
+}
+.cpBox{
+  background-color: #fff;
+  width: 92%;
+  margin:50rpx auto 0 auto;
+  padding: 20rpx 0 40rpx 0;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+}
+.cpcap{
+  display: block;
+  text-align: center;
+  letter-spacing: 5rpx;
+  color: #333;
+}
+.cpList{
+  text-align: center;
+  width: 100%;
+  margin-top: 20rpx;
+}
+.cph{
+  border: 1px solid #a9cdff;
+  width: 70rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8rpx;
+  font-weight: bold;
+  font-size: 40rpx;
+  background-color: #f3f8fe;
+}
+.cph2{
+  border: 1px solid #d9f2bb ;
+  width: 70rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5rpx;
+  font-size: 40rpx;
+  background-color: #f5fee9;
+  position: relative;
+}
+.subBtn{
+  background-color: #3073ff;
+  width: 90%;
+  margin:60rpx auto 0 auto;
+  text-align: center;
+  color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 80rpx;
+}
+.phone{
+  background-color: #f3f8fe;
+  width: 90%;
+  margin:20rpx auto 0 auto;
+  text-align: center;
+  color: #000;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 80rpx;
+  font-weight: bold;
+  font-size: 38rpx;
+  border: 1px solid #abccff;
+}
+.xny{
+  width: 90%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.youxuanBox {
+  width: 92%;
+  margin: 80rpx auto 0 auto;
+  clear: both;
+  overflow: hidden;
+  padding-bottom: 400rpx;
+}
+
+.youLeft {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 61rpx;
+  background-color: #80b3d9;
+  overflow: hidden;
+  border-radius: 10rpx 0 0 10rpx;
+  float: left;
+}
+
+.youLeft image {
+  width: 36rpx;
+  display: block;
+  margin: auto;
+  margin-top: 15rpx;
+}
+
+.youRight {
+  border: 1px solid #80b3d9;
+  border-left: none;
+  height: 60rpx;
+  box-sizing: border-box;
+  float: left;
+  padding: 0 10rpx;
+  border-radius: 0 10rpx 10rpx 0;
+  vertical-align: middle;
+  font-weight: bold;
+  color: #348bc1;
+  line-height: 60rpx;
+}
+
+.youxuanitemList {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.youxuanitem {
+  overflow: hidden;
+  background-color: #fff;
+  padding-bottom: 30rpx;
+  flex: 0 0 49%;
+  margin-top: 20rpx;
+}
+
+.youxuanitem image {
+  width: 100%;
+}
+
+.youxuanCaption {
+  color: #3e3a39;
+  overflow: hidden;
+  display: block;
+  clear: both;
+  white-space: nowrap;
+  width: 100%;
+  text-overflow: ellipsis;
+}
+
+.youxuanpriceFlex {
+  display: flex;
+  padding: 0 10rpx 0 0;
+  width: 100%;
+  margin-top: 30rpx;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.youxuanprice {
+  color: #e30012;
+  font-size: 38rpx;
+  vertical-align: middle;
+}
+.ms {
+  background: url("https://wx.pmc-wz.com/materials/msBg.png") no-repeat;
+  background-size: 100% 100%;
+  font-size: 22rpx;
+  color: #fff;
+  width: 110rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding-left: 20rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 5rpx;
+}
+.tishi{
+  text-align: center;
+  padding: 10rpx 0;
+  background-color: rgb(235, 227, 126);
+  color: rgb(245, 49, 49);
+  font-size: 30rpx;
+}

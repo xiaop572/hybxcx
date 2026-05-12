@@ -21,7 +21,7 @@
     <text class="caption">{{item.pictitle}}</text>
     <view class="priceFlex">
       <view class="price"><text class="symbol">￥</text><text>{{item.price}}</text></view>
-      <view class="ms">
+      <view class="ms" catchtap="addToCart" data-item="{{item}}">
         <image src="https://wx.pmc-wz.com/materials/gwc.png" mode="widthFix" />
       </view>
     </view>
@@ -29,4 +29,36 @@
 </view>
 <view wx:if="{{proList.length==0}}" class="nopro">
   <image mode="widthFix" src="https://wx.pmc-wz.com/materials/noPro.png"></image>
+</view>
+
+<view class="cart-float" catchtap="toggleCartPopup">
+  <image src="https://wx.pmc-wz.com/materials/gyygwc.png" mode="widthFix"></image>
+  <view class="cart-badge" wx:if="{{cartCount>0}}">{{cartCount}}</view>
+</view>
+
+<view class="cart-mask" wx:if="{{showCartPopup}}" catchtap="hideCartPopup"></view>
+<view class="cart-popup" wx:if="{{showCartPopup}}" catchtap="noop">
+  <view class="cart-header">
+    <text>购物车</text>
+    <text class="clear-btn" catchtap="clearCart">清空</text>
+  </view>
+  <view class="cart-empty" wx:if="{{cartList.length===0}}">购物车暂无商品</view>
+  <view class="cart-list" wx:if="{{cartList.length>0}}">
+    <view class="cart-item" wx:for="{{cartList}}" wx:key="id" wx:for-item="cartItem">
+      <view class="cart-main" catchtap="goCartCheckout" data-id="{{cartItem.id}}">
+        <text class="cart-title">{{cartItem.pictitle}}</text>
+        <text class="cart-price">￥{{cartItem.price}}</text>
+      </view>
+      <view class="cart-op">
+        <text class="op-btn" catchtap="cartNumMinus" data-id="{{cartItem.id}}">-</text>
+        <text class="cart-num">{{cartItem.cartNum}}</text>
+        <text class="op-btn" catchtap="cartNumPlus" data-id="{{cartItem.id}}">+</text>
+        <text class="remove-btn" catchtap="removeCartItem" data-id="{{cartItem.id}}">删除</text>
+      </view>
+    </view>
+  </view>
+  <view class="cart-footer" wx:if="{{cartList.length>0}}">
+    <view class="cart-total">合计：￥{{cartTotalPrice}}</view>
+    <view class="checkout-btn" catchtap="checkoutCart">去结算</view>
+  </view>
 </view>

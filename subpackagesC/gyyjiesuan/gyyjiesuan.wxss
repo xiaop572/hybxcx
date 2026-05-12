@@ -120,6 +120,13 @@ page{
   margin-top: 40rpx;
   overflow: hidden;
 }
+.cart-pro{
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #f1f1f1;
+}
+.cart-pro:last-child{
+  border-bottom: none;
+}
 .proimg{
   width: 200rpx;
   float: left;
@@ -148,6 +155,14 @@ page{
   font-size: 26rpx;
   color: #333;
   font-weight: 500;
+}
+.cart-num-line{
+  clear: both;
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 24rpx;
+  padding: 8rpx 0 0;
 }
 .price-info{
   margin-top: 40rpx;

@@ -146,12 +146,12 @@ Page({
     })
   },
   rylfw(){
-    wx.switchTab({
-      url: '../yiliaofuwu/yiliaofuwu',
-    })
-    // wx.navigateTo({
+    // wx.switchTab({
     //   url: '../yiliaofuwu/yiliaofuwu',
     // })
+    wx.navigateTo({
+      url: '../yiliaofuwu/yiliaofuwu',
+    })
   },
   rdiagnosis(){
     wx.navigateTo({
@@ -177,6 +177,11 @@ Page({
   rzqhd(){
     wx.navigateTo({
       url: '../zqhd/zqhd'
+    })
+  },
+  rtjpdf(){
+    wx.myNavigateTo({
+      url:"../../subpackages/tjpdf/tjpdf"
     })
   },
   rqy() {

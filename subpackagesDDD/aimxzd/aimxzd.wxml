@@ -1,0 +1,262 @@
+<view class="chat-page">
+  <scroll-view class="page" scroll-y scroll-with-animation scroll-into-view="{{scrollIntoView}}">
+    <view class="chat-card">
+      <view class="chat-list">
+        <view
+          wx:for="{{chatMessages}}"
+          wx:key="id"
+          id="msg-{{item.id}}"
+          class="chat-item {{item.role === 'user' ? 'chat-item-user' : 'chat-item-assistant'}}"
+        >
+          <view class="chat-avatar">{{item.role === 'user' ? '我' : 'AI'}}</view>
+          <view class="chat-main">
+            <image
+              wx:if="{{item.image}}"
+              class="chat-image"
+              src="{{item.image}}"
+              mode="aspectFill"
+              bindtap="previewChatImage"
+              data-url="{{item.image}}"
+            ></image>
+            <view wx:if="{{item.content}}" class="chat-bubble-row {{item.role === 'user' ? 'chat-bubble-row-user' : 'chat-bubble-row-assistant'}}">
+              <view class="chat-bubble {{item.role === 'user' ? 'chat-bubble-user' : 'chat-bubble-assistant'}}">{{item.content}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <block wx:if="{{hasReport}}">
+      <!-- <view class="section-card result-top-card">
+        <view class="result-top-row">
+          <view class="section-title">{{report.title}}</view>
+          <view class="secondary-btn" bindtap="resetFlow">重新分析</view>
+        </view>
+        <view class="result-subtitle">{{report.subtitle}}</view>
+      </view> -->
+
+      <view class="section-card">
+        <view class="section-head">
+          <view class="section-title">{{imageLabel}}</view>
+          <view class="section-tip">{{imageHint}}</view>
+        </view>
+        <view class="photo-wrap {{hasImage ? '' : 'photo-wrap-empty'}}" bindtap="previewImage">
+          <image wx:if="{{hasImage}}" class="face-image" src="{{displayImage}}" mode="widthFix"></image>
+          <view wx:else class="photo-empty">暂无照片</view>
+        </view>
+        <view class="photo-caption">点击图片可查看大图。</view>
+      </view>
+
+      <view class="section-card" wx:if="{{report.basicFeatures.length}}">
+        <view class="section-head">
+          <view class="section-title">关键特征</view>
+          <view class="section-tip">AI提取的人脸与关键点摘要</view>
+        </view>
+        <view wx:if="{{report.basicFeatures.length}}" class="feature-list">
+          <view class="feature-item" wx:for="{{report.basicFeatures}}" wx:key="index">
+            <view class="feature-index">{{index + 1}}</view>
+            <view class="feature-main">
+              <view class="feature-text">{{item}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="section-card" wx:if="{{report.stageSections.length}}">
+        <view class="section-head">
+          <view class="section-title">分段解读</view>
+          <view class="section-tip">按文档结构拆分的完整分析</view>
+        </view>
+        <view class="stage-list">
+          <view class="stage-card" wx:for="{{report.stageSections}}" wx:key="title">
+            <view class="stage-title">{{item.title}}</view>
+            <view class="stage-content">{{item.content}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="section-card" wx:if="{{report.focusPoints.length}}">
+        <view class="section-head">
+          <view class="section-title">面部关注点</view>
+          <view class="section-tip">当前更建议优先留意的部位</view>
+        </view>
+        <view class="concern-list">
+          <view class="concern-card" wx:for="{{report.focusPoints}}" wx:key="index">
+            <view class="concern-top">
+              <view class="concern-title">{{item.title}}</view>
+              <view wx:if="{{item.level}}" class="concern-tag">{{item.level}}</view>
+            </view>
+            <view wx:if="{{item.description}}" class="concern-desc">{{item.description}}</view>
+            <view wx:if="{{item.advice}}" class="concern-advice">建议：{{item.advice}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="section-card" wx:if="{{report.moleParagraphs.length}}">
+        <view class="section-head">
+          <view class="section-title">痣识别</view>
+          <view class="section-tip">结合图片的局部识别说明</view>
+        </view>
+        <view class="content-panel content-panel-yellow">
+          <view class="content-line" wx:for="{{report.moleParagraphs}}" wx:key="index">{{item}}</view>
+        </view>
+      </view>
+
+      <view class="section-card" wx:if="{{report.moleFunParagraphs.length}}">
+        <view class="section-head">
+          <view class="section-title">痣相娱乐解读</view>
+          <view class="section-tip">娱乐向说明，仅作轻松参考</view>
+        </view>
+        <view class="content-panel content-panel-pink">
+          <view class="content-line" wx:for="{{report.moleFunParagraphs}}" wx:key="index">{{item}}</view>
+        </view>
+      </view>
+
+      <view class="section-card" wx:if="{{report.medicalAdvice.length}}">
+        <view class="section-head">
+          <view class="section-title">医美建议</view>
+          <view class="section-tip">适合继续咨询的方向</view>
+        </view>
+        <view class="medical-list">
+          <view class="medical-card" wx:for="{{report.medicalAdvice}}" wx:key="index">
+            <view class="concern-top">
+              <view class="concern-title">{{item.title}}</view>
+              <view wx:if="{{item.priority}}" class="medical-tag">{{item.priority}}</view>
+            </view>
+            <view wx:if="{{item.description}}" class="concern-desc">{{item.description}}</view>
+            <view wx:if="{{item.consult}}" class="medical-consult">可咨询方向：{{item.consult}}</view>
+            <view wx:if="{{item.tip}}" class="medical-tip">提示：{{item.tip}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="section-card" wx:if="{{report.fortuneList.length}}">
+        <view class="section-head">
+          <view class="section-title">运势建议</view>
+          <view class="section-tip">娱乐向观察，轻松看看即可</view>
+        </view>
+        <view class="fortune-list">
+          <view class="fortune-item" wx:for="{{report.fortuneList}}" wx:key="index">
+            <view class="fortune-index">{{index + 1}}</view>
+            <view class="fortune-text">{{item}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="section-card" wx:if="{{report.followUpParagraphs.length}}">
+        <view class="section-head">
+          <view class="section-title">后续建议</view>
+          <view class="section-tip">是否继续面诊与沟通的建议</view>
+        </view>
+        <view class="content-panel content-panel-green">
+          <view class="content-line" wx:for="{{report.followUpParagraphs}}" wx:key="index">{{item}}</view>
+        </view>
+      </view>
+
+      <view class="section-card" wx:if="{{report.emotionList.length}}">
+        <view class="section-head">
+          <view class="section-title">情绪分析</view>
+          <view class="section-tip">当前情绪概率分布</view>
+        </view>
+        <view class="emotion-list">
+          <view class="emotion-item" wx:for="{{report.emotionList}}" wx:key="key">
+            <view class="emotion-name">{{item.label}}</view>
+            <view class="emotion-value">{{item.value}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="section-card" wx:if="{{report.entertainmentSections.length || report.funParagraphs.length}}">
+        <view class="section-head">
+          <view class="section-title">娱乐性解读</view>
+          <view class="section-tip">偏趣味表达，仅供参考</view>
+        </view>
+        <view wx:if="{{report.entertainmentSections.length}}" class="ent-grid">
+          <view class="ent-card {{item.isWide ? 'ent-card-wide' : ''}}" wx:for="{{report.entertainmentSections}}" wx:key="title">
+            <view class="ent-card-title">{{item.title}}</view>
+            <view class="ent-card-content">{{item.content}}</view>
+          </view>
+        </view>
+        <view wx:else class="content-panel content-panel-purple">
+          <view class="fun-list">
+            <view class="fun-item" wx:for="{{report.funParagraphs}}" wx:key="index">
+              <view class="fun-index">{{index + 1}}</view>
+              <view class="fun-text">{{item}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="ent-note">{{report.entertainmentNotice}}</view>
+      </view>
+
+      <view class="section-card doc-summary-card" wx:if="{{report.summaryText || report.analysisResultSections.length}}">
+        <view class="doc-summary-header">
+          <view class="doc-summary-title-wrap">
+            <view class="doc-summary-title">面相分析结果</view>
+            <view wx:if="{{lastSex}}" class="doc-preview-tag">{{lastSex}}</view>
+          </view>
+          <view class="doc-toggle-btn" bindtap="toggleAnalysisResultExpand">{{analysisResultExpanded ? '收起结果' : '展开结果'}}</view>
+        </view>
+        <view class="doc-preview-meta">
+          <view class="doc-preview-summary">{{report.previewRequestText}}</view>
+          <view class="doc-preview-hint">{{report.previewHintText}}</view>
+        </view>
+        <view wx:if="{{analysisResultExpanded}}" class="doc-summary-expand">
+          <view wx:if="{{report.analysisResultSections.length}}" class="doc-block-list">
+            <view class="doc-block-card doc-block-card-expand" wx:for="{{report.analysisResultSections}}" wx:key="title">
+              <view class="doc-block-head">
+                <view class="doc-block-index">{{index + 1}}</view>
+                <view class="doc-block-title">{{item.title}}</view>
+              </view>
+              <image
+                wx:if="{{item.imageUrl}}"
+                class="doc-block-image"
+                src="{{item.imageUrl}}"
+                mode="widthFix"
+                bindtap="previewChatImage"
+                data-url="{{item.imageUrl}}"
+              ></image>
+              <view wx:else class="doc-block-content">
+                <view wx:if="{{item.paragraphs.length}}">
+                  <view class="doc-block-line" wx:for="{{item.paragraphs}}" wx:for-item="paragraph" wx:key="index">{{paragraph}}</view>
+                </view>
+                <view wx:else class="doc-block-line">{{item.content}}</view>
+              </view>
+            </view>
+          </view>
+          <view wx:elif="{{report.summaryParagraphs.length}}" class="content-panel content-panel-gray">
+            <view class="content-line" wx:for="{{report.summaryParagraphs}}" wx:key="index">{{item}}</view>
+          </view>
+          <view wx:else class="empty-text">暂无面相分析结果详情</view>
+        </view>
+      </view>
+    </block>
+
+    <view class="page-bottom-space"></view>
+  </scroll-view>
+
+  <view class="composer">
+    <view wx:if="{{pendingImage}}" class="composer-preview">
+      <image class="composer-preview-image" src="{{pendingImage}}" mode="aspectFill" bindtap="previewChatImage" data-url="{{pendingImage}}"></image>
+      <view class="composer-preview-remove" bindtap="removePendingImage">移除</view>
+    </view>
+    <view class="composer-row">
+      <image
+        class="composer-upload-icon"
+        src="https://wx.pmc-wz.com/materials/scsxt.png"
+        mode="aspectFit"
+        bindtap="chooseChatImage"
+      ></image>
+      <input
+        class="composer-input"
+        placeholder="请输入性别，如 男 / 女"
+        value="{{draftText}}"
+        maxlength="20"
+        bindinput="onDraftInput"
+        bindconfirm="sendChatMessage"
+        confirm-type="send"
+        cursor-spacing="20"
+      />
+      <view class="composer-send {{canSendChat ? 'composer-send-active' : ''}}" bindtap="sendChatMessage">发送</view>
+    </view>
+  </view>
+</view>

@@ -122,6 +122,17 @@
         </picker>
       </view>
     </view>
+    
+    <view class="name inTxt address-line">
+      <view class="caption">家庭地址<i></i></view>
+      <textarea
+        class="address-int"
+        value="{{address}}"
+        bindinput="onAddressInput"
+        placeholder="请输入详细家庭地址"
+        auto-height="true"
+      />
+    </view>
     <view class="submitBtn" bindtap="rtijiao">提交</view>
     <image src="https://wx.pmc-wz.com/materials/wcjxx.jpg" mode='widthFix' class="wcjxx " wx:if="{{options.summary=='无痛'}}"></image>
   </view>

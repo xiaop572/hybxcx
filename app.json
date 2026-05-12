@@ -251,7 +251,10 @@
         "tjxmzq3/tjxmzq3",
         "wzwgytjxm/wzwgytjxm",
         "jkmzxlb/jkmzxlb",
-        "qdhd/qdhd"
+        "qdhd/qdhd",
+        "qdtcm/qdtcm",
+        "tjgz980/tjgz980",
+        "xy7y/xy7y"
       ]
     },
     {
@@ -323,10 +326,13 @@
         "mianzhenxiangji/mianzhenxiangji",
         "aicefuzhi/aicefuzhi",
         "mzloading/mzloading",
+        "mxloading/mxloading",
         "fuzhibaogao/fuzhibaogao",
         "cefuzhifengmian/cefuzhifengmian",
         "dttcp/dttcp",
-        "xmyuyue/xmyuyue"
+        "xmyuyue/xmyuyue",
+        "mianxiangfenxi/mianxiangfenxi",
+        "mianzhenjieguo/mianzhenjieguo"
       ]
     },
     {
@@ -341,7 +347,8 @@
         "688xxtx/688xxtx",
         "cardpriv/cardpriv",
         "selcard/selcard",
-        "tjqw/tjqw"
+        "tjqw/tjqw",
+        "aimxzd/aimxzd"
       ]
     }
   ],
@@ -384,7 +391,7 @@
         "text": "客服"
       },
       {
-        "pagePath": "pages/yiliaofuwu/yiliaofuwu",
+        "pagePath": "pages/jiankangjie/jiankangjie",
         "iconPath": "./pages/assign/pthd.png",
         "selectedIconPath": "./pages/assign/pthd.png",
         "text": "医疗服务"

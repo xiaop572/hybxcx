@@ -33,10 +33,10 @@
     <image src="https://wx.pmc-wz.com/materials/c13icon.png" mode='widthFix'></image>
     <text>碳13报告</text>
   </view>
-  <view class="myIcon" bindtap="rywz">
+  <!-- <view class="myIcon" bindtap="rywz">
       <image src="https://wx.pmc-wz.com/materials/ywzicon.png" mode='widthFix'></image>
       <text>预问诊</text>
-    </view>
+    </view> -->
 </view>
 <view class="myList">
   <text class="myCaption">住院服务</text>
@@ -71,5 +71,9 @@
   <view class="myIcon" bindtap="rxspdf">
     <image src="https://wx.pmc-wz.com/materials/xstjpdf.png" mode='widthFix'></image>
     <text>学生体检报告</text>
+  </view>
+  <view class="myIcon" bindtap="rReport">
+    <image src="https://wx.pmc-wz.com/materials/xstjpdf.png" mode='widthFix'></image>
+    <text>文字体检报告</text>
   </view>
 </view>

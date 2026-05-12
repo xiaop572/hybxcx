@@ -24,14 +24,25 @@
     <image src="https://wx.pmc-wz.com/materials/logo.png" mode="widthFix" class="logo" />
     <text>慧医宝</text>
   </view>
-  <view class="pro">
+  <view class="pro" wx:if="{{!isCartCheckout}}">
     <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" class="proimg"></image>
     <text class="procaption">{{item.pictitle}}</text>
     <view class="spec-info" wx:if="{{item.selSpec}}">
       <text class="spec-label">已选规格：</text>
       <text class="spec-value">{{item.selSpec}}</text>
     </view>
-   
+  </view>
+  <view class="pro cart-pro" wx:if="{{isCartCheckout}}" wx:for="{{cartList}}" wx:for-item="cartItem" wx:key="id">
+    <image src="https://wx.pmc-wz.com/hyb/images/{{cartItem.picurl}}" mode="widthFix" class="proimg"></image>
+    <text class="procaption">{{cartItem.pictitle}}</text>
+    <view class="spec-info" wx:if="{{cartItem.selSpec||cartItem.spes}}">
+      <text class="spec-label">已选规格：</text>
+      <text class="spec-value">{{cartItem.selSpec||cartItem.spes}}</text>
+    </view>
+    <view class="cart-num-line">
+      <text>数量 x{{cartItem.cartNum||cartItem.nums||1}}</text>
+      <text>单价 ¥{{cartItem.price}}</text>
+    </view>
   </view>
 </view>
 <!-- <view class="weui-panel weui-panel_access">
@@ -59,7 +70,7 @@
 <view class="footer">
   <view class="left-content">
     <text class="money">应付：<text>¥{{finalPrice}}</text></text>
-    <view class="shuliang" wx:if="{{item.depositflag!==1}}">
+    <view class="shuliang" wx:if="{{item.depositflag!==1 && !isCartCheckout}}">
       <view class="numbtn" bind:tap="numjian">-</view>
       <input class="num" type="number" value="{{num}}" bindinput="onNumInput" bindblur="onNumBlur" />
       <view class="numbtn" bind:tap="numjia">+</view>

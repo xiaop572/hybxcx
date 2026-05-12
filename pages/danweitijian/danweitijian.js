@@ -307,7 +307,7 @@ Page({
       })
       return;
     }
-    if(this.data.corp=='温州外国语学校'){
+    if(this.data.corp=='温州外国语学校' || this.data.corp=='温州外国语高级中学'){
       // 保存数据到本地存储，和温州大学一样
       let tjData = {
         ptype: 19,

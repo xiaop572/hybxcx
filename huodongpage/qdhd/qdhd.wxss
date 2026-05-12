@@ -23,7 +23,7 @@ page{
 .qdmain-content{
   position: absolute;
   inset: 0;
-  padding: 80rpx 44rpx 70rpx;
+  padding: 40rpx 44rpx 70rpx;
   box-sizing: border-box;
   text-align: center;
 }
@@ -34,12 +34,12 @@ page{
   line-height: 1.35;
 }
 .qdmain-desc{
-  margin-top: 26rpx;
+  margin-top: 15rpx;
   color: #3f3128;
   line-height: 1.6;
 }
 .qdmain-subtitle{
-  margin-top: 70rpx;
+  margin-top: 40rpx;
   color: #7a431b;
   font-size: 36rpx;
   font-weight: 600;
@@ -83,13 +83,34 @@ page{
 }
 .submit-btn{
   width: 72%;
-  margin: 60rpx auto 0 auto;
+  margin:40rpx auto 0 auto;
   border-radius: 55rpx;
   background: #2f5ad4;
   color: #fff;
   font-size: 32rpx;
   font-weight: 600;
   padding: 20rpx 0;
+}
+.qdmain-gift{
+  margin-top: 26rpx;
+  text-align: left;
+}
+.qdmain-gift-title{
+  font-size: 28rpx;
+  color: #7a431b;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+.qdmain-gift-item{
+  font-size: 26rpx;
+  color: #4b3a2f;
+  line-height: 1.5;
+}
+.qdmain-gift-sub{
+  font-size: 24rpx;
+  color: #6c5a4f;
+  line-height: 1.5;
+  margin-bottom: 6rpx;
 }
 .success-mask{
   position: fixed;
@@ -107,57 +128,4 @@ page{
   width: 90%;
   display: block;
   margin: auto;
-}
-.gift-content{
-  width: 92%;
-  margin: 44rpx auto 70rpx;
-  text-align: center;
-}
-.gift-title{
-  color: #fff;
-  line-height: 1.45;
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  flex-wrap: wrap;
-  font-size: 32rpx;
-}
-.title-prefix{
-  margin-right: 8rpx;
-}
-.highlight-wrap{
-  position: relative;
-  display: inline-flex;
-  align-items: flex-end;
-  padding: 0 4rpx;
-}
-.highlight-text{
-  color: #fff;
-  position: relative;
-  z-index: 2;
-}
-.highlight-line{
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 3rpx;
-  height: 10rpx;
-  background: #E89350;
-  z-index: 1;
-}
-.gift-item{
-  margin-top: 30rpx;
-  color: #fff;
-}
-.item-main{
-  display: block;
-  line-height: 1.4;
-  font-size: 30rpx;
-}
-.item-sub{
-  display: block;
-  margin-top: 8rpx;
-  line-height: 1.55;
-  font-size: 26rpx;
-  color: rgb(226, 226, 226);
 }
