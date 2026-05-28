@@ -2,6 +2,7 @@
 page {
   background: linear-gradient(180deg, #52A5F9 0%, #B1D3FF 100%);
   min-height: 100%;
+  padding-bottom: 0 !important;
 }
 
 .page {

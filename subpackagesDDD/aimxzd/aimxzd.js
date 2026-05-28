@@ -12,6 +12,7 @@ const DEFAULT_REPORT = {
   medicalAdvice: [],
   fortuneList: [],
   followUpParagraphs: [],
+  recognitionSections: [],
   stageSections: [],
   entertainmentSections: [],
   entertainmentNotice: '仅供娱乐参考，不构成医疗、法律或投资建议。',
@@ -33,6 +34,21 @@ const IMAGE_KEYS = [
   'mole_local_image', 'hitImage', 'hit_image', 'cropImage', 'crop_image',
   'landmarkImage', 'landmark_image', 'landmarkOverlayImage', 'landmark_overlay_image'
 ]
+
+const TTS_CHUNK_LENGTH = 180
+let ttsPlugin
+
+function getTtsPlugin() {
+  if (ttsPlugin !== undefined) {
+    return ttsPlugin
+  }
+  try {
+    ttsPlugin = requirePlugin('WechatSI')
+  } catch (e) {
+    ttsPlugin = null
+  }
+  return ttsPlugin
+}
 
 function safeParse(value) {
   if (!value || typeof value !== 'string') {
@@ -80,6 +96,50 @@ function normalizeText(value) {
     }).filter(Boolean).join('\n')
   }
   return String(value).trim()
+}
+
+function normalizeSpeechText(value) {
+  return normalizeText(value)
+    .replace(/[#*_`~>\[\]{}]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function splitSpeechText(value) {
+  const text = normalizeSpeechText(value)
+  if (!text) {
+    return []
+  }
+  const sentences = text.match(/[^。！？!?；;]+[。！？!?；;]?/g) || [text]
+  const chunks = []
+  let current = ''
+
+  sentences.forEach(sentence => {
+    if (!sentence) {
+      return
+    }
+    if (sentence.length > TTS_CHUNK_LENGTH) {
+      if (current) {
+        chunks.push(current)
+        current = ''
+      }
+      for (let i = 0; i < sentence.length; i += TTS_CHUNK_LENGTH) {
+        chunks.push(sentence.slice(i, i + TTS_CHUNK_LENGTH))
+      }
+      return
+    }
+    if (current && current.length + sentence.length > TTS_CHUNK_LENGTH) {
+      chunks.push(current)
+      current = sentence
+      return
+    }
+    current += sentence
+  })
+
+  if (current) {
+    chunks.push(current)
+  }
+  return chunks
 }
 
 function toFeatureList(value) {
@@ -336,6 +396,12 @@ function buildContentParagraphs(value) {
     .split(/\n+|(?=\s*(?:\d+|[一二三四五六七八九十]+)[\.、])/)
     .map(item => item.replace(/^\s*(?:\d+|[一二三四五六七八九十]+)[\.、]\s*/, '').trim())
     .filter(Boolean)
+}
+
+function withDisplayParagraphs(sections) {
+  return (sections || []).map(item => Object.assign({}, item, {
+    paragraphs: buildContentParagraphs(item.content)
+  }))
 }
 
 function buildAnalysisResultSections(partMap) {
@@ -810,7 +876,10 @@ function buildReportFromPayload(payload) {
     { title: '识别判断', content: getPartValue(partMap, 1) },
     { title: '分段解读', content: getPartValue(partMap, 2) }
   ].filter(item => item.content)
-  const finalStageSections = stageSections.length ? stageSections : stageSectionsFromParts
+  const recognitionSections = withDisplayParagraphs([
+    { title: '识别判断', content: getPartValue(partMap, 1) }
+  ].filter(item => item.content))
+  const finalStageSections = withDisplayParagraphs(stageSections.length ? stageSections : stageSectionsFromParts)
   const focusPoints = buildFocusPoints(
     pickFirst(payload, [
       'focus_points', 'focusPoints', 'face_focus_points', 'faceFocusPoints',
@@ -883,6 +952,7 @@ function buildReportFromPayload(payload) {
     medicalAdvice,
     fortuneList,
     followUpParagraphs,
+    recognitionSections,
     stageSections: finalStageSections,
     entertainmentSections: buildEntertainmentSections(entertainmentSource),
     entertainmentNotice: normalizeText(payload.entertainment && payload.entertainment.notice) || DEFAULT_REPORT.entertainmentNotice,
@@ -896,6 +966,36 @@ function buildReportFromPayload(payload) {
   }
 }
 
+function buildReportSpeechText(report) {
+  if (!report) {
+    return ''
+  }
+  const parts = []
+  const append = (title, value) => {
+    const text = normalizeSpeechText(value)
+    if (text) {
+      parts.push(`${title}。${text}`)
+    }
+  }
+
+  append('面相分析结果', report.summaryText)
+  if (report.basicFeatures && report.basicFeatures.length) {
+    append('关键特征', report.basicFeatures.join('。'))
+  }
+  ;(report.recognitionSections || []).forEach(item => {
+    append(item.title || '识别判断', item.content || (item.paragraphs || []).join('。'))
+  })
+  ;(report.focusPoints || []).forEach(item => {
+    append(`面部关注点：${item.title || ''}`, [item.description, item.advice ? `建议：${item.advice}` : ''].filter(Boolean).join('。'))
+  })
+  ;(report.medicalAdvice || []).forEach(item => {
+    append(`医美建议：${item.title || ''}`, [item.description, item.consult ? `可咨询方向：${item.consult}` : '', item.tip ? `提示：${item.tip}` : ''].filter(Boolean).join('。'))
+  })
+  append('后续建议', (report.followUpParagraphs || []).join('。'))
+
+  return normalizeSpeechText(parts.join('。')).slice(0, 5000)
+}
+
 let chatMessageSeed = 0
 
 function createChatMessage(role, content, image, extra) {
@@ -906,6 +1006,16 @@ function createChatMessage(role, content, image, extra) {
     content: content || '',
     image: image || ''
   }, extra || {})
+}
+
+function getDefaultCollapsedSections() {
+  return {
+    moleFun: true,
+    entertainment: true,
+    focus: true,
+    medical: true,
+    followUp: true
+  }
 }
 
 Page({
@@ -924,12 +1034,20 @@ Page({
     canSendChat: false,
     scrollIntoView: '',
     isSubmitting: false,
-    analysisResultExpanded: false
+    analysisResultExpanded: false,
+    reportSpeechText: '',
+    speakingMessageId: '',
+    speakingReport: false,
+    collapsedSections: getDefaultCollapsedSections()
   },
 
   onLoad() {
     this._imagePriority = 0
     this.initChat()
+  },
+
+  onUnload() {
+    this.stopSpeech()
   },
 
   initChat() {
@@ -1024,6 +1142,7 @@ Page({
     if (this.data.isSubmitting) {
       return
     }
+    this.stopSpeech()
 
     const userMessage = createChatMessage('user', `性别：${sex}`, imagePath)
     const loadingMessage = createChatMessage('assistant', `已收到照片和性别“${sex}”，正在分析中，请稍候...`, '', { loading: true })
@@ -1040,7 +1159,11 @@ Page({
       canSendChat: false,
       imageLabel: '分析照片',
       imageHint: '分析完成后可查看大图',
-      analysisResultExpanded: false
+      analysisResultExpanded: false,
+      reportSpeechText: '',
+      speakingMessageId: '',
+      speakingReport: false,
+      collapsedSections: getDefaultCollapsedSections()
     }, () => {
       this.scrollChatToBottom()
     })
@@ -1097,6 +1220,8 @@ Page({
       report: nextReport,
       hasReport: true,
       analysisResultExpanded: false,
+      reportSpeechText: buildReportSpeechText(nextReport),
+      collapsedSections: getDefaultCollapsedSections(),
       isSubmitting: false
     }, () => this.scrollChatToBottom())
   },
@@ -1104,6 +1229,168 @@ Page({
   toggleAnalysisResultExpand() {
     this.setData({
       analysisResultExpanded: !this.data.analysisResultExpanded
+    })
+  },
+
+  toggleResultSection(e) {
+    const key = e.currentTarget.dataset.key
+    if (!key) {
+      return
+    }
+    this.setData({
+      [`collapsedSections.${key}`]: !this.data.collapsedSections[key]
+    })
+  },
+
+  toggleMessageSpeech(e) {
+    const messageId = e.currentTarget.dataset.id
+    const message = (this.data.chatMessages || []).find(item => item.id === messageId)
+    const content = message && message.content
+    if (!messageId || !content) {
+      return
+    }
+    if (this.data.speakingMessageId === messageId) {
+      this.stopSpeech()
+      return
+    }
+    this.startSpeech(content, {
+      messageId,
+      report: false
+    })
+  },
+
+  toggleReportSpeech() {
+    if (this.data.speakingReport) {
+      this.stopSpeech()
+      return
+    }
+    this.startSpeech(this.data.reportSpeechText || buildReportSpeechText(this.data.report), {
+      messageId: '',
+      report: true
+    })
+  },
+
+  startSpeech(text, options) {
+    const plugin = getTtsPlugin()
+    const chunks = splitSpeechText(text)
+    if (!plugin || !plugin.textToSpeech) {
+      wx.showToast({
+        title: '暂不支持朗读',
+        icon: 'none'
+      })
+      return
+    }
+    if (!chunks.length) {
+      wx.showToast({
+        title: '暂无可朗读内容',
+        icon: 'none'
+      })
+      return
+    }
+
+    this.stopSpeech()
+    const speechToken = `${Date.now()}_${Math.random()}`
+    this._speechToken = speechToken
+    this._speechChunks = chunks
+    this._speechIndex = 0
+    this.setData({
+      speakingMessageId: options.messageId || '',
+      speakingReport: !!options.report
+    })
+    this.playSpeechChunk(speechToken)
+  },
+
+  playSpeechChunk(speechToken) {
+    const plugin = getTtsPlugin()
+    const content = this._speechChunks[this._speechIndex]
+    if (!plugin || !content || this._speechToken !== speechToken) {
+      this.finishSpeech(speechToken)
+      return
+    }
+
+    plugin.textToSpeech({
+      lang: 'zh_CN',
+      tts: true,
+      content,
+      success: res => {
+        const filename = res && (res.filename || res.filePath || res.voiceUrl)
+        if (!filename || this._speechToken !== speechToken) {
+          this.finishSpeech(speechToken)
+          return
+        }
+        this.playSpeechAudio(filename, speechToken)
+      },
+      fail: () => {
+        if (this._speechToken === speechToken) {
+          wx.showToast({
+            title: '朗读生成失败',
+            icon: 'none'
+          })
+        }
+        this.finishSpeech(speechToken)
+      }
+    })
+  },
+
+  playSpeechAudio(filename, speechToken) {
+    if (this._speechAudio) {
+      this._speechAudio.destroy()
+      this._speechAudio = null
+    }
+    const audio = wx.createInnerAudioContext()
+    this._speechAudio = audio
+    audio.src = filename
+    audio.onEnded(() => {
+      audio.destroy()
+      if (this._speechToken !== speechToken) {
+        return
+      }
+      this._speechIndex += 1
+      if (this._speechIndex < this._speechChunks.length) {
+        this.playSpeechChunk(speechToken)
+        return
+      }
+      this.finishSpeech(speechToken)
+    })
+    audio.onError(() => {
+      audio.destroy()
+      if (this._speechToken === speechToken) {
+        wx.showToast({
+          title: '朗读播放失败',
+          icon: 'none'
+        })
+      }
+      this.finishSpeech(speechToken)
+    })
+    audio.play()
+  },
+
+  finishSpeech(speechToken) {
+    if (this._speechToken && this._speechToken !== speechToken) {
+      return
+    }
+    this._speechToken = ''
+    this._speechChunks = []
+    this._speechIndex = 0
+    this._speechAudio = null
+    this.setData({
+      speakingMessageId: '',
+      speakingReport: false
+    })
+  },
+
+  stopSpeech() {
+    if (this._speechAudio) {
+      this._speechAudio.stop()
+      this._speechAudio.destroy()
+      this._speechAudio = null
+    }
+    this._speechToken = ''
+    this._speechChunks = []
+    this._speechIndex = 0
+    this.setData({
+      speakingMessageId: '',
+      speakingReport: false
     })
   },
 
@@ -1135,6 +1422,10 @@ Page({
       canSendChat: false,
       isSubmitting: false,
       analysisResultExpanded: false,
+      reportSpeechText: '',
+      speakingMessageId: '',
+      speakingReport: false,
+      collapsedSections: getDefaultCollapsedSections(),
       chatMessages: [
         createChatMessage('assistant', '你好，我是小慧AI面相分析助手。请先上传一张清晰正脸照，并在输入框填写性别，例如“男”或“女”。')
       ],

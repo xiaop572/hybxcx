@@ -1,7 +1,28 @@
 <!--subpackagesC/mianzhenjieguo/mianzhenjieguo.wxml-->
 <view class="chat-page">
-<scroll-view class="page" scroll-y scroll-with-animation scroll-into-view="{{scrollIntoView}}">
-  <view class="header-card">
+<scroll-view
+  id="main-scroll"
+  class="page"
+  scroll-y
+  scroll-with-animation
+  scroll-into-view="{{scrollIntoView}}"
+  scroll-top="{{pageScrollTop}}"
+  bindscroll="handleMainScroll"
+>
+  <view class="result-hero">
+    <view class="hero-title">面部分析结果</view>
+    <view class="hero-subtitle">智能识别面部、皮肤、美容整形等问题</view>
+    <view class="hero-line"></view>
+  </view>
+
+  <view class="timing-card" wx:if="{{false}}">
+    <view class="timing-card-title">耗时拆解</view>
+    <view class="timing-card-content">{{timingBreakdownText}}</view>
+    <view class="timing-card-subtitle">流程摘要</view>
+    <view class="timing-card-content timing-card-content-secondary">{{workflowSummaryText}}</view>
+  </view>
+
+  <view class="header-card" wx:if="{{false}}">
     <view class="header-top">
       <view class="header-left">
         <view class="title">{{report.title}}</view>
@@ -19,7 +40,168 @@
       </view>
     </view> -->
   </view>
-  <view class="section-card">
+
+  <view class="overall-card" wx:if="{{report.overallIntro || report.overallSections.length}}">
+    <view class="overall-head">
+      <view class="overall-title">整体先看</view>
+      <view
+        wx:if="{{overallSpeechText}}"
+        class="overall-voice-btn {{speakingOverall ? 'overall-voice-btn-active' : ''}}"
+        bindtap="toggleOverallSpeech"
+      >{{speakingOverall ? '停止' : '朗读'}}</view>
+    </view>
+    <view wx:if="{{report.overallIntro}}" class="overall-intro">{{report.overallIntro}}</view>
+  </view>
+
+  <view class="overall-grid" wx:if="{{report.overallSections.length}}">
+    <view class="overall-item" wx:for="{{report.overallSections}}" wx:key="title">
+      <view class="overall-item-head">
+        <view class="overall-item-index">{{item.index}}</view>
+        <view class="overall-item-title">{{item.title}}</view>
+      </view>
+      <view class="overall-item-content">{{item.content}}</view>
+    </view>
+  </view>
+
+  <view class="image-echo-section" wx:if="{{imageEchoList.length}}">
+    <scroll-view
+      class="image-echo-scroll"
+      scroll-x
+      scroll-with-animation
+      enhanced
+      show-scrollbar="{{false}}"
+      scroll-left="{{imageEchoScrollLeft}}"
+    >
+      <view class="image-echo-row">
+        <view
+          class="image-echo-card {{item.action === 'toggle-drilldown' && showVisualDrilldown ? 'image-echo-card-active' : ''}}"
+          id="image-echo-card-{{index}}"
+          wx:for="{{imageEchoList}}"
+          wx:key="title"
+          bindtap="handleImageEchoTap"
+          data-index="{{index}}"
+        >
+          <view class="image-echo-preview">
+            <block wx:if="{{item.previewCard}}">
+              <view class="focus-crop-frame" style="{{item.previewCard.frameStyle}}">
+                <image class="focus-crop-img" src="{{item.previewCard.source}}" mode="scaleToFill" style="{{item.previewCard.imageStyle}}"></image>
+                <view
+                  wx:for="{{item.previewCard.points}}"
+                  wx:for-item="point"
+                  wx:key="index"
+                  class="focus-point {{point.active ? 'focus-point-active' : ''}}"
+                  style="{{point.style}}"
+                >
+                  <text wx:if="{{point.active}}" class="focus-point-label" style="{{point.labelStyle}}">{{point.index}}</text>
+                </view>
+                <view
+                  wx:for="{{item.previewCard.boxes}}"
+                  wx:for-item="box"
+                  wx:key="label"
+                  class="focus-box"
+                  style="{{box.style}}"
+                >
+                  <text class="focus-box-label">{{box.label}}</text>
+                </view>
+              </view>
+            </block>
+            <image wx:else class="image-echo-img" src="{{item.image}}" mode="aspectFill"></image>
+          </view>
+          <view class="image-echo-body">
+            <view class="image-echo-title">{{item.title}}</view>
+            <view class="image-echo-desc">{{item.desc}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view id="visual-drilldown-anchor" class="visual-drilldown" wx:if="{{showVisualDrilldown && visualDetailSections.length}}">
+    <view class="visual-drilldown-head">
+      <view class="visual-drilldown-title">说明图</view>
+      <view class="visual-drilldown-subtitle">这里会继续展开皮肤图、痣识别图和美容局部图，方便直接对照下方说明查看。</view>
+    </view>
+    <view class="drilldown-stack">
+      <view class="drilldown-card" wx:for="{{visualDetailSections}}" wx:for-index="sectionIndex" wx:key="key" bindtap="previewVisualSectionImage" data-section-index="{{sectionIndex}}" data-image-index="0">
+        <view class="drilldown-figure">
+          <block wx:if="{{item.previewCard}}">
+            <view class="focus-crop-frame" style="{{item.previewCard.frameStyle}}">
+              <image class="focus-crop-img" src="{{item.previewCard.source}}" mode="scaleToFill" style="{{item.previewCard.imageStyle}}"></image>
+              <view
+                wx:for="{{item.previewCard.points}}"
+                wx:for-item="point"
+                wx:key="index"
+                class="focus-point {{point.active ? 'focus-point-active' : ''}}"
+                style="{{point.style}}"
+              >
+                <text wx:if="{{point.active}}" class="focus-point-label" style="{{point.labelStyle}}">{{point.index}}</text>
+              </view>
+              <view
+                wx:for="{{item.previewCard.boxes}}"
+                wx:for-item="box"
+                wx:key="label"
+                class="focus-box"
+                style="{{box.style}}"
+              >
+                <text class="focus-box-label">{{box.label}}</text>
+              </view>
+            </view>
+          </block>
+          <image wx:else class="drilldown-img {{item.key === 'aesthetic' ? 'aesthetic-focus-img' : ''}}" src="{{item.src}}" mode="aspectFill"></image>
+        </view>
+        <view class="drilldown-card-body">
+          <view class="drilldown-eyebrow">{{item.eyebrow}}</view>
+          <view class="drilldown-title">{{item.title}}</view>
+          <view class="drilldown-note">{{item.note}}</view>
+          <view wx:if="{{item.focusCards && item.focusCards.length && item.key !== 'aesthetic' && item.key !== 'mole'}}" class="detail-focus-list">
+            <view class="detail-focus-card" wx:for="{{item.focusCards}}" wx:for-item="focus" wx:for-index="focusIndex" wx:key="key" catchtap="previewVisualFocusCard" data-section-index="{{sectionIndex}}" data-focus-index="{{focusIndex}}">
+              <view class="focus-crop-frame detail-focus-frame" style="{{focus.frameStyle}}">
+                <image class="focus-crop-img" src="{{focus.source}}" mode="scaleToFill" style="{{focus.imageStyle}}"></image>
+                <view
+                  wx:for="{{focus.points}}"
+                  wx:for-item="point"
+                  wx:key="index"
+                  class="focus-point {{point.active ? 'focus-point-active' : ''}}"
+                  style="{{point.style}}"
+                >
+                  <text wx:if="{{point.active}}" class="focus-point-label" style="{{point.labelStyle}}">{{point.index}}</text>
+                </view>
+                <view
+                  wx:for="{{focus.boxes}}"
+                  wx:for-item="box"
+                  wx:key="label"
+                  class="focus-box"
+                  style="{{box.style}}"
+                >
+                  <text class="focus-box-label">{{box.label}}</text>
+                </view>
+              </view>
+              <view class="detail-focus-title">{{focus.title}}</view>
+              <view class="detail-focus-desc">{{focus.summary}}</view>
+            </view>
+          </view>
+          <scroll-view wx:if="{{item.key !== 'mole' && item.galleryImages.length > 1}}" class="drilldown-gallery" scroll-x enhanced show-scrollbar="{{false}}">
+            <view class="drilldown-gallery-row">
+              <view
+                class="drilldown-thumb"
+                wx:for="{{item.galleryImages}}"
+                wx:for-item="gallery"
+                wx:for-index="galleryIndex"
+                wx:key="title"
+                catchtap="previewVisualSectionImage"
+                data-section-index="{{sectionIndex}}"
+                data-image-index="{{galleryIndex}}"
+              >
+                <image class="drilldown-thumb-img" src="{{gallery.src}}" mode="aspectFill"></image>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-card" wx:if="{{false}}">
     <view class="section-head">
       <view class="section-title">{{imageLabel}}</view>
       <view class="section-tip">{{imageHint}}</view>
@@ -31,7 +213,7 @@
     <view class="photo-caption">点击图片可查看大图。</view>
   </view>
 
-  <view class="section-card">
+  <view class="section-card" wx:if="{{false}}">
     <view class="section-head">
       <view class="section-title">基础特征</view>
       <view class="section-tip">AI提取的人脸特征摘要</view>
@@ -47,7 +229,7 @@
     <view wx:else class="empty-text">暂无基础特征内容</view>
   </view>
 
-  <view class="section-card">
+  <view class="section-card" wx:if="{{false}}">
     <view class="section-head">
       <view class="section-title">情绪分析</view>
       <view class="section-tip">当前情绪概率分布</view>
@@ -61,44 +243,20 @@
     <view wx:else class="empty-text">暂无情绪分析内容</view>
   </view>
 
-  <view class="section-card">
-    <view class="section-head">
-      <view class="section-title">娱乐性解读</view>
-      <view class="section-tip"></view>
-    </view>
-    <view wx:if="{{report.entertainmentSections.length}}" class="ent-grid">
-      <view class="ent-card {{item.isWide ? 'ent-card-wide' : ''}}" wx:for="{{report.entertainmentSections}}" wx:key="title">
-        <view class="ent-card-title">{{item.title}}</view>
-        <view class="ent-card-content">{{item.content}}</view>
-      </view>
-    </view>
-    <view wx:else class="content-panel content-panel-purple">
-      <view class="fun-list">
-        <view class="fun-item" wx:for="{{report.funParagraphs}}" wx:key="index">
-          <view class="fun-index">{{index + 1}}</view>
-          <view class="fun-text">{{item}}</view>
-        </view>
-      </view>
-    </view>
-    <view class="ent-note">{{report.entertainmentNotice}}</view>
-  </view>
-
-  <view class="section-card">
-    <view class="section-head">
-      <view class="section-title">总结性话语</view>
-      <view class="section-tip"></view>
-    </view>
-    <view class="content-panel content-panel-blue">
-      <view class="content-line" wx:for="{{report.summaryParagraphs}}" wx:key="index">{{item}}</view>
-    </view>
-  </view>
-
   <view class="section-card chat-section">
     <view class="section-head">
-      <view class="section-title">继续对话</view>
-      <view class="section-tip">支持文字输入和图片上传</view>
+      <view class="section-title">接下来你可以继续这样问</view>
+      <view class="section-tip"></view>
     </view>
-    <view class="chat-tips">你可以继续追问情绪、关系、事业、健康，也可以上传一张新图片继续聊。</view>
+    <view class="quick-question-list">
+      <view
+        class="quick-question"
+        wx:for="{{quickQuestions}}"
+        wx:key="index"
+        bindtap="askQuickQuestion"
+        data-text="{{item}}"
+      >{{item}}</view>
+    </view>
     <view class="chat-list">
       <view
         wx:for="{{chatMessages}}"
@@ -106,7 +264,7 @@
         id="msg-{{item.id}}"
         class="chat-item {{item.role === 'user' ? 'chat-item-user' : 'chat-item-assistant'}}"
       >
-        <view class="chat-avatar">{{item.role === 'user' ? '我' : 'AI'}}</view>
+        <view class="chat-avatar">{{item.role === 'user' ? '我' : '慧'}}</view>
         <view class="chat-main">
           <image
             wx:if="{{item.image}}"
@@ -131,12 +289,7 @@
     <view class="composer-preview-remove" bindtap="removePendingImage">移除</view>
   </view>
   <view class="composer-row">
-    <image
-      class="composer-upload-icon"
-      src="https://wx.pmc-wz.com/materials/scsxt.png"
-      mode="aspectFit"
-      bindtap="chooseChatImage"
-    ></image>
+    <view class="composer-upload" bindtap="chooseChatImage">配图</view>
     <input
       class="composer-input"
       placeholder="继续问我，也可以配图一起发"
@@ -147,7 +300,171 @@
       confirm-type="send"
       cursor-spacing="20"
     />
-    <view class="composer-send {{canSendChat ? 'composer-send-active' : ''}}" bindtap="sendChatMessage">发送</view>
+    <view class="composer-send {{canSendChat ? 'composer-send-active' : ''}}" bindtap="sendChatMessage">{{sendingChat ? '发送中…' : '发送'}}</view>
+  </view>
+</view>
+
+<view class="detail-modal-mask" wx:if="{{showDetailModal}}" bindtap="closeDetailModal">
+  <view class="detail-modal" catchtap="preventBubble">
+    <view class="detail-modal-head">
+      <view>
+        <view class="detail-modal-title">{{currentDetail.modalTitle || currentDetail.title}}</view>
+        <view class="detail-modal-intro">{{currentDetail.modalIntro || currentDetail.desc}}</view>
+      </view>
+      <view class="detail-modal-close" bindtap="closeDetailModal">×</view>
+    </view>
+    <view wx:if="{{currentDetail.highlights}}" class="detail-highlight-row">
+      <view class="detail-highlight-text">{{currentDetail.highlights}}</view>
+    </view>
+    <view class="detail-modal-scroll-wrap">
+      <view class="detail-modal-drag-handle"></view>
+      <scroll-view class="detail-modal-scroll" scroll-y>
+        <view wx:if="{{currentDetail.previewCard || currentDetail.image}}" class="detail-modal-preview">
+        <block wx:if="{{currentDetail.previewCard}}">
+          <view class="focus-crop-frame detail-modal-preview-frame" style="{{currentDetail.previewCard.frameStyle}}">
+            <image class="focus-crop-img" src="{{currentDetail.previewCard.source}}" mode="scaleToFill" style="{{currentDetail.previewCard.imageStyle}}"></image>
+            <view
+              wx:for="{{currentDetail.previewCard.points}}"
+              wx:for-item="point"
+              wx:key="index"
+              class="focus-point {{point.active ? 'focus-point-active' : ''}}"
+              style="{{point.style}}"
+            >
+              <text wx:if="{{point.active}}" class="focus-point-label" style="{{point.labelStyle}}">{{point.index}}</text>
+            </view>
+            <view
+              wx:for="{{currentDetail.previewCard.boxes}}"
+              wx:for-item="box"
+              wx:key="label"
+              class="focus-box"
+              style="{{box.style}}"
+            >
+              <text class="focus-box-label">{{box.label}}</text>
+            </view>
+          </view>
+        </block>
+        <image wx:else class="detail-modal-preview-image" src="{{currentDetail.image}}" mode="widthFix"></image>
+      </view>
+      <view wx:if="{{currentDetail.focusCards && currentDetail.focusCards.length}}" class="detail-modal-focus-zone">
+        <view class="detail-modal-focus-title">{{currentDetail.focusTitle || '局部放大图'}}</view>
+        <view class="detail-focus-list">
+          <view class="detail-focus-card" wx:for="{{currentDetail.focusCards}}" wx:for-item="focus" wx:for-index="focusIndex" wx:key="key" bindtap="previewDetailBlockFocusCard" data-block-index="-1" data-focus-index="{{focusIndex}}">
+            <view class="focus-crop-frame detail-focus-frame" style="{{focus.frameStyle}}">
+              <image class="focus-crop-img" src="{{focus.source}}" mode="scaleToFill" style="{{focus.imageStyle}}"></image>
+              <view
+                wx:for="{{focus.points}}"
+                wx:for-item="point"
+                wx:key="index"
+                class="focus-point {{point.active ? 'focus-point-active' : ''}}"
+                style="{{point.style}}"
+              >
+                <text wx:if="{{point.active}}" class="focus-point-label" style="{{point.labelStyle}}">{{point.index}}</text>
+              </view>
+              <view
+                wx:for="{{focus.boxes}}"
+                wx:for-item="box"
+                wx:key="label"
+                class="focus-box"
+                style="{{box.style}}"
+              >
+                <text class="focus-box-label">{{box.label}}</text>
+              </view>
+            </view>
+            <view class="detail-focus-title">{{focus.title}}</view>
+            <view class="detail-focus-desc">{{focus.summary}}</view>
+          </view>
+        </view>
+      </view>
+      <view
+        class="detail-modal-block {{index === 0 ? 'detail-modal-block-primary' : ''}}"
+        wx:for="{{currentDetail.blocks}}"
+        wx:key="title"
+      >
+        <view wx:if="{{item.level || item.label}}" class="detail-block-meta">{{item.level}}　{{item.label}}</view>
+        <view class="detail-block-title">{{item.title}}</view>
+        <view wx:if="{{item.desc}}" class="detail-block-line">{{item.desc}}</view>
+        <view wx:if="{{item.refs}}" class="detail-block-line">参考点位：{{item.refs}}</view>
+        <view wx:if="{{item.consult}}" class="detail-block-line">可咨询方向：{{item.consult}}</view>
+        <view wx:if="{{item.tip}}" class="detail-block-line">提示：{{item.tip}}</view>
+        <view wx:if="{{item.focusCards && item.focusCards.length}}" class="detail-focus-list">
+          <view class="detail-focus-card" wx:for="{{item.focusCards}}" wx:for-item="focus" wx:for-index="focusIndex" wx:key="key" bindtap="previewDetailBlockFocusCard" data-block-index="{{index}}" data-focus-index="{{focusIndex}}">
+            <view class="focus-crop-frame detail-focus-frame" style="{{focus.frameStyle}}">
+              <image class="focus-crop-img" src="{{focus.source}}" mode="scaleToFill" style="{{focus.imageStyle}}"></image>
+              <view
+                wx:for="{{focus.points}}"
+                wx:for-item="point"
+                wx:key="index"
+                class="focus-point {{point.active ? 'focus-point-active' : ''}}"
+                style="{{point.style}}"
+              >
+                <text wx:if="{{point.active}}" class="focus-point-label" style="{{point.labelStyle}}">{{point.index}}</text>
+              </view>
+              <view
+                wx:for="{{focus.boxes}}"
+                wx:for-item="box"
+                wx:key="label"
+                class="focus-box"
+                style="{{box.style}}"
+              >
+                <text class="focus-box-label">{{box.label}}</text>
+              </view>
+            </view>
+            <view class="detail-focus-title">{{focus.title}}</view>
+            <view class="detail-focus-desc">{{focus.summary}}</view>
+          </view>
+        </view>
+        <view wx:if="{{item.images && item.images.length}}" class="detail-block-images">
+          <image
+            class="detail-block-img"
+            wx:for="{{item.images}}"
+            wx:for-item="img"
+            wx:key="index"
+            src="{{img}}"
+            mode="aspectFill"
+            bindtap="previewChatImage"
+            data-url="{{img}}"
+          ></image>
+        </view>
+      </view>
+      </scroll-view>
+      <view class="detail-modal-scroll-cue">
+        <view class="detail-modal-scroll-text">下滑更多</view>
+        <view class="detail-modal-scroll-arrow"></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{showFocusPreview && focusPreviewCard}}" class="focus-preview-mask" bindtap="closeFocusPreview">
+  <view class="focus-preview-modal" catchtap="preventBubble">
+    <view class="focus-preview-head">
+      <view class="focus-preview-title">{{focusPreviewCard.title || '局部放大图'}}</view>
+      <view class="focus-preview-close" bindtap="closeFocusPreview">×</view>
+    </view>
+    <view class="focus-preview-body">
+      <view class="focus-crop-frame focus-preview-frame" style="{{focusPreviewCard.frameStyle}}">
+        <image class="focus-crop-img" src="{{focusPreviewCard.source}}" mode="scaleToFill" style="{{focusPreviewCard.imageStyle}}"></image>
+        <view
+          wx:for="{{focusPreviewCard.points}}"
+          wx:for-item="point"
+          wx:key="index"
+          class="focus-point {{point.active ? 'focus-point-active' : ''}}"
+          style="{{point.style}}"
+        >
+          <text wx:if="{{point.active}}" class="focus-point-label" style="{{point.labelStyle}}">{{point.index}}</text>
+        </view>
+        <view
+          wx:for="{{focusPreviewCard.boxes}}"
+          wx:for-item="box"
+          wx:key="label"
+          class="focus-box"
+          style="{{box.style}}"
+        >
+          <text class="focus-box-label">{{box.label}}</text>
+        </view>
+      </view>
+      <view wx:if="{{focusPreviewCard.summary}}" class="focus-preview-desc">{{focusPreviewCard.summary}}</view>
+    </view>
   </view>
 </view>
 </view>

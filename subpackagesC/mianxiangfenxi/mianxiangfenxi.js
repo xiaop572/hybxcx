@@ -19,6 +19,71 @@ Page({
     this._calcBorderBounds();
   },
 
+  buildPersistentImagePath(sourcePath) {
+    const lower = String(sourcePath || '').toLowerCase()
+    let ext = '.jpg'
+    if (lower.endsWith('.png')) {
+      ext = '.png'
+    } else if (lower.endsWith('.webp')) {
+      ext = '.webp'
+    } else if (lower.endsWith('.gif')) {
+      ext = '.gif'
+    }
+    return `${wx.env.USER_DATA_PATH}/face_original_${Date.now()}${ext}`
+  },
+
+  cacheImageAndGo(filePath) {
+    wx.showLoading({ title: '处理中...' })
+    const persistentPath = this.buildPersistentImagePath(filePath)
+    const fs = wx.getFileSystemManager()
+    fs.copyFile({
+      srcPath: filePath,
+      destPath: persistentPath,
+      success: () => {
+        fs.readFile({
+          filePath: persistentPath,
+          encoding: 'base64',
+          success: fileRes => {
+            wx.hideLoading()
+            wx.removeStorageSync('rawApiResponse')
+            wx.removeStorageSync('miniappAnalyzeResponse')
+            wx.removeStorageSync('miniappConversationId')
+            wx.setStorageSync('faceImagePath', persistentPath)
+            wx.setStorageSync('faceBase64', fileRes.data)
+            console.log('[mianxiangfenxi] faceImagePath(persistent):', persistentPath)
+            console.log('[mianxiangfenxi] faceBase64 length:', fileRes.data.length)
+            wx.navigateTo({ url: '/subpackagesC/mxloading/mxloading' })
+          },
+          fail: () => {
+            wx.hideLoading()
+            wx.showToast({ title: '图片读取失败', icon: 'none' })
+          }
+        })
+      },
+      fail: () => {
+        fs.readFile({
+          filePath,
+          encoding: 'base64',
+          success: fileRes => {
+            wx.hideLoading()
+            wx.removeStorageSync('rawApiResponse')
+            wx.removeStorageSync('miniappAnalyzeResponse')
+            wx.removeStorageSync('miniappConversationId')
+            wx.setStorageSync('faceImagePath', filePath)
+            wx.setStorageSync('faceBase64', fileRes.data)
+            console.log('[mianxiangfenxi] faceImagePath(temp):', filePath)
+            console.log('[mianxiangfenxi] faceBase64 length:', fileRes.data.length)
+            wx.navigateTo({ url: '/subpackagesC/mxloading/mxloading' })
+          },
+          fail: () => {
+            wx.hideLoading()
+            wx.showToast({ title: '图片读取失败', icon: 'none' })
+          }
+        })
+      }
+    })
+  },
+
   /**
    * 根据屏幕尺寸算出 face-border 的归一化坐标范围
    * face-border: 540rpx × 680rpx，居中于 camera 区域（camera 区高 = 屏高 - 底部面板360rpx）
@@ -202,21 +267,7 @@ Page({
     this.ctx.takePhoto({
       quality: 'high',
       success: (res) => {
-        wx.showLoading({ title: '处理中...' })
-        // 读取为 base64，存 storage 后跳转（base64 太长不适合放 URL 参数）
-        wx.getFileSystemManager().readFile({
-          filePath: res.tempImagePath,
-          encoding: 'base64',
-          success: fileRes => {
-            wx.hideLoading()
-            wx.setStorageSync('faceBase64', fileRes.data)
-            wx.navigateTo({ url: '/subpackagesC/mxloading/mxloading' })
-          },
-          fail: () => {
-            wx.hideLoading()
-            wx.showToast({ title: '图片处理失败', icon: 'none' })
-          }
-        })
+        this.cacheImageAndGo(res.tempImagePath)
       },
       fail: () => {
         wx.showToast({ title: '拍照失败', icon: 'none' })
@@ -234,20 +285,7 @@ Page({
       sourceType: ['album'],
       success: (res) => {
         const tempImagePath = res.tempFiles[0].tempFilePath
-        wx.showLoading({ title: '处理中...' })
-        wx.getFileSystemManager().readFile({
-          filePath: tempImagePath,
-          encoding: 'base64',
-          success: fileRes => {
-            wx.hideLoading()
-            wx.setStorageSync('faceBase64', fileRes.data)
-            wx.navigateTo({ url: '/subpackagesC/mxloading/mxloading' })
-          },
-          fail: () => {
-            wx.hideLoading()
-            wx.showToast({ title: '图片读取失败', icon: 'none' })
-          }
-        })
+        this.cacheImageAndGo(tempImagePath)
       },
       fail: (err) => {
         console.error('选择图片失败', err)

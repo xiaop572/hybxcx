@@ -1,0 +1,19 @@
+<!--subpackagesC/mianzhenxiangji/mianzhenxiangji.wxml-->
+<view class="container">
+  <camera device-position="{{cameraPosition}}" flash="off" frame-size="small" binderror="error" bindinitdone="onCameraInit" class="camera">
+    <cover-view class="overlay">
+      <cover-view class="face-area">
+        <cover-image class="face-border-img" src="https://wx.pmc-wz.com/materials/mianbukuang.png"></cover-image>
+      </cover-view>
+      <cover-view class="tips">{{tipsText}}</cover-view>
+    </cover-view>
+  </camera>
+  
+  <view class="controls-panel">
+    <view class="actions">
+      <image class="ctrl-btn" src="https://wx.pmc-wz.com/materials/mzxc.png" mode="widthFix" bindtap="chooseImage"></image>
+      <image class="ctrl-btn shutter" src="https://wx.pmc-wz.com/materials/mzpaishe.png" mode="aspectFit" bindtap="takePhoto"></image>
+      <image class="ctrl-btn" src="https://wx.pmc-wz.com/materials/mzxz.png" mode="widthFix" bindtap="switchCamera"></image>
+    </view>
+  </view>
+</view>

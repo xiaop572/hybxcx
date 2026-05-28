@@ -254,7 +254,11 @@
         "qdhd/qdhd",
         "qdtcm/qdtcm",
         "tjgz980/tjgz980",
-        "xy7y/xy7y"
+        "xy7y/xy7y",
+        "csbjy/csbjy",
+        "58tjjxq/58tjjxq",
+        "rybwccq/rybwccq",
+        "100cctyq/100cctyq"
       ]
     },
     {
@@ -348,7 +352,19 @@
         "cardpriv/cardpriv",
         "selcard/selcard",
         "tjqw/tjqw",
-        "aimxzd/aimxzd"
+        "aimxzd/aimxzd",
+        "cmxfengmian/cmxfengmian"
+      ]
+    },
+    {
+      "root": "subD",
+      "name": "subD",
+      "pages": [
+        "cmxfengmian/cmxfengmian",
+        "mianxiangfenxi/mianxiangfenxi",
+        "mxloading/mxloading",
+        "mianzhenjieguo/mianzhenjieguo",
+        "mxjieguo3/mxjieguo3"
       ]
     }
   ],
@@ -379,7 +395,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/skipPage/skipPage",
+        "pagePath": "pages/yiliaofuwu/yiliaofuwu",
         "iconPath": "./pages/assign/qimu.png",
         "selectedIconPath": "./pages/assign/qimu-active.png",
         "text": "全部商品"
@@ -391,7 +407,7 @@
         "text": "客服"
       },
       {
-        "pagePath": "pages/jiankangjie/jiankangjie",
+        "pagePath": "pages/skipPage/skipPage",
         "iconPath": "./pages/assign/pthd.png",
         "selectedIconPath": "./pages/assign/pthd.png",
         "text": "医疗服务"
@@ -424,6 +440,10 @@
     }
   },
   "plugins": {
+    "WechatSI": {
+      "version": "0.3.5",
+      "provider": "wx069ba97219f66d99"
+    },
     "contactPlugin": {
       "version": "1.4.3",
       "provider": "wx104a1a20c3f81ec2"

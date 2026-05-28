@@ -1,4 +1,7 @@
 <view class="page">
+  <view class="title">医美AI面部综合评估</view>
+  <view class="subtitle">正在识别面部问题、皮肤问题、美容整形等</view>
+
   <view class="circle-wrap">
     <canvas
       canvas-id="progressCanvas"
@@ -9,5 +12,14 @@
       <text class="num">{{percent}}</text><text class="sign">%</text>
     </view>
   </view>
-  <text class="hint">结果生成中</text>
+
+  <view class="hint">结果生成中，请保持页面停留</view>
+  <view class="request-state-card">
+    <view class="request-state-title">当前状态</view>
+    <view class="request-state-text">{{requestStateText}}</view>
+  </view>
+  <view class="timing-card">
+    <view class="timing-title">{{timingTitle}}</view>
+    <view class="timing-text">{{timingDetail}}</view>
+  </view>
 </view>

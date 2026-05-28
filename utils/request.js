@@ -24,6 +24,9 @@ function req(obj) {
       } else {
         obj.success && obj.success(res)
       }
+    },
+    complete: function (res) {
+      obj.complete && obj.complete(res)
     }
   })
 }

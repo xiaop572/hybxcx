@@ -1,7 +1,7 @@
 <!-- subpageC/diagnosis/diagnosis.wxml -->
 <view class="container1">
   <!-- 顶部标题 -->
-  <view class="header-title">Hi, 我是小慧，你AI朋友</view>
+  <view class="header-title">Hi, 我是小慧，你的AI朋友</view>
 
   <!-- 欢迎页 -->
   <view wx:if="{{showWelcome}}" class="main-content">

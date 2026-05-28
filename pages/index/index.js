@@ -146,12 +146,12 @@ Page({
     })
   },
   rylfw(){
-    // wx.switchTab({
-    //   url: '../yiliaofuwu/yiliaofuwu',
-    // })
-    wx.navigateTo({
+    wx.switchTab({
       url: '../yiliaofuwu/yiliaofuwu',
     })
+    // wx.navigateTo({
+    //   url: '../yiliaofuwu/yiliaofuwu',
+    // })
   },
   rdiagnosis(){
     wx.navigateTo({

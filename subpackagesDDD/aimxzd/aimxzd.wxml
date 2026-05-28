@@ -20,6 +20,12 @@
             ></image>
             <view wx:if="{{item.content}}" class="chat-bubble-row {{item.role === 'user' ? 'chat-bubble-row-user' : 'chat-bubble-row-assistant'}}">
               <view class="chat-bubble {{item.role === 'user' ? 'chat-bubble-user' : 'chat-bubble-assistant'}}">{{item.content}}</view>
+              <view
+                wx:if="{{item.role === 'assistant' && !item.loading}}"
+                class="voice-btn {{speakingMessageId === item.id ? 'voice-btn-active' : ''}}"
+                bindtap="toggleMessageSpeech"
+                data-id="{{item.id}}"
+              >{{speakingMessageId === item.id ? '停止' : '朗读'}}</view>
             </view>
           </view>
         </view>
@@ -35,7 +41,7 @@
         <view class="result-subtitle">{{report.subtitle}}</view>
       </view> -->
 
-      <view class="section-card">
+      <!-- <view class="section-card">
         <view class="section-head">
           <view class="section-title">{{imageLabel}}</view>
           <view class="section-tip">{{imageHint}}</view>
@@ -45,7 +51,7 @@
           <view wx:else class="photo-empty">暂无照片</view>
         </view>
         <view class="photo-caption">点击图片可查看大图。</view>
-      </view>
+      </view> -->
 
       <view class="section-card" wx:if="{{report.basicFeatures.length}}">
         <view class="section-head">
@@ -62,35 +68,44 @@
         </view>
       </view>
 
-      <view class="section-card" wx:if="{{report.stageSections.length}}">
+      <view class="section-card" wx:if="{{report.recognitionSections.length}}">
         <view class="section-head">
-          <view class="section-title">分段解读</view>
-          <view class="section-tip">按文档结构拆分的完整分析</view>
+          <view class="section-title">识别判断</view>
+          <view class="section-tip">本次面相分析的基础判断</view>
         </view>
         <view class="stage-list">
-          <view class="stage-card" wx:for="{{report.stageSections}}" wx:key="title">
-            <view class="stage-title">{{item.title}}</view>
-            <view class="stage-content">{{item.content}}</view>
+          <view class="stage-card" wx:for="{{report.recognitionSections}}" wx:key="title">
+            <view wx:if="{{item.paragraphs.length}}" class="stage-paragraph-list">
+              <view class="stage-paragraph" wx:for="{{item.paragraphs}}" wx:for-item="paragraph" wx:key="index">
+                <view class="stage-dot">{{index + 1}}</view>
+                <view class="stage-text">{{paragraph}}</view>
+              </view>
+            </view>
+            <view wx:else class="stage-content">{{item.content}}</view>
           </view>
         </view>
       </view>
 
-      <view class="section-card" wx:if="{{report.focusPoints.length}}">
+      <!-- <view class="section-card" wx:if="{{report.stageSections.length}}">
         <view class="section-head">
-          <view class="section-title">面部关注点</view>
-          <view class="section-tip">当前更建议优先留意的部位</view>
+          <view class="section-title">小慧AI面相分析</view>
+          <view class="section-tip">按文档结构拆分的完整分析</view>
         </view>
-        <view class="concern-list">
-          <view class="concern-card" wx:for="{{report.focusPoints}}" wx:key="index">
-            <view class="concern-top">
-              <view class="concern-title">{{item.title}}</view>
-              <view wx:if="{{item.level}}" class="concern-tag">{{item.level}}</view>
+        <view class="stage-list">
+          <view class="stage-card" wx:for="{{report.stageSections}}" wx:key="title">
+            <view class="stage-card-head">
+              <view class="stage-title">{{item.title}}</view>
             </view>
-            <view wx:if="{{item.description}}" class="concern-desc">{{item.description}}</view>
-            <view wx:if="{{item.advice}}" class="concern-advice">建议：{{item.advice}}</view>
+            <view wx:if="{{item.paragraphs.length}}" class="stage-paragraph-list">
+              <view class="stage-paragraph" wx:for="{{item.paragraphs}}" wx:for-item="paragraph" wx:key="index">
+                <view class="stage-dot">{{index + 1}}</view>
+                <view class="stage-text">{{paragraph}}</view>
+              </view>
+            </view>
+            <view wx:else class="stage-content">{{item.content}}</view>
           </view>
         </view>
-      </view>
+      </view> -->
 
       <view class="section-card" wx:if="{{report.moleParagraphs.length}}">
         <view class="section-head">
@@ -103,21 +118,74 @@
       </view>
 
       <view class="section-card" wx:if="{{report.moleFunParagraphs.length}}">
-        <view class="section-head">
-          <view class="section-title">痣相娱乐解读</view>
-          <view class="section-tip">娱乐向说明，仅作轻松参考</view>
+        <view class="section-head collapsible-head" bindtap="toggleResultSection" data-key="moleFun">
+          <view>
+            <view class="section-title">痣相娱乐解读</view>
+            <view class="section-tip section-tip-inline">娱乐向说明，仅作轻松参考</view>
+          </view>
+          <view class="collapse-btn">{{collapsedSections.moleFun ? '展开' : '收起'}}</view>
         </view>
-        <view class="content-panel content-panel-pink">
+        <view wx:if="{{!collapsedSections.moleFun}}" class="content-panel content-panel-pink collapse-body">
           <view class="content-line" wx:for="{{report.moleFunParagraphs}}" wx:key="index">{{item}}</view>
         </view>
       </view>
 
-      <view class="section-card" wx:if="{{report.medicalAdvice.length}}">
-        <view class="section-head">
-          <view class="section-title">医美建议</view>
-          <view class="section-tip">适合继续咨询的方向</view>
+      <view class="section-card" wx:if="{{report.entertainmentSections.length || report.funParagraphs.length}}">
+        <view class="section-head collapsible-head" bindtap="toggleResultSection" data-key="entertainment">
+          <view>
+            <view class="section-title">娱乐性解读</view>
+            <view class="section-tip section-tip-inline">偏趣味表达，仅供参考</view>
+          </view>
+          <view class="collapse-btn">{{collapsedSections.entertainment ? '展开' : '收起'}}</view>
         </view>
-        <view class="medical-list">
+        <view wx:if="{{!collapsedSections.entertainment}}" class="collapse-body">
+          <view wx:if="{{report.entertainmentSections.length}}" class="ent-grid">
+            <view class="ent-card {{item.isWide ? 'ent-card-wide' : ''}}" wx:for="{{report.entertainmentSections}}" wx:key="title">
+              <view class="ent-card-title">{{item.title}}</view>
+              <view class="ent-card-content">{{item.content}}</view>
+            </view>
+          </view>
+          <view wx:else class="content-panel content-panel-purple">
+            <view class="fun-list">
+              <view class="fun-item" wx:for="{{report.funParagraphs}}" wx:key="index">
+                <view class="fun-index">{{index + 1}}</view>
+                <view class="fun-text">{{item}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="ent-note">{{report.entertainmentNotice}}</view>
+        </view>
+      </view>
+
+      <view class="section-card" wx:if="{{report.focusPoints.length}}">
+        <view class="section-head collapsible-head" bindtap="toggleResultSection" data-key="focus">
+          <view>
+            <view class="section-title">面部关注点</view>
+            <view class="section-tip section-tip-inline">当前更建议优先留意的部位</view>
+          </view>
+          <view class="collapse-btn">{{collapsedSections.focus ? '展开' : '收起'}}</view>
+        </view>
+        <view wx:if="{{!collapsedSections.focus}}" class="concern-list collapse-body">
+          <view class="concern-card" wx:for="{{report.focusPoints}}" wx:key="index">
+            <view class="concern-top">
+              <view class="concern-title">{{item.title}}</view>
+              <view wx:if="{{item.level}}" class="concern-tag">{{item.level}}</view>
+            </view>
+            <view wx:if="{{item.description}}" class="concern-desc">{{item.description}}</view>
+            <view wx:if="{{item.advice}}" class="concern-advice">建议：{{item.advice}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="section-card" wx:if="{{report.medicalAdvice.length}}">
+        <view class="section-head collapsible-head" bindtap="toggleResultSection" data-key="medical">
+          <view>
+            <view class="section-title">医美建议</view>
+            <view class="section-tip section-tip-inline">适合继续咨询的方向</view>
+          </view>
+          <view class="collapse-btn">{{collapsedSections.medical ? '展开' : '收起'}}</view>
+        </view>
+        <view wx:if="{{!collapsedSections.medical}}" class="medical-list collapse-body">
           <view class="medical-card" wx:for="{{report.medicalAdvice}}" wx:key="index">
             <view class="concern-top">
               <view class="concern-title">{{item.title}}</view>
@@ -144,11 +212,14 @@
       </view>
 
       <view class="section-card" wx:if="{{report.followUpParagraphs.length}}">
-        <view class="section-head">
-          <view class="section-title">后续建议</view>
-          <view class="section-tip">是否继续面诊与沟通的建议</view>
+        <view class="section-head collapsible-head" bindtap="toggleResultSection" data-key="followUp">
+          <view>
+            <view class="section-title">后续建议</view>
+            <view class="section-tip section-tip-inline">是否继续面诊与沟通的建议</view>
+          </view>
+          <view class="collapse-btn">{{collapsedSections.followUp ? '展开' : '收起'}}</view>
         </view>
-        <view class="content-panel content-panel-green">
+        <view wx:if="{{!collapsedSections.followUp}}" class="content-panel content-panel-green collapse-body">
           <view class="content-line" wx:for="{{report.followUpParagraphs}}" wx:key="index">{{item}}</view>
         </view>
       </view>
@@ -166,35 +237,20 @@
         </view>
       </view>
 
-      <view class="section-card" wx:if="{{report.entertainmentSections.length || report.funParagraphs.length}}">
-        <view class="section-head">
-          <view class="section-title">娱乐性解读</view>
-          <view class="section-tip">偏趣味表达，仅供参考</view>
-        </view>
-        <view wx:if="{{report.entertainmentSections.length}}" class="ent-grid">
-          <view class="ent-card {{item.isWide ? 'ent-card-wide' : ''}}" wx:for="{{report.entertainmentSections}}" wx:key="title">
-            <view class="ent-card-title">{{item.title}}</view>
-            <view class="ent-card-content">{{item.content}}</view>
-          </view>
-        </view>
-        <view wx:else class="content-panel content-panel-purple">
-          <view class="fun-list">
-            <view class="fun-item" wx:for="{{report.funParagraphs}}" wx:key="index">
-              <view class="fun-index">{{index + 1}}</view>
-              <view class="fun-text">{{item}}</view>
-            </view>
-          </view>
-        </view>
-        <view class="ent-note">{{report.entertainmentNotice}}</view>
-      </view>
-
       <view class="section-card doc-summary-card" wx:if="{{report.summaryText || report.analysisResultSections.length}}">
         <view class="doc-summary-header">
           <view class="doc-summary-title-wrap">
             <view class="doc-summary-title">面相分析结果</view>
             <view wx:if="{{lastSex}}" class="doc-preview-tag">{{lastSex}}</view>
           </view>
-          <view class="doc-toggle-btn" bindtap="toggleAnalysisResultExpand">{{analysisResultExpanded ? '收起结果' : '展开结果'}}</view>
+          <view class="doc-action-list">
+            <view
+              wx:if="{{reportSpeechText}}"
+              class="doc-voice-btn {{speakingReport ? 'doc-voice-btn-active' : ''}}"
+              bindtap="toggleReportSpeech"
+            >{{speakingReport ? '停止朗读' : '朗读结果'}}</view>
+            <view class="doc-toggle-btn" bindtap="toggleAnalysisResultExpand">{{analysisResultExpanded ? '收起结果' : '展开结果'}}</view>
+          </view>
         </view>
         <view class="doc-preview-meta">
           <view class="doc-preview-summary">{{report.previewRequestText}}</view>

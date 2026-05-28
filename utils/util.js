@@ -115,6 +115,7 @@ const init = function () {
 }
 const fsm = wx.getFileSystemManager();
 const FILE_BASE_NAME = 'tmp_base64src'; //自定义文件名
+const JSON_CACHE_PREFIX = 'miniapp_cache_';
 
 function base64src(base64data, cb) {
   const [, format, bodyData] = /data:image\/(\w+);base64,(.*)/.exec(base64data) || [];
@@ -135,6 +136,47 @@ function base64src(base64data, cb) {
     },
   });
 };
+
+function getJsonCacheFilePath(cacheKey) {
+  const safeKey = String(cacheKey || 'default').replace(/[^a-zA-Z0-9_-]/g, '_');
+  return `${wx.env.USER_DATA_PATH}/${JSON_CACHE_PREFIX}${safeKey}.json`;
+}
+
+function saveJsonCache(cacheKey, value) {
+  const filePath = getJsonCacheFilePath(cacheKey);
+  const content = typeof value === 'string' ? value : JSON.stringify(value || {});
+  fsm.writeFileSync(filePath, content, 'utf8');
+  wx.setStorageSync(`${cacheKey}FilePath`, filePath);
+  try {
+    wx.removeStorageSync(cacheKey);
+  } catch (e) {}
+  return filePath;
+}
+
+function loadJsonCache(cacheKey) {
+  const filePath = wx.getStorageSync(`${cacheKey}FilePath`);
+  if (filePath) {
+    try {
+      return fsm.readFileSync(filePath, 'utf8');
+    } catch (e) {}
+  }
+  return wx.getStorageSync(cacheKey) || '';
+}
+
+function clearJsonCache(cacheKey) {
+  const filePath = wx.getStorageSync(`${cacheKey}FilePath`);
+  if (filePath) {
+    try {
+      fsm.unlinkSync(filePath);
+    } catch (e) {}
+    try {
+      wx.removeStorageSync(`${cacheKey}FilePath`);
+    } catch (e) {}
+  }
+  try {
+    wx.removeStorageSync(cacheKey);
+  } catch (e) {}
+}
 
 function intervalTime(startTime, endTime) {
   // var timestamp=new Date().getTime(); //计算当前时间戳
@@ -190,6 +232,9 @@ module.exports = {
   setRealInfo,
   init,
   base64src,
+  saveJsonCache,
+  loadJsonCache,
+  clearJsonCache,
   intervalTime,
   getDistance
 }
