@@ -1,0 +1,194 @@
+page {
+  min-height: 100%;
+  background: #f5f6f8;
+}
+
+.passport-page {
+  min-height: 100vh;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 96rpx);
+  box-sizing: border-box;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f4f6f8 0%, #f7f8fa 100%);
+}
+
+.hero {
+  position: relative;
+  height: 860rpx;
+  border-bottom-left-radius: 48rpx;
+  border-bottom-right-radius: 48rpx;
+  overflow: hidden;
+}
+
+.hero-bg,
+.hero-cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-cover {
+  background: linear-gradient(180deg, rgba(142, 204, 255, 0.3) 0%, rgba(18, 136, 221, 0.14) 62%, rgba(0, 116, 205, 0.18) 100%);
+}
+
+.hero-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 430rpx;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+}
+
+.main-title {
+  font-family: STSong, SimSun, serif;
+  font-size: 72rpx;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 4rpx;
+  text-shadow: 0 8rpx 22rpx rgba(0, 82, 150, 0.18);
+}
+
+.sub-title {
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 10rpx;
+  text-shadow: 0 6rpx 18rpx rgba(0, 82, 150, 0.16);
+}
+
+.en-title {
+  margin-top: 32rpx;
+  font-size: 25rpx;
+  line-height: 1;
+  letter-spacing: 9rpx;
+  text-shadow: 0 6rpx 18rpx rgba(0, 82, 150, 0.16);
+}
+
+.intro-card {
+  position: relative;
+  z-index: 4;
+  width: 662rpx;
+  margin: -204rpx auto 0;
+  padding: 58rpx 40rpx 70rpx;
+  box-sizing: border-box;
+  border-radius: 38rpx;
+  background: #fff;
+  box-shadow: 0 24rpx 42rpx rgba(37, 54, 74, 0.12);
+}
+
+.card-title {
+  color: #34383d;
+  font-size: 40rpx;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 24rpx;
+  margin-top: 56rpx;
+}
+
+.feature-card {
+  position: relative;
+  width: 276rpx;
+  height: 132rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.feature-card.pink {
+  background: linear-gradient(135deg, #fff1f4 0%, #fff7f8 100%);
+}
+
+.feature-card.blue {
+  background: linear-gradient(135deg, #eaf5ff 0%, #f6fbff 100%);
+}
+
+.feature-card.purple {
+  background: linear-gradient(135deg, #fff4ff 0%, #fff9ff 100%);
+}
+
+.feature-card.cyan {
+  background: linear-gradient(135deg, #efffff 0%, #f7ffff 100%);
+}
+
+.feature-copy {
+  position: relative;
+  z-index: 2;
+  padding: 22rpx 0 0 24rpx;
+}
+
+.feature-title {
+  color: #111;
+  font-size: 31rpx;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.feature-desc {
+  margin-top: 12rpx;
+  color: #676e76;
+  font-size: 19rpx;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.feature-icon {
+  position: absolute;
+  right: 10rpx;
+  bottom: 8rpx;
+  width: 112rpx;
+  height: 94rpx;
+}
+
+.feature-card.blue .feature-icon {
+  right: 16rpx;
+  bottom: 12rpx;
+  width: 94rpx;
+  height: 90rpx;
+}
+
+.feature-card.purple .feature-icon {
+  right: 12rpx;
+  bottom: 8rpx;
+  width: 108rpx;
+  height: 92rpx;
+}
+
+.feature-card.cyan .feature-icon {
+  right: 10rpx;
+  bottom: 8rpx;
+  width: 104rpx;
+  height: 92rpx;
+}
+
+.enter-btn {
+  width: 100%;
+  height: 112rpx;
+  margin-top: 56rpx;
+  padding: 0;
+  border-radius: 20rpx;
+  background: #1178df;
+  color: #fff;
+  font-size: 40rpx;
+  font-weight: 600;
+  line-height: 112rpx;
+  box-shadow: 0 18rpx 28rpx rgba(12, 108, 202, 0.24);
+}
+
+.enter-btn::after {
+  border: none;
+}
+
+.enter-btn:active {
+  background: #0b6ed1;
+}

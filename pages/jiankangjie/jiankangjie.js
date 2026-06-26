@@ -92,7 +92,7 @@ Page({
     this.initLotteryChance()
     // 默认加载第一个Tab
     this.loadTabList(0)
-    this.setData({ showGiftModal: !this.hasClaimedGift() })
+    // this.setData({ showGiftModal: !this.hasClaimedGift() })
   },
 
   onShow() {

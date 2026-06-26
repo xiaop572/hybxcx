@@ -1,0 +1,181 @@
+page {
+  background-color: #f2f2f2;
+}
+
+.tishi {
+  font-size: 28rpx;
+  width: 90%;
+  margin: 30rpx auto;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+
+.tishi text {
+  display: block;
+  color: #333;
+}
+
+.sheet-page {
+  min-height: 100vh;
+  padding: 18rpx 0 0;
+  box-sizing: border-box;
+}
+
+.sheet-toolbar {
+  width: 94%;
+  height: 72rpx;
+  margin: 0 auto 14rpx;
+  padding: 0 18rpx;
+  box-sizing: border-box;
+  border-radius: 12rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #666;
+  font-size: 24rpx;
+}
+
+.sheet-toolbar button {
+  margin: 0;
+  padding: 0 22rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  border-radius: 24rpx;
+  color: #fff;
+  background: #2f8dff;
+  font-size: 22rpx;
+}
+
+.sheet-toolbar button::after {
+  border: 0;
+}
+
+.sheet-viewport {
+  width: 100vw;
+  height: calc(100vh - 104rpx);
+  overflow: hidden;
+}
+
+.sheet-movable {
+  width: 645rpx;
+  height: 1178rpx;
+}
+
+.sheet {
+  width: 1040rpx;
+  background: #fff;
+  color: #111;
+  box-sizing: border-box;
+  padding: 18rpx 18rpx 30rpx;
+  font-size: 22rpx;
+  transform-origin: 0 0;
+}
+
+.sheet-fit {
+  transform: scale(0.62);
+}
+
+.sheet-title {
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.sheet-date {
+  margin-top: 4rpx;
+  text-align: center;
+  font-size: 21rpx;
+  line-height: 1.4;
+}
+
+.sheet-info,
+.sheet-fee {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx 20rpx;
+  margin-top: 10rpx;
+  line-height: 1.4;
+}
+
+.sheet-info text,
+.sheet-fee text {
+  white-space: nowrap;
+}
+
+.detail-scroll {
+  width: 100%;
+  margin-top: 14rpx;
+  border-top: 1rpx solid #222;
+  border-bottom: 1rpx solid #222;
+}
+
+.detail-table {
+  width: 1004rpx;
+}
+
+.detail-row {
+  display: flex;
+  min-height: 48rpx;
+  border-bottom: 1rpx solid #e3e3e3;
+}
+
+.detail-row:last-child {
+  border-bottom: 0;
+}
+
+.detail-row-head {
+  min-height: 44rpx;
+  font-weight: bold;
+  border-bottom: 1rpx solid #222;
+}
+
+.detail-cell {
+  box-sizing: border-box;
+  padding: 8rpx 6rpx;
+  font-size: 21rpx;
+  line-height: 1.35;
+  word-break: break-all;
+}
+
+.col-no {
+  width: 70rpx;
+  text-align: center;
+}
+
+.col-name {
+  width: 330rpx;
+}
+
+.col-spec {
+  width: 190rpx;
+}
+
+.col-num,
+.col-price,
+.col-money,
+.col-type {
+  width: 110rpx;
+  text-align: center;
+}
+
+.sheet-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16rpx;
+  margin-top: 14rpx;
+  font-size: 22rpx;
+  line-height: 1.5;
+}
+
+.sheet-note {
+  margin-top: 220rpx;
+  font-size: 20rpx;
+  line-height: 1.6;
+}
+
+.sheet-note text {
+  display: block;
+}

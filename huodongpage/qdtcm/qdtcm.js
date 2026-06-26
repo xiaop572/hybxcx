@@ -86,7 +86,7 @@ Page({
     const now = new Date()
     const month = now.getMonth() + 1
     const day = now.getDate()
-    return month === 4 && (day === 17  || day === 18 || day === 19 || day === 20)
+    return month === 6 && (day === 28 || day === 24)
   },
   validateUseDateOrBack() {
     if (this.isAllowedUseDate()) {
@@ -94,7 +94,7 @@ Page({
     }
     wx.showModal({
       title: '提示',
-      content: '停车码仅限4月18日、19日、20日使用',
+      content: '停车码仅限6月28日使用',
       showCancel: false,
       complete: () => {
         wx.switchTab({
@@ -184,7 +184,7 @@ Page({
     if (!this.isAllowedUseDate()) {
       wx.showModal({
         title: '提示',
-        content: '停车码仅限4月18日、19日、20日使用',
+        content: '停车码仅限6月28日使用',
         showCancel: false
       })
       return

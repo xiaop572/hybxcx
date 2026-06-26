@@ -1,0 +1,89 @@
+<view wx:if="{{loading}}" class="tishi">
+  <text>正在加载费用清单...</text>
+</view>
+
+<view wx:elif="{{emptyText && !detailList.length}}" class="tishi">
+  <text>{{emptyText}}</text>
+</view>
+
+<view wx:else class="sheet-page">
+  <view class="sheet-toolbar">
+    <text>双指放大查看，拖动移动清单</text>
+    <button size="mini" bindtap="resetSheetView">还原</button>
+  </view>
+
+  <movable-area class="sheet-viewport">
+    <movable-view
+      class="sheet-movable reset-{{sheetResetKey}}"
+      style="height: {{sheetHeight}}rpx;"
+      direction="all"
+      inertia="{{true}}"
+      scale="{{true}}"
+      scale-min="1"
+      scale-max="4"
+      scale-value="{{sheetScale}}"
+      x="{{sheetX}}"
+      y="{{sheetY}}"
+    >
+      <view class="sheet sheet-fit">
+        <view class="sheet-title">{{header.title || '温州和平国际医院住院病人费用清单'}}</view>
+        <view class="sheet-date">{{header.range || ('记费日期：' + date + ' 00:00:00 - ' + date + ' 23:59:59')}}</view>
+
+        <view class="sheet-info">
+          <text>住院号 {{header.zyh || zyh}}</text>
+          <text>姓名 {{header.name || '-'}}</text>
+          <text>性别 {{header.gender || '-'}}</text>
+          <text>病区 {{header.ward || '-'}}</text>
+          <text>床位 {{header.bed || '-'}}</text>
+          <text>入院日期 {{header.inDate || '-'}}</text>
+          <text>费别 {{header.feeType || '-'}}</text>
+          <text>PID {{header.pid || '-'}}</text>
+        </view>
+
+        <view class="sheet-fee">
+          <text>总费用 {{header.totalFee || '-'}}</text>
+          <text>当前自费金额 {{header.selfPay || '-'}}</text>
+          <text>预交款 {{header.prepay || '-'}}</text>
+          <text>余额 {{header.balance || '-'}}</text>
+          <text>小计 {{header.subtotal || '-'}}</text>
+        </view>
+
+        <view class="detail-scroll">
+          <view class="detail-table">
+            <view class="detail-row detail-row-head">
+              <view class="detail-cell col-no">序号</view>
+              <view class="detail-cell col-name">费用名称</view>
+              <view class="detail-cell col-spec">规格</view>
+              <view class="detail-cell col-num">数量</view>
+              <view class="detail-cell col-price">单价</view>
+              <view class="detail-cell col-money">金额</view>
+              <view class="detail-cell col-type">费别</view>
+            </view>
+            <view class="detail-row" wx:for="{{detailList}}" wx:key="index">
+              <view class="detail-cell col-no">{{item.index}}</view>
+              <view class="detail-cell col-name">{{item.name || '-'}}</view>
+              <view class="detail-cell col-spec">{{item.spec || item.category || '-'}}</view>
+              <view class="detail-cell col-num">{{item.qty || '-'}}</view>
+              <view class="detail-cell col-price">{{item.price || '-'}}</view>
+              <view class="detail-cell col-money">{{item.amount || '-'}}</view>
+              <view class="detail-cell col-type">{{item.feeType || '-'}}</view>
+            </view>
+          </view>
+        </view>
+
+        <view class="sheet-bottom">
+          <text>打印时间：{{printTime}}</text>
+          <text>住院号：{{header.zyh || zyh}}</text>
+          <text>姓名：{{header.name || '-'}}</text>
+        </view>
+
+        <view class="sheet-note">
+          <text>说明：</text>
+          <text>1. 公费、医保、农保等病人费用中的自费金额仅供参考。</text>
+          <text>2. 金额不足或欠费，请及时到住院收费处交纳费用。</text>
+          <text>3. 费用明细清单请以医院最终结算为准。</text>
+        </view>
+      </view>
+    </movable-view>
+  </movable-area>
+</view>

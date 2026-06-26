@@ -88,7 +88,8 @@
     "pages/jianyanjieguo/jianyanjieguo",
     "pages/zppt/zppt",
     "pages/jifu/jifu",
-    "pages/jiankangjie/jiankangjie"
+    "pages/jiankangjie/jiankangjie",
+    "pages/zthd2/zthd2"
   ],
   "subPackages": [
     {
@@ -258,7 +259,8 @@
         "csbjy/csbjy",
         "58tjjxq/58tjjxq",
         "rybwccq/rybwccq",
-        "100cctyq/100cctyq"
+        "100cctyq/100cctyq",
+        "qiweixc/qiweixc"
       ]
     },
     {
@@ -336,7 +338,11 @@
         "dttcp/dttcp",
         "xmyuyue/xmyuyue",
         "mianxiangfenxi/mianxiangfenxi",
-        "mianzhenjieguo/mianzhenjieguo"
+        "mianzhenjieguo/mianzhenjieguo",
+        "zyfyquery/zyfyquery",
+        "zyfylist/zyfylist",
+        "zyfydetail/zyfydetail",
+        "healthpassport/healthpassport"
       ]
     },
     {
@@ -395,7 +401,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/yiliaofuwu/yiliaofuwu",
+        "pagePath": "pages/zthd2/zthd2",
         "iconPath": "./pages/assign/qimu.png",
         "selectedIconPath": "./pages/assign/qimu-active.png",
         "text": "全部商品"
@@ -410,7 +416,7 @@
         "pagePath": "pages/skipPage/skipPage",
         "iconPath": "./pages/assign/pthd.png",
         "selectedIconPath": "./pages/assign/pthd.png",
-        "text": "医疗服务"
+        "text": "全部商品"
       },
       {
         "pagePath": "pages/my/my",

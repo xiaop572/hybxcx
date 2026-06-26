@@ -1,0 +1,12 @@
+/* huodongpage/qiweixc/qiweixc.wxss */
+.qwxc{
+  width: 70%;
+  display: block;
+  margin: auto;
+  margin-top: 200rpx;
+}
+.qwwz{
+  display: block;
+  text-align: center;
+  margin-top: 40rpx;
+}

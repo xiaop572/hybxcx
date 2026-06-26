@@ -1,0 +1,27 @@
+<view class="passport-page">
+  <view class="hero">
+    <image class="hero-bg" src="{{assets.coverBg}}" mode="aspectFill"></image>
+    <view class="hero-cover"></view>
+    <view class="hero-content">
+      <view class="main-title">数字健康护照</view>
+      <view class="sub-title">一 证 在 手 · 守 护 亲 人 健 康</view>
+      <view class="en-title">DIGITAL&nbsp;&nbsp;HEALTH&nbsp;&nbsp;PASSPORT</view>
+    </view>
+  </view>
+
+  <view class="intro-card">
+    <view class="card-title">整合就医服务·一证统揽无忧</view>
+
+    <view class="feature-grid">
+      <view class="feature-card {{item.theme}}" wx:for="{{features}}" wx:key="title">
+        <view class="feature-copy">
+          <view class="feature-title">{{item.title}}</view>
+          <view class="feature-desc">{{item.desc}}</view>
+        </view>
+        <image class="feature-icon" src="{{item.icon}}" mode="aspectFit"></image>
+      </view>
+    </view>
+
+    <button class="enter-btn" bindtap="enterPassport">进入我的健康护照</button>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+<view>
+  <view class="row">
+    <text>姓名</text>
+    <input type="text" value="{{name}}" placeholder="请输入姓名" bindinput="onNameInput" />
+  </view>
+  <view class="row">
+    <text>身份证号</text>
+    <input type="text" value="{{idCard}}" placeholder="请输入身份证号" bindinput="onIdCardInput" maxlength="18" />
+  </view>
+  <view class="row">
+    <text>手机号码</text>
+    <input type="number" value="{{phone}}" placeholder="请输入手机号" bindinput="onPhoneInput" maxlength="11" />
+  </view>
+</view>
+
+<view class="nextBtn" bindtap="submit">查询</view>
+
+<view class="tixing">
+  <text style="font-weight: bold;">住院每日清单查询</text>
+  <text>1. 请输入住院人姓名、身份证号和手机号查询住院记录。</text>
+  <text>2. 如果同一住院人有多次住院，下一页会按住院次数展示列表。</text>
+  <text>3. 点击某次住院记录后，可查看基本信息和每日费用日期列表。</text>
+</view>

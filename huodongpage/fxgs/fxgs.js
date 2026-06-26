@@ -4,10 +4,10 @@ const util = require('../../utils/util')
 
 Page({
   data: {
+    imgBase: 'https://wx.pmc-wz.com/materials/',
     nickname: '',
     story: '',
-    contact: '',
-    showSuccessModal: false
+    contact: ''
   },
 
   onLoad(options) {},
@@ -61,12 +61,9 @@ Page({
       success: res => {
         wx.hideLoading()
         if (res.data.status) {
-          this.setData({ showSuccessModal: true })
+          wx.showToast({ title: '分享成功', icon: 'success' })
         } else {
-          wx.showToast({ title: res.data.msg || '提交失败', icon: 'none' });
-          this.setData({
-            showSuccessModal:true
-          })
+          wx.showToast({ title: res.data.msg || '提交失败', icon: 'none' })
         }
       },
       fail: () => {
@@ -76,14 +73,4 @@ Page({
     })
   },
 
-  closeSuccessModal() {
-    this.setData({ showSuccessModal: false })
-  },
-
-  onShareAppMessage() {
-    return {
-      title: '2026为健康美代言',
-      path: '/huodongpage/fxgs/fxgs'
-    }
-  }
 })

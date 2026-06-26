@@ -4,11 +4,74 @@
     "miniprogram": {
       "list": [
         {
-          "name": "huodongpage/100cctyq/100cctyq",
-          "pathName": "huodongpage/100cctyq/100cctyq",
+          "name": "subpackagesC/healthpassport/healthpassport",
+          "pathName": "subpackagesC/healthpassport/healthpassport",
           "query": "",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "pages/yiliaofuwu/yiliaofuwu",
+          "pathName": "pages/yiliaofuwu/yiliaofuwu",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/tcxq/tcxq",
+          "pathName": "pages/tcxq/tcxq",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/zthd2/zthd2",
+          "pathName": "pages/zthd2/zthd2",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "huodongpage/fxgs/fxgs",
+          "pathName": "huodongpage/fxgs/fxgs",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "huodongpage/qiweixc/qiweixc",
+          "pathName": "huodongpage/qiweixc/qiweixc",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "huodongpage/qdtcm/qdtcm",
+          "pathName": "huodongpage/qdtcm/qdtcm",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/zyfyquery/zyfyquery",
+          "pathName": "subpackagesC/zyfyquery/zyfyquery",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/zyfylist/zyfylist",
+          "pathName": "subpackagesC/zyfylist/zyfylist",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "huodongpage/100cctyq/100cctyq",
+          "pathName": "huodongpage/100cctyq/100cctyq",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "huodongpage/rybwccq/rybwccq",

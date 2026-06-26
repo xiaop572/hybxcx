@@ -1,0 +1,119 @@
+page {
+  background: #F6E6D6;
+  padding-bottom: 200rpx !important;
+}
+
+.zthd2-page {
+  width: 750rpx;
+  min-height: 5278rpx;
+  overflow: hidden;
+  background-image: url("https://wx.pmc-wz.com/materials/zthd2bg.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 750rpx auto;
+  box-sizing: border-box;
+  padding-top: 1048rpx;
+}
+
+.top-actions {
+  width: 750rpx;
+}
+
+.action-img {
+  display: block;
+  width: 720rpx;
+  margin-left: 15rpx;
+}
+
+.action-img:active {
+  transform: scale(0.985);
+  opacity: 0.94;
+}
+
+.action-acid {
+  margin-top: 22rpx;
+}
+
+.qiaopi-swiper-wrap {
+  width: 750rpx;
+  height: 1188rpx;
+  margin-top: -60rpx;
+  box-sizing: border-box;
+  padding-top: 226rpx;
+  padding-left: 174rpx;
+  background-image: url("https://wx.pmc-wz.com/materials/qldg.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 750rpx auto;
+}
+
+.qiaopi-swiper {
+  width:460rpx;
+  height: 680rpx;
+  overflow: hidden;
+  margin: 70rpx 0 0 90rpx;
+  background-color: #E5D6C3;
+}
+
+.qiaopi-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 4rpx;
+  box-shadow: none;
+}
+
+.qiaopi-img:active {
+  transform: scale(0.988);
+}
+
+.qiaopi-share {
+  display: block;
+  width: 400rpx;
+  margin: -30rpx 0 0 -150rpx;
+}
+
+.qiaopi-share:active {
+  transform: scale(0.985);
+  opacity: 0.94;
+}
+
+.product-section {
+  width: 750rpx;
+  box-sizing: border-box;
+  margin-top: 18rpx;
+}
+
+.product-title {
+  display: block;
+  width: 240rpx;
+  margin: 42rpx auto 26rpx;
+}
+
+.product-title-main {
+  width: 284rpx;
+  margin-top: 100rpx;
+}
+
+.product-slogan {
+  display: block;
+  width: 604rpx;
+  margin: 40rpx auto 40rpx;
+}
+
+.product-slogan-food {
+  width: 430rpx;
+  margin-top: 46rpx;
+  margin-bottom: 28rpx;
+}
+
+.product-card {
+  display: block;
+  width: 710rpx;
+  margin: 0 auto 18rpx;
+}
+
+.product-card:active {
+  transform: scale(0.988);
+  opacity: 0.95;
+}

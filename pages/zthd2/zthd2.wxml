@@ -1,0 +1,64 @@
+<view class="zthd2-page">
+  <view class="top-actions">
+    <image
+      class="action-img action-health"
+      src="{{imgBase}}lqgmd.png"
+      mode="widthFix"
+      bindtap="goCheckup"
+    ></image>
+    <image
+      class="action-img action-acid"
+      src="{{imgBase}}lqgznf.png"
+      mode="widthFix"
+      bindtap="receiveGift"
+    ></image>
+  </view>
+
+  <view class="qiaopi-swiper-wrap">
+    <swiper
+      class="qiaopi-swiper"
+      circular="{{true}}"
+      autoplay="{{true}}"
+      interval="3200"
+      duration="450"
+      indicator-dots="{{false}}"
+      indicator-color="rgba(92, 55, 28, 0.28)"
+      indicator-active-color="#8a2a1d"
+    >
+      <swiper-item wx:for="{{qiaopiList}}" wx:key="*this" bindtap="openQiaopiStory">
+        <image class="qiaopi-img" src="{{item}}" mode="aspectFit"></image>
+      </swiper-item>
+    </swiper>
+    <image
+      class="qiaopi-share"
+      src="{{imgBase}}qlfxgs.png"
+      mode="widthFix"
+      bindtap="openQiaopiStory"
+    ></image>
+  </view>
+
+  <view class="product-section" wx:for="{{productSections}}" wx:key="index">
+    <image
+      wx:if="{{item.title}}"
+      class="product-title {{index === 0 ? 'product-title-main' : ''}}"
+      src="{{item.title}}"
+      mode="widthFix"
+    ></image>
+    <image
+      wx:if="{{item.slogan}}"
+      class="product-slogan {{index === 1 ? 'product-slogan-food' : ''}}"
+      src="{{item.slogan}}"
+      mode="widthFix"
+    ></image>
+    <image
+      class="product-card"
+      wx:for="{{item.products}}"
+      wx:for-item="product"
+      wx:key="id"
+      src="{{product.img}}"
+      mode="widthFix"
+      data-id="{{product.id}}"
+      bindtap="buyProduct"
+    ></image>
+  </view>
+</view>

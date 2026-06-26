@@ -1,0 +1,58 @@
+<view class="nextBtn" bindtap="refresh">重新查询</view>
+<view class="ccxx" wx:if="{{query}}">查询信息：{{query.name}} {{query.phone}}</view>
+
+<view wx:if="{{loading}}" class="tishi">
+  <text>正在查询住院记录...</text>
+</view>
+
+<view wx:elif="{{emptyText}}" class="tishi">
+  <text>{{emptyText}}</text>
+</view>
+
+<view wx:else class="tishi">
+  <text>提示：</text>
+  <text>1. 如果住院多次，下方会显示多条住院记录。</text>
+  <text>2. 点击查看后，会进入每日费用清单；如有多个费用日期，请先选择日期。</text>
+</view>
+
+<view
+  wx:for="{{list}}"
+  wx:key="zyh"
+  wx:for-item="item"
+  wx:for-index="idx"
+  class="tijianBlock {{activeZyh === item.zyh ? 'tijianBlockActive' : ''}}"
+  data-index="{{idx}}"
+  bindtap="selectAdmission"
+>
+  <text class="serial">{{idx + 1}}</text>
+  <text class="one">住院号：{{item.zyh || '-'}}</text>
+  <text class="two">入院：{{item.inDate || '-'}}</text>
+  <text class="open">{{loadingZyh === item.zyh ? '查询中' : '查看'}}</text>
+
+  <view wx:if="{{activeZyh === item.zyh}}" class="detailBox">
+    <view class="dateHeader">
+      <view>
+        <view class="dateTitle">请选择费用日期</view>
+        <view class="dateSub">共 {{dateList.length}} 天费用清单</view>
+      </view>
+    </view>
+    <view
+      class="dateItem"
+      wx:for="{{dateList}}"
+      wx:for-item="dateItem"
+      wx:key="index"
+      catchtap="goDailyDetail"
+      data-zyh="{{item.zyh}}"
+      data-date="{{dateItem.date}}"
+    >
+      <view class="dateLeft">
+        <text class="dateIndex">{{dateItem.index}}</text>
+        <view>
+          <text class="dateValue">{{dateItem.date || '-'}}</text>
+          <text class="dateHint">住院每日费用明细</text>
+        </view>
+      </view>
+      <text class="dateOpen">查看</text>
+    </view>
+  </view>
+</view>

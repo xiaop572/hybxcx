@@ -48,6 +48,10 @@
     <image src="https://wx.pmc-wz.com/materials/jianyanIcon.png" mode='widthFix'></image>
     <text>住院病理</text>
   </view>
+  <view class="myIcon" bindtap="rmrqd">
+    <image src="https://wx.pmc-wz.com/materials/mrqdicon.png" mode='widthFix'></image>
+    <text>每日清单</text>
+  </view>
 </view>
 
 <view class="myList">
