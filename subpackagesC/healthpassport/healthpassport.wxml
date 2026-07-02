@@ -5,7 +5,11 @@
     <view class="hero-content">
       <view class="main-title">数字健康护照</view>
       <view class="sub-title">一 证 在 手 · 守 护 亲 人 健 康</view>
-      <view class="en-title">DIGITAL&nbsp;&nbsp;HEALTH&nbsp;&nbsp;PASSPORT</view>
+      <view class="en-title">
+        <text class="en-word">DIGITAL</text>
+        <text class="en-word">HEALTH</text>
+        <text class="en-word">PASSPORT</text>
+      </view>
     </view>
   </view>
 
@@ -22,6 +26,6 @@
       </view>
     </view>
 
-    <button class="enter-btn" bindtap="enterPassport">进入我的健康护照</button>
+    <view class="enter-btn" bindtap="enterPassport">进入我的健康护照</view>
   </view>
 </view>

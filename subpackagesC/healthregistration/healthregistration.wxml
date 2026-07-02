@@ -1,0 +1,48 @@
+<view class="page">
+  <view class="header-card">
+    <view class="card-title">挂号记录</view>
+    <view class="card-subtitle">{{personName}} {{personPhone}}</view>
+    <view class="card-tip">基于当前选中卡查询</view>
+  </view>
+
+  <view class="loading" wx:if="{{loading}}">加载中...</view>
+
+  <view class="empty" wx:elif="{{!list.length}}">{{emptyText || '暂无挂号记录'}}</view>
+
+  <view wx:else class="list">
+    <view class="record-item" wx:for="{{list}}" wx:key="id">
+      <view class="record-top">
+        <view class="record-name">{{item.name}}</view>
+        <view class="record-status">{{item.status || '挂号记录'}}</view>
+      </view>
+      <view class="record-row" wx:if="{{item.sequence}}">
+        <text class="label">序号</text>
+        <text>{{item.sequence}}</text>
+      </view>
+      <view class="record-row" wx:if="{{item.dept}}">
+        <text class="label">科室</text>
+        <text>{{item.dept}}</text>
+      </view>
+      <view class="record-row" wx:if="{{item.doctor || item.doctorTitle}}">
+        <text class="label">医生</text>
+        <text>{{item.doctor}} {{item.doctorTitle}}</text>
+      </view>
+      <view class="record-row" wx:if="{{item.time}}">
+        <text class="label">时间</text>
+        <text>{{item.time}}</text>
+      </view>
+      <view class="record-row" wx:if="{{item.cardNo}}">
+        <text class="label">卡号</text>
+        <text>{{item.cardNo}}</text>
+      </view>
+      <button
+        class="cancel-btn"
+        wx:if="{{item.canCancel}}"
+        bindtap="cancelRegistration"
+        data-index="{{index}}"
+        loading="{{cancelingId == item.id}}"
+        disabled="{{cancelingId == item.id}}"
+      >取消预约</button>
+    </view>
+  </view>
+</view>

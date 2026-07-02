@@ -70,6 +70,7 @@ Page({
     if (options.fromid) {
       wx.setStorageSync('sponsor', options.fromid)
     }
+    this.applyPrefill(options)
     if (options.scene) {
       let arr = options.scene.split('&');
       if(arr.length<2){
@@ -98,6 +99,36 @@ Page({
     this.setData({
       showQuestionnaire: true
     });
+  },
+  applyPrefill(options = {}) {
+    const nextData = {}
+    const name = options.name ? decodeURIComponent(options.name) : ''
+    const phone = options.phone ? decodeURIComponent(options.phone) : ''
+    const cardno = options.cardno ? decodeURIComponent(options.cardno) : ''
+    const sex = options.sex ? decodeURIComponent(options.sex) : ''
+    const sfztype = options.sfztype ? decodeURIComponent(options.sfztype) : ''
+
+    if (name) {
+      nextData.xinmin = name
+    }
+    if (phone) {
+      nextData.mobile = phone
+    }
+    if (cardno) {
+      nextData.cardno = cardno
+    }
+    if (sex) {
+      nextData.sex = sex
+    }
+    if (sfztype) {
+      nextData.sfztype = sfztype
+    } else if (cardno && /^\d{17}[\dXx]$/.test(cardno)) {
+      nextData.sfztype = '居民身份证'
+    }
+
+    if (Object.keys(nextData).length) {
+      this.setData(nextData)
+    }
   },
   addtx() {
     if (!this.data.xinmint) {

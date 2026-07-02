@@ -1,0 +1,128 @@
+.page {
+  min-height: 100vh;
+  padding: 32rpx 28rpx 48rpx;
+  box-sizing: border-box;
+  background: #f6f7fb;
+}
+
+.header-card {
+  padding: 28rpx 28rpx 24rpx;
+  border-radius: 18rpx;
+  background: #fff;
+  box-shadow: 0 10rpx 30rpx rgba(36, 50, 78, 0.08);
+}
+
+.card-title {
+  color: #111;
+  font-size: 36rpx;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.card-subtitle {
+  margin-top: 14rpx;
+  color: #666;
+  font-size: 24rpx;
+  line-height: 1.4;
+}
+
+.card-tip {
+  margin-top: 10rpx;
+  color: #0e83ee;
+  font-size: 22rpx;
+}
+
+.loading,
+.empty {
+  padding: 90rpx 0 40rpx;
+  color: #8a8f99;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.list {
+  margin-top: 24rpx;
+}
+
+.record-item {
+  margin-top: 20rpx;
+  padding: 28rpx 24rpx;
+  border-radius: 16rpx;
+  background: #fff;
+  box-shadow: 0 6rpx 18rpx rgba(36, 50, 78, 0.05);
+}
+
+.record-top,
+.record-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.record-name {
+  color: #111;
+  font-size: 30rpx;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.record-status {
+  color: #0e83ee;
+  font-size: 24rpx;
+  white-space: nowrap;
+}
+
+.record-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx 24rpx;
+  margin-top: 16rpx;
+  color: #666;
+  font-size: 24rpx;
+  line-height: 1.4;
+}
+
+.record-row {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 16rpx;
+  color: #565d68;
+  font-size: 25rpx;
+  line-height: 1.45;
+}
+
+.label {
+  width: 76rpx;
+  color: #8a8f99;
+  flex-shrink: 0;
+}
+
+.record-bottom {
+  margin-top: 14rpx;
+  color: #8a8f99;
+  font-size: 22rpx;
+  line-height: 1.4;
+  flex-wrap: wrap;
+}
+
+.cancel-btn {
+  width: 188rpx;
+  height: 64rpx;
+  margin: 24rpx 0 0 auto;
+  padding: 0;
+  border-radius: 32rpx;
+  background: #0e83ee;
+  color: #fff;
+  font-size: 25rpx;
+  line-height: 64rpx;
+}
+
+.cancel-btn::after {
+  border: none;
+}
+
+.cancel-btn[disabled] {
+  background: #9ccaf5;
+  color: #fff;
+}

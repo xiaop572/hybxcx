@@ -1,0 +1,60 @@
+<view class="home-page">
+  <view class="person-card">
+    <view class="person-top">
+      <view class="avatar-box">
+        <view class="avatar-head"></view>
+        <view class="avatar-body"></view>
+      </view>
+      <view class="person-info">
+        <view class="person-name">{{person.name}}</view>
+        <view class="person-meta" wx:if="{{person.gender || person.ageText}}">
+          <text class="gender-icon {{person.genderClass}}">{{person.genderIcon}}</text>
+          <text>{{person.gender}}</text>
+          <text class="age">{{person.ageText}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="stats">
+      <view class="stat-item">
+        <view class="stat-label">就诊卡</view>
+        <view class="stat-value">{{person.cardCount}}张</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-label">健康报告</view>
+        <view class="stat-value">{{person.reportCount}}份</view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-label">代办预约</view>
+        <view class="stat-value">{{person.appointmentCount}}项</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section-title">
+    <view class="section-mark"></view>
+    <text>在线预约</text>
+  </view>
+
+  <view class="booking-row">
+    <view class="booking-card {{item.theme}}" wx:for="{{bookingActions}}" wx:key="key" bindtap="tapBooking" data-key="{{item.key}}">
+      <view class="booking-title">{{item.title}} <text class="booking-arrow">›</text></view>
+      <view class="booking-desc">{{item.desc}}</view>
+      <image class="booking-icon" src="{{item.icon}}" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <view class="section-title records-title">
+    <view class="section-mark"></view>
+    <text>健康档案</text>
+  </view>
+
+  <view class="records-card">
+    <view class="record-item" wx:for="{{recordItems}}" wx:key="key" bindtap="tapRecord" data-key="{{item.key}}">
+      <view class="record-icon-wrap">
+        <image class="record-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <!-- <view class="badge" wx:if="{{item.badge}}">{{item.badge}}</view> -->
+      </view>
+      <view class="record-title">{{item.title}}</view>
+    </view>
+  </view>
+</view>

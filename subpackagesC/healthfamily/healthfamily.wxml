@@ -1,0 +1,41 @@
+<view class="family-page">
+  <view class="section-head">
+    <view class="title-mark"></view>
+    <view>
+      <view class="title-en">MY FAMILY</view>
+      <view class="title-cn">我的家人</view>
+    </view>
+  </view>
+
+  <view class="member-card" wx:for="{{members}}" wx:key="id" bindtap="openMember" data-id="{{item.id}}">
+    <view class="avatar-box">
+      <view class="avatar-head"></view>
+      <view class="avatar-body"></view>
+    </view>
+    <view class="member-info">
+      <view class="name-row">
+        <text class="member-name">{{item.name}}</text>
+        <text class="relation-tag {{item.bound ? 'mother' : 'father'}}">{{item.relation}}</text>
+      </view>
+      <view class="member-phone">{{item.maskedPhone}}</view>
+    </view>
+    <view class="right-side">
+      <view class="arrow">›</view>
+      <view class="bind-pill {{item.bound ? 'bound' : 'unbound'}}">{{item.bindText}}</view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{!loading && members.length === 0}}">
+    暂无已绑定家人
+  </view>
+
+  <view class="add-card" bindtap="addMember">
+    <text class="add-plus">+</text>
+    <text>添加家人·绑定亲情</text>
+  </view>
+
+  <view class="tips">
+    <view class="tips-title">💡怎么绑定？</view>
+    <view class="tips-text">只需填写亲人的姓名与手机号，对方收到验证码确认后即可绑定。绑定后系统会自动关联TA名下的就诊卡，无需手动输入卡号。</view>
+  </view>
+</view>

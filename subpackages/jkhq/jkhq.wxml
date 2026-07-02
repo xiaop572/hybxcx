@@ -1,5 +1,6 @@
 <!--健康护侨.wxml-->
 <image src="https://wx.pmc-wz.com/materials/hq-yzl.png" mode="widthFix" bind:tap="ryzl" style="margin-top: 20rpx;"/>
+<image src="https://wx.pmc-wz.com/materials/szjkhz.png" mode="widthFix" bind:tap="rszjkhz" style="margin-top: 20rpx;"/>
 <image src="https://wx.pmc-wz.com/materials/hq-tjyy.png" mode="widthFix" bind:tap="rtjyy" style="margin-top: 20rpx;"/>
 <image src="https://wx.pmc-wz.com/materials/hq-tcgm.png" mode="widthFix" bind:tap="rgjrs" style="margin-top: 20rpx;"/>
 <image src="https://wx.pmc-wz.com/materials/hq-qylq.png" mode="widthFix" bind:tap="rqylq"/>

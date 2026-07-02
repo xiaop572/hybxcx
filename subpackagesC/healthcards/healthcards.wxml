@@ -1,0 +1,26 @@
+<view class="cards-page">
+  <view class="section-head">
+    <view class="title-mark"></view>
+    <view>
+      <view class="title-en">MEDICAL CARDS</view>
+      <view class="title-cn">{{personName}}的就诊卡</view>
+    </view>
+  </view>
+
+  <view class="desc">系统已根据绑定信息，自动关联{{personName}}名下的就诊卡。点击任意一张卡，查看该卡下的诊疗记录。</view>
+
+  <view class="empty" wx:if="{{!loading && emptyText}}">{{emptyText}}</view>
+
+  <view class="medical-card" wx:for="{{cardList}}" wx:key="id" bindtap="openCardData" data-id="{{item.id}}">
+    <view class="card-avatar">
+      <view class="avatar-head"></view>
+      <view class="avatar-body"></view>
+    </view>
+    <view class="card-info">
+      <view class="card-name">{{item.name}}</view>
+      <view class="card-no">{{item.maskedCardNo}}</view>
+      <view class="card-extra" wx:if="{{item.lastVisit}}">{{item.lastVisit}}</view>
+    </view>
+    <view class="watermark">PMC</view>
+  </view>
+</view>

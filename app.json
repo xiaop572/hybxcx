@@ -342,7 +342,14 @@
         "zyfyquery/zyfyquery",
         "zyfylist/zyfylist",
         "zyfydetail/zyfydetail",
-        "healthpassport/healthpassport"
+        "healthpassport/healthpassport",
+        "healthfamily/healthfamily",
+        "healthhome/healthhome",
+        "healthcards/healthcards",
+        "healthcarddata/healthcarddata",
+        "healthregistration/healthregistration",
+        "healthphysicalappointment/healthphysicalappointment",
+        "healthphysicalreport/healthphysicalreport"
       ]
     },
     {

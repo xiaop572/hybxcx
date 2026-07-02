@@ -34,9 +34,8 @@ Page({
   },
 
   enterPassport() {
-    wx.showToast({
-      title: '健康护照功能建设中',
-      icon: 'none'
+    wx.navigateTo({
+      url: '/subpackagesC/healthfamily/healthfamily'
     })
   }
 })

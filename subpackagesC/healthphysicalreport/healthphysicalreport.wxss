@@ -1,0 +1,166 @@
+.page {
+  min-height: 100vh;
+  padding: 32rpx 28rpx 48rpx;
+  box-sizing: border-box;
+  background: #f6f7fb;
+}
+
+.header-card,
+.verify-card {
+  padding: 28rpx 28rpx 24rpx;
+  border-radius: 18rpx;
+  background: #fff;
+  box-shadow: 0 10rpx 30rpx rgba(36, 50, 78, 0.08);
+}
+
+.card-title {
+  color: #111;
+  font-size: 36rpx;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.card-subtitle {
+  margin-top: 14rpx;
+  color: #666;
+  font-size: 24rpx;
+  line-height: 1.4;
+}
+
+.card-tip {
+  margin-top: 10rpx;
+  color: #0e83ee;
+  font-size: 22rpx;
+}
+
+.verify-card {
+  margin-top: 24rpx;
+}
+
+.verify-title {
+  color: #111;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.verify-desc {
+  margin-top: 12rpx;
+  color: #8a8f99;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.verify-row {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  margin-top: 24rpx;
+}
+
+.code-input {
+  height: 72rpx;
+  padding: 0 20rpx;
+  border-radius: 12rpx;
+  background: #f4f7fb;
+  color: #111;
+  font-size: 26rpx;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.code-btn {
+  width: 190rpx;
+  height: 72rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 12rpx;
+  background: #e9f3ff;
+  color: #0e83ee;
+  font-size: 25rpx;
+  line-height: 72rpx;
+}
+
+.query-btn {
+  height: 76rpx;
+  margin: 28rpx 0 0;
+  padding: 0;
+  border-radius: 38rpx;
+  background: #0e83ee;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 76rpx;
+}
+
+.code-btn::after,
+.query-btn::after,
+.action-btn::after {
+  border: none;
+}
+
+.loading,
+.empty {
+  padding: 90rpx 0 40rpx;
+  color: #8a8f99;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.list {
+  margin-top: 24rpx;
+}
+
+.report-item {
+  margin-top: 20rpx;
+  padding: 28rpx 24rpx;
+  border-radius: 16rpx;
+  background: #fff;
+  box-shadow: 0 6rpx 18rpx rgba(36, 50, 78, 0.05);
+}
+
+.report-main {
+  width: 100%;
+}
+
+.report-title {
+  color: #111;
+  font-size: 30rpx;
+  font-weight: 600;
+  line-height: 1.3;
+  word-break: normal;
+  white-space: normal;
+}
+
+.report-date {
+  margin-top: 14rpx;
+  color: #8a8f99;
+  font-size: 24rpx;
+}
+
+.report-actions {
+  display: flex;
+  gap: 18rpx;
+  margin-top: 24rpx;
+  width: 100%;
+}
+
+.action-btn {
+  flex: 1;
+  height: 60rpx;
+  margin: 0;
+  padding: 0;
+  border-radius: 30rpx;
+  background: #eef2f7;
+  color: #56606d;
+  font-size: 24rpx;
+  line-height: 60rpx;
+}
+
+.action-btn.primary {
+  background: #0e83ee;
+  color: #fff;
+}
+
+.code-btn[disabled] {
+  background: #eef2f7;
+  color: #9aa2ad;
+}

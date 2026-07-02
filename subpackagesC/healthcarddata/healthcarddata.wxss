@@ -1,0 +1,175 @@
+page {
+  min-height: 100%;
+  background: #f6f6f6;
+}
+
+.data-page {
+  min-height: 100vh;
+  padding: 48rpx 42rpx 90rpx;
+  box-sizing: border-box;
+  background: #f6f6f6;
+}
+
+.medical-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 218rpx;
+  padding: 0 38rpx;
+  border-radius: 18rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: linear-gradient(100deg, #1498f2 0%, #45b8f6 55%, #78cdf8 100%);
+  box-shadow: 0 4rpx 8rpx rgba(34, 126, 195, 0.12);
+}
+
+.card-avatar {
+  position: relative;
+  z-index: 2;
+  width: 75rpx;
+  height: 75rpx;
+  margin-right: 28rpx;
+  border-radius: 50%;
+  background: #eff9ff;
+  flex-shrink: 0;
+}
+
+.avatar-head {
+  position: absolute;
+  left: 50%;
+  top: 17rpx;
+  width: 25rpx;
+  height: 25rpx;
+  margin-left: -12rpx;
+  border-radius: 50%;
+  background: #1388e8;
+}
+
+.avatar-body {
+  position: absolute;
+  left: 21rpx;
+  bottom: 18rpx;
+  width: 34rpx;
+  height: 19rpx;
+  border-radius: 19rpx 19rpx 6rpx 6rpx;
+  background: #1388e8;
+}
+
+.card-info {
+  position: relative;
+  z-index: 2;
+}
+
+.card-name {
+  color: #fff;
+  font-size: 38rpx;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.card-no {
+  margin-top: 20rpx;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 27rpx;
+  line-height: 1;
+  letter-spacing: 2rpx;
+}
+
+.watermark {
+  position: absolute;
+  right: 16rpx;
+  bottom: 12rpx;
+  color: rgba(255, 255, 255, 0.12);
+  font-size: 110rpx;
+  font-weight: 700;
+  letter-spacing: -8rpx;
+  line-height: 1;
+}
+
+.records-panel {
+  margin-top: 46rpx;
+  padding: 42rpx 30rpx 44rpx;
+  border-radius: 16rpx;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  color: #050505;
+  font-size: 36rpx;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.section-mark {
+  width: 9rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+  border-radius: 9rpx;
+  background: #0e83ee;
+}
+
+.record-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 26rpx;
+  margin-top: 50rpx;
+}
+
+.record-card {
+  position: relative;
+  width: 292rpx;
+  height: 122rpx;
+  padding: 30rpx 0 0 28rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  background: #eaf7ff;
+  overflow: visible;
+}
+
+.record-copy {
+  position: relative;
+  z-index: 2;
+  width: 156rpx;
+}
+
+.record-title {
+  color: #050505;
+  font-size: 30rpx;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.record-desc {
+  margin-top: 22rpx;
+  color: #858b92;
+  font-size: 23rpx;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.record-icon {
+  position: absolute;
+  right: 12rpx;
+  bottom: 8rpx;
+  width: 92rpx;
+  height: 82rpx;
+}
+
+.badge {
+  position: absolute;
+  left: -14rpx;
+  top: -14rpx;
+  width: 31rpx;
+  height: 31rpx;
+  border-radius: 50%;
+  background: #ff3348;
+  color: #fff;
+  font-size: 19rpx;
+  font-weight: 600;
+  line-height: 31rpx;
+  text-align: center;
+}

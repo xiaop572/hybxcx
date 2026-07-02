@@ -1,0 +1,24 @@
+<view class="page">
+  <view class="header-card">
+    <view class="card-title">体检报告</view>
+    <view class="card-subtitle">{{personName}} {{personPhone}}</view>
+    <view class="card-tip">基于当前亲情卡信息查询</view>
+  </view>
+
+  <view class="loading" wx:if="{{loading}}">加载中...</view>
+
+  <view class="empty" wx:elif="{{!list.length}}">{{emptyText || '暂无体检报告'}}</view>
+
+  <view wx:else class="list">
+    <view class="report-item" wx:for="{{list}}" wx:key="id">
+      <view class="report-main">
+        <view class="report-title">{{item.title}}</view>
+        <view class="report-date">{{item.checkDate || '未标注日期'}}</view>
+      </view>
+      <view class="report-actions">
+        <button class="action-btn primary" bindtap="lookPdf" data-pdf="{{item.pdfUrl}}">查看</button>
+        <button class="action-btn" bindtap="copyPath" data-pdf="{{item.pdfUrl}}">复制</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,31 @@
+<view class="data-page">
+  <view class="medical-card">
+    <view class="card-avatar">
+      <view class="avatar-head"></view>
+      <view class="avatar-body"></view>
+    </view>
+    <view class="card-info">
+      <view class="card-name">{{personName}}</view>
+      <view class="card-no">{{cardNo}}</view>
+    </view>
+    <view class="watermark">PMC</view>
+  </view>
+
+  <view class="records-panel">
+    <view class="section-title">
+      <view class="section-mark"></view>
+      <text>本卡诊疗数据</text>
+    </view>
+
+    <view class="record-grid">
+      <view class="record-card" wx:for="{{records}}" wx:key="key" bindtap="openRecord" data-key="{{item.key}}">
+        <view class="record-copy">
+          <view class="record-title">{{item.title}}</view>
+          <view class="record-desc">{{item.desc}}</view>
+        </view>
+        <image class="record-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <view class="badge" wx:if="{{item.badge}}">{{item.badge}}</view>
+      </view>
+    </view>
+  </view>
+</view>

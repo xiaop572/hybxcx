@@ -1,0 +1,264 @@
+page {
+  min-height: 100%;
+  background: #f6f6f6;
+}
+
+.home-page {
+  min-height: 100vh;
+  padding: 62rpx 42rpx 90rpx;
+  box-sizing: border-box;
+  background: #f6f6f6;
+}
+
+.person-card {
+  width: 100%;
+  min-height: 324rpx;
+  padding: 50rpx 58rpx 42rpx;
+  box-sizing: border-box;
+  border-radius: 26rpx;
+  background: linear-gradient(115deg, #fff 0%, #fff 58%, #e7f6ff 100%);
+  box-shadow: 0 10rpx 22rpx rgba(60, 72, 86, 0.12);
+}
+
+.person-top {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-box {
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 28rpx;
+  border-radius: 14rpx;
+  background: #eaf7ff;
+  flex-shrink: 0;
+}
+
+.avatar-head {
+  position: absolute;
+  left: 50%;
+  top: 23rpx;
+  width: 38rpx;
+  height: 38rpx;
+  margin-left: -19rpx;
+  border-radius: 50%;
+  background: #1688ed;
+}
+
+.avatar-body {
+  position: absolute;
+  left: 24rpx;
+  bottom: 21rpx;
+  width: 52rpx;
+  height: 31rpx;
+  border-radius: 31rpx 31rpx 9rpx 9rpx;
+  background: #1688ed;
+}
+
+.person-name {
+  color: #080808;
+  font-size: 40rpx;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.person-meta {
+  display: flex;
+  align-items: center;
+  margin-top: 24rpx;
+  color: #969696;
+  font-size: 26rpx;
+  line-height: 1;
+}
+
+.gender-icon {
+  margin-right: 14rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.gender-icon.male {
+  color: #1688ed;
+}
+
+.gender-icon.female {
+  color: #ec5ba8;
+}
+
+.age {
+  margin-left: 24rpx;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 76rpx;
+}
+
+.stat-item {
+  width: 33.33%;
+  text-align: center;
+}
+
+.stat-label {
+  color: #909090;
+  font-size: 27rpx;
+  line-height: 1;
+}
+
+.stat-value {
+  margin-top: 24rpx;
+  color: #111;
+  font-size: 28rpx;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  margin-top: 64rpx;
+  color: #050505;
+  font-size: 36rpx;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.section-mark {
+  width: 9rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+  border-radius: 9rpx;
+  background: #0e83ee;
+}
+
+.booking-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28rpx;
+}
+
+.booking-card {
+  position: relative;
+  width: 318rpx;
+  height: 160rpx;
+  padding: 38rpx 24rpx 0;
+  box-sizing: border-box;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.booking-card.blue {
+  background: linear-gradient(135deg, #dff3ff 0%, #eef9ff 100%);
+}
+
+.booking-card.pink {
+  background: linear-gradient(135deg, #ffe7eb 0%, #fff4f6 100%);
+}
+
+.booking-title {
+  position: relative;
+  z-index: 2;
+  color: #1a354f;
+  font-size: 31rpx;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.booking-card.pink .booking-title {
+  color: #c73e45;
+}
+
+.booking-arrow {
+  margin-left: 16rpx;
+  font-size: 42rpx;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 0;
+}
+
+.booking-desc {
+  position: relative;
+  z-index: 2;
+  margin-top: 22rpx;
+  color: #7f97a9;
+  font-size: 21rpx;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.booking-card.pink .booking-desc {
+  color: #c8878d;
+}
+
+.booking-icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 154rpx;
+  height: 110rpx;
+}
+
+.booking-card.pink .booking-icon {
+  right: 8rpx;
+  bottom: 10rpx;
+  width: 126rpx;
+  height: 108rpx;
+}
+
+.records-title {
+  margin-top: 64rpx;
+}
+
+.records-card {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28rpx;
+  padding: 48rpx 40rpx 42rpx;
+  border-radius: 14rpx;
+  background: #fff;
+  box-shadow: 0 2rpx 8rpx rgba(70, 80, 95, 0.03);
+}
+
+.record-item {
+  position: relative;
+  width: 128rpx;
+  text-align: center;
+}
+
+.record-icon-wrap {
+  position: relative;
+  width: 98rpx;
+  height: 98rpx;
+  margin: 0 auto;
+  border-radius: 13rpx;
+}
+
+.record-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.badge {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  width: 27rpx;
+  height: 27rpx;
+  border-radius: 50%;
+  background: #ff3348;
+  color: #fff;
+  font-size: 18rpx;
+  font-weight: 600;
+  line-height: 27rpx;
+  text-align: center;
+}
+
+.record-title {
+  margin-top: 24rpx;
+  color: #050505;
+  font-size: 29rpx;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}

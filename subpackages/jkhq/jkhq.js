@@ -24,6 +24,11 @@ Page({
       url:'/pages/gerentijian/gerentijian'
     })
   },
+  rszjkhz(){
+    wx.myNavigateTo({
+      url:"/subpackagesC/healthpassport/healthpassport"
+    })
+  },
   ryzl() {
     wx.myNavigateTo({
       url:"/subpackagesB/hsai/hsai"
