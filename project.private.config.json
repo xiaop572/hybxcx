@@ -4,11 +4,18 @@
     "miniprogram": {
       "list": [
         {
-          "name": "huodongpage/zbacbf/zbacbf",
-          "pathName": "huodongpage/zbacbf/zbacbf",
+          "name": "huodongpage/zbayure/zbayure",
+          "pathName": "huodongpage/zbayure/zbayure",
           "query": "",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "huodongpage/zbacbf/zbacbf",
+          "pathName": "huodongpage/zbacbf/zbacbf",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "subpackagesC/healthpassport/healthpassport",

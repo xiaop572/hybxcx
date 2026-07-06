@@ -260,7 +260,8 @@
         "58tjjxq/58tjjxq",
         "rybwccq/rybwccq",
         "100cctyq/100cctyq",
-        "qiweixc/qiweixc"
+        "qiweixc/qiweixc",
+        "zbayure/zbayure"
       ]
     },
     {
@@ -408,7 +409,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/zthd2/zthd2",
+        "pagePath": "pages/yiliaofuwu/yiliaofuwu",
         "iconPath": "./pages/assign/qimu.png",
         "selectedIconPath": "./pages/assign/qimu-active.png",
         "text": "全部商品"

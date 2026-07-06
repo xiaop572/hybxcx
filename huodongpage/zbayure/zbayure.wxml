@@ -1,0 +1,224 @@
+<view class="page">
+  <block wx:if="{{isRulePage}}">
+    <view class="rule-page">
+      <view class="rule-hero">
+        <view class="rule-hero-title">活动规则</view>
+      </view>
+
+      <view class="rule-content">
+        <view class="rule-section-title">
+          <view class="rule-title-bar"></view>
+          <text>积分获取规则</text>
+        </view>
+
+        <view class="rule-sub-title">①每日助威积分</view>
+        <view class="rule-table">
+          <view class="rule-tr rule-th">
+            <view class="rule-td rule-col-action">行为</view>
+            <view class="rule-td rule-col-reward">积分奖励</view>
+            <view class="rule-td rule-col-limit">限制</view>
+          </view>
+          <view class="rule-tr">
+            <view class="rule-td rule-col-action">每日为支持的战队助威</view>
+            <view class="rule-td rule-col-reward">10积分</view>
+            <view class="rule-td rule-col-limit">每日1次</view>
+          </view>
+          <view class="rule-tr">
+            <view class="rule-td rule-col-action">分享活动页面至朋友圈</view>
+            <view class="rule-td rule-col-reward">额外获得5积分</view>
+            <view class="rule-td rule-col-limit">每日1次</view>
+          </view>
+        </view>
+
+        <view class="rule-sub-title rule-reward-title">
+          <text>②人气值达标瓜分奖励</text>
+          <text class="rule-note">（每人每档积分仅限参与1次）</text>
+        </view>
+        <view class="rule-table">
+          <view class="rule-tr rule-th">
+            <view class="rule-td rule-col-level">门槛档位</view>
+            <view class="rule-td rule-col-condition">触发条件</view>
+            <view class="rule-td rule-col-points">积分奖励</view>
+          </view>
+          <view class="rule-tr">
+            <view class="rule-td rule-col-level">铜牌人气</view>
+            <view class="rule-td rule-col-condition">队伍助威人气值达 3000</view>
+            <view class="rule-td rule-col-points">50积分</view>
+          </view>
+          <view class="rule-tr">
+            <view class="rule-td rule-col-level">银牌人气</view>
+            <view class="rule-td rule-col-condition">队伍助威人气值达 5000</view>
+            <view class="rule-td rule-col-points">100积分</view>
+          </view>
+          <view class="rule-tr">
+            <view class="rule-td rule-col-level">金牌人气</view>
+            <view class="rule-td rule-col-condition">队伍助威人气值达 10000</view>
+            <view class="rule-td rule-col-points">200积分</view>
+          </view>
+        </view>
+
+        <view class="rule-sub-title rule-guess-title">③竞猜大奖</view>
+        <view class="rule-table">
+          <view class="rule-tr rule-th">
+            <view class="rule-td rule-col-prize">奖项</view>
+            <view class="rule-td rule-col-award">奖励</view>
+          </view>
+          <view class="rule-tr">
+            <view class="rule-td rule-col-prize">参与竞猜</view>
+            <view class="rule-td rule-col-award">获得10积分</view>
+          </view>
+          <view class="rule-tr">
+            <view class="rule-td rule-col-prize">猜中1队</view>
+            <view class="rule-td rule-col-award">额外奖励100积分</view>
+          </view>
+          <view class="rule-tr">
+            <view class="rule-td rule-col-prize">2队全猜中</view>
+            <view class="rule-td rule-col-award">额外奖励500积分</view>
+          </view>
+        </view>
+
+        <view class="rule-section-title rule-popularity-title">
+          <view class="rule-title-bar"></view>
+          <text>助威人气值设定</text>
+        </view>
+        <view class="rule-popularity-desc">人气值=助威行为累计（每人每次助力贡献10点人气值）</view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:else>
+  <image class="hero-image" src="{{heroImage}}" mode="aspectFill"></image>
+
+  <view class="float-actions">
+    <image
+      wx:for="{{floatButtons}}"
+      wx:key="type"
+      class="float-action"
+      src="{{item.icon}}"
+      mode="widthFix"
+      data-type="{{item.type}}"
+      bindtap="handleFloatTap"
+    ></image>
+  </view>
+
+  <view class="play-section">
+    <image class="section-title support-title" src="{{supportGuessTitle}}" mode="widthFix"></image>
+
+    <view class="play-panel">
+      <view class="play-tabs play-tabs-{{currentPlayTab}}">
+        <view
+          wx:for="{{playTabs}}"
+          wx:key="type"
+          class="play-tab play-tab-{{item.type}} {{currentPlayTab === item.type ? 'play-tab-active' : ''}}"
+          data-type="{{item.type}}"
+          bindtap="switchPlayTab"
+        >
+          <image
+            wx:if="{{currentPlayTab === item.type}}"
+            class="play-tab-active-image play-tab-active-image-{{item.type}}"
+            src="{{item.activeImage}}"
+            mode="aspectFit"
+          ></image>
+          <text wx:else>{{item.text}}</text>
+        </view>
+      </view>
+
+      <block wx:if="{{currentPlayTab === 'support'}}">
+        <view class="play-rule">
+          <text>每人每日为1支县队“助威人气值”可获得</text>
+          <text class="rule-strong">10积分</text>
+        </view>
+        <view class="play-rule play-rule-sub">
+          <text>队伍人气值达标可得</text>
+          <text class="rule-strong">大额积分奖励</text>
+        </view>
+
+        <view class="team-grid">
+          <view
+            wx:for="{{teams}}"
+            wx:key="id"
+            class="team-card {{item.selected ? 'team-card-selected' : ''}}"
+          >
+            <view class="team-city">{{item.name}}</view>
+            <image class="team-logo" src="{{item.logo}}" mode="aspectFit"></image>
+            <view class="team-value">
+              {{teamValueLabel}}:<text>{{item.score}}</text>
+            </view>
+            <button
+              class="team-button {{supportLoading ? 'team-button-disabled' : ''}}"
+              data-id="{{item.id}}"
+              disabled="{{supportLoading}}"
+              catchtap="handleTeamAction"
+            >{{teamButtonText}}</button>
+          </view>
+        </view>
+      </block>
+
+      <view wx:else class="prediction-wrap">
+        <view class="prediction-card">
+          <view class="prediction-title">参与竞猜赢积分</view>
+          <view class="prediction-tip">选择2支战队，出线额外得大额积分（每人限猜一次）</view>
+
+          <view class="guess-grid">
+            <view
+              wx:for="{{guessTeams}}"
+              wx:key="id"
+              class="guess-item {{item.selected ? 'guess-item-selected' : ''}}"
+              data-id="{{item.id}}"
+              bindtap="toggleGuessTeam"
+            >
+              <view class="guess-logo-wrap">
+                <image class="guess-logo" src="{{item.logo}}" mode="aspectFit"></image>
+                <view wx:if="{{item.selected}}" class="guess-check">✓</view>
+              </view>
+              <view class="guess-name">{{item.name}}</view>
+            </view>
+          </view>
+
+          <view class="guess-deadline">截止时间：2026.7.12</view>
+          <button
+            class="guess-submit {{guessSubmitted || guessLoading ? 'guess-submit-disabled' : ''}}"
+            disabled="{{guessSubmitted || guessLoading}}"
+            bindtap="handleGuessSubmit"
+          >{{guessLoading ? '提交中' : '提交'}}</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="exchange-section">
+    <image class="section-title exchange-title" src="{{healthExchangeTitle}}" mode="widthFix"></image>
+
+    <view class="exchange-panel">
+      <view class="health-tabs">
+        <view
+          wx:for="{{healthTabs}}"
+          wx:key="key"
+          class="health-tab {{currentHealthTab === item.key ? 'health-tab-active' : ''}}"
+          data-key="{{item.key}}"
+          bindtap="switchHealthTab"
+        >
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+
+      <view class="goods-grid">
+        <view wx:for="{{exchangeItems}}" wx:key="id" class="gift-card">
+          <view class="coupon-art">
+            <view class="hello-badge">HELLO</view>
+            <view class="coupon-title">积分兑好礼</view>
+            <view class="coupon-name">{{item.title}}</view>
+            <view class="coupon-value">{{item.value}}</view>
+            <view class="coupon-points">10积分</view>
+          </view>
+          <view class="gift-desc">{{item.desc}}</view>
+          <view class="gift-bottom">
+            <view class="gift-points"><text>{{item.points}}</text>积分</view>
+            <button class="redeem-button" data-id="{{item.id}}" catchtap="handleRedeem">立即兑</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </block>
+</view>
