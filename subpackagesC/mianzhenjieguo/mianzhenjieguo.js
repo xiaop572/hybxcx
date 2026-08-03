@@ -1967,7 +1967,7 @@ Page({
   onLoad() {
     this._imagePriority = 0
     this.setData({
-      conversationId: normalizeText(wx.getStorageSync('miniappConversationId') || '')
+      conversationId: normalizeText(miniappOpenApi.getStoredConversationId())
     })
     this.loadFaceImage()
     this.loadReport()
@@ -2254,7 +2254,7 @@ Page({
       this.setData({
         conversationId
       })
-      wx.setStorageSync('miniappConversationId', conversationId)
+      miniappOpenApi.setStoredConversationId(conversationId)
     }
 
     if ((!payload.meta && !payload.messageResponse && !payload.face && !payload.mole && !payload.appearance) && conversationId) {
@@ -2909,7 +2909,7 @@ Page({
       this.setData({
         conversationId
       })
-      wx.setStorageSync('miniappConversationId', conversationId)
+      miniappOpenApi.setStoredConversationId(conversationId)
     }
     const finish = () => {
       if (typeof done === 'function') {
@@ -3011,7 +3011,7 @@ Page({
                   this.setData({
                     conversationId: nextConversationId
                   })
-                  wx.setStorageSync('miniappConversationId', nextConversationId)
+                  miniappOpenApi.setStoredConversationId(nextConversationId)
                 }
                 return nextConversationId
               })
@@ -3042,7 +3042,7 @@ Page({
               this.setData({
                 conversationId: nextConversationId
               })
-              wx.setStorageSync('miniappConversationId', nextConversationId)
+              miniappOpenApi.setStoredConversationId(nextConversationId)
             }
             return nextConversationId
           }))

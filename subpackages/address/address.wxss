@@ -35,6 +35,79 @@
   font-weight: bold;
   margin-bottom: 30rpx;
 }
+.history-section {
+  margin: 0 20rpx 30rpx;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  background: #f7f8fa;
+}
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+.history-title {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.history-count,
+.history-empty {
+  color: #999;
+  font-size: 24rpx;
+}
+.history-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 88rpx;
+  padding: 18rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  border: 1rpx solid #eee;
+  box-sizing: border-box;
+}
+.history-selected {
+  flex: 1;
+  min-width: 0;
+}
+.history-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.history-name {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.history-mobile,
+.history-location,
+.history-address {
+  color: #666;
+  font-size: 24rpx;
+}
+.history-location {
+  margin-top: 10rpx;
+}
+.history-address {
+  margin-top: 6rpx;
+  line-height: 1.5;
+}
+.history-placeholder {
+  color: #999;
+  font-size: 26rpx;
+}
+.history-arrow {
+  width: 40rpx;
+  margin-left: 16rpx;
+  color: #999;
+  font-size: 38rpx;
+  line-height: 1;
+  text-align: right;
+  flex-shrink: 0;
+}
 .sys{
   width: 50rpx;
   position: absolute;

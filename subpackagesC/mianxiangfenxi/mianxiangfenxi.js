@@ -1,4 +1,6 @@
 // subpackagesC/mianzhenxiangji/mianzhenxiangji.js
+const miniappOpenApi = require('../../utils/miniapp-open-api')
+
 Page({
 
   data: {
@@ -47,7 +49,7 @@ Page({
             wx.hideLoading()
             wx.removeStorageSync('rawApiResponse')
             wx.removeStorageSync('miniappAnalyzeResponse')
-            wx.removeStorageSync('miniappConversationId')
+            miniappOpenApi.clearStoredConversationId()
             wx.setStorageSync('faceImagePath', persistentPath)
             wx.setStorageSync('faceBase64', fileRes.data)
             console.log('[mianxiangfenxi] faceImagePath(persistent):', persistentPath)
@@ -68,7 +70,7 @@ Page({
             wx.hideLoading()
             wx.removeStorageSync('rawApiResponse')
             wx.removeStorageSync('miniappAnalyzeResponse')
-            wx.removeStorageSync('miniappConversationId')
+            miniappOpenApi.clearStoredConversationId()
             wx.setStorageSync('faceImagePath', filePath)
             wx.setStorageSync('faceBase64', fileRes.data)
             console.log('[mianxiangfenxi] faceImagePath(temp):', filePath)

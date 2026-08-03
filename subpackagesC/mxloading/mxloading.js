@@ -498,7 +498,7 @@ Page({
       )
       if (conversationId) {
         this._conversationId = conversationId
-        wx.setStorageSync('miniappConversationId', conversationId)
+        miniappOpenApi.setStoredConversationId(conversationId)
         this.startWorkflowPolling(conversationId)
       }
       return conversationId
@@ -664,7 +664,7 @@ Page({
     )
     if (conversationId) {
       this._conversationId = conversationId
-      wx.setStorageSync('miniappConversationId', conversationId)
+      miniappOpenApi.setStoredConversationId(conversationId)
       this.startWorkflowPolling(conversationId)
     }
     this._analyzeAsyncAccepted = true
@@ -684,7 +684,7 @@ Page({
       console.warn('[mxloading] persist rawApiResponse file cache failed:', e)
     }
     if (response && response.conversation && response.conversation.conversationId) {
-      wx.setStorageSync('miniappConversationId', response.conversation.conversationId)
+      miniappOpenApi.setStoredConversationId(response.conversation.conversationId)
     }
     try {
       wx.removeStorageSync('faceBase64')

@@ -89,7 +89,8 @@
     "pages/zppt/zppt",
     "pages/jifu/jifu",
     "pages/jiankangjie/jiankangjie",
-    "pages/zthd2/zthd2"
+    "pages/zthd2/zthd2",
+    "pages/zbayure/zbayure"
   ],
   "subPackages": [
     {
@@ -261,7 +262,8 @@
         "rybwccq/rybwccq",
         "100cctyq/100cctyq",
         "qiweixc/qiweixc",
-        "zbayure/zbayure"
+        "zbayure/zbayure",
+        "zbayurepoints/zbayurepoints"
       ]
     },
     {
@@ -350,7 +352,8 @@
         "healthcarddata/healthcarddata",
         "healthregistration/healthregistration",
         "healthphysicalappointment/healthphysicalappointment",
-        "healthphysicalreport/healthphysicalreport"
+        "healthphysicalreport/healthphysicalreport",
+        "bqprolist128/bqprolist128"
       ]
     },
     {
@@ -378,7 +381,8 @@
         "mianxiangfenxi/mianxiangfenxi",
         "mxloading/mxloading",
         "mianzhenjieguo/mianzhenjieguo",
-        "mxjieguo3/mxjieguo3"
+        "mxjieguo3/mxjieguo3",
+        "diagnosis/diagnosis"
       ]
     }
   ],
@@ -409,7 +413,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/yiliaofuwu/yiliaofuwu",
+        "pagePath": "pages/zbayure/zbayure",
         "iconPath": "./pages/assign/qimu.png",
         "selectedIconPath": "./pages/assign/qimu-active.png",
         "text": "全部商品"

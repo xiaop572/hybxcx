@@ -1,5 +1,28 @@
 <!--subpackages/address/address.wxml-->
 <text class="capp">填写收件地址</text>
+<view class="history-section">
+  <view class="history-header">
+    <text class="history-title">历史收件地址</text>
+    <text wx:if="{{addressHistoryCount > 0}}" class="history-count">共{{addressHistoryCount}}条</text>
+  </view>
+  <view wx:if="{{addressHistoryLoading}}" class="history-empty">正在加载...</view>
+  <view wx:elif="{{addressHistoryLoaded && !addressHistory.length}}" class="history-empty">暂无历史地址</view>
+  <picker wx:else mode="selector" range="{{addressHistory}}" range-key="displayLabel" value="{{selectedHistoryIndex < 0 ? 0 : selectedHistoryIndex}}" bindchange="selectHistoryAddress">
+    <view class="history-picker">
+      <block wx:if="{{selectedHistoryAddress}}">
+        <view class="history-selected">
+          <view class="history-item-head">
+            <text class="history-name">{{selectedHistoryAddress.Name}}</text>
+            <text class="history-mobile">{{selectedHistoryAddress.Mobile}}</text>
+          </view>
+          <view class="history-address">{{selectedHistoryAddress.Province}}{{selectedHistoryAddress.City}}{{selectedHistoryAddress.County}}{{selectedHistoryAddress.Address}}</view>
+        </view>
+      </block>
+      <view wx:else class="history-placeholder">请选择历史地址</view>
+      <view class="history-arrow">›</view>
+    </view>
+  </picker>
+</view>
 <view class="inline">
   <label for="address"><text>*</text>体检号:</label>
   <input type="text" model:value="{{merchantOrderNo}}" id="address" disabled="false"/>

@@ -1,0 +1,32 @@
+<!--pages/basicPro/basicPro.wxml-->
+<view class="orderList">
+      <view class="orderItem" bindtap="rkaquan" data-index="0">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/nopayordericon.png"></image>
+        <text>我的订单</text>
+      </view>
+      <view class="orderItem" bindtap="rkaquan" data-index="1">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/yzfordericon.png"></image>
+        <text>已核销订单</text>
+      </view>
+      <view class="orderItem" bindtap="rkaquan" data-index="2">
+        <image mode="widthFix" src="https://wx.pmc-wz.com/materials/tkordericon.png"></image>
+        <text>已退款订单</text>
+      </view>
+    </view>
+<view class="itemList" wx:if="{{proList.length!=0}}">
+  <view class="item" wx:for="{{proList}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" bindtap="rtcxq" data-id="{{item.id}}" data-item="{{item}}">
+    <view class="fengimg">
+      <image src="https://wx.pmc-wz.com/hyb/images/{{item.picurl}}" mode="widthFix" lazy-load="true"></image>
+    </view>
+    <text class="caption">{{item.pictitle}}</text>
+    <view class="priceFlex">
+      <view class="price"><text class="symbol">￥</text><text>{{item.price}}</text></view>
+      <view class="ms">
+        <image src="https://wx.pmc-wz.com/materials/gwc.png" mode="widthFix" />
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{proList.length==0}}" class="nopro">
+  <image mode="widthFix" src="https://wx.pmc-wz.com/materials/noPro.png"></image>
+</view>

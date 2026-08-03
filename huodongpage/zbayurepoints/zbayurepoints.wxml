@@ -1,0 +1,25 @@
+<view class="points-page">
+  <view class="points-header">
+    <view class="points-summary">
+      <text class="points-number">{{points}}</text>
+      <text class="points-label">可用积分</text>
+    </view>
+    <view class="points-tag">积分明细</view>
+  </view>
+
+  <view class="log-list">
+    <block wx:if="{{logs.length}}">
+      <view wx:for="{{logs}}" wx:key="key" class="log-item">
+        <view class="log-main">
+          <view class="log-title">{{item.title}}</view>
+          <view class="log-date">{{item.date}}</view>
+        </view>
+        <view class="log-points {{item.valueNumber < 0 ? 'log-points-minus' : ''}}">{{item.valueText}}</view>
+      </view>
+    </block>
+
+    <view wx:elif="{{!loading}}" class="empty-state">暂无积分明细</view>
+    <view wx:if="{{loading}}" class="loading-state">加载中...</view>
+    <view wx:if="{{finished && logs.length}}" class="end-state">没有更多了</view>
+  </view>
+</view>

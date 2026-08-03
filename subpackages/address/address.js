@@ -3,6 +3,37 @@ const {
   req
 } = require('../../utils/request');
 const util = require('../../utils/util')
+
+function firstValue() {
+  for (let index = 0; index < arguments.length; index += 1) {
+    const value = arguments[index]
+    if (value !== undefined && value !== null && String(value).trim()) {
+      return String(value).trim()
+    }
+  }
+  return ''
+}
+
+function normalizeAddressRecord(item, index) {
+  const source = item && typeof item === 'object' ? item : {}
+  const name = firstValue(source.Name, source.name, source.receiverName, source.receiver)
+  const mobile = firstValue(source.Mobile, source.mobile, source.phone, source.tel)
+  const province = firstValue(source.Province, source.province)
+  const city = firstValue(source.City, source.city)
+  const county = firstValue(source.County, source.county, source.district)
+  const address = firstValue(source.Address, source.address, source.detailAddress, source.detail)
+  return Object.assign({}, source, {
+    Name: name,
+    Mobile: mobile,
+    Province: province,
+    City: city,
+    County: county,
+    Address: address,
+    displayLabel: [name, mobile, `${province}${city}${county}${address}`].filter(Boolean).join(' '),
+    historyKey: firstValue(source.id, source.Id, source.addressId) || `address_${index}_${name}_${mobile}`
+  })
+}
+
 Page({
 
   /**
@@ -16,21 +47,114 @@ Page({
     County: "",
     Address: "",
     merchantOrderNo: "",
-    region: ["浙江省", "温州市"]
+    region: ["浙江省", "温州市"],
+    addressHistory: [],
+    addressHistoryCount: 0,
+    addressHistoryLoading: false,
+    addressHistoryLoaded: false,
+    selectedHistoryIndex: -1,
+    selectedHistoryAddress: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.loadAddressHistory()
+  },
+  loadAddressHistory(retryCount) {
+    const retry = Number.isFinite(Number(retryCount)) ? Number(retryCount) : 0
+    const openid = wx.getStorageSync('openid') || ''
+    if (!openid) {
+      if (retry < 20) {
+        this.setData({
+          addressHistoryLoading: true,
+          addressHistoryLoaded: false
+        })
+        clearTimeout(this._addressHistoryRetryTimer)
+        this._addressHistoryRetryTimer = setTimeout(() => {
+          this.loadAddressHistory(retry + 1)
+        }, 250)
+        return
+      }
+      this.setData({
+        addressHistory: [],
+        addressHistoryCount: 0,
+        addressHistoryLoading: false,
+        addressHistoryLoaded: true
+      })
+      return
+    }
+    clearTimeout(this._addressHistoryRetryTimer)
+    this.setData({
+      addressHistoryLoading: true
+    })
+    req({
+      url: util.baseUrl + "/newapi/api/sf/addresshistory",
+      method: "POST",
+      data: {
+        Openid: openid
+      },
+      success: res => {
+        const payload = res && res.data && typeof res.data === 'object' ? res.data : {}
+        const list = Array.isArray(payload.data)
+          ? payload.data.map(normalizeAddressRecord).filter(item => item.Name || item.Mobile || item.Address)
+          : []
+        const count = Number(payload.msg)
+        this.setData({
+          addressHistory: list,
+          addressHistoryCount: Number.isFinite(count) && count >= 0 ? count : list.length,
+          addressHistoryLoading: false,
+          addressHistoryLoaded: true,
+          selectedHistoryIndex: -1,
+          selectedHistoryAddress: null
+        })
+      },
+      fail: err => {
+        console.warn('[address] load history failed:', err)
+        this.setData({
+          addressHistory: [],
+          addressHistoryCount: 0,
+          addressHistoryLoading: false,
+          addressHistoryLoaded: true
+        })
+      }
+    })
+  },
+  selectHistoryAddress(e) {
+    const index = Number(e.detail && e.detail.value !== undefined
+      ? e.detail.value
+      : e.currentTarget.dataset.index)
+    const item = this.data.addressHistory[index]
+    if (!item) {
+      return
+    }
+    const nextData = {
+      Name: item.Name,
+      Mobile: item.Mobile,
+      Province: item.Province,
+      City: item.City,
+      County: item.County,
+      Address: item.Address,
+      selectedHistoryIndex: index,
+      selectedHistoryAddress: item
+    }
+    if (item.Province && item.City && item.County) {
+      nextData.region = [item.Province, item.City, item.County]
+    }
+    this.setData(nextData)
+    wx.showToast({
+      title: '已填入历史地址',
+      icon: 'success'
+    })
   },
   bindRegionChange(e) {
     let value = e.detail.value
     this.setData({
       Province: value[0],
       City: value[1],
-      County: value[2]
+      County: value[2],
+      region: value
     })
     console.log('picker发送选择改变，携带值为', e.detail.value)
   },
@@ -76,6 +200,7 @@ Page({
       },
       success: res => {
         if (res.data.status) {
+          this.loadAddressHistory()
           wx.showModal({
             title: '提示',
             content: '提交成功',
@@ -118,7 +243,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    if (this.data.addressHistoryLoaded) {
+      this.loadAddressHistory()
+    }
   },
 
   /**
@@ -132,7 +259,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-
+    clearTimeout(this._addressHistoryRetryTimer)
   },
 
   /**
