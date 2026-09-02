@@ -329,6 +329,27 @@ Page({
       })
       return;
     }
+    if(this.data.corp && this.data.corp.indexOf('温州联通') !== -1){
+      let tjData = {
+        ptype: 19,
+        openid: wx.getStorageSync('openid'),
+        mobile: this.data.mobile,
+        xinmin: this.data.xinmin,
+        sex: this.data.sex,
+        yydate: this.data.time,
+        cardno: this.data.cardno,
+        marry: this.data.hunyin,
+        corp: this.data.corp,
+        fromsource: wx.getStorageSync('sponsor')
+      }
+      wx.setStorageSync('tjData', tjData);
+      
+      let sex = this.data.sex === '男' ? '男' : '女';
+      wx.navigateTo({
+        url: '/subpackagesC/wzlttjxm/wzlttjxm?sex='+sex
+      })
+      return;
+    }
     let params = {
       ptype: 19,
       openid: wx.getStorageSync('openid'),

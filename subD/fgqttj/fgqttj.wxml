@@ -1,0 +1,72 @@
+<view class="poster-page">
+  <image
+    class="package-poster"
+    src="https://wx.pmc-wz.com/materials/fgqttjbg.jpg"
+    mode="widthFix"
+  />
+  <view class="poster-actions">
+    <image
+      class="poster-action-image"
+      src="https://wx.pmc-wz.com/materials/fgqttjlq.png"
+      mode="widthFix"
+      bindtap="openClaimModal"
+    />
+    <image
+      class="poster-action-image"
+      src="https://wx.pmc-wz.com/materials/fgqttjck.png"
+      mode="widthFix"
+      bindtap="goMyCard"
+    />
+  </view>
+</view>
+
+<view class="modal-mask" wx:if="{{showClaimModal}}" bindtap="closeClaimModal">
+  <view class="form-dialog" catchtap="preventBubble">
+    <view class="form-shell"></view>
+    <view class="form-heading">
+      <text class="form-sparkle">✦</text>
+      <text>填写个人信息</text>
+      <text class="form-sparkle light">✦</text>
+    </view>
+    <input
+      class="art-input name-input"
+      type="text"
+      maxlength="20"
+      placeholder="姓名"
+      placeholder-class="input-placeholder"
+      value="{{xinmin}}"
+      bindinput="onNameInput"
+    />
+    <input
+      class="art-input mobile-input"
+      type="number"
+      maxlength="11"
+      placeholder="手机号"
+      placeholder-class="input-placeholder"
+      value="{{mobile}}"
+      bindinput="onMobileInput"
+    />
+    <image
+      class="confirm-button"
+      src="https://wx.pmc-wz.com/materials/fgqttjconfirm.png"
+      mode="scaleToFill"
+      bindtap="submitClaim"
+    />
+  </view>
+</view>
+
+<view class="modal-mask" wx:if="{{showSuccessModal}}" bindtap="closeSuccessModal">
+  <view class="success-dialog" catchtap="preventBubble">
+    <image
+      class="success-art"
+      src="https://wx.pmc-wz.com/materials/fgqttjsuccess-blue.png"
+      mode="widthFix"
+    />
+    <image
+      class="success-card-image"
+      src="https://wx.pmc-wz.com/materials/fgqttjck.png"
+      mode="scaleToFill"
+      bindtap="goMyCard"
+    />
+  </view>
+</view>

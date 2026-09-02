@@ -1,0 +1,24 @@
+<view class="sign-page" catchtouchmove="preventScroll">
+  <view class="sign-header">
+    <view class="sign-close" bindtap="closeSignature">×</view>
+    <view class="sign-title">手写签字</view>
+    <view class="sign-header-space"></view>
+  </view>
+
+  <view class="sign-canvas-wrap" catchtap="preventBubble">
+    <canvas
+      canvas-id="signatureCanvas"
+      class="sign-canvas"
+      bindtouchstart="onTouchStart"
+      bindtouchmove="onTouchMove"
+      bindtouchend="onTouchEnd"
+      disable-scroll="true"
+    ></canvas>
+    <view wx:if="{{!hasDrawn}}" class="sign-hint">请横屏手写签名</view>
+  </view>
+
+  <view class="sign-actions">
+    <button class="sign-button secondary" bindtap="clearSignature">清除重签</button>
+    <button class="sign-button primary" bindtap="saveSignature">完成签字</button>
+  </view>
+</view>

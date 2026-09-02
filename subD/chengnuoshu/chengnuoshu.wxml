@@ -1,0 +1,62 @@
+<scroll-view class="page-scroll" scroll-y="true">
+  <view class="page">
+    <view class="paper">
+      <view class="document-header">
+        <view class="hospital-name">温州和平国际医院</view>
+        <view class="header-kicker">廉洁从业管理</view>
+        <view class="document-title">{{title}}</view>
+        <view class="title-line"></view>
+      </view>
+
+      <view class="document-intro">{{intro}}</view>
+
+      <view class="commitment-section" wx:for="{{sections}}" wx:key="title">
+        <view class="section-title">{{item.title}}</view>
+        <view class="section-content">{{item.content}}</view>
+      </view>
+
+      <view class="fill-section">
+        <view class="section-title">承诺人信息</view>
+        <view class="field-row">
+          <text class="field-label">所在科室</text>
+          <input class="field-input" maxlength="30" value="{{department}}" bindinput="onDepartmentInput" placeholder="请输入所在科室" placeholder-class="field-placeholder" />
+        </view>
+        <view class="field-row">
+          <text class="field-label">岗位职务</text>
+          <input class="field-input" maxlength="30" value="{{position}}" bindinput="onPositionInput" placeholder="请输入岗位职务" placeholder-class="field-placeholder" />
+        </view>
+        <view class="field-row">
+          <text class="field-label">身份证号</text>
+          <input class="field-input" type="idcard" maxlength="18" value="{{idCard}}" bindinput="onIdCardInput" placeholder="请输入身份证号" placeholder-class="field-placeholder" />
+        </view>
+        <view class="field-row date-row">
+          <text class="field-label">日期</text>
+          <picker class="date-picker" mode="date" value="{{date}}" bindchange="onDateChange">
+            <view class="field-input date-value {{date ? '' : 'empty'}}">{{date || '请选择日期'}}</view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="signature-section">
+        <view class="signature-title-row">
+          <view class="section-title">手写签字</view>
+          <view class="signature-required">本人确认后签字</view>
+        </view>
+        <view class="signature-box" bindtap="openSignature">
+          <image wx:if="{{signatureImage}}" class="signature-preview" src="{{signatureImage}}" mode="aspectFit"></image>
+          <view wx:else class="signature-entry">
+            <view class="signature-entry-title">点击进入全屏签字</view>
+            <view class="signature-entry-desc">请使用手指书写本人姓名</view>
+          </view>
+        </view>
+        <view class="signature-actions">
+          <text>{{signatureImage ? '已完成签字' : '签字需清晰完整'}}</text>
+          <button class="clear-button" bindtap="openSignature">{{signatureImage ? '重新签字' : '开始签字'}}</button>
+        </view>
+      </view>
+
+      <button class="save-button" bindtap="saveCommitment">保存承诺书</button>
+      <view class="local-note">当前保存为本机草稿，提交接口接入后可同步至后台</view>
+    </view>
+  </view>
+</scroll-view>

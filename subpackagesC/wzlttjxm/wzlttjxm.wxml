@@ -1,0 +1,35 @@
+<view class="dxline">
+  <text class="dxcao">温州联通1+X项目</text>
+  <image src="https://wx.pmc-wz.com/materials/yjiantou.png" mode="widthFix" class="dxicon {{dxvis?'rotate':''}}" bind:tap="changedxvis" />
+</view>
+<view class="quota-card">
+  <view class="quota-title">{{quotaLabel}} 套餐额度：{{maxmoney}}元</view>
+  <view class="quota-desc">{{quotaDesc}}<text wx:if="{{age}}">，{{age}}周岁</text></view>
+</view>
+<block wx:if="{{dxvis}}">
+  <view wx:for="{{xmList}}" wx:key="id" wx:for-index="idx" wx:for-item="item" class="item">
+    <text bindtap="showExplain" data-exp="{{item.pjmemo}}">{{item.mxid}}.{{item.pjname2}}-{{item.zkprice}}元</text>
+    <view class="select {{item.select?'active':''}}" bindtap="selectItem" data-index="{{idx}}">
+      <image src="https://wx.pmc-wz.com/materials/gou.svg" mode="widthFix" wx:if="{{item.select}}"></image>
+    </view>
+  </view>
+</block>
+<view class="empty" wx:if="{{!loading && !xmList.length}}">
+  <view class="empty-title">暂无可选项目</view>
+  <view class="empty-desc">请稍后重试或联系工作人员确认温州联通 1+X 项目配置。</view>
+</view>
+<view class="footer">
+  <view class="line">
+    <text class="geren">合计：</text>
+    <text class="money">¥{{sum}}</text>
+    <text class="geren">自费：</text>
+    <text class="money">¥{{personmoney}}</text>
+  </view>
+  <view class="buyBtn" bindtap="payment">提交</view>
+</view>
+<view class="explainMask" wx:if="{{explainShow}}" catchtap="close">
+  <image class="close" src="https://wx.pmc-wz.com/materials/cha.svg" mode="widthFix" catchtap="close"></image>
+  <view class="explainShow" catchtap="noclose">
+    <text>{{explainContent}}</text>
+  </view>
+</view>

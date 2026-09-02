@@ -1,0 +1,148 @@
+page {
+  min-height: 100vh;
+  background: #fff;
+  padding-bottom: 0 !important;
+}
+
+.poster-page {
+  position: relative;
+  min-height: 100vh;
+}
+
+.package-poster {
+  display: block;
+  width: 100%;
+}
+
+.poster-actions {
+  position: absolute;
+  right: 0;
+  bottom: 250rpx;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 58rpx;
+  transform: translateX(16rpx);
+}
+
+.poster-action-image {
+  width: 220rpx;
+  height: 54rpx;
+  flex-shrink: 0;
+}
+
+.modal-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: rgba(0, 23, 57, 0.62);
+}
+
+.form-dialog {
+  position: relative;
+  width: 650rpx;
+  height: 693rpx;
+}
+
+.form-shell {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  border: 1rpx solid #6ca9d4;
+  border-radius: 325rpx 325rpx 38rpx 38rpx;
+  background: linear-gradient(145deg, #eef9ff 12%, #cfeaff 55%, #9fd5ff 100%);
+  box-shadow: 0 0 0 14rpx #a7dcff;
+}
+
+.form-heading {
+  position: absolute;
+  top: 164rpx;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28rpx;
+  color: #0c4f9d;
+  font-size: 44rpx;
+  line-height: 1.2;
+}
+
+.form-sparkle {
+  color: #084a9b;
+  font-size: 36rpx;
+}
+
+.form-sparkle.light {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.art-input {
+  position: absolute;
+  left: 44rpx;
+  right: 44rpx;
+  z-index: 2;
+  height: 92rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  border-radius: 46rpx;
+  background: #fff;
+  color: #333;
+  font-size: 30rpx;
+}
+
+.name-input {
+  top: 303rpx;
+}
+
+.mobile-input {
+  top: 417rpx;
+}
+
+.input-placeholder {
+  color: #444;
+}
+
+.confirm-button {
+  position: absolute;
+  bottom: 45rpx;
+  left: 50%;
+  z-index: 3;
+  width: 380rpx;
+  height: 72rpx;
+  transform: translateX(-50%);
+}
+
+.success-dialog {
+  position: relative;
+  width: 620rpx;
+}
+
+.success-art {
+  display: block;
+  width: 620rpx;
+}
+
+.success-card-image {
+  position: absolute;
+  bottom: 24rpx;
+  left: 50%;
+  width: 400rpx;
+  height: 78rpx;
+  transform: translateX(-50%);
+}

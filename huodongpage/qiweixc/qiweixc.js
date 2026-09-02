@@ -1,4 +1,12 @@
 // huodongpage/qiweixc/qiweixc.js
+function safeDecode(value) {
+  try {
+    return decodeURIComponent(value || '')
+  } catch (e) {
+    return value || ''
+  }
+}
+
 Page({
 
   /**
@@ -9,10 +17,16 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面加载
-   */
+  * 生命周期函数--监听页面加载
+  */
   onLoad(options) {
-
+    options = options || {}
+    const scene = safeDecode(options.scene)
+    const sceneMatch = scene.match(/(?:^|[;&])fromid=([^;&]+)/)
+    const fromid = safeDecode(options.fromid || (sceneMatch && sceneMatch[1]) || '')
+    if (fromid) {
+      wx.setStorageSync('sponsor', fromid)
+    }
   },
 
   /**

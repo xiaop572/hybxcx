@@ -1,0 +1,228 @@
+page {
+  min-height: 100vh;
+  background: #eef3f6;
+  color: #253640;
+}
+
+.page-scroll {
+  height: 100vh;
+}
+
+.page {
+  box-sizing: border-box;
+  padding: 28rpx 24rpx 64rpx;
+}
+
+.paper {
+  box-sizing: border-box;
+  padding: 42rpx 34rpx 48rpx;
+  border: 1rpx solid #d9e4e9;
+  border-radius: 10rpx;
+  background: #fff;
+  box-shadow: 0 8rpx 28rpx rgba(31, 64, 78, 0.06);
+}
+
+.document-header {
+  text-align: center;
+}
+
+.hospital-name {
+  color: #55707c;
+  font-size: 25rpx;
+  letter-spacing: 4rpx;
+}
+
+.header-kicker {
+  margin-top: 18rpx;
+  color: #7c929b;
+  font-size: 23rpx;
+  letter-spacing: 6rpx;
+}
+
+.document-title {
+  margin-top: 22rpx;
+  color: #193b4d;
+  font-size: 42rpx;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.title-line {
+  width: 76rpx;
+  height: 5rpx;
+  margin: 24rpx auto 34rpx;
+  border-radius: 3rpx;
+  background: #4c9a9a;
+}
+
+.document-intro,
+.section-content {
+  color: #3e4e56;
+  font-size: 27rpx;
+  line-height: 1.85;
+  text-align: justify;
+}
+
+.document-intro {
+  text-indent: 2em;
+}
+
+.commitment-section {
+  margin-top: 30rpx;
+}
+
+.section-title {
+  box-sizing: border-box;
+  padding-left: 18rpx;
+  border-left: 6rpx solid #4c9a9a;
+  color: #193b4d;
+  font-size: 30rpx;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.section-content {
+  margin-top: 12rpx;
+  text-indent: 2em;
+}
+
+.fill-section,
+.signature-section {
+  margin-top: 42rpx;
+  padding-top: 34rpx;
+  border-top: 1rpx solid #e2eaed;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  min-height: 84rpx;
+  border-bottom: 1rpx solid #dce6e9;
+}
+
+.field-label {
+  flex: 0 0 214rpx;
+  color: #3c5059;
+  font-size: 27rpx;
+}
+
+.field-input {
+  flex: 1;
+  min-width: 0;
+  height: 76rpx;
+  color: #243943;
+  font-size: 27rpx;
+}
+
+.field-placeholder,
+.date-value.empty {
+  color: #a8b6bc;
+}
+
+.date-picker {
+  flex: 1;
+  min-width: 0;
+}
+
+.date-value {
+  box-sizing: border-box;
+  width: 100%;
+  line-height: 76rpx;
+}
+
+.signature-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.signature-required {
+  color: #8b9ba2;
+  font-size: 23rpx;
+}
+
+.signature-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 240rpx;
+  margin-top: 22rpx;
+  overflow: hidden;
+  border: 1rpx dashed #b7cbd2;
+  border-radius: 8rpx;
+  background: #fcfefe;
+}
+
+.signature-preview {
+  width: 100%;
+  height: 100%;
+}
+
+.signature-entry {
+  text-align: center;
+}
+
+.signature-entry-title {
+  color: #426674;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.signature-entry-desc {
+  margin-top: 12rpx;
+  color: #a1b0b6;
+  font-size: 23rpx;
+}
+
+.signature-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16rpx;
+  color: #8b9ba2;
+  font-size: 23rpx;
+}
+
+.clear-button {
+  width: 154rpx;
+  height: 58rpx;
+  margin: 0;
+  padding: 0;
+  border: 1rpx solid #9eb8c2;
+  border-radius: 29rpx;
+  background: #fff;
+  color: #416674;
+  font-size: 23rpx;
+  line-height: 56rpx;
+}
+
+.clear-button::after {
+  border: 0;
+}
+
+.save-button {
+  width: 100%;
+  height: 88rpx;
+  margin: 42rpx 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 44rpx;
+  background: #2b7f87;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 600;
+  line-height: 88rpx;
+}
+
+.save-button::after {
+  border: 0;
+}
+
+.local-note {
+  margin-top: 18rpx;
+  color: #a1afb4;
+  font-size: 21rpx;
+  line-height: 1.5;
+  text-align: center;
+}

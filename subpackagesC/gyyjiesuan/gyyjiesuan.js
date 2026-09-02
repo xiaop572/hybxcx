@@ -3,6 +3,7 @@ const util = require('../../utils/util')
 const {
   req
 } = require('../../utils/request')
+const MAX_QUANTITY = 30
 Page({
 
   /**
@@ -15,7 +16,7 @@ Page({
     name: "",
     phone: "",
     summary: "",
-    probuynum: 1,
+    probuynum: MAX_QUANTITY,
     num: 1,
     hasAvailableCoupons: false,
     availableCoupons: [],
@@ -78,8 +79,13 @@ Page({
         proid: this.data.item.id
       },
       success: (res) => {
+        const currentQuantity = parseInt(this.data.num, 10) || 1
         this.setData({
-          probuynum: res.data.data.probuynum
+          // 页面数量统一最多30个，不再使用接口返回的旧限购值（当前为10）
+          probuynum: MAX_QUANTITY,
+          num: Math.min(Math.max(currentQuantity, 1), MAX_QUANTITY)
+        }, () => {
+          this.calculateFinalPrice()
         })
       }
     })
@@ -128,7 +134,8 @@ Page({
   },
   calculateFinalPrice() {
     // Correctly calculate total price: unit price * quantity
-    let totalPrice = parseFloat((this.data.item.price * this.data.num).toFixed(2));
+    const quantity = this.getSafeQuantity(this.data.num)
+    let totalPrice = parseFloat((this.data.item.price * quantity).toFixed(2));
     let discountAmount = 0;
 
     if (this.data.hasAvailableCoupons && this.data.availableCoupons.length > 0) {
@@ -144,10 +151,20 @@ Page({
       totalPrice: totalPrice // Also update a new data property for the total price if needed
     });
   },
+  getQuantityLimit() {
+    return MAX_QUANTITY
+  },
+  getSafeQuantity(value) {
+    const quantity = parseInt(value, 10)
+    if (isNaN(quantity) || quantity < 1) {
+      return 1
+    }
+    return Math.min(quantity, this.getQuantityLimit())
+  },
   numjia() {
-    if (this.data.num < this.data.probuynum) {
+    if (this.getSafeQuantity(this.data.num) < this.getQuantityLimit()) {
       this.setData({
-        num: this.data.num + 1
+        num: this.getSafeQuantity(this.data.num) + 1
       }, () => {
         this.calculateFinalPrice()
       })
@@ -165,15 +182,17 @@ Page({
   // 处理数量输入
   onNumInput(e) {
     let inputValue = e.detail.value
+    const parsedValue = parseInt(inputValue, 10)
     // 允许用户清空输入框，实时更新显示值
     this.setData({
-      num: inputValue === '' ? '' : parseInt(inputValue) || ''
+      num: inputValue === '' ? '' : (isNaN(parsedValue) ? '' : Math.min(parsedValue, this.getQuantityLimit()))
     })
   },
   // 处理数量输入失焦
   onNumBlur(e) {
     let inputValue = e.detail.value
     let value = parseInt(inputValue)
+    const quantityLimit = this.getQuantityLimit()
     
     // 如果输入为空或无效，设置为1
     if (!inputValue || isNaN(value) || value < 1) {
@@ -184,10 +203,10 @@ Page({
           icon: 'none'
         })
       }
-    } else if (value > this.data.probuynum) {
-      value = this.data.probuynum
+    } else if (value > quantityLimit) {
+      value = quantityLimit
       wx.showToast({
-        title: `数量不能超过${this.data.probuynum}`,
+        title: `数量不能超过${quantityLimit}`,
         icon: 'none'
       })
     }
@@ -302,7 +321,7 @@ Page({
       "ptype": 18,
       "proid": that.data.item.id,
       "spes": that.data.item.selSpec,
-      num: this.data.num
+      num: this.getSafeQuantity(this.data.num)
     };
     
     // 如果有可用优惠券，添加优惠券代码

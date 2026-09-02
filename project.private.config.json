@@ -4,11 +4,67 @@
     "miniprogram": {
       "list": [
         {
-          "name": "subpackages/hpselxiang/hpselxiang",
-          "pathName": "subpackages/hpselxiang/hpselxiang",
+          "name": "subD/qiweiqrcode/qiweiqrcode",
+          "pathName": "subD/qiweiqrcode/qiweiqrcode",
           "query": "",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "subpackagesC/gyyprolsit/gyyprolist",
+          "pathName": "subpackagesC/gyyprolsit/gyyprolist",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subD/chengnuoshu/chengnuoshu",
+          "pathName": "subD/chengnuoshu/chengnuoshu",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subD/fgqttj/fgqttj",
+          "pathName": "subD/fgqttj/fgqttj",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subD/fgqttj/fgqttj",
+          "pathName": "subD/fgqttj/fgqttj",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subD/mianxiangfenxi/mianxiangfenxi",
+          "pathName": "subD/mianxiangfenxi/mianxiangfenxi",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/wzlttjxm/wzlttjxm",
+          "pathName": "subpackagesC/wzlttjxm/wzlttjxm",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/danweitijian/danweitijian",
+          "pathName": "pages/danweitijian/danweitijian",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackages/hpselxiang/hpselxiang",
+          "pathName": "subpackages/hpselxiang/hpselxiang",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "subpackagesC/wdjiangxiang/wdjiaxiang",
