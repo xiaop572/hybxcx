@@ -530,6 +530,7 @@ function increaseTeamScore(sourceTeams, id) {
 Page({
   data: {
     isRulePage: false,
+    ruleImage: asset('zbahdgz.jpg'),
     heroImage: asset('zbayure-hero.png'),
     supportGuessTitle: asset('zbayure-title-support-guess.png'),
     healthExchangeTitle: asset('zbayure-title-health-exchange.png'),

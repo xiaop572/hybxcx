@@ -19,6 +19,11 @@ const TEAM_BASE = [
 ]
 
 const TEAM_PINYIN_MAP = {
+  温州: 'wenzhou',
+  诸暨: 'zhuji',
+  富阳: 'fuyang',
+  金华: 'jinhua',
+  临安: 'linan',
   鹿城: 'lucheng',
   龙湾: 'longwan',
   瓯海: 'ouhai',
@@ -49,6 +54,28 @@ const TEAM_LOGO_NO_MAP = {
 }
 
 const SUPPORT_POPULARITY_STEP = 10
+
+const MATCH_ASSETS = {
+  jinhua: asset('jinhualogo.png'),
+  wenzhou: asset('wenzhoulogo.png'),
+  vs: asset('zbayure-vs.png')
+}
+
+const WINNER_OPTION_ASSETS = {
+  jinhuaActive: asset('wzcaita.png'),
+  jinhuaInactive: asset('wzxuanta.png'),
+  wenzhouActive: asset('zjcaita.png'),
+  wenzhouInactive: asset('zjxuanta.png')
+}
+
+const MATCH_INFO = {
+  homeTeamName: '金华队',
+  awayTeamName: '温州队',
+  matchTime: '2026-09-18',
+  deadlineText: '2026年9月18日19：29（开赛前）'
+}
+
+const MATCH_DEADLINE = new Date(2026, 8, 18, 19, 29, 0)
 
 const MEDAL_LEVELS = [
   { score: 10000, image: 'zbayure-medal-gold.png' },
@@ -321,6 +348,10 @@ function getPayParams(payload) {
   }
 }
 
+function isGuessDeadlinePassed() {
+  return Date.now() >= MATCH_DEADLINE.getTime()
+}
+
 function normalizeTeam(item, index) {
   const rawName = pickValue(item, ['Name', 'name', 'TeamName', 'teamName'], '')
   const name = formatTeamName(rawName)
@@ -346,6 +377,14 @@ function normalizeTeams(payload) {
 }
 
 function teamLogo(type, pinyin) {
+  if (pinyin === 'jinhua') {
+    return MATCH_ASSETS.jinhua
+  }
+
+  if (pinyin === 'wenzhou') {
+    return MATCH_ASSETS.wenzhou
+  }
+
   const prefix = type === 'guess' ? 'guess-team' : 'support-team'
   const no = TEAM_LOGO_NO_MAP[pinyin] || '01'
   return asset(`${prefix}-${no}-${pinyin}.png`)
@@ -437,11 +476,18 @@ function buildGuessModalTeam(value, sourceTeams, index) {
 
   if (typeof value !== 'object') {
     const matched = findTeamByValue(sourceTeams, value)
-    return matched ? {
-      id: matched.id,
-      name: matched.name,
-      logo: matched.pic || teamLogo('guess', matched.pinyin)
-    } : null
+    const rawName = formatTeamName(value)
+    const pinyin = matched ? matched.pinyin : TEAM_PINYIN_MAP[rawName]
+
+    if (!matched && !pinyin) {
+      return null
+    }
+
+    return {
+      id: matched ? matched.id : (pinyin || `guess-${index}`),
+      name: matched ? matched.name : rawName,
+      logo: matched && matched.pic ? matched.pic : teamLogo('guess', pinyin)
+    }
   }
 
   const idValue = pickValue(value, ['TeamId', 'teamId', 'Id', 'id', 'teamID'], '')
@@ -502,6 +548,9 @@ function normalizeMyGuessTeams(payload, sourceTeams) {
   if (championName) values.push({ TeamName: championName })
   if (runnerUpName) values.push({ TeamName: runnerUpName })
 
+  const guessTeamName = pickValue(record, ['guessTeamName', 'GuessTeamName', 'winTeamName', 'WinTeamName'], '')
+  if (guessTeamName) values.push({ TeamName: guessTeamName })
+
   const seen = {}
   return values
     .map((item, index) => buildGuessModalTeam(item, sourceTeams, index))
@@ -539,8 +588,8 @@ Page({
       { type: 'guess', icon: asset('zbayure-float-guess.png') }
     ],
     playTabs: [
-      { type: 'support', text: '助力战队得积分', activeImage: asset('zbayure-tab-support-active.png') },
-      { type: 'guess', text: '精准预测大上分', activeImage: asset('zbayure-tab-guess-active.png') }
+      { type: 'support', text: '猜输赢' },
+      { type: 'guess', text: '猜比分' }
     ],
     currentPlayTab: 'support',
     teamValueLabel: '人气值',
@@ -548,7 +597,22 @@ Page({
     selectedSupportTeamId: '',
     selectedGuessTeamIds: [],
     guessSubmitted: false,
+    winnerGuessSubmitted: false,
+    scoreGuessSubmitted: false,
     guessLoading: false,
+    guessExpired: false,
+    guessDeadlineText: MATCH_INFO.deadlineText,
+    selectedWinner: '',
+    scoreGuess: {
+      jinhua: '',
+      wenzhou: ''
+    },
+    match: {
+      jinhua: { logo: MATCH_ASSETS.jinhua },
+      wenzhou: { logo: MATCH_ASSETS.wenzhou },
+      vsLogo: MATCH_ASSETS.vs
+    },
+    winnerOptionAssets: WINNER_OPTION_ASSETS,
     supportLoading: false,
     myGuessLoading: false,
     showMyGuessModal: false,
@@ -567,8 +631,10 @@ Page({
     const isRulePage = !!(options && options.page === 'rules')
 
     this.setData({
-      isRulePage
+      isRulePage,
+      guessExpired: isGuessDeadlinePassed()
     })
+    this.startGuessDeadlineTimer()
     if (options.fromid) {
       wx.setStorageSync('sponsor', options.fromid)
     }
@@ -590,6 +656,48 @@ Page({
 
     this.loadTeams()
     this.loadExchangeItems(this.data.currentHealthTab)
+  },
+
+  onShow() {
+    this.syncGuessDeadlineState()
+  },
+
+  startGuessDeadlineTimer() {
+    if (this._guessDeadlineTimer) {
+      clearTimeout(this._guessDeadlineTimer)
+      this._guessDeadlineTimer = null
+    }
+
+    const delay = MATCH_DEADLINE.getTime() - Date.now()
+
+    if (delay <= 0) {
+      this.syncGuessDeadlineState()
+      return
+    }
+
+    this._guessDeadlineTimer = setTimeout(() => {
+      this._guessDeadlineTimer = null
+      this.syncGuessDeadlineState()
+    }, delay + 50)
+  },
+
+  onUnload() {
+    if (this._guessDeadlineTimer) {
+      clearTimeout(this._guessDeadlineTimer)
+      this._guessDeadlineTimer = null
+    }
+  },
+
+  syncGuessDeadlineState() {
+    const guessExpired = isGuessDeadlinePassed()
+
+    if (guessExpired !== this.data.guessExpired) {
+      this.setData({
+        guessExpired
+      })
+    }
+
+    return guessExpired
   },
 
   loadTeams() {
@@ -625,12 +733,21 @@ Page({
       return
     }
 
+    if (this.data.guessLoading) {
+      wx.showToast({
+        title: '正在提交',
+        icon: 'none'
+      })
+      return
+    }
+
     const selectedId = type === 'guess' ? this.data.selectedGuessTeamIds : this.data.selectedSupportTeamId
 
     const data = {
       currentPlayTab: type,
       teamValueLabel: type === 'guess' ? '竞猜热度' : '人气值',
-      teamButtonText: type === 'guess' ? '为TA竞猜' : '为TA助威'
+      teamButtonText: type === 'guess' ? '为TA竞猜' : '为TA助威',
+      guessSubmitted: type === 'guess' ? this.data.scoreGuessSubmitted : this.data.winnerGuessSubmitted
     }
 
     if (type === 'guess') {
@@ -643,9 +760,11 @@ Page({
   },
 
   toggleGuessTeam(e) {
-    if (this.data.guessSubmitted || this.data.guessLoading) {
+    const guessExpired = this.syncGuessDeadlineState()
+
+    if (guessExpired || this.data.guessSubmitted || this.data.guessLoading) {
       wx.showToast({
-        title: this.data.guessLoading ? '正在提交' : '竞猜已提交',
+        title: guessExpired ? '竞猜已截止' : (this.data.guessLoading ? '正在提交' : '竞猜已提交'),
         icon: 'none'
       })
       return
@@ -673,26 +792,61 @@ Page({
     })
   },
 
+  selectWinner(e) {
+    if (this.syncGuessDeadlineState() || this.data.guessSubmitted || this.data.guessLoading) {
+      return
+    }
+
+    this.setData({
+      selectedWinner: e.currentTarget.dataset.winner || ''
+    })
+  },
+
+  onScoreInput(e) {
+    if (this.syncGuessDeadlineState() || this.data.guessSubmitted || this.data.guessLoading) {
+      return
+    }
+
+    const team = e.currentTarget.dataset.team
+    if (!team) {
+      return
+    }
+
+    this.setData({
+      [`scoreGuess.${team}`]: String(e.detail.value || '').replace(/[^0-9]/g, '').slice(0, 3)
+    })
+  },
+
   handleGuessSubmit() {
-    if (this.data.guessSubmitted || this.data.guessLoading) {
+    const guessExpired = this.syncGuessDeadlineState()
+
+    if (guessExpired || this.data.guessSubmitted || this.data.guessLoading) {
       wx.showToast({
-        title: this.data.guessLoading ? '正在提交' : '竞猜已提交',
+        title: guessExpired ? '竞猜已截止' : (this.data.guessLoading ? '正在提交' : '竞猜已提交'),
         icon: 'none'
       })
       return
     }
 
-    if (this.data.selectedGuessTeamIds.length !== 2) {
+    const isScoreGuess = this.data.currentPlayTab === 'guess'
+
+    if (!isScoreGuess && !this.data.selectedWinner) {
       wx.showToast({
-        title: '请选择2支战队',
+        title: '请选择竞猜结果',
+        icon: 'none'
+      })
+      return
+    }
+
+    if (isScoreGuess && (!this.data.scoreGuess.jinhua || !this.data.scoreGuess.wenzhou)) {
+      wx.showToast({
+        title: '请输入两队比分',
         icon: 'none'
       })
       return
     }
 
     const openid = wx.getStorageSync('openid')
-    const champion = this.data.teamSource.find(item => item.id === this.data.selectedGuessTeamIds[0])
-    const runnerUp = this.data.teamSource.find(item => item.id === this.data.selectedGuessTeamIds[1])
 
     if (!openid) {
       wx.showToast({
@@ -702,13 +856,20 @@ Page({
       return
     }
 
-    if (!champion || !runnerUp || !champion.apiId || !runnerUp.apiId) {
-      wx.showToast({
-        title: '县队数据加载中',
-        icon: 'none'
-      })
-      this.loadTeams()
-      return
+    const requestData = {
+      openid,
+      homeTeamName: MATCH_INFO.homeTeamName,
+      awayTeamName: MATCH_INFO.awayTeamName,
+      matchTime: MATCH_INFO.matchTime
+    }
+
+    if (isScoreGuess) {
+      requestData.homeScore = Number(this.data.scoreGuess.jinhua)
+      requestData.awayScore = Number(this.data.scoreGuess.wenzhou)
+    } else {
+      requestData.guessTeamName = this.data.selectedWinner === 'jinhua'
+        ? MATCH_INFO.homeTeamName
+        : MATCH_INFO.awayTeamName
     }
 
     this.setData({
@@ -716,13 +877,11 @@ Page({
     })
 
     req({
-      url: util.baseUrl + '/newapi/api/zjba/guess',
+      url: util.baseUrl + (isScoreGuess
+        ? '/newapi/api/zjba/guessmatchscore'
+        : '/newapi/api/zjba/guessmatchwin'),
       method: 'POST',
-      data: {
-        openid,
-        championTeamId: champion.apiId,
-        runnerUpTeamId: runnerUp.apiId
-      },
+      data: requestData,
       success: res => {
         const data = res.data || {}
 
@@ -734,12 +893,15 @@ Page({
           return
         }
 
+        const submittedKey = isScoreGuess ? 'scoreGuessSubmitted' : 'winnerGuessSubmitted'
+
         this.setData({
-          guessSubmitted: true
+          guessSubmitted: true,
+          [submittedKey]: true
         })
 
         wx.showToast({
-          title: '竞猜已提交',
+          title: isScoreGuess ? '比分已提交' : '胜负已提交',
           icon: 'success'
         })
       },
@@ -1166,12 +1328,13 @@ Page({
     }
 
     req({
-      url: util.baseUrl + '/newapi/api/zjba/myguess',
+      url: util.baseUrl + '/newapi/api/zjba/getmyguesswin',
       method: 'POST',
       data: {
         openid,
-        page: 0,
-        limit: 0
+        homeTeamName: MATCH_INFO.homeTeamName,
+        awayTeamName: MATCH_INFO.awayTeamName,
+        matchTime: MATCH_INFO.matchTime
       },
       success: res => {
         const data = res.data || {}

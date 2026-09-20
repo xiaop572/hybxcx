@@ -113,76 +113,69 @@
           data-type="{{item.type}}"
           bindtap="switchPlayTab"
         >
-          <image
-            wx:if="{{currentPlayTab === item.type}}"
-            class="play-tab-active-image play-tab-active-image-{{item.type}}"
-            src="{{item.activeImage}}"
-            mode="aspectFit"
-          ></image>
-          <text wx:else>{{item.text}}</text>
+          <text>{{item.text}}</text>
         </view>
       </view>
 
-      <block wx:if="{{currentPlayTab === 'support'}}">
-        <view class="play-rule">
-          <text>每人每日为1支战队“助威人气值”可获得</text>
-          <text class="rule-strong">10积分</text>
-        </view>
-        <view class="play-rule play-rule-sub">
-          <text>队伍人气值达标可得</text>
-          <text class="rule-strong">大额积分奖励</text>
-        </view>
-
-        <view class="team-grid">
-          <view
-            wx:for="{{teams}}"
-            wx:key="id"
-            class="team-card {{item.medal ? 'team-card-awarded' : ''}}"
-          >
-            <view class="team-city">{{item.name}}</view>
-            <image wx:if="{{item.medal}}" class="team-medal" src="{{item.medal}}" mode="aspectFit"></image>
-            <image class="team-logo" src="{{item.logo}}" mode="aspectFit"></image>
-            <view class="team-value">
-              {{teamValueLabel}}:<text>{{item.score}}</text>
-            </view>
-            <button
-              class="team-button {{supportLoading ? 'team-button-disabled' : ''}}"
-              data-id="{{item.id}}"
-              disabled="{{supportLoading}}"
-              catchtap="handleTeamAction"
-            >{{teamButtonText}}</button>
-          </view>
-        </view>
-      </block>
-
-      <view wx:else class="prediction-wrap">
+      <view class="prediction-wrap prediction-wrap-{{currentPlayTab}}">
         <view class="prediction-card">
-          <view class="prediction-title">参与竞猜赢积分</view>
-          <view class="prediction-tip">选择2支战队，出线额外得大额积分（每人限猜一次）</view>
-
-          <view class="guess-grid">
-            <view
-              wx:for="{{guessTeams}}"
-              wx:key="id"
-              class="guess-item {{item.selected ? 'guess-item-selected' : ''}}"
-              data-id="{{item.id}}"
-              bindtap="toggleGuessTeam"
-            >
-              <view class="guess-logo-wrap">
-                <image class="guess-logo" src="{{item.logo}}" mode="aspectFit"></image>
-                <view wx:if="{{item.selected}}" class="guess-check">✓</view>
-              </view>
-              <view class="guess-name">{{item.name}}</view>
+          <view class="prediction-match-date">9月18日 19:30</view>
+          <view class="prediction-match">
+            <view class="prediction-team">
+              <image class="prediction-team-logo prediction-team-logo-jinhua" src="{{match.jinhua.logo}}" mode="aspectFit"></image>
+              <text class="prediction-team-name">金华队</text>
+            </view>
+            <view class="prediction-vs">
+              <image class="prediction-vs-image" src="{{match.vsLogo}}" mode="aspectFit"></image>
+              <text class="prediction-mode">{{currentPlayTab === 'support' ? '猜胜负' : '猜比分'}}</text>
+            </view>
+            <view class="prediction-team">
+              <image class="prediction-team-logo prediction-team-logo-wenzhou" src="{{match.wenzhou.logo}}" mode="aspectFit"></image>
+              <text class="prediction-team-name">温州队</text>
             </view>
           </view>
 
-          <view class="guess-deadline">截止时间：2026.7.31</view>
-          <button
-            class="guess-submit {{guessSubmitted || guessLoading ? 'guess-submit-disabled' : ''}}"
-            disabled="{{guessSubmitted || guessLoading}}"
-            bindtap="handleGuessSubmit"
-          >{{guessLoading ? '提交中' : '提交'}}</button>
+          <block wx:if="{{currentPlayTab === 'support'}}">
+            <view class="winner-options">
+              <view
+                class="winner-option winner-option-left {{selectedWinner === 'jinhua' ? 'winner-option-selected' : ''}}"
+                data-winner="jinhua"
+                bindtap="selectWinner"
+              >
+                <image
+                  class="winner-option-image"
+                  src="{{selectedWinner === 'jinhua' ? winnerOptionAssets.jinhuaActive : winnerOptionAssets.jinhuaInactive}}"
+                  mode="widthFix"
+                ></image>
+              </view>
+              <view
+                class="winner-option winner-option-right {{selectedWinner === 'wenzhou' ? 'winner-option-selected' : ''}}"
+                data-winner="wenzhou"
+                bindtap="selectWinner"
+              >
+                <image
+                  class="winner-option-image"
+                  src="{{selectedWinner === 'wenzhou' ? winnerOptionAssets.wenzhouActive : winnerOptionAssets.wenzhouInactive}}"
+                  mode="widthFix"
+                ></image>
+              </view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="score-options">
+              <input class="score-input score-input-left" type="number" maxlength="3" placeholder="" value="{{scoreGuess.jinhua}}" disabled="{{guessLoading || guessSubmitted || guessExpired}}" data-team="jinhua" bindinput="onScoreInput" />
+              <view class="score-colon">:</view>
+              <input class="score-input score-input-right" type="number" maxlength="3" placeholder="" value="{{scoreGuess.wenzhou}}" disabled="{{guessLoading || guessSubmitted || guessExpired}}" data-team="wenzhou" bindinput="onScoreInput" />
+            </view>
+          </block>
+
         </view>
+        <button
+          class="guess-submit {{guessLoading || guessSubmitted || guessExpired ? 'guess-submit-disabled' : ''}}"
+          disabled="{{guessLoading || guessSubmitted || guessExpired}}"
+          bindtap="handleGuessSubmit"
+        >{{guessExpired ? '竞猜已截止' : (guessLoading ? '提交中' : '确认提交')}}</button>
+        <view class="guess-deadline">{{guessExpired ? '当前场次竞猜已截止' : ('竞猜截止时间：' + guessDeadlineText)}}</view>
       </view>
     </view>
   </view>

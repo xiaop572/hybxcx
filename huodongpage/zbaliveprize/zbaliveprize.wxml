@@ -1,0 +1,91 @@
+<view class="page">
+  <view class="brand-header">
+    <view class="brand-copy">
+      <text class="brand-title">聊个球 BA 直播间</text>
+      <text class="brand-subtitle">中奖礼品兑奖登记</text>
+    </view>
+  </view>
+
+  <view class="form-sheet">
+    <view class="sheet-heading">
+      <text class="sheet-title">兑奖登记</text>
+      <text class="sheet-desc">请填写与中奖截图一致的信息</text>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">
+        <text>直播间昵称</text>
+        <text class="required">*</text>
+      </view>
+      <input class="form-input" type="text" maxlength="30" placeholder="请输入中奖时使用的昵称" placeholder-class="input-placeholder" value="{{nickname}}" disabled="{{submitted}}" bindinput="onNicknameInput" />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">
+        <text>手机号码</text>
+        <text class="required">*</text>
+      </view>
+      <view class="phone-field">
+        <input class="form-input phone-input" type="number" maxlength="11" placeholder="请输入手机号码" placeholder-class="input-placeholder" value="{{mobile}}" disabled="{{submitted}}" bindinput="onMobileInput" />
+        <button class="get-phone-button" open-type="getPhoneNumber" disabled="{{phoneLoading || submitting || submitted}}" bindgetphonenumber="getPhoneNumber">{{phoneLoading ? '获取中' : '一键获取'}}</button>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">
+        <text>中奖截图</text>
+        <text class="required">*</text>
+      </view>
+      <view class="upload-hint">截图需清晰体现本人直播间昵称</view>
+
+      <view wx:if="{{screenshotPreview}}" class="upload-preview-wrap">
+        <image class="upload-preview" src="{{screenshotPreview}}" mode="aspectFill" bindtap="previewImage"></image>
+        <view wx:if="{{uploading}}" class="upload-mask">上传中...</view>
+        <button wx:else class="replace-button" disabled="{{submitted}}" bindtap="chooseImage">重新上传</button>
+      </view>
+
+      <button wx:else class="upload-box" disabled="{{submitting || submitted}}" bindtap="chooseImage">
+        <text class="upload-plus">+</text>
+        <text class="upload-text">上传中奖截图</text>
+        <text class="upload-subtext">支持从相册选择或拍照</text>
+      </button>
+    </view>
+
+    <view class="form-item card-form-item">
+      <view class="form-label">
+        <text>请选择中奖卡券</text>
+        <text class="required">*</text>
+      </view>
+      <view class="card-options">
+        <view wx:for="{{cardOptions}}" wx:key="key" class="card-option {{selectedCardKey === item.key ? 'card-option-selected' : ''}}" data-key="{{item.key}}" bindtap="selectCard">
+          <view class="card-option-head">
+            <view class="card-radio {{selectedCardKey === item.key ? 'card-radio-selected' : ''}}">
+              <view wx:if="{{selectedCardKey === item.key}}" class="card-radio-dot"></view>
+            </view>
+            <text class="card-option-name">{{item.name}}</text>
+          </view>
+          <view wx:if="{{selectedCardKey === item.key}}" class="card-projects">
+            <view class="card-projects-title">项目内容（请选择{{item.maxProjects}}项）</view>
+            <view wx:for="{{item.items}}" wx:for-item="project" wx:for-index="projectIndex" wx:key="*this" class="card-project {{selectedProjectFlags[projectIndex] ? 'card-project-selected' : ''}}" data-index="{{projectIndex}}" catchtap="selectProject">
+              <view class="project-radio {{selectedProjectFlags[projectIndex] ? 'project-radio-selected' : ''}}">
+                <view wx:if="{{selectedProjectFlags[projectIndex]}}" class="project-radio-dot"></view>
+              </view>
+              <text class="card-project-index">{{projectIndex + 1}}.</text>
+              <text class="card-project-name">{{project}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <button class="submit-button {{submitting || submitted ? 'submit-button-disabled' : ''}}" disabled="{{submitting || submitted}}" bindtap="submitForm">{{submitting ? '提交中...' : (submitted ? '已完成登记' : '确认提交')}}</button>
+
+    <view class="notice">
+      <view class="notice-mark">i</view>
+      <view class="notice-copy">
+        <text>登记信息后，中奖礼品卡券将在3个工作日内发放到【慧医宝】小程序账户，同时将有短信提醒，请注意查收。</text>
+        <text class="notice-extra">*198元与1980元健康美礼包不可同享，2026年度内每人限领取一次。</text>
+      </view>
+    </view>
+  </view>
+</view>

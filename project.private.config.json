@@ -4,11 +4,25 @@
     "miniprogram": {
       "list": [
         {
-          "name": "subD/qiweiqrcode/qiweiqrcode",
-          "pathName": "subD/qiweiqrcode/qiweiqrcode",
+          "name": "huodongpage/zbaliveprize/zbaliveprize",
+          "pathName": "huodongpage/zbaliveprize/zbaliveprize",
           "query": "",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "pages/zbayure/zbayure",
+          "pathName": "pages/zbayure/zbayure",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subD/qiweiqrcode/qiweiqrcode",
+          "pathName": "subD/qiweiqrcode/qiweiqrcode",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "subpackagesC/gyyprolsit/gyyprolist",
