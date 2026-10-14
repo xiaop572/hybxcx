@@ -4,11 +4,53 @@
     "miniprogram": {
       "list": [
         {
-          "name": "huodongpage/zbaliveprize/zbaliveprize",
-          "pathName": "huodongpage/zbaliveprize/zbaliveprize",
+          "name": "subD/diagnosis/diagnosis",
+          "pathName": "subD/diagnosis/diagnosis",
           "query": "",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "subpackagesC/bqprolist/bqprolist",
+          "pathName": "subpackagesC/bqprolist/bqprolist",
+          "query": "groupid=129",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/bqprolist/bqprolist",
+          "pathName": "subpackagesC/bqprolist/bqprolist",
+          "query": "ptype=129",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/bqprolist/bqprolist",
+          "pathName": "subpackagesC/bqprolist/bqprolist",
+          "query": "id=129",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/gyyprolsit/gyyprolist",
+          "pathName": "subpackagesC/gyyprolsit/gyyprolist",
+          "query": "id=129",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subpackagesC/gyyprolsit/gyyprolist",
+          "pathName": "subpackagesC/gyyprolsit/gyyprolist",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "huodongpage/zbaliveprize/zbaliveprize",
+          "pathName": "huodongpage/zbaliveprize/zbaliveprize",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "pages/zbayure/zbayure",

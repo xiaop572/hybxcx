@@ -10,6 +10,7 @@ const TEAM_BASE = [
   { id: 'dongtou', name: '洞头', pinyin: 'dongtou', score: 999 },
   { id: 'yueqing', name: '乐清', pinyin: 'yueqing', score: 999 },
   { id: 'ruian', name: '瑞安', pinyin: 'ruian', score: 999 },
+  { id: 'linhai', name: '临海', pinyin: 'linhai', score: 999 },
   { id: 'yongjia', name: '永嘉', pinyin: 'yongjia', score: 9999 },
   { id: 'wencheng', name: '文成', pinyin: 'wencheng', score: 9999 },
   { id: 'pingyang', name: '平阳', pinyin: 'pingyang', score: 9999 },
@@ -23,6 +24,7 @@ const TEAM_PINYIN_MAP = {
   诸暨: 'zhuji',
   富阳: 'fuyang',
   金华: 'jinhua',
+  临海: 'linhai',
   临安: 'linan',
   鹿城: 'lucheng',
   龙湾: 'longwan',
@@ -56,26 +58,26 @@ const TEAM_LOGO_NO_MAP = {
 const SUPPORT_POPULARITY_STEP = 10
 
 const MATCH_ASSETS = {
-  jinhua: asset('jinhualogo.png'),
-  wenzhou: asset('wenzhoulogo.png'),
+  linhai: asset('linhailogo.png'),
+  ruian: asset('ruianlogo.png'),
   vs: asset('zbayure-vs.png')
 }
 
 const WINNER_OPTION_ASSETS = {
-  jinhuaActive: asset('wzcaita.png'),
-  jinhuaInactive: asset('wzxuanta.png'),
-  wenzhouActive: asset('zjcaita.png'),
-  wenzhouInactive: asset('zjxuanta.png')
+  linhaiActive: asset('wzcaita.png'),
+  linhaiInactive: asset('wzxuanta.png'),
+  ruianActive: asset('zjcaita.png'),
+  ruianInactive: asset('zjxuanta.png')
 }
 
 const MATCH_INFO = {
-  homeTeamName: '金华队',
-  awayTeamName: '温州队',
-  matchTime: '2026-09-18',
-  deadlineText: '2026年9月18日19：29（开赛前）'
+  homeTeamName: '临海队',
+  awayTeamName: '瑞安队',
+  matchTime: '2026-09-22',
+  deadlineText: '2026年9月22日19：29（开赛前）'
 }
 
-const MATCH_DEADLINE = new Date(2026, 8, 18, 19, 29, 0)
+const MATCH_DEADLINE = new Date(2026, 8, 22, 19, 29, 0)
 
 const MEDAL_LEVELS = [
   { score: 10000, image: 'zbayure-medal-gold.png' },
@@ -377,6 +379,14 @@ function normalizeTeams(payload) {
 }
 
 function teamLogo(type, pinyin) {
+  if (pinyin === 'linhai') {
+    return MATCH_ASSETS.linhai
+  }
+
+  if (pinyin === 'ruian') {
+    return MATCH_ASSETS.ruian
+  }
+
   if (pinyin === 'jinhua') {
     return MATCH_ASSETS.jinhua
   }
@@ -604,12 +614,12 @@ Page({
     guessDeadlineText: MATCH_INFO.deadlineText,
     selectedWinner: '',
     scoreGuess: {
-      jinhua: '',
-      wenzhou: ''
+      linhai: '',
+      ruian: ''
     },
     match: {
-      jinhua: { logo: MATCH_ASSETS.jinhua },
-      wenzhou: { logo: MATCH_ASSETS.wenzhou },
+      linhai: { logo: MATCH_ASSETS.linhai },
+      ruian: { logo: MATCH_ASSETS.ruian },
       vsLogo: MATCH_ASSETS.vs
     },
     winnerOptionAssets: WINNER_OPTION_ASSETS,
@@ -838,7 +848,7 @@ Page({
       return
     }
 
-    if (isScoreGuess && (!this.data.scoreGuess.jinhua || !this.data.scoreGuess.wenzhou)) {
+    if (isScoreGuess && (!this.data.scoreGuess.linhai || !this.data.scoreGuess.ruian)) {
       wx.showToast({
         title: '请输入两队比分',
         icon: 'none'
@@ -864,10 +874,10 @@ Page({
     }
 
     if (isScoreGuess) {
-      requestData.homeScore = Number(this.data.scoreGuess.jinhua)
-      requestData.awayScore = Number(this.data.scoreGuess.wenzhou)
+      requestData.homeScore = Number(this.data.scoreGuess.linhai)
+      requestData.awayScore = Number(this.data.scoreGuess.ruian)
     } else {
-      requestData.guessTeamName = this.data.selectedWinner === 'jinhua'
+      requestData.guessTeamName = this.data.selectedWinner === 'linhai'
         ? MATCH_INFO.homeTeamName
         : MATCH_INFO.awayTeamName
     }

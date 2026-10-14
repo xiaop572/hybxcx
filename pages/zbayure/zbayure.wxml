@@ -119,43 +119,43 @@
 
       <view class="prediction-wrap prediction-wrap-{{currentPlayTab}}">
         <view class="prediction-card">
-          <view class="prediction-match-date">9月18日 19:30</view>
+          <view class="prediction-match-date">9月22日 19:30</view>
           <view class="prediction-match">
             <view class="prediction-team">
-              <image class="prediction-team-logo prediction-team-logo-jinhua" src="{{match.jinhua.logo}}" mode="aspectFit"></image>
-              <text class="prediction-team-name">金华队</text>
+              <image class="prediction-team-logo prediction-team-logo-linhai" src="{{match.linhai.logo}}" mode="aspectFit"></image>
+              <text class="prediction-team-name">临海队</text>
             </view>
             <view class="prediction-vs">
               <image class="prediction-vs-image" src="{{match.vsLogo}}" mode="aspectFit"></image>
               <text class="prediction-mode">{{currentPlayTab === 'support' ? '猜胜负' : '猜比分'}}</text>
             </view>
             <view class="prediction-team">
-              <image class="prediction-team-logo prediction-team-logo-wenzhou" src="{{match.wenzhou.logo}}" mode="aspectFit"></image>
-              <text class="prediction-team-name">温州队</text>
+              <image class="prediction-team-logo prediction-team-logo-ruian" src="{{match.ruian.logo}}" mode="aspectFit"></image>
+              <text class="prediction-team-name">瑞安队</text>
             </view>
           </view>
 
           <block wx:if="{{currentPlayTab === 'support'}}">
             <view class="winner-options">
               <view
-                class="winner-option winner-option-left {{selectedWinner === 'jinhua' ? 'winner-option-selected' : ''}}"
-                data-winner="jinhua"
+                class="winner-option winner-option-left {{selectedWinner === 'linhai' ? 'winner-option-selected' : ''}}"
+                data-winner="linhai"
                 bindtap="selectWinner"
               >
                 <image
                   class="winner-option-image"
-                  src="{{selectedWinner === 'jinhua' ? winnerOptionAssets.jinhuaActive : winnerOptionAssets.jinhuaInactive}}"
+                  src="{{selectedWinner === 'linhai' ? winnerOptionAssets.linhaiActive : winnerOptionAssets.linhaiInactive}}"
                   mode="widthFix"
                 ></image>
               </view>
               <view
-                class="winner-option winner-option-right {{selectedWinner === 'wenzhou' ? 'winner-option-selected' : ''}}"
-                data-winner="wenzhou"
+                class="winner-option winner-option-right {{selectedWinner === 'ruian' ? 'winner-option-selected' : ''}}"
+                data-winner="ruian"
                 bindtap="selectWinner"
               >
                 <image
                   class="winner-option-image"
-                  src="{{selectedWinner === 'wenzhou' ? winnerOptionAssets.wenzhouActive : winnerOptionAssets.wenzhouInactive}}"
+                  src="{{selectedWinner === 'ruian' ? winnerOptionAssets.ruianActive : winnerOptionAssets.ruianInactive}}"
                   mode="widthFix"
                 ></image>
               </view>
@@ -163,9 +163,9 @@
           </block>
           <block wx:else>
             <view class="score-options">
-              <input class="score-input score-input-left" type="number" maxlength="3" placeholder="" value="{{scoreGuess.jinhua}}" disabled="{{guessLoading || guessSubmitted || guessExpired}}" data-team="jinhua" bindinput="onScoreInput" />
+              <input class="score-input score-input-left" type="number" maxlength="3" placeholder="" value="{{scoreGuess.linhai}}" disabled="{{guessLoading || guessSubmitted || guessExpired}}" data-team="linhai" bindinput="onScoreInput" />
               <view class="score-colon">:</view>
-              <input class="score-input score-input-right" type="number" maxlength="3" placeholder="" value="{{scoreGuess.wenzhou}}" disabled="{{guessLoading || guessSubmitted || guessExpired}}" data-team="wenzhou" bindinput="onScoreInput" />
+              <input class="score-input score-input-right" type="number" maxlength="3" placeholder="" value="{{scoreGuess.ruian}}" disabled="{{guessLoading || guessSubmitted || guessExpired}}" data-team="ruian" bindinput="onScoreInput" />
             </view>
           </block>
 

@@ -388,36 +388,36 @@ page {
   height: 132rpx;
 }
 
-.prediction-team-logo-jinhua {
+.prediction-team-logo-linhai {
   width: 158rpx;
   height: 174rpx;
 }
 
-.prediction-wrap-support .prediction-team-logo-jinhua {
+.prediction-wrap-support .prediction-team-logo-linhai {
   width: 124rpx;
   height: 142rpx;
 }
 
-.prediction-wrap-guess .prediction-team-logo-jinhua {
+.prediction-wrap-guess .prediction-team-logo-linhai {
   width: 124rpx;
   height: 142rpx;
 }
 
-.prediction-team-logo-wenzhou {
-  width: 176rpx;
-  height: 150rpx;
+.prediction-team-logo-ruian {
+  width: 164rpx;
+  height: 164rpx;
 }
 
-.prediction-wrap-support .prediction-team-logo-wenzhou {
-  width: 164rpx;
-  height: 138rpx;
-  margin-top: 4rpx;
+.prediction-wrap-support .prediction-team-logo-ruian {
+  width: 132rpx;
+  height: 132rpx;
+  margin-top: 10rpx;
 }
 
-.prediction-wrap-guess .prediction-team-logo-wenzhou {
-  width: 164rpx;
-  height: 138rpx;
-  margin-top: 4rpx;
+.prediction-wrap-guess .prediction-team-logo-ruian {
+  width: 132rpx;
+  height: 132rpx;
+  margin-top: 10rpx;
 }
 
 .prediction-team-name {
