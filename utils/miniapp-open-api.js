@@ -2,10 +2,13 @@ const config = require('./miniapp-open-config')
 
 const API_BASE = String(config.apiBase || '').replace(/\/+$/, '')
 const API_KEY = String(config.apiKey || '').trim()
+const OPEN_API_BASE = String(config.openApiBase || `${API_BASE}/open`).replace(/\/+$/, '')
 const DEFAULT_TIMEOUT = Number(config.analyzeTimeoutMs || 600000)
 const DEFAULT_CONVERSATION_TITLE = config.conversationTitle || '小程序开放聊天会话'
 const DEFAULT_ANALYZE_MESSAGE = config.defaultAnalyzeMessage || '帮我分析一下面相和痣'
 const ANALYZE_API_URL = `${API_BASE}/web-api/miniapp/chat/analyze`
+const QWEN_FACE_ANALYZE_API_URL = String(config.qwenFaceAnalyzeApiUrl || '').trim()
+const QWEN_FACE_API_KEY = String(config.qwenFaceApiKey || '').trim()
 const OPENID_WAIT_TIMEOUT_MS = 10000
 const OPENID_WAIT_INTERVAL_MS = 100
 const DEFAULT_CONVERSATION_STORAGE_KEY = 'miniappConversationId'
@@ -15,6 +18,13 @@ function buildApiUrl(path) {
     ? String(path || '')
     : `/${String(path || '')}`
   return `${API_BASE}${normalizedPath}`
+}
+
+function buildOpenApiUrl(path) {
+  const normalizedPath = String(path || '').startsWith('/')
+    ? String(path || '')
+    : `/${String(path || '')}`
+  return `${OPEN_API_BASE}${normalizedPath}`
 }
 
 function buildQueryString(params) {
@@ -102,18 +112,18 @@ function buildAuthHeaders(header, openid) {
     error.code = 'MINIAPP_OPENID_REQUIRED'
     throw error
   }
-  const headers = Object.assign(
-    {},
-    API_KEY ? { 'x-api-key': API_KEY } : {},
-    header || {}
-  )
+  const headers = Object.assign({}, API_KEY ? { 'X-API-Key': API_KEY } : {}, header || {})
   Object.keys(headers).forEach(key => {
     const normalizedKey = String(key).toLowerCase()
-    if (normalizedKey === 'x-miniapp-test-user-id' || normalizedKey === 'x-miniapp-openid') {
+    if (
+      normalizedKey === 'x-miniapp-test-user-id' ||
+      normalizedKey === 'x-miniapp-openid' ||
+      normalizedKey === 'x-external-user-id'
+    ) {
       delete headers[key]
     }
   })
-  headers['x-miniapp-openid'] = identity
+  headers['X-External-User-Id'] = identity
   return headers
 }
 
@@ -217,13 +227,13 @@ function normalizeImageDataUrl(base64, mimeType) {
 
 function getProfile() {
   return request({
-    url: buildApiUrl('/web-api/miniapp/profile')
+    url: buildOpenApiUrl('/profile')
   })
 }
 
 function createConversation(data) {
   return request({
-    url: buildApiUrl('/web-api/miniapp/conversations'),
+    url: buildOpenApiUrl('/conversations'),
     method: 'POST',
     data: {
       title: (data && data.title) || DEFAULT_CONVERSATION_TITLE
@@ -233,24 +243,39 @@ function createConversation(data) {
 
 function getConversation(conversationId, options) {
   const query = buildQueryString({
-    compact: options && options.compact ? 1 : '',
-    limit: options && options.limit
+    compact: options && options.compact !== undefined ? (options.compact ? 1 : 0) : '',
+    limit: options && options.limit,
+    page: options && options.page,
+    pageSize: options && options.pageSize
   })
   return request({
-    url: buildApiUrl(`/web-api/miniapp/conversations/${encodeURIComponent(conversationId || '')}${query}`),
+    url: buildOpenApiUrl(`/conversations/${encodeURIComponent(conversationId || '')}${query}`),
+    timeout: options && options.timeout
+  })
+}
+
+function listConversations(options) {
+  const page = Number(options && options.page || 1)
+  const pageSize = Number(options && (options.pageSize || options.limit) || 20)
+  const query = buildQueryString({
+    page,
+    pageSize
+  })
+  return request({
+    url: buildOpenApiUrl(`/conversations${query}`),
     timeout: options && options.timeout
   })
 }
 
 function getConversationWorkflow(conversationId) {
   return request({
-    url: buildApiUrl(`/web-api/miniapp/conversations/${encodeURIComponent(conversationId || '')}/workflow`)
+    url: buildOpenApiUrl(`/conversations/${encodeURIComponent(conversationId || '')}/workflow`)
   })
 }
 
 function clearConversationContext(conversationId) {
   return request({
-    url: buildApiUrl(`/web-api/miniapp/conversations/${encodeURIComponent(conversationId || '')}/context/clear`),
+    url: buildOpenApiUrl(`/conversations/${encodeURIComponent(conversationId || '')}/context/clear`),
     method: 'POST',
     data: {}
   })
@@ -258,7 +283,7 @@ function clearConversationContext(conversationId) {
 
 function sendMessage(conversationId, data) {
   return request({
-    url: buildApiUrl(`/web-api/miniapp/conversations/${encodeURIComponent(conversationId || '')}/messages`),
+    url: buildOpenApiUrl(`/conversations/${encodeURIComponent(conversationId || '')}/messages`),
     method: 'POST',
     data: data || {}
   })
@@ -322,20 +347,57 @@ function uploadAnalyzeFile(options) {
   })
 }
 
+function analyzeQwenFace(imageBase64) {
+  return waitForMiniappOpenid().then(openid => new Promise((resolve, reject) => {
+    wx.request({
+      url: QWEN_FACE_ANALYZE_API_URL,
+      method: 'POST',
+      data: { imageBase64 },
+      timeout: Number(config.qwenFaceTimeoutMs || 120000),
+      header: Object.assign(
+        {
+          'Content-Type': 'application/json',
+          'X-External-User-Id': openid
+        },
+        QWEN_FACE_API_KEY ? { 'X-API-Key': QWEN_FACE_API_KEY } : {}
+      ),
+      success(res) {
+        const payload = safeParseJson(res && res.data)
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          resolve(payload)
+          return
+        }
+        const error = new Error(pickMessage(payload) || `HTTP ${res.statusCode}`)
+        error.statusCode = res.statusCode
+        error.payload = payload
+        reject(error)
+      },
+      fail(err) {
+        const error = new Error((err && (err.errMsg || err.message)) || '面部识别请求失败')
+        error.errMsg = err && err.errMsg
+        reject(error)
+      }
+    })
+  }))
+}
+
 module.exports = {
   API_BASE,
   API_KEY,
   ANALYZE_API_URL,
+  QWEN_FACE_ANALYZE_API_URL,
   DEFAULT_TIMEOUT,
   DEFAULT_CONVERSATION_TITLE,
   DEFAULT_ANALYZE_MESSAGE,
   buildApiUrl,
+  buildOpenApiUrl,
   buildAuthHeaders,
   clearStoredConversationId,
   clearConversationContext,
   createConversation,
   getConversationStorageKey,
   getConversation,
+  listConversations,
   getConversationWorkflow,
   getProfile,
   getStoredConversationId,
@@ -346,5 +408,6 @@ module.exports = {
   analyze,
   getAnalyzeResult,
   uploadAnalyzeFile,
+  analyzeQwenFace,
   waitForMiniappOpenid
 }

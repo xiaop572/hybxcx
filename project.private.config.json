@@ -4,11 +4,25 @@
     "miniprogram": {
       "list": [
         {
-          "name": "subD/diagnosis/diagnosis",
-          "pathName": "subD/diagnosis/diagnosis",
+          "name": "subD/zhinengti/zhinengti",
+          "pathName": "subD/zhinengti/zhinengti",
           "query": "",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "subD/zhinengti/zhinengti",
+          "pathName": "subD/zhinengti/zhinengti",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "subD/diagnosis/diagnosis",
+          "pathName": "subD/diagnosis/diagnosis",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "subpackagesC/bqprolist/bqprolist",
@@ -1513,6 +1527,6 @@
   },
   "setting": {
     "compileHotReLoad": true,
-    "urlCheck": true
+    "urlCheck": false
   }
 }
